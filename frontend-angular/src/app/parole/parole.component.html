@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<div *ngIf="!loading">
+    {{lesParoles}}
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,23 @@
+<p>musique-form works!</p>
+
+<div class="container-form">
+    <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="Artiste">Artiste</label>
+            <span class="p-input-icon-right">
+                <i class="pi pi-user"></i>
+                <input type="text" class="form-control" name="Artiste" placeholder="Entrer un Artiste"
+                    formControlName="Artiste" pInputText>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="Musique">Musique</label>
+            <span class="p-input-icon-right">
+                <i class="pi pi-microphone"></i>
+                <input type="text" class="form-control" name="Musique" placeholder="Entrer une Musique"
+                    formControlName="Musique" pInputText>
+            </span>
+        </div>
+        <p-button type="submit" label="Submit" [disabled]="!FormData.valid" icon="pi pi-check"></p-button>
+    </form>
+</div>
