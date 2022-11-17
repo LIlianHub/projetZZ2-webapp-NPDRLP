@@ -22,13 +22,18 @@ listen.use(express.json());
 /*Requete exemple*/
 listen.get("/getLyrics/:singer-:song", async function (req, res) {
   if (req.params.singer && req.params.song) {
-    const data = await gestion_api_music.GetLyrics(
-      req.params.singer,
-      req.params.song
-    );
-    res.status(200).json({ paroles: data });
+    try{
+      const data = await gestion_api_music.GetLyrics(
+        req.params.singer,
+        req.params.song
+      );
+      res.status(200).json({ paroles: data });
+    }
+    catch(error){
+      res.status(500).send("Erreur lors de la recupération de la musique");
+    }
   } else {
-    res.status(400).send("Bad request");
+    res.status(400).send("Not enough parameters");
   }
 });
 

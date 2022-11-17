@@ -52,8 +52,15 @@ async function GetLyricsByPath(path) {
 }
 
 async function GetLyrics(singer, title) {
-  const musicInfo = await SearchMusicInfo(singer, title);
-  return await GetLyricsByPath(musicInfo.path);
+  return new Promise (async (resolve, reject) => {
+    try {
+      const data = await SearchMusicInfo(singer, title);
+      const lyrics = await GetLyricsByPath(data.path);
+      resolve(lyrics);
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
 module.exports = { GetLyrics };

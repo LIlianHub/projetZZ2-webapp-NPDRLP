@@ -19,9 +19,15 @@ export class ParoleComponent implements OnInit {
   ngOnInit(): void {
     const artiste = this.route.snapshot.params['artiste'];
     const musique = this.route.snapshot.params['musique'];
-    this.paroleService.getParole(artiste, musique).subscribe((reponse) => {
-      this.lesParoles = reponse['paroles'];
-      this.loading = false;
-    });
+    this.paroleService.getParole(artiste, musique).subscribe(
+      (reponse) => {
+        this.lesParoles = reponse['paroles'];
+        this.loading = false;
+      },
+      (erreur) => {
+        this.lesParoles = erreur['error'];
+        this.loading = false;
+      }
+    );
   }
 }
