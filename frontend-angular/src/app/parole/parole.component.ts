@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
 
@@ -6,9 +6,12 @@ import { ParoleService } from '../services/parole.service';
   selector: 'app-parole',
   templateUrl: './parole.component.html',
   styleUrls: ['./parole.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ParoleComponent implements OnInit {
   lesParoles!: string;
+  artiste!: string;
+  musique!: string;
   loading: boolean = true;
 
   constructor(
@@ -17,9 +20,9 @@ export class ParoleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const artiste = this.route.snapshot.params['artiste'];
-    const musique = this.route.snapshot.params['musique'];
-    this.paroleService.getParole(artiste, musique).subscribe(
+    this.artiste = this.route.snapshot.params['artiste'];
+    this.musique = this.route.snapshot.params['musique'];
+    this.paroleService.getParole(this.artiste, this.musique).subscribe(
       (reponse) => {
         this.lesParoles = reponse['paroles'];
         this.loading = false;
@@ -31,3 +34,4 @@ export class ParoleComponent implements OnInit {
     );
   }
 }
+

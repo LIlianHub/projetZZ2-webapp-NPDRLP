@@ -1,8 +1,13 @@
 <app-header></app-header>
-<div *ngIf="loading">
-    <p-progressSpinner></p-progressSpinner>
-</div>
-<div *ngIf="!loading">
-    {{lesParoles}}
+<div class="big-container">
+    <div class="loading-class" *ngIf="loading">
+        <p>Chargement ...</p>
+        <p-progressSpinner [style]="{width: '80px', height: '80px'}"></p-progressSpinner>
+    </div>
+    <div class="parole-container" *ngIf="!loading">
+        <h2>Votre Recherche: {{artiste}} ({{musique}})</h2>
+        <hr>
+        <p>{{lesParoles}}</p>
+    </div>
 </div>
 <app-footer></app-footer>
