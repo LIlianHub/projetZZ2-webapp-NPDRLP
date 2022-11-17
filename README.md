@@ -30,4 +30,4 @@ Création d'un site Web afin de s'entrainer à la célèbre émission "Noubliez 
 
 * API Genious lyrics: [https://docs.genius.com/](https://docs.genius.com/)
 * PrimeNg: [https://www.primefaces.org/primeng/#/](https://www.primefaces.org/primeng/#/)
-* Noubliez pas les paroles: [https://www.noubliezpaslesparoles.fr/](https://www.noubliezpaslesparoles.fr/)
+* Noubliez pas les paroles: [https://www.france.tv/france-2/n-oubliez-pas-les-paroles/](https://www.france.tv/france-2/n-oubliez-pas-les-paroles/)
