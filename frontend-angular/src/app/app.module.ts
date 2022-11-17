@@ -13,6 +13,9 @@ import { MusiqueFormComponent } from './musique-form/musique-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import {MenubarModule} from 'primeng/menubar';
+import { MentionComponent } from './mention/mention.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ParoleComponent,
     AccueilComponent,
     MusiqueFormComponent,
+    MentionComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
