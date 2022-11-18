@@ -1,0 +1,9 @@
+<div class="container-form">
+    <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+        <div [innerHTML]="nosParoles.code_html">
+
+        </div>
+
+        <p-button type="submit" [disabled]="!FormData.valid" icon="pi pi-search"></p-button>
+    </form>
+</div>

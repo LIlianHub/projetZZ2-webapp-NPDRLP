@@ -64,3 +64,4 @@ async function GetLyrics(singer, title) {
 }
 
 module.exports = { GetLyrics };
+

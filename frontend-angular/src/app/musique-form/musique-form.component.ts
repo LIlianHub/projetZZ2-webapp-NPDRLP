@@ -7,6 +7,7 @@ import {
   FormControl,
 } from '@angular/forms';
 
+
 @Component({
   selector: 'app-musique-form',
   templateUrl: './musique-form.component.html',
@@ -18,6 +19,8 @@ export class MusiqueFormComponent implements OnInit {
   constructor(private builder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
+
+    
     this.FormData = this.builder.group({
       Artiste: new FormControl('', [Validators.required]),
       Musique: new FormControl('', [Validators.required]),

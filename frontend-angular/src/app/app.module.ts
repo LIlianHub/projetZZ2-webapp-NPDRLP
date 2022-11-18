@@ -13,9 +13,11 @@ import { MusiqueFormComponent } from './musique-form/musique-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { MentionComponent } from './mention/mention.component';
-
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { FormParoleComponent } from './form-parole/form-parole.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { MentionComponent } from './mention/mention.component';
     AccueilComponent,
     MusiqueFormComponent,
     MentionComponent,
+    FormParoleComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,8 @@ import { MentionComponent } from './mention/mention.component';
     ButtonModule,
     InputTextModule,
     MenubarModule,
+    AvatarModule,
+    AvatarGroupModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
