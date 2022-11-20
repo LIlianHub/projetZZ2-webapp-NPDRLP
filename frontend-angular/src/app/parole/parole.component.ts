@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  ElementRef,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ParoleModele } from '../models/parole.model';
-import { formData } from '../models/formData.model';
 
 @Component({
   selector: 'app-parole',
@@ -12,15 +15,15 @@ import { formData } from '../models/formData.model';
   encapsulation: ViewEncapsulation.None,
 })
 export class ParoleComponent implements OnInit {
-  ParoleForm!: FormGroup;
   nosParoles!: ParoleModele;
   loading: boolean = true;
   erreur!: string;
+  wordEnter: string[] = [];
 
   constructor(
     private paroleService: ParoleService,
     private route: ActivatedRoute,
-    private builder: FormBuilder
+    private elRef: ElementRef
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +36,6 @@ export class ParoleComponent implements OnInit {
       .subscribe(
         (reponse) => {
           this.nosParoles = reponse;
-          this.buildFormGroup();
           this.loading = false;
         },
         (erreur) => {
@@ -43,17 +45,17 @@ export class ParoleComponent implements OnInit {
       );
   }
 
-  buildFormGroup() {
-    let form: formData = {};
-
-    for (let i = 0; i < this.nosParoles.nb_mots_manquant; i++) {
-      form['form_' + i] = new FormControl('');
-    }
-
-    this.ParoleForm = this.builder.group(form);
-  }
 
   onSubmit() {
-    console.log(this.ParoleForm.value);
+    this.getAllWords();
+    console.log(this.wordEnter);
+  }
+
+  getAllWords() {
+    let value;
+    for(let i = 0; i < this.nosParoles.nb_mots_manquant; i++){
+      value = this.elRef.nativeElement.querySelector("input[name='form_" + i + "']").value;
+      this.wordEnter.push(value.toUpperCase());
+    }
   }
 }

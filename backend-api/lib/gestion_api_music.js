@@ -26,7 +26,7 @@ async function SearchMusicInfo(singer, title) {
           id: response.data.response.hits[0].result.id,
           path: response.data.response.hits[0].result.path,
           title: response.data.response.hits[0].result.full_title,
-          artist: response.data.response.hits[0].result.artist_names
+          artist: response.data.response.hits[0].result.artist_names,
         });
       })
       .catch(function (error) {
@@ -54,7 +54,7 @@ async function GetLyricsByPath(path) {
 }
 
 async function GetLyrics(singer, title) {
-  return new Promise (async (resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     try {
       const data = await SearchMusicInfo(singer, title);
       const lyrics = await GetLyricsByPath(data.path);
@@ -65,37 +65,119 @@ async function GetLyrics(singer, title) {
   });
 }
 
+function placeHoles(difficulty, lyrics) {
+  let motDisparu = [];
+  let html;
+  let nbmotenmoins = 0;
+  let j = 0;
+
+  const splitLyrics = lyrics.split(" ");
+  switch (difficulty) {
+    case "1":
+      for (let i = 0; i < splitLyrics.length; i++) {
+        html += splitLyrics[i] + "  ";
+      }
+      break;
+
+    case "2":
+      for (let i = 0; i < splitLyrics.length; i++) {
+        let rdm = Math.floor(Math.random() * 10);
+        if (rdm < 9) {
+          html += splitLyrics[i] + "  ";
+        } else {
+          motDisparu[j] = splitLyrics[i].toUpperCase();
+
+          html +=
+            '<input name="form_' +
+            j.toString() +
+            '" type="text"  class="form-control" maxlength="' +
+            splitLyrics[i].length.toString() +
+            '" placeholder="' +
+            splitLyrics[i].length.toString() +
+            ' lettres " formControlName="form_' +
+            j.toString() +
+            '" size="' +
+            splitLyrics[i].length.toString() +
+            '">';
+          html += "  ";
+          j++;
+          nbmotenmoins++;
+        }
+      }
+      break;
+
+    case "3":
+      for (let i = 0; i < splitLyrics.length; i++) {
+        let rdm = Math.floor(Math.random() * 10);
+        if (rdm < 7) {
+          html += splitLyrics[i] + "  ";
+        } else {
+          motDisparu[j] = splitLyrics[i].toUpperCase();
+
+          html +=
+            '<input name="form_' +
+            j.toString() +
+            '" type="text"  class="form-control" maxlength="' +
+            splitLyrics[i].length.toString() +
+            '" placeholder="' +
+            splitLyrics[i].length.toString() +
+            ' lettres " formControlName="form_' +
+            j.toString() +
+            '" size="' +
+            splitLyrics[i].length.toString() +
+            '">';
+          html += "  ";
+          j++;
+          nbmotenmoins++;
+        }
+      }
+      break;
+
+    case "4":
+      for (let i = 0; i < splitLyrics.length; i++) {
+        let rdm = Math.floor(Math.random() * 10);
+        if (rdm < 9) {
+          html += splitLyrics[i] + "  ";
+        } else {
+          motDisparu[j] = splitLyrics[i].toUpperCase();
+
+          html +=
+            '<input name="form_' +
+            j.toString() +
+            '" type="text"  class="form-control"  formControlName="form_' +
+            j.toString() +
+            '" size="' +
+            splitLyrics[i].length.toString() +
+            '">';
+          html += "  ";
+          j++;
+          nbmotenmoins++;
+        }
+      }
+      break;
+
+    case "5":
+      break;
+
+    default:
+      break;
+  }
+
+  const tab = [motDisparu, html, nbmotenmoins];
+  return tab;
+}
+
 async function GetLyricsWithHole(singer, title, difficulty) {
-  return new Promise (async (resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     try {
       const data = await SearchMusicInfo(singer, title);
       const lyrics = await GetLyricsByPath(data.path);
-      let motDisparu = [];
-      let html;
-      let nbmotenmoins = 0 ;
-      let j = 0;
-      //code d'etienne
-      const splitLyrics = lyrics.split(' ');
-      for(let i = 0; i< splitLyrics.length;i++)
-			{
-				let rdm = Math.floor(Math.random() * 10);
-				if(rdm < 9){
-					html += splitLyrics[i] + "  ";
-				}
-				else{
-					motDisparu[j] = splitLyrics[i];
-				
-					html += '<input type="text" class="form-control" name="form_'+ j.toString() +'" placeholder="' + splitLyrics[i].length.toString() + ' lettres " formControlName="form_' + j.toString() + '" size="' + splitLyrics[i].length.toString() + '">'
-					html +="  ";
-					j++;
-          nbmotenmoins++;
-				}
-				
-			}
+      let tab = placeHoles(difficulty, lyrics);
+
       resolve({
-        mots_manquant: motDisparu,
-        code_html: html,
-        nb_mots_manquant: nbmotenmoins,
+        mots_manquant: tab[0],
+        code_html: tab[1],
+        nb_mots_manquant: tab[2],
         artiste: data.artist,
         musique: data.title,
       });
@@ -105,8 +187,4 @@ async function GetLyricsWithHole(singer, title, difficulty) {
   });
 }
 
-
-
-
 module.exports = { GetLyrics, GetLyricsWithHole };
-

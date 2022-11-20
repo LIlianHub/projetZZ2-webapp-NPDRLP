@@ -33,3 +33,14 @@ hr{
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
+:host ::ng-deep .p-button{
+    margin-top: 100px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
