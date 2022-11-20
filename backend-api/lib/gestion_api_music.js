@@ -70,11 +70,36 @@ async function GetLyricsWithHole(singer, title) {
     try {
       const data = await SearchMusicInfo(singer, title);
       const lyrics = await GetLyricsByPath(data.path);
+      var motDisparu = [];
+      var html;
+      var nbmotenmoins = 0 ;
+      var j = 1;
       //code d'etienne
+      const splitLyrics = lyrics.split(' ');
+      console.log(splitLyrics.length);
+      for(var i = 0; i< splitLyrics.length;i++)
+			{
+        console.log("mabite");
+				var rdm = Math.floor(Math.random() * 10);
+				if(rdm < 9 ){
+					html += splitLyrics[i] + "  ";
+				}
+				else{
+					motDisparu[j] = splitLyrics[i];
+				
+					html += '<input id="form_'+ j.toString() +'" type="text"  placeholder="' + splitLyrics[i].length.toString() + ' lettres "  size="' + splitLyrics[i].length.toString() + '" size="5">'
+					html +="  ";
+					j++;
+          nbmotenmoins++;
+				}
+				
+			}
+
+
       resolve({
-        mots_manquant: ["hey", "test"],
-        code_html: "<p>Hello</p>",
-        nb_mots_manquant: 2,
+        mots_manquant: motDisparu,
+        code_html: html,
+        nb_mots_manquant: nbmotenmoins,
         artiste: data.artist,
         musique: data.title,
       });
@@ -83,6 +108,7 @@ async function GetLyricsWithHole(singer, title) {
     }
   });
 }
+
 
 
 
