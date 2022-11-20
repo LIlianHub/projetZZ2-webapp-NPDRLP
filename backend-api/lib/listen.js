@@ -9,11 +9,11 @@ const gestion_api_music = require("./gestion_api_music");
 const listen = express();
 
 /*Gestion requete externe*/
-/*var corsOptions = {
+var corsOptions = {
   origin: "http://localhost:4200",
   optionsSuccessStatus: 200, // For legacy browser support
 };
-listen.use(cors(corsOptions));*/
+listen.use(cors(corsOptions));
 
 /*Lire contenu json des requetes recu*/
 listen.use(express.urlencoded({ extended: true }));
