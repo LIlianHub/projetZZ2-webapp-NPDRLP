@@ -8,13 +8,13 @@
         <div *ngIf="!erreur">
             <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }})</h2>
             <form [formGroup]="ParoleForm" (ngSubmit)="onSubmit()">
-                <div [innerHTML]="nosParoles.code_html">
+                <div [innerHTML]="parole">
                 </div>
-                <input type="text" class="form-control" name="form_0" placeholder="Entrer une Musique"
+                <!--<input type="text" class="form-control" name="form_0" placeholder="Entrer une Musique"
                     formControlName="form_0" pInputText>
 
                 <input type="text" class="form-control" name="form_1" placeholder="Entrer une Musique"
-                    formControlName="form_1" pInputText>
+                    formControlName="form_1" pInputText>-->
 
                 <p-button type="submit" label="Valider" [disabled]="!ParoleForm.valid" icon="pi pi-check"></p-button>
             </form>

@@ -38,7 +38,7 @@ async function SearchMusicInfo(singer, title) {
 function formateLyrics(codeHtml) {
   const $ = cheerio.load(codeHtml);
   const lyrics = $(".Lyrics__Container-sc-1ynbvzw-6").text();
-  return lyrics.split("[").join("\n\n").split("]").join("\n\n");
+  return lyrics.split("[").join("<br><br>").split("]").join("<br><br>");
 }
 
 async function GetLyricsByPath(path) {
@@ -70,30 +70,33 @@ async function GetLyricsWithHole(singer, title) {
     try {
       const data = await SearchMusicInfo(singer, title);
       const lyrics = await GetLyricsByPath(data.path);
-      var motDisparu = [];
-      var html;
-      var nbmotenmoins = 0 ;
-      var j = 1;
+      let motDisparu = [];
+      let html;
+      let nbmotenmoins = 0 ;
+      let j = 0;
       //code d'etienne
       const splitLyrics = lyrics.split(' ');
+      console.log(splitLyrics);
+      console.log(lyrics);
       console.log(splitLyrics.length);
-      for(var i = 0; i< splitLyrics.length;i++)
+      for(let i = 0; i< splitLyrics.length;i++)
 			{
-        console.log("mabite");
-				var rdm = Math.floor(Math.random() * 10);
-				if(rdm < 9 ){
+				let rdm = Math.floor(Math.random() * 10);
+				if(rdm < 9){
 					html += splitLyrics[i] + "  ";
 				}
 				else{
 					motDisparu[j] = splitLyrics[i];
 				
-					html += '<input id="form_'+ j.toString() +'" type="text"  placeholder="' + splitLyrics[i].length.toString() + ' lettres "  size="' + splitLyrics[i].length.toString() + '" size="5">'
+					html += '<input name="form_'+ j.toString() +'" type="text"  class="form-control" placeholder="' + splitLyrics[i].length.toString() + ' lettres " formControlName="form_' + j.toString() + '" size="' + splitLyrics[i].length.toString() + '">'
 					html +="  ";
 					j++;
           nbmotenmoins++;
 				}
 				
 			}
+
+     
 
 
       resolve({
