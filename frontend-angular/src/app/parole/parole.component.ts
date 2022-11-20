@@ -19,6 +19,9 @@ export class ParoleComponent implements OnInit {
   loading: boolean = true;
   erreur!: string;
   wordEnter: string[] = [];
+  difficulte!: number;
+  verifTab: boolean[] = [];
+  nbMotJuste: number = 0;
 
   constructor(
     private paroleService: ParoleService,
@@ -36,6 +39,8 @@ export class ParoleComponent implements OnInit {
       .subscribe(
         (reponse) => {
           this.nosParoles = reponse;
+          this.difficulte = this.route.snapshot.params['difficulte'];
+          this.initialiseTabVerif();
           this.loading = false;
         },
         (erreur) => {
@@ -45,17 +50,44 @@ export class ParoleComponent implements OnInit {
       );
   }
 
-
   onSubmit() {
     this.getAllWords();
-    console.log(this.wordEnter);
+    this.verifWords();
+  }
+
+  initialiseTabVerif() {
+    for (let i = 0; i < this.nosParoles.nb_mots_manquant; i++) {
+      this.verifTab.push(false);
+    }
   }
 
   getAllWords() {
     let value;
-    for(let i = 0; i < this.nosParoles.nb_mots_manquant; i++){
-      value = this.elRef.nativeElement.querySelector("input[name='form_" + i + "']").value;
-      this.wordEnter.push(value.toUpperCase());
+    for (let i = 0; i < this.nosParoles.nb_mots_manquant; i++) {
+      value = this.elRef.nativeElement.querySelector(
+        "input[name='form_" + i + "']"
+      ).value;
+      this.wordEnter[i] = value.toUpperCase();
+    }
+  }
+
+  verifWords() {
+    this.nbMotJuste = 0;
+    let target;
+    for (let i = 0; i < this.nosParoles.nb_mots_manquant; i++) {
+      target = this.elRef.nativeElement.querySelector(
+        "input[name='form_" + i + "']"
+      );
+      if (this.wordEnter[i] == this.nosParoles.mots_manquant[i]) {
+        this.verifTab[i] = true;
+        this.nbMotJuste += 1;
+        target.classList.add('mot-juste');
+        target.classList.remove('mot-faux');
+        target.setAttribute("disabled", true);
+      } else {
+        target.classList.add('mot-faux');
+        this.verifTab[i] = false;
+      }
     }
   }
 }

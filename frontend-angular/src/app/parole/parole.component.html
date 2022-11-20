@@ -7,15 +7,13 @@
     <div class="parole-container" *ngIf="!loading">
         <div *ngIf="!erreur">
             <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }})</h2>
+            <h2> Mot(s) juste(s): {{ nbMotJuste }} / {{nosParoles.nb_mots_manquant }}</h2>
             <form (ngSubmit)="onSubmit()">
-                <div [innerHTML]="nosParoles.code_html| safeHtml">
+                <div [innerHTML]="nosParoles.code_html | safeHtml">
                 </div>
-                <!--<input type="text" class="form-control" name="form_0" placeholder="Entrer une Musique"
-                      formControlName="form_0" pInputText>
-  
-                  <input type="text" class="form-control" name="form_1" placeholder="Entrer une Musique"
-                      formControlName="form_1" pInputText>-->
-                <p-button type="submit" label="Valider" icon="pi pi-check"></p-button>
+
+
+                <p-button type="submit" label="Valider" *ngIf="difficulte > 1" icon="pi pi-check"></p-button>
             </form>
         </div>
         <div *ngIf="erreur">{{erreur}}</div>
