@@ -15,9 +15,9 @@ export class ParoleService {
     );
   }
 
-  getParoleTest(artiste: string, musique: string): Observable<ParoleModele> {
+  getParoleAvecTrou(artiste: string, musique: string, difficulty: number): Observable<ParoleModele> {
     return this.http.get<ParoleModele>(
-      'http://localhost:3000/getsLyricsForTest/' + artiste + '-' + musique
+      'http://localhost:3000/getsLyricsWithHole/' + artiste + '-' + musique + '-' + difficulty
     );
   }
 

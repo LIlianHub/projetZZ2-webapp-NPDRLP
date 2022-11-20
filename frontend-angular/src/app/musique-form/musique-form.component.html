@@ -16,6 +16,10 @@
                     formControlName="Musique" pInputText>
             </span>
         </div>
+        <div class="form-group">
+            <label for="Difficulte">Difficulté: {{this.FormData.value.Difficulte}}</label>
+            <p-slider formControlName="Difficulte" [min]="1" [max]="5"></p-slider>
+        </div>
         <p-button type="submit" [disabled]="!FormData.valid" icon="pi pi-search"></p-button>
     </form>
 </div>

@@ -17,7 +17,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { MentionComponent } from './mention/mention.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import { FormParoleComponent } from './form-parole/form-parole.component';
+import { SliderModule } from 'primeng/slider';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,6 @@ import { FormParoleComponent } from './form-parole/form-parole.component';
     AccueilComponent,
     MusiqueFormComponent,
     MentionComponent,
-    FormParoleComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +41,7 @@ import { FormParoleComponent } from './form-parole/form-parole.component';
     MenubarModule,
     AvatarModule,
     AvatarGroupModule,
+    SliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -5,10 +5,23 @@
         <p-progressSpinner [style]="{width: '80px', height: '80px'}"></p-progressSpinner>
     </div>
     <div class="parole-container" *ngIf="!loading">
-        <h2>Votre Recherche: {{artiste}} ({{musique}})</h2>
-        <hr>
-        <p>{{lesParoles}}</p>
+        <div *ngIf="!erreur">
+            <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }})</h2>
+            <form [formGroup]="ParoleForm" (ngSubmit)="onSubmit()">
+                <div [innerHTML]="nosParoles.code_html">
+                </div>
+                <input type="text" class="form-control" name="form_0" placeholder="Entrer une Musique"
+                    formControlName="form_0" pInputText>
+
+                <input type="text" class="form-control" name="form_1" placeholder="Entrer une Musique"
+                    formControlName="form_1" pInputText>
+
+                <p-button type="submit" label="Valider" [disabled]="!ParoleForm.valid" icon="pi pi-check"></p-button>
+            </form>
+        </div>
+        <div *ngIf="erreur">{{erreur}}</div>
     </div>
 </div>
 
 <app-footer></app-footer>
+

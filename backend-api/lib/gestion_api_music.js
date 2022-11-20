@@ -25,6 +25,8 @@ async function SearchMusicInfo(singer, title) {
         resolve({
           id: response.data.response.hits[0].result.id,
           path: response.data.response.hits[0].result.path,
+          title: response.data.response.hits[0].result.full_title,
+          artist: response.data.response.hits[0].result.artist_names
         });
       })
       .catch(function (error) {
@@ -63,5 +65,26 @@ async function GetLyrics(singer, title) {
   });
 }
 
-module.exports = { GetLyrics };
+async function GetLyricsWithHole(singer, title) {
+  return new Promise (async (resolve, reject) => {
+    try {
+      const data = await SearchMusicInfo(singer, title);
+      const lyrics = await GetLyricsByPath(data.path);
+      //code d'etienne
+      resolve({
+        mots_manquant: ["hey", "test"],
+        code_html: "<p>Hello</p>",
+        nb_mots_manquant: 2,
+        artiste: data.artist,
+        musique: data.title,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+
+
+module.exports = { GetLyrics, GetLyricsWithHole };
 

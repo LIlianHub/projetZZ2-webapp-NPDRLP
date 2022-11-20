@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component:  AccueilComponent},
   { path: 'accueil', component: AccueilComponent},
   { path: 'mention', component:  MentionComponent},
-  { path: 'paroles/:artiste/:musique', component:  ParoleComponent},
+  { path: 'paroles/:artiste/:musique/:difficulte', component:  ParoleComponent},
   { path: '**', component: AccueilComponent},
 ];
 

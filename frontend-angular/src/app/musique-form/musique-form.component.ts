@@ -14,6 +14,7 @@ import {
 })
 export class MusiqueFormComponent implements OnInit {
   FormData!: FormGroup;
+  val1 !: number;
 
   constructor(private builder: FormBuilder, private router: Router) {}
 
@@ -21,6 +22,7 @@ export class MusiqueFormComponent implements OnInit {
     this.FormData = this.builder.group({
       Artiste: new FormControl('', [Validators.required]),
       Musique: new FormControl('', [Validators.required]),
+      Difficulte: new FormControl('', [Validators.required]),
     });
   }
 
@@ -29,7 +31,9 @@ export class MusiqueFormComponent implements OnInit {
       '/paroles/' +
       this.FormData.value.Artiste +
       '/' +
-      this.FormData.value.Musique;
+      this.FormData.value.Musique +
+      '/' +
+      this.FormData.value.Difficulte;
     this.router.navigate([url]);
   }
 }
