@@ -18,6 +18,7 @@ import { MentionComponent } from './mention/mention.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { SliderModule } from 'primeng/slider';
+import { SafeHtmlPipe } from './pipe/safehtml.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SliderModule } from 'primeng/slider';
     AccueilComponent,
     MusiqueFormComponent,
     MentionComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     BrowserModule,

@@ -65,7 +65,7 @@ async function GetLyrics(singer, title) {
   });
 }
 
-async function GetLyricsWithHole(singer, title) {
+async function GetLyricsWithHole(singer, title, difficulty) {
   return new Promise (async (resolve, reject) => {
     try {
       const data = await SearchMusicInfo(singer, title);
@@ -76,9 +76,6 @@ async function GetLyricsWithHole(singer, title) {
       let j = 0;
       //code d'etienne
       const splitLyrics = lyrics.split(' ');
-      console.log(splitLyrics);
-      console.log(lyrics);
-      console.log(splitLyrics.length);
       for(let i = 0; i< splitLyrics.length;i++)
 			{
 				let rdm = Math.floor(Math.random() * 10);
@@ -88,17 +85,13 @@ async function GetLyricsWithHole(singer, title) {
 				else{
 					motDisparu[j] = splitLyrics[i];
 				
-					html += '<input name="form_'+ j.toString() +'" type="text"  class="form-control" placeholder="' + splitLyrics[i].length.toString() + ' lettres " formControlName="form_' + j.toString() + '" size="' + splitLyrics[i].length.toString() + '">'
+					html += '<input type="text" class="form-control" name="form_'+ j.toString() +'" placeholder="' + splitLyrics[i].length.toString() + ' lettres " formControlName="form_' + j.toString() + '" size="' + splitLyrics[i].length.toString() + '">'
 					html +="  ";
 					j++;
           nbmotenmoins++;
 				}
 				
 			}
-
-     
-
-
       resolve({
         mots_manquant: motDisparu,
         code_html: html,

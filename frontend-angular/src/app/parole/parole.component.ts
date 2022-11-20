@@ -1,16 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl,
-  FormArray,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ParoleModele } from '../models/parole.model';
 import { formData } from '../models/formData.model';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-parole',
@@ -23,13 +16,11 @@ export class ParoleComponent implements OnInit {
   nosParoles!: ParoleModele;
   loading: boolean = true;
   erreur!: string;
-  parole!: SafeHtml;
 
   constructor(
     private paroleService: ParoleService,
     private route: ActivatedRoute,
-    private builder: FormBuilder,
-    private sanitizer: DomSanitizer,
+    private builder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -42,10 +33,8 @@ export class ParoleComponent implements OnInit {
       .subscribe(
         (reponse) => {
           this.nosParoles = reponse;
-          this.parole = this.sanitizer.bypassSecurityTrustHtml(this.nosParoles.code_html);
           this.buildFormGroup();
           this.loading = false;
-          console.log(this.nosParoles);
         },
         (erreur) => {
           this.erreur = erreur.error;
