@@ -46,9 +46,16 @@ form{
 }
 
 .mot-juste{
-    background-color: green;
+    background-color: rgb(9, 82, 40);
+    color: black;
+    text-align: center;
 }
 
 .mot-faux{
-    background-color: red;
+    background-color: rgb(189, 33, 33);
+    color: black;
+    
 }
+::placeholder{
+    color: black ;
+} 
