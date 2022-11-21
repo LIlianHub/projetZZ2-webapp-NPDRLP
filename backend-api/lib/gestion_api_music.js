@@ -22,7 +22,6 @@ async function SearchMusicInfo(singer, title) {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data.response.hits[0].result);
         resolve({
           id: response.data.response.hits[0].result.id,
           path: response.data.response.hits[0].result.path,
@@ -42,10 +41,13 @@ function formateLyrics(codeHtml) {
   const test = lyrics.replace(/<br>/g, "\n");
   
   const lyricsFormated = test.replace(/<.*?>/g, "");
-  const facile = lyricsFormated.replace(/\n/g, "<br>");
+  const facile = lyricsFormated.replace(/\n/g, " <br> ");
+  let mab = facile.replace(/\[.*?\]/g, " ");
+  mab = mab.replace(/\(/g, "( ");
+  mab = mab.replace(/\)/g, " )");
+  mab = mab.replace(/,/g, " ,");
 
-
-  return facile;
+  return mab;
 }
 
 async function GetLyricsByPath(path) {
@@ -92,23 +94,29 @@ function placeHoles(difficulty, lyrics) {
         if (rdm < 9) {
           html += splitLyrics[i] + "  ";
         } else {
-          motDisparu[j] = splitLyrics[i].toUpperCase();
+            if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""){
+              html += splitLyrics[i] + "  ";
+            }
+            else{
+              motDisparu[j] = splitLyrics[i].toUpperCase();
 
-          html +=
-            '<input name="form_' +
-            j.toString() +
-            '" type="text"  class="form-control" maxlength="' +
-            splitLyrics[i].length.toString() +
-            '" placeholder="' +
-            splitLyrics[i].length.toString() +
-            ' lettres " formControlName="form_' +
-            j.toString() +
-            '" size="' +
-            splitLyrics[i].length.toString() +
-            '">';
-          html += "  ";
-          j++;
-          nbmotenmoins++;
+              html +=
+                '<input name="form_' +
+                j.toString() +
+                '" type="text"  class="form-control" maxlength="' +
+                splitLyrics[i].length.toString() +
+                '" placeholder="' +
+                splitLyrics[i].length.toString() +
+                ' lettres " formControlName="form_' +
+                j.toString() +
+                '" size="' +
+                splitLyrics[i].length.toString() +
+                '">';
+              html += "  ";
+              j++;
+              nbmotenmoins++;
+            }
+
         }
       }
       break;
@@ -169,7 +177,7 @@ function placeHoles(difficulty, lyrics) {
     default:
       break;
   }
-
+  console.log(motDisparu);
   const tab = [motDisparu, html, nbmotenmoins];
   return tab;
 }
