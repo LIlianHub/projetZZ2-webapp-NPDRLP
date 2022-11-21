@@ -22,6 +22,7 @@ async function SearchMusicInfo(singer, title) {
     axios
       .request(options)
       .then(function (response) {
+        console.log(response.data.response.hits[0].result);
         resolve({
           id: response.data.response.hits[0].result.id,
           path: response.data.response.hits[0].result.path,
@@ -37,8 +38,14 @@ async function SearchMusicInfo(singer, title) {
 
 function formateLyrics(codeHtml) {
   const $ = cheerio.load(codeHtml);
-  const lyrics = $(".Lyrics__Container-sc-1ynbvzw-6").text();
-  return lyrics.split("[").join("<br><br>").split("]").join("<br><br>");
+  const lyrics = $(".Lyrics__Container-sc-1ynbvzw-6").html();
+  const test = lyrics.replace(/<br>/g, "\n");
+  
+  const lyricsFormated = test.replace(/<.*?>/g, "");
+  const facile = lyricsFormated.replace(/\n/g, "<br>");
+
+
+  return facile;
 }
 
 async function GetLyricsByPath(path) {
