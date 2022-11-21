@@ -3,6 +3,7 @@ const axios = require("axios");
 const got = require("got");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const { join } = require("path");
 
 const searchUrl = "http://api.genius.com/search?q=";
 const geniousURL = "http://genius.com";
@@ -37,15 +38,21 @@ async function SearchMusicInfo(singer, title) {
 
 function formateLyrics(codeHtml) {
   const $ = cheerio.load(codeHtml);
-  const lyrics = $(".Lyrics__Container-sc-1ynbvzw-6").html();
+  var lyrics;
+  $('.Lyrics__Container-sc-1ynbvzw-6').each(function(index,item){
+    lyrics += $(this).html();
+  });
+
   const test = lyrics.replace(/<br>/g, "\n");
-  
   const lyricsFormated = test.replace(/<.*?>/g, "");
   const facile = lyricsFormated.replace(/\n/g, " <br> ");
   let mab = facile.replace(/\[.*?\]/g, " ");
   mab = mab.replace(/\(/g, "( ");
   mab = mab.replace(/\)/g, " )");
   mab = mab.replace(/,/g, " ,");
+  mab = mab.replace(/\"/g, " \" ");
+
+  console.log(mab);
 
   return mab;
 }
@@ -76,25 +83,26 @@ async function GetLyrics(singer, title) {
 
 function placeHoles(difficulty, lyrics) {
   let motDisparu = [];
-  let html;
+  let html="";
   let nbmotenmoins = 0;
   let j = 0;
 
   const splitLyrics = lyrics.split(" ");
+  console.log(splitLyrics[0]);
   switch (difficulty) {
     case "1":
-      for (let i = 0; i < splitLyrics.length; i++) {
+      for (let i = 2; i < splitLyrics.length; i++) {
         html += splitLyrics[i] + "  ";
       }
       break;
 
     case "2":
-      for (let i = 0; i < splitLyrics.length; i++) {
+      for (let i = 1; i < splitLyrics.length; i++) {
         let rdm = Math.floor(Math.random() * 10);
         if (rdm < 9) {
           html += splitLyrics[i] + "  ";
         } else {
-            if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""){
+          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""|| splitLyrics[i] == ":" || splitLyrics[i] == "\""){
               html += splitLyrics[i] + "  ";
             }
             else{
@@ -127,7 +135,7 @@ function placeHoles(difficulty, lyrics) {
         if (rdm < 7) {
           html += splitLyrics[i] + "  ";
         } else {
-          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""){
+          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""|| splitLyrics[i] == ":" || splitLyrics[i] == "\""){
             html += splitLyrics[i] + "  ";
           }
           else{
@@ -159,7 +167,7 @@ function placeHoles(difficulty, lyrics) {
         if (rdm < 9) {
           html += splitLyrics[i] + "  ";
         } else {
-          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""){
+          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""|| splitLyrics[i] == ":" || splitLyrics[i] == "\""){
             html += splitLyrics[i] + "  ";
           }
           else{
