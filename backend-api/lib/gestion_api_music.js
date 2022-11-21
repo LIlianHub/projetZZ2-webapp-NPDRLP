@@ -127,23 +127,28 @@ function placeHoles(difficulty, lyrics) {
         if (rdm < 7) {
           html += splitLyrics[i] + "  ";
         } else {
-          motDisparu[j] = splitLyrics[i].toUpperCase();
+          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""){
+            html += splitLyrics[i] + "  ";
+          }
+          else{
+            motDisparu[j] = splitLyrics[i].toUpperCase();
 
-          html +=
-            '<input name="form_' +
-            j.toString() +
-            '" type="text"  class="form-control" maxlength="' +
-            splitLyrics[i].length.toString() +
-            '" placeholder="' +
-            splitLyrics[i].length.toString() +
-            ' lettres " formControlName="form_' +
-            j.toString() +
-            '" size="' +
-            splitLyrics[i].length.toString() +
-            '">';
-          html += "  ";
-          j++;
-          nbmotenmoins++;
+            html +=
+              '<input name="form_' +
+              j.toString() +
+              '" type="text"  class="form-control" maxlength="' +
+              splitLyrics[i].length.toString() +
+              '" placeholder="' +
+              splitLyrics[i].length.toString() +
+              ' lettres " formControlName="form_' +
+              j.toString() +
+              '" size="' +
+              splitLyrics[i].length.toString() +
+              '">';
+            html += "  ";
+            j++;
+            nbmotenmoins++;
+          }
         }
       }
       break;
@@ -154,19 +159,26 @@ function placeHoles(difficulty, lyrics) {
         if (rdm < 9) {
           html += splitLyrics[i] + "  ";
         } else {
-          motDisparu[j] = splitLyrics[i].toUpperCase();
+          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""){
+            html += splitLyrics[i] + "  ";
+          }
+          else{
+            motDisparu[j] = splitLyrics[i].toUpperCase();
 
-          html +=
-            '<input name="form_' +
-            j.toString() +
-            '" type="text"  class="form-control"  formControlName="form_' +
-            j.toString() +
-            '" size="' +
-            splitLyrics[i].length.toString() +
-            '">';
-          html += "  ";
-          j++;
-          nbmotenmoins++;
+            html +=
+              '<input name="form_' +
+              j.toString() +
+              '" type="text"  class="form-control" maxlength="' +
+              splitLyrics[i].length.toString() +
+              '" formControlName="form_' +
+              j.toString() +
+              '" size="' +
+              splitLyrics[i].length.toString() +
+              '">';
+            html += "  ";
+            j++;
+            nbmotenmoins++;
+          }
         }
       }
       break;
