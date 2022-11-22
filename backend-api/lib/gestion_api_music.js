@@ -8,7 +8,7 @@ const { join } = require("path");
 const searchUrl = "http://api.genius.com/search?q=";
 const geniousURL = "http://genius.com";
 
-const banChar = [",", ")", "(", "!", "?", "-", "<br>", "", ":", '"'];
+const banChar = [",", ")", "(", "!", "?", "-", "<br>", "", ":", '"', "'"];
 
 async function SearchMusicInfo(singer, title) {
   const token = fs.readFileSync("./data/token-genius", "utf8");
@@ -53,7 +53,8 @@ function formateLyrics(codeHtml) {
     .replace(/\(/g, "( ")
     .replace(/\)/g, " )")
     .replace(/,/g, " ,")
-    .replace(/\"/g, ' " ');
+    .replace(/\"/g, ' " ')
+    .replace(/'/g, "' ");
 
   return formated;
 }

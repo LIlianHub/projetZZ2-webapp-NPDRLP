@@ -6,8 +6,9 @@
     </div>
     <div class="parole-container" *ngIf="!loading">
         <div *ngIf="!erreur">
-            <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }}) Difficulté niveau {{difficulte}}</h2>
-            <h2> Mot(s) juste(s): {{ nbMotJuste }} / {{nosParoles.nb_mots_manquant }}</h2>
+            <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }})</h2>
+            <h2>Difficulté niveau {{difficulte}}</h2>
+            <h2 *ngIf="difficulte > 1"> Mot(s) juste(s): {{ nbMotJuste }} / {{nosParoles.nb_mots_manquant }}</h2>
             <form (ngSubmit)="onSubmit()">
                 <div [innerHTML]="nosParoles.code_html | safeHtml">
                 </div>
