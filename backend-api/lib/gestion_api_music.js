@@ -8,6 +8,8 @@ const { join } = require("path");
 const searchUrl = "http://api.genius.com/search?q=";
 const geniousURL = "http://genius.com";
 
+const banChar = [",", ")", "(", "!", "?", "-", "<br>", "", ":", '"'];
+
 async function SearchMusicInfo(singer, title) {
   const token = fs.readFileSync("./data/token-genius", "utf8");
 
@@ -38,23 +40,22 @@ async function SearchMusicInfo(singer, title) {
 
 function formateLyrics(codeHtml) {
   const $ = cheerio.load(codeHtml);
-  var lyrics;
-  $('.Lyrics__Container-sc-1ynbvzw-6').each(function(index,item){
+  let lyrics = "";
+  $(".Lyrics__Container-sc-1ynbvzw-6").each(function (index, item) {
     lyrics += $(this).html();
   });
 
-  const test = lyrics.replace(/<br>/g, "\n");
-  const lyricsFormated = test.replace(/<.*?>/g, "");
-  const facile = lyricsFormated.replace(/\n/g, " <br> ");
-  let mab = facile.replace(/\[.*?\]/g, " ");
-  mab = mab.replace(/\(/g, "( ");
-  mab = mab.replace(/\)/g, " )");
-  mab = mab.replace(/,/g, " ,");
-  mab = mab.replace(/\"/g, " \" ");
+  let formated = lyrics
+    .replace(/<br>/g, "\n")
+    .replace(/<.*?>/g, "")
+    .replace(/\n/g, " <br> ")
+    .replace(/\[.*?\]/g, " ")
+    .replace(/\(/g, "( ")
+    .replace(/\)/g, " )")
+    .replace(/,/g, " ,")
+    .replace(/\"/g, ' " ');
 
-  console.log(mab);
-
-  return mab;
+  return formated;
 }
 
 async function GetLyricsByPath(path) {
@@ -82,124 +83,73 @@ async function GetLyrics(singer, title) {
 }
 
 function placeHoles(difficulty, lyrics) {
-  let motDisparu = [];
-  let html="";
-  let nbmotenmoins = 0;
-  let j = 0;
+  let tab;
 
-  const splitLyrics = lyrics.split(" ");
-  console.log(splitLyrics[0]);
   switch (difficulty) {
     case "1":
-      for (let i = 2; i < splitLyrics.length; i++) {
-        html += splitLyrics[i] + "  ";
-      }
+      tab = [[], lyrics, 0];
       break;
 
     case "2":
-      for (let i = 1; i < splitLyrics.length; i++) {
-        let rdm = Math.floor(Math.random() * 10);
-        if (rdm < 9) {
-          html += splitLyrics[i] + "  ";
-        } else {
-          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""|| splitLyrics[i] == ":" || splitLyrics[i] == "\""){
-              html += splitLyrics[i] + "  ";
-            }
-            else{
-              motDisparu[j] = splitLyrics[i].toUpperCase();
-
-              html +=
-                '<input name="form_' +
-                j.toString() +
-                '" type="text"  class="form-control" maxlength="' +
-                splitLyrics[i].length.toString() +
-                '" placeholder="' +
-                splitLyrics[i].length.toString() +
-                ' lettres " formControlName="form_' +
-                j.toString() +
-                '" size="' +
-                splitLyrics[i].length.toString() +
-                '">';
-              html += "  ";
-              j++;
-              nbmotenmoins++;
-            }
-
-        }
-      }
+      tab = placeHolesDiffficultyRandom(lyrics, 9, true);
       break;
 
     case "3":
-      for (let i = 0; i < splitLyrics.length; i++) {
-        let rdm = Math.floor(Math.random() * 10);
-        if (rdm < 7) {
-          html += splitLyrics[i] + "  ";
-        } else {
-          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""|| splitLyrics[i] == ":" || splitLyrics[i] == "\""){
-            html += splitLyrics[i] + "  ";
-          }
-          else{
-            motDisparu[j] = splitLyrics[i].toUpperCase();
-
-            html +=
-              '<input name="form_' +
-              j.toString() +
-              '" type="text"  class="form-control" maxlength="' +
-              splitLyrics[i].length.toString() +
-              '" placeholder="' +
-              splitLyrics[i].length.toString() +
-              ' lettres " formControlName="form_' +
-              j.toString() +
-              '" size="' +
-              splitLyrics[i].length.toString() +
-              '">';
-            html += "  ";
-            j++;
-            nbmotenmoins++;
-          }
-        }
-      }
+      tab = placeHolesDiffficultyRandom(lyrics, 7, true);
       break;
 
     case "4":
-      for (let i = 0; i < splitLyrics.length; i++) {
-        let rdm = Math.floor(Math.random() * 10);
-        if (rdm < 9) {
-          html += splitLyrics[i] + "  ";
-        } else {
-          if(splitLyrics[i] == "," || splitLyrics[i] == ")" || splitLyrics[i] == "(" || splitLyrics[i] == "!" || splitLyrics[i] == "?" || splitLyrics[i] == "-" || splitLyrics[i] == "<br>" || splitLyrics[i] == ""|| splitLyrics[i] == ":" || splitLyrics[i] == "\""){
-            html += splitLyrics[i] + "  ";
-          }
-          else{
-            motDisparu[j] = splitLyrics[i].toUpperCase();
-
-            html +=
-              '<input name="form_' +
-              j.toString() +
-              '" type="text"  class="form-control" maxlength="' +
-              splitLyrics[i].length.toString() +
-              '" formControlName="form_' +
-              j.toString() +
-              '" size="' +
-              splitLyrics[i].length.toString() +
-              '">';
-            html += "  ";
-            j++;
-            nbmotenmoins++;
-          }
-        }
-      }
-      break;
-
-    case "5":
+      tab = placeHolesDiffficultyRandom(lyrics, 9, false);
       break;
 
     default:
       break;
   }
-  console.log(motDisparu);
-  const tab = [motDisparu, html, nbmotenmoins];
   return tab;
+}
+
+function placeHolesDiffficultyRandom(lyrics, random, withHint) {
+  const splitLyrics = lyrics.split(" ");
+  let motDisparu = [];
+  let html = "";
+  let nbmotenmoins = 0;
+  let j = 0;
+  for (let i = 1; i < splitLyrics.length; i++) {
+    let rdm = Math.floor(Math.random() * 10);
+    if (rdm < random) {
+      html += splitLyrics[i] + "  ";
+    } else {
+      if (banChar.indexOf(splitLyrics[i]) != -1) {
+        html += splitLyrics[i] + "  ";
+      } else {
+        motDisparu[j] = splitLyrics[i].toUpperCase();
+
+        html +=
+          '<input name="form_' +
+          j.toString() +
+          '" type="text"  class="form-contplaceHolesDiffficulty1rol" maxlength="' +
+          splitLyrics[i].length.toString() +
+          '" formControlName="form_' +
+          j.toString() +
+          '" size="' +
+          splitLyrics[i].length.toString();
+
+        if (withHint) {
+          html +=
+            '" placeholder="' +
+            splitLyrics[i].length.toString() +
+            ' lettres ">';
+        } else {
+          html += '">';
+        }
+
+        html += "  ";
+        j++;
+        nbmotenmoins++;
+      }
+    }
+  }
+  return [motDisparu, html, nbmotenmoins];
 }
 
 async function GetLyricsWithHole(singer, title, difficulty) {
@@ -207,7 +157,9 @@ async function GetLyricsWithHole(singer, title, difficulty) {
     try {
       const data = await SearchMusicInfo(singer, title);
       const lyrics = await GetLyricsByPath(data.path);
+
       let tab = placeHoles(difficulty, lyrics);
+      console.log(tab);
 
       resolve({
         mots_manquant: tab[0],
