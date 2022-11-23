@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
         );
     } else {
       this.FormData.reset();
-      //mettre message d'erreur dans erroMessage
+      this.errorMessage = 'Les mots de passe ne correspondent pas';
     }
   }
 }
