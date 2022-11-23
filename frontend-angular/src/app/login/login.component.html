@@ -1,0 +1,15 @@
+<div class="container-form">
+    <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="Login">Login</label>
+            <input type="text" class="form-control" name="Login" placeholder="Votre Login" Login formControlName="Login"
+                pInputText>
+        </div>
+        <div class="form-group">
+            <label for="Password">Mot de passe</label>
+            <input type="text" class="form-control" name="Password" placeholder="Votre mot de passe"
+                formControlName="Password" pInputText>
+        </div>
+        <p-button type="submit" [disabled]="!FormData.valid" label="Connexion"></p-button>
+    </form>
+</div>
