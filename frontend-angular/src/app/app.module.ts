@@ -19,6 +19,9 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { SliderModule } from 'primeng/slider';
 import { SafeHtmlPipe } from './pipe/safehtml.pipe';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { SafeHtmlPipe } from './pipe/safehtml.pipe';
     MusiqueFormComponent,
     MentionComponent,
     SafeHtmlPipe,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
