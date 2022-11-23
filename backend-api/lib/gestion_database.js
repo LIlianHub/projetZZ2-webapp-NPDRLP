@@ -1,9 +1,13 @@
-var mysql = require("mysql");
+const mysql = require("mysql");
+const fs = require("fs");
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "rootsqlpsw",
+  //quand on reliera au reste
+  //password: fs.readFileSync("./data/data-base", "utf8"),
+  //temporaire
+  password: fs.readFileSync("../data/data-base", "utf8"),
   database: "mydb",
 });
 
@@ -17,7 +21,6 @@ con.connect(function (err) {
         if (err) throw err;
         console.log("Table created");
     });*/
-
 
   /* DROP TABLE
     var sql = "DROP TABLE customers";
@@ -33,11 +36,9 @@ con.connect(function (err) {
       console.log("1 record inserted");
     });*/
 
-
-
   //SELECT
   con.query("SELECT * FROM USER", function (err, result, fields) {
-        if (err) throw err;
-        console.log(result);
-      });
+    if (err) throw err;
+    console.log(result);
+  });
 });
