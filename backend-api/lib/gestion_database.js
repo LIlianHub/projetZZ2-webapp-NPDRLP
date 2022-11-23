@@ -14,8 +14,8 @@ var mysql = require('mysql');
 
 
 
-    /*CREATE TABLE
-    var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
+    //CREATE TABLE
+    /*var sql = "CREATE TABLE USER (username VARCHAR(20) PRIMARY KEY, password VARCHAR(20))";
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Table created");
@@ -32,20 +32,20 @@ var mysql = require('mysql');
 
    
    
-    /*INSERT VALUE
-    var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+    //INSERT VALUE
+    /*var sql = "INSERT INTO user VALUES ('etcharpin', 'mdpetienne')";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted");
     });*/
 
 
-    /*SELECT
-    con.query("SELECT * FROM customers", function (err, result, fields) {
+    //SELECT
+    /*con.query("SELECT * FROM test", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
-      });
-    */
+      });*/
+    
 
 
 
