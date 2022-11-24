@@ -1,17 +1,18 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-//const gestion_database = require("./gestion_api_music");
+const gestion_database = require("./gestion_database");
 const fs = require("fs");
 
 // en general pour le lire au démarage du serveur
 const encodedToken = fs.readFileSync("./data/encoded-token", "utf8");
 
 async function login(username, password) {
-  return new Promise((resolve, reject) => {
-    if (!gestion_database.alreadyUser(username)) {
+  return new Promise(async (resolve, reject) => {
+    let test = await gestion_database.alreadyUser(username);
+    if (test) {
       reject("Username inconnu !");
     } else {
-      let user = gestion_database.getUser(username);
+      let user = gestion_database.getUserInfo(username);
       if (!bcrypt.compareSync(password, user.password)) {
         reject("Mot de passe invalide !");
       } else {
@@ -41,12 +42,15 @@ async function verifyToken(token) {
 
 async function register(username, password) {
   return new Promise(async (resolve, reject) => {
-    if (gestion_database.alreadyUser(username)) {
+    let test = await gestion_database.alreadyUser(username);
+    if (!test) {
       reject("Username déjà utilisé !");
     } else {
       let hashedPassword = bcrypt.hashSync(password, 8);
-      gestion_database.addUser(username, hashedPassword);
+      gestion_database.insertUser(username, hashedPassword);
       resolve("Utilisateur ajouté avec succès !");
     }
   });
 }
+
+module.exports = { register, login };
