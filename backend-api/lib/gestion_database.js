@@ -45,30 +45,75 @@ con.connect(function (err) {
 
 
 
-async function alreadyUser(username){
- 
-    let isExisting;
-    isExisting = checkUsername(username);
-    console.log(isExisting);
+function delay(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+async function alreadyUser(username) {
+  return new Promise(async (resolve, reject) => {
+    con.query(
+      'SELECT username FROM USER WHERE username = "' + username + '"',
+      function (err, result, fields) {
+        if (err) {
+          reject(err);
+        }
+        if (result == "") {
+          resolve(false);
+        } else {
+          resolve(true);
+        }
+      }
+    );
+  });
+}
+
+async function callAlreadyUser(username) {
+  await delay(1000);
+  retour = await alreadyUser(username);
+  console.log(retour);
+}
+
+//callAlreadyUser("hudenizot");
+//insertUser("hudenizot","jaimelesfrites");
+getUser("hudenizot");
+
+  async function getUser(username){
+
+    let userInfo;
+    userInfo = getUserInfo(username);
+
+  }
+
+  function getUserInfo(username){
+
+    let userInfo = {
+      username: "",
+      pswd : ""
+    };
+
+    con.query(
+      'SELECT * FROM USER WHERE username = "' + username + '"',
+     function (err, result, fields) {
+      if (err) throw err;
+      userInfo.username =  result[0].username;
+      userInfo.pswd =  result[0].password;
+
+      console.log(userInfo);
+    });
+    
+
+    //recup toutes les info
+    return userInfo;
 
   }
 
 
+function insertUser(username,pswd){
 
-  function checkUsername(username){
-
-    con.query("SELECT username FROM USER WHERE username = \"" + username + "\"", function (err, result, fields) {
-
-      let trouve = true;
-
+  var sql = 'INSERT INTO user VALUES ("' + username +'","' + pswd + '")';
+    con.query(sql, function (err, result) {
       if (err) throw err;
-      if(result == ""){
-        trouve = false;
-      }
-        return trouve;
+      console.log("1 record inserted");
     });
 
-
-  }
-
-  alreadyUser("etcharpin");
+}
