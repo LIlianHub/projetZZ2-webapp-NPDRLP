@@ -43,18 +43,22 @@ export class RegisterComponent implements OnInit {
         .register(this.FormData.value.Login, this.FormData.value.Password)
         .subscribe(
           (data) => {
+            let url = '/login';
             this.reussite = true;
             this.message = data.message;
+            this.router.navigate([url]);
             this.FormData.reset();
           },
           (err) => {
             this.message = err.message;
             this.FormData.reset();
+            
           }
         );
     } else {
-      this.message = 'Les mots de passe ne correspondent pas';
+      
       this.FormData.reset();
+      this.message = 'Les mots de passe ne correspondent pas';
     }
   }
 }
