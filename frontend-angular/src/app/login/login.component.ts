@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         (data) => {
           this.tokenStorage.saveToken(data.accessToken);
           //on doit recevoir dans un json un user type dans le champ user !
-          this.tokenStorage.saveUser(data.user);
+          this.tokenStorage.saveUser(data.userdata);
           this.goHome();
         },
         (err) => {

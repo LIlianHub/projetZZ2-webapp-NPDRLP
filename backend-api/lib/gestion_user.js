@@ -1,29 +1,24 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+//const gestion_database = require("./gestion_api_music");
 const fs = require("fs");
 
 // en general pour le lire au démarage du serveur
 const encodedToken = fs.readFileSync("./data/encoded-token", "utf8");
 
-function register(username, password) {
-  //appel base de donnée pour vérifier si le username existe déjà (fonction existUser() dans gestion database)
-  //si oui, renvoyer un message d'erreur
-
-  //si non
-  let hashedPassword = bcrypt.hashSync(password, 8);
-  //ajout dans base de donnée
-}
-
 async function login(username, password) {
   return new Promise((resolve, reject) => {
-    //on essaye de récupérer l'utilisateur dans la base de donnée
-    //si on ne le trouve pas, on renvoie un message d'erreur
-    //si il existe, on vérifie le mot de passe
-    bcrypt.compareSync(password, hash /*recuperé dans la base de donnée*/); // true
-    //si le mot de passe est bon, on renvoie un token et le username
-
-    //sinon on renvoie un message d'erreur
-
+    if (!gestion_database.alreadyUser(username)) {
+      reject("Username inconnu !");
+    } else {
+      let user = gestion_database.getUser(username);
+      if (!bcrypt.compareSync(password, user.password)) {
+        reject("Mot de passe invalide !");
+      } else {
+        let token = jwt.sign({ id: user.username }, encodedToken);
+        resolve({ accessToken: token, userdata: { username: user.username } });
+      }
+    }
   });
 }
 
@@ -45,5 +40,13 @@ async function verifyToken(token) {
 }
 
 async function register(username, password) {
-  return new Promise((resolve, reject) => {});
+  return new Promise(async (resolve, reject) => {
+    if (gestion_database.alreadyUser(username)) {
+      reject("Username déjà utilisé !");
+    } else {
+      let hashedPassword = bcrypt.hashSync(password, 8);
+      gestion_database.addUser(username, hashedPassword);
+      resolve("Utilisateur ajouté avec succès !");
+    }
+  });
 }

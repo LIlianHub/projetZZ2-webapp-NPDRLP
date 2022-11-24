@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   currentUser!: UserModel | null;
+  mytoken!: string;
 
   constructor(private token: TokenStorageService, private router: Router) {}
 
@@ -17,6 +18,9 @@ export class ProfileComponent implements OnInit {
     this.currentUser = this.token.getUser();
     if (!this.currentUser) {
       this.router.navigate(['/login']);
+    }
+    else{
+      this.mytoken = this.token.getToken()!;
     }
   }
 }
