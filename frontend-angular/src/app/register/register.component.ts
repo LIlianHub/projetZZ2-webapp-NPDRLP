@@ -15,7 +15,8 @@ import {
 })
 export class RegisterComponent implements OnInit {
   FormData!: FormGroup;
-  errorMessage = '';
+  message = '';
+  reussite: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -29,25 +30,30 @@ export class RegisterComponent implements OnInit {
       Password: new FormControl('', [Validators.required]),
       ConfirmPassword: new FormControl('', [Validators.required]),
     });
+
+    //on efface le message d'erreur si l'utilisateur ecrit
+    this.FormData.valueChanges.subscribe((x) => {
+      this.message = '';
+    });
   }
 
   onSubmit(): void {
+    this.FormData.reset();
     if (this.FormData.value.Password === this.FormData.value.ConfirmPassword) {
       this.authService
         .register(this.FormData.value.Login, this.FormData.value.Password)
         .subscribe(
           (data) => {
-            this.router.navigate(['/login']);
+            this.reussite = true;
+            this.message = 'Inscription réussie';
           },
           (err) => {
             console.log(err);
-            this.FormData.reset();
             //mettre message d'erreur dans erroMessage
           }
         );
     } else {
-      this.FormData.reset();
-      this.errorMessage = 'Les mots de passe ne correspondent pas';
+      this.message = 'Les mots de passe ne correspondent pas';
     }
   }
 }
