@@ -37,8 +37,38 @@ con.connect(function (err) {
     });*/
 
   //SELECT
-  con.query("SELECT * FROM USER", function (err, result, fields) {
+  /*con.query("SELECT * FROM USER", function (err, result, fields) {
     if (err) throw err;
     console.log(result);
-  });
+  });*/
 });
+
+
+
+async function alreadyUser(username){
+ 
+    let isExisting;
+    isExisting = checkUsername(username);
+    console.log(isExisting);
+
+  }
+
+
+
+  function checkUsername(username){
+
+    con.query("SELECT username FROM USER WHERE username = \"" + username + "\"", function (err, result, fields) {
+
+      let trouve = true;
+
+      if (err) throw err;
+      if(result == ""){
+        trouve = false;
+      }
+        return trouve;
+    });
+
+
+  }
+
+  alreadyUser("etcharpin");
