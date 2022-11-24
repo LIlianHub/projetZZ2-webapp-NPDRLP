@@ -16,21 +16,21 @@ con.connect(function (err) {
   console.log("Connected!");
 
   //CREATE TABLE
-  /*var sql = "CREATE TABLE USER (username VARCHAR(20) PRIMARY KEY, password VARCHAR(20))";
+  /*var sql = "CREATE TABLE USER (username VARCHAR(20) PRIMARY KEY, password VARCHAR(75))";
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Table created");
     });*/
 
   /* DROP TABLE
-    var sql = "DROP TABLE customers";
+    var sql = "DROP TABLE user";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Table deleted");
     });*/
 
   //INSERT VALUE
-  /*var sql = "INSERT INTO USER VALUES ('liballejos', 'test')";
+  /*var sql = "INSERT INTO USER VALUES ('etcharpin', 'test')";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted");
@@ -73,9 +73,9 @@ async function callAlreadyUser(username) {
   console.log(retour);
 }
 
-//callAlreadyUser("hudenizot");
+callAlreadyUser("etcharpin");
 //insertUser("hudenizot","jaimelesfrites");
-getUser("hudenizot");
+//getUser("hudenizot");
 
   async function getUser(username){
 
