@@ -2,7 +2,6 @@
 const express = require("express");
 var cors = require("cors");
 
-
 /*Mes modules*/
 const gestion_api_music = require("./gestion_api_music");
 const gestion_user = require("./gestion_user");
@@ -24,14 +23,13 @@ listen.use(express.json());
 /*Requete parole*/
 listen.get("/getLyrics/:singer-:song", async function (req, res) {
   if (req.params.singer && req.params.song) {
-    try{
+    try {
       const data = await gestion_api_music.GetLyrics(
         req.params.singer,
         req.params.song
       );
       res.status(200).json({ paroles: data });
-    }
-    catch(error){
+    } catch (error) {
       res.status(500).send("Erreur lors de la recupération de la musique");
     }
   } else {
@@ -39,24 +37,49 @@ listen.get("/getLyrics/:singer-:song", async function (req, res) {
   }
 });
 
-listen.get("/getsLyricsWithHole/:singer-:song-:difficulty", async function (req, res) {
-  if (req.params.singer && req.params.song && req.params.difficulty) {
-    try{
-      const data = await gestion_api_music.GetLyricsWithHole(
-        req.params.singer,
-        req.params.song,
-        req.params.difficulty
+listen.get(
+  "/getsLyricsWithHole/:singer-:song-:difficulty",
+  async function (req, res) {
+    if (req.params.singer && req.params.song && req.params.difficulty) {
+      try {
+        const data = await gestion_api_music.GetLyricsWithHole(
+          req.params.singer,
+          req.params.song,
+          req.params.difficulty
+        );
+        res.status(200).send(data);
+      } catch (error) {
+        res.status(500).send("Erreur lors de la recupération de la musique");
+      }
+    } else {
+      res.status(400).send("Not enough parameters");
+    }
+  }
+);
+
+/*Requete user*/
+listen.post("/userGestion/register", async (req, res) => {
+  if (req.body.username && req.body.password) {
+    try {
+      let retour = await gestion_user.register(
+        req.body.username,
+        req.body.password
       );
-      res.status(200).send(data);
-    }
-    catch(error){
-      res.status(500).send("Erreur lors de la recupération de la musique");
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(400).json({
+        message: err,
+      });
     }
   } else {
-    res.status(400).send("Not enough parameters");
+    res.status(400).json({
+      message: "Not enough parameters",
+    });
   }
 });
-
 
 /*gestion autres requetes*/
 listen.use(function (req, res, next) {

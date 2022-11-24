@@ -38,22 +38,23 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.FormData.reset();
     if (this.FormData.value.Password === this.FormData.value.ConfirmPassword) {
       this.authService
         .register(this.FormData.value.Login, this.FormData.value.Password)
         .subscribe(
           (data) => {
             this.reussite = true;
-            this.message = 'Inscription réussie';
+            this.message = data.message;
+            this.FormData.reset();
           },
           (err) => {
-            console.log(err);
-            //mettre message d'erreur dans erroMessage
+            this.message = err.message;
+            this.FormData.reset();
           }
         );
     } else {
       this.message = 'Les mots de passe ne correspondent pas';
+      this.FormData.reset();
     }
   }
 }
