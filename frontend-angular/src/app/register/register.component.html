@@ -1,5 +1,5 @@
 <div class="container-form">
-    <p *ngIf="errorMessage != ''">{{errorMessage}}</p>
+    <p *ngIf="message != ''">{{message}}</p>
     <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="Login">Login</label>
@@ -18,4 +18,5 @@
         </div>
         <p-button type="submit" [disabled]="!FormData.valid" label="Inscription"></p-button>
     </form>
+    <p-button *ngIf="reussite" routerLink="/login" label="Se Connecter"></p-button>
 </div>
