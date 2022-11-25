@@ -8,38 +8,14 @@ var con = mysql.createConnection({
   database: "mydb",
 });
 
-con.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-
-  //CREATE TABLE
-  /*var sql = "CREATE TABLE USER (username VARCHAR(20) PRIMARY KEY, password VARCHAR(75))";
-    con.query(sql, function (err, result) {
-        if (err) throw err;
-        console.log("Table created");
-    });*/
-
-  /* DROP TABLE
-    var sql = "DROP TABLE customers";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("Table deleted");
-    });*/
-
-  //INSERT VALUE
-  /*var sql = "INSERT INTO USER VALUES ('liballejos', 'test')";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("1 record inserted");
-    });*/
-
-  //SELECT
-  /*con.query("SELECT * FROM USER", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });*/
-});
-
+async function connectionDataBase() {
+  return new Promise(async (resolve, reject) => {
+    con.connect(function (err) {
+      if (err) reject(err);
+      resolve("Connecté à la base de données");
+    });
+  });
+}
 async function alreadyUser(username) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -80,8 +56,7 @@ function insertUser(username, pswd) {
   var sql = 'INSERT INTO USER VALUES ("' + username + '","' + pswd + '")';
   con.query(sql, function (err, result) {
     if (err) throw err;
-    console.log("1 record inserted");
   });
 }
 
-module.exports = { getUserInfo, insertUser, alreadyUser };
+module.exports = { getUserInfo, insertUser, alreadyUser, connectionDataBase };
