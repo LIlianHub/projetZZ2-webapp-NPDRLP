@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { UserModel } from '../models/user.model';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,9 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  ngOnInit() {}
+  currentUser: UserModel | null = null;
+  constructor(private token: TokenStorageService) {}
+  ngOnInit() {
+    this.currentUser = this.token.getUser();
+  }
 }
