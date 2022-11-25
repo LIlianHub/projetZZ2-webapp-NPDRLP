@@ -7,15 +7,6 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  items!: MenuItem[];
 
-  ngOnInit() {
-    this.items = [
-      {
-        label: 'Accueil',
-        icon: 'pi pi-fw pi-home',
-        routerLink: '/accueil',
-      },
-    ];
-  }
+  ngOnInit() {}
 }
