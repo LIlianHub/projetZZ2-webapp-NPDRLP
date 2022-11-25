@@ -22,6 +22,11 @@ import { SafeHtmlPipe } from './pipe/safehtml.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,8 +55,11 @@ import { ProfileComponent } from './profile/profile.component';
     AvatarModule,
     AvatarGroupModule,
     SliderModule,
+    MessagesModule,
+    MessageModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

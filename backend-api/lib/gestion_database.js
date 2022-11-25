@@ -46,7 +46,7 @@ async function alreadyUser(username) {
       'SELECT username FROM USER WHERE username = "' + username + '"',
       function (err, result, fields) {
         if (err) {
-          reject(err);
+          throw err;
         }
         if (result[0] == undefined) {
           resolve(true);

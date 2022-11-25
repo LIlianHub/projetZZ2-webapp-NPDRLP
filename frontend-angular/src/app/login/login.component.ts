@@ -8,21 +8,23 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  providers: [MessageService],
 })
 export class LoginComponent implements OnInit {
   FormData!: FormGroup;
-  errorMessage = '';
 
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private router: Router,
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -42,14 +44,16 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           this.tokenStorage.saveToken(data.accessToken);
-          //on doit recevoir dans un json un user type dans le champ user !
           this.tokenStorage.saveUser(data.userdata);
           this.goHome();
         },
         (err) => {
-          console.log(err);
           this.FormData.reset();
-          //mettre message d'erreur dans erroMessage
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Erreur',
+            detail: err.error,
+          });
         }
       );
   }

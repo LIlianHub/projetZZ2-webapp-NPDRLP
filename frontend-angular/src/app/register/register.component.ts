@@ -7,21 +7,23 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  providers: [MessageService],
 })
 export class RegisterComponent implements OnInit {
   FormData!: FormGroup;
-  message = '';
   reussite: boolean = false;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -31,9 +33,8 @@ export class RegisterComponent implements OnInit {
       ConfirmPassword: new FormControl('', [Validators.required]),
     });
 
-    //on efface le message d'erreur si l'utilisateur ecrit
-    this.FormData.valueChanges.subscribe((x) => {
-      this.message = '';
+    this.FormData.valueChanges.subscribe((data) => {
+      this.messageService.clear();
     });
   }
 
@@ -43,22 +44,35 @@ export class RegisterComponent implements OnInit {
         .register(this.FormData.value.Login, this.FormData.value.Password)
         .subscribe(
           (data) => {
-            let url = '/login';
             this.reussite = true;
-            this.message = data.message;
-            this.router.navigate([url]);
             this.FormData.reset();
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Inscription réussie',
+            });
+            this.messageService.add({
+              severity: 'success',
+              detail: 'Redirection vers la page de connexion ...',
+            });
+            setTimeout(() => {
+              this.router.navigate(['/login']);
+            }, 3000);
           },
           (err) => {
-            this.message = err.message;
             this.FormData.reset();
-            
+            this.messageService.add({
+              severity: 'error',
+              summary: err.error,
+            });
           }
         );
     } else {
-      
       this.FormData.reset();
-      this.message = 'Les mots de passe ne correspondent pas';
+      console.log('Les mots de passe ne correspondent pas');
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Entrez deux mots de passe identiques',
+      });
     }
   }
 }

@@ -12,7 +12,7 @@ async function login(username, password) {
     if (test) {
       reject("Username inconnu !");
     } else {
-      let user = gestion_database.getUserInfo(username);
+      let user = await gestion_database.getUserInfo(username);
       if (!bcrypt.compareSync(password, user.password)) {
         reject("Mot de passe invalide !");
       } else {

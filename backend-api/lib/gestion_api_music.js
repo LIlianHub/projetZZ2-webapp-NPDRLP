@@ -160,7 +160,6 @@ async function GetLyricsWithHole(singer, title, difficulty) {
       const lyrics = await GetLyricsByPath(data.path);
 
       let tab = placeHoles(difficulty, lyrics);
-      console.log(tab);
 
       resolve({
         mots_manquant: tab[0],

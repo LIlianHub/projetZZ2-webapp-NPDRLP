@@ -23,4 +23,9 @@ export class ProfileComponent implements OnInit {
       this.mytoken = this.token.getToken()!;
     }
   }
+
+  logOut(): void {
+    this.token.signOut();
+    this.router.navigate(['/accueil']);
+  }
 }

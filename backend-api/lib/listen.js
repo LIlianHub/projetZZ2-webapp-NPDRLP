@@ -30,7 +30,8 @@ listen.get("/getLyrics/:singer-:song", async function (req, res) {
       );
       res.status(200).json({ paroles: data });
     } catch (error) {
-      res.status(500).send("Erreur lors de la recupération de la musique");
+      console.log("here");
+      res.status(400).send("Erreur lors de la recupération de la musique");
     }
   } else {
     res.status(400).send("Not enough parameters");
@@ -40,6 +41,7 @@ listen.get("/getLyrics/:singer-:song", async function (req, res) {
 listen.get(
   "/getsLyricsWithHole/:singer-:song-:difficulty",
   async function (req, res) {
+    console.log("token: " + req.headers["x-access-token"]);
     if (req.params.singer && req.params.song && req.params.difficulty) {
       try {
         const data = await gestion_api_music.GetLyricsWithHole(
@@ -69,15 +71,26 @@ listen.post("/userGestion/register", async (req, res) => {
         message: retour,
       });
     } catch (err) {
-      console.log(err);
-      res.status(400).json({
-        message: err,
-      });
+      res.status(400).send(err);
     }
   } else {
-    res.status(400).json({
-      message: "Not enough parameters",
-    });
+    res.status(400).send("Not enough parameters");
+  }
+});
+
+listen.post("/userGestion/login", async (req, res) => {
+  if (req.body.username && req.body.password) {
+    try {
+      let retour = await gestion_user.login(
+        req.body.username,
+        req.body.password
+      );
+      res.status(200).json(retour);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
   }
 });
 
