@@ -4,8 +4,8 @@ const fs = require("fs");
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password : "rootsqlpsw",
   //password: fs.readFileSync("./data/data-base", "utf8"),
+  password: "rootsqlpsw",
   database: "mydb",
 });
 
@@ -68,6 +68,16 @@ function addFolder(foldername, username) {
   });
 }
 
+
+function deleteFolder(foldername, username) {
+  var sql = 'INSERT INTO folder VALUES ("' + foldername + '","' + username + '")';
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+  });
+}
+
+
+
 function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
   var sql = 'INSERT INTO musics VALUES ("' + idMusic + '","' + artiste + '","' + title + '","' + idFolder + '")';
   con.query(sql, function (err, result) {
@@ -84,16 +94,15 @@ async function getUserFolders(username) {
     let folderTab = [];
     console.log("here");
     con.query(
-      'SELECT idFOLDER FROM folder WHERE USERNAME = "' + username + '"',
+      'SELECT  idFOLDER ,FOLDERname FROM folder WHERE USERNAME = "' + username + '"',
       function (err, result, fields) {
         if (err) reject(err);
-        console.log("ici");
-        console.log(result);
-        console.log(nb);
         for(let i = 0;i < nb ; i++){
-          folderTab[i] = result[i].idFOLDER;
-          console.log(folderTab[i]);
+          folderTab[i+1] = result[i].idFOLDER;
+          folderTab[nb+i+1] = result[i].FOLDERname;
         }
+        folderTab[0] = nb;
+        console.log(result);
         resolve(folderTab);
       }
     );
@@ -116,26 +125,44 @@ async function getUserNBFolders(username) {
   });
 }
 
-
+//trouver solution pour obtenir tous les ids et toutes les chansons
 async function getUserFoldersAndMusics(username) {
 
   let foldersIDS = await getUserFolders(username);
+  console.log(foldersIDS[0]);
+  console.log(foldersIDS);
+  let musi= [];
 
   return new Promise(async (resolve, reject) => {
+        for(let j = 1; j <= foldersIDS[0]; j++){
+
+          musi += await getmusicFromFolderNum(foldersIDS[j]);
+        }
+        console.log(mab);
+        resolve(mab);
+  })
+}
+
+
+async function getmusicFromFolderNum(nbFolder) {
+  return new Promise(async (resolve, reject) => {
+    console.log(nbFolder);
     con.query(
-      'SELECT idmusics, artist, title FROM musics WHERE foldernum = 1',
+      'SELECT artist, title FROM musics m, musicsinfolder mf WHERE mf.idFolder = "' + nbFolder + '" AND m.idMusics = mf.idmusics',
       function (err, result, fields) {
-        console.log(result);
         if (err) reject(err);
+
+        console.log(result);
         resolve(result);
       }
     );
   });
 }
 
-//getUserFoldersAndMusics("test");
+
+getUserFoldersAndMusics("test");
 
 
-module.exports = { getUserInfo, insertUser, alreadyUser, connectionDataBase };
+module.exports = { getUserInfo, insertUser, alreadyUser, connectionDataBase , getUserFoldersAndMusics, insertMusicIntoFolder, addFolder};
 
 //CREATE TABLE MUSIQUE(id INT PRIMARY KEY NOT NULL,artiste VARCHAR(100),musique VARCHAR(100));
