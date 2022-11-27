@@ -1,0 +1,6 @@
+<div *ngIf="!loading">
+    <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"></p-panelMenu>
+</div>
+<div *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+</div>
