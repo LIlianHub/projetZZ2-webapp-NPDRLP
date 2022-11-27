@@ -145,11 +145,11 @@ async function getUserFoldersAndMusics(username) {
       temp = await getmusicFromFolderNum(foldersIDS[j]);
       temp_format = [];
       for (let i = 0; i < temp.length; i++) {
-        temp_format.push({ label: temp[i].title + " - " + temp[i].artist });
+        temp_format.push({ label: temp[i].title + " - " + temp[i].artist , routerLink: "/paroles/"+temp[i].artist+"/"+temp[i].title+"/0"});
       }
-      dossier.push({ label: folderIDS[0] + j, items: temp_format });
+      dossier.push({ label: foldersIDS[foldersIDS[0] + j], items: temp_format });
     }
-    console.log(dossier);
+    console.log(dossier[0]);
     resolve(dossier);
   });
 }
@@ -171,7 +171,7 @@ async function getmusicFromFolderNum(nbFolder) {
   });
 }
 
-//getUserFoldersAndMusics("test");
+getUserFoldersAndMusics("test");
 
 module.exports = {
   getUserInfo,
