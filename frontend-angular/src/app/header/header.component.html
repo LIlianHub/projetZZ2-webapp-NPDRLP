@@ -7,11 +7,12 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a routerLink="/accueil" class="nav-link px-2 text-white">Accueil</a></li>
+                <li><a routerLink="/entrainement" class="nav-link px-2 text-white">Entrainement</a></li>
             </ul>
 
             <div class="text-end" *ngIf="!currentUser">
-                <button type="button" routerLink="/login" class="btn btn-outline-light me-2">Connexion</button>
-                <button type="button" routerLink="/register" class="btn btn-warning">Inscription</button>
+                <button type="button" routerLink="/connexion" class="btn btn-outline-light me-2">Connexion</button>
+                <button type="button" routerLink="/inscription" class="btn btn-warning">Inscription</button>
             </div>
             <div class="text-end" *ngIf="currentUser">
                 <button type="button" routerLink="/profile" class="btn btn-warning">Menu de {{currentUser.username}}</button>

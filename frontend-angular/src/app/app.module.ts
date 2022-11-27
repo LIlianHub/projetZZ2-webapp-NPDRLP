@@ -27,6 +27,7 @@ import { MessageModule } from 'primeng/message';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { RechercheParoleComponent } from './recherche-parole/recherche-parole.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    RechercheParoleComponent,
   ],
   imports: [
     BrowserModule,
