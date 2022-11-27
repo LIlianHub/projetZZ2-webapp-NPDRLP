@@ -18,9 +18,14 @@ export class MusicFolderComponent implements OnInit {
   }
 
   getFolders() {
-    this.paroleService.getUserMusicFolder().subscribe((data) => {
-      this.dossier = data;
-      this.loading = false;
-    });
+    this.paroleService.getUserMusicFolder().subscribe(
+      (reponse) => {
+        this.dossier = reponse;
+        this.loading = false;
+      },
+      (erreur) => {
+        console.log(erreur.error);
+      }
+    );
   }
 }
