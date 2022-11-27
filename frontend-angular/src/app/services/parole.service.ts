@@ -31,9 +31,18 @@ export class ParoleService {
   }
 
   saveParole(artiste: string, musique: string): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/lyricsGestion/saveLyrics', {
-      artiste: artiste,
-      musique: musique,
-    });
+    return this.http.post<any>(
+      'http://localhost:3000/lyricsGestion/saveLyrics',
+      {
+        artiste: artiste,
+        musique: musique,
+      }
+    );
+  }
+
+  getUserMusicFolder(): Observable<any> {
+    return this.http.get<any>(
+      'http://localhost:3000/lyricsGestion/getUserMusicFolder/'
+    );
   }
 }

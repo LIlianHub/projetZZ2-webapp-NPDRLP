@@ -27,9 +27,11 @@ import { MessageModule } from 'primeng/message';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ToastModule } from 'primeng/toast';
+import {PanelMenuModule} from 'primeng/panelmenu';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RechercheParoleComponent } from './recherche-parole/recherche-parole.component';
+import { MusicFolderComponent } from './music-folder/music-folder.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { RechercheParoleComponent } from './recherche-parole/recherche-parole.co
     RegisterComponent,
     ProfileComponent,
     RechercheParoleComponent,
+    MusicFolderComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { RechercheParoleComponent } from './recherche-parole/recherche-parole.co
     BrowserAnimationsModule,
     ConfirmPopupModule,
     ToastModule,
+    PanelMenuModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
