@@ -55,11 +55,12 @@ export class RegisterComponent implements OnInit {
               detail: 'Redirection vers la page de connexion ...',
             });
             setTimeout(() => {
-              this.router.navigate(['/login']);
+              this.router.navigate(['/connexion']);
             }, 3000);
           },
           (err) => {
             this.FormData.reset();
+            this.messageService.clear();
             this.messageService.add({
               severity: 'error',
               summary: err.error,

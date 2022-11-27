@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         },
         (err) => {
           this.FormData.reset();
+          this.messageService.clear();
           this.messageService.add({
             severity: 'error',
             summary: 'Erreur',

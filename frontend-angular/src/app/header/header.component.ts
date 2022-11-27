@@ -15,7 +15,4 @@ export class HeaderComponent implements OnInit {
     this.currentUser = this.token.getUser();
   }
 
-  logOut(): void {
-    this.token.signOut();
-  }
 }
