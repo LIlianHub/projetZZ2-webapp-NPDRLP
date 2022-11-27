@@ -7,12 +7,15 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
 import { ParoleModele } from '../models/parole.model';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-parole',
   templateUrl: './parole.component.html',
   styleUrls: ['./parole.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  providers: [ConfirmationService, MessageService],
 })
 export class ParoleComponent implements OnInit {
   nosParoles!: ParoleModele;
@@ -26,7 +29,9 @@ export class ParoleComponent implements OnInit {
   constructor(
     private paroleService: ParoleService,
     private route: ActivatedRoute,
-    private elRef: ElementRef
+    private elRef: ElementRef,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -83,11 +88,49 @@ export class ParoleComponent implements OnInit {
         this.nbMotJuste += 1;
         target.classList.add('mot-juste');
         target.classList.remove('mot-faux');
-        target.setAttribute("disabled", true);
+        target.setAttribute('disabled', true);
       } else {
         target.classList.add('mot-faux');
         this.verifTab[i] = false;
       }
     }
+  }
+
+  saveSong() {
+    this.paroleService
+      .saveParole(
+        this.route.snapshot.params['artiste'],
+        this.route.snapshot.params['musique']
+      )
+      .subscribe(
+        (reponse) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Succes',
+            detail: reponse.message,
+          });
+        },
+        (erreur) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Erreur',
+            detail: erreur.error,
+          });
+        }
+      );
+  }
+
+  confirm(event: Event) {
+    this.confirmationService.confirm({
+      target: event.target as Element,
+      message: 'Êtes-vous sûr de vouloir sauvegarder cette chanson ?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.saveSong();
+      },
+      reject: () => {
+        //reject action
+      },
+    });
   }
 }

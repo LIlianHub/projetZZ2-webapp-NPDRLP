@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../models/user.model';
 import { TokenStorageService } from '../services/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,12 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
   currentUser: UserModel | null = null;
-  constructor(private token: TokenStorageService) {}
+  constructor(private token: TokenStorageService, private router: Router) {}
   ngOnInit() {
     this.currentUser = this.token.getUser();
+  }
+
+  logOut(): void {
+    this.token.signOut();
   }
 }

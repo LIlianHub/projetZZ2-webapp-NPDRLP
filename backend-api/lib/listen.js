@@ -21,7 +21,7 @@ listen.use(express.urlencoded({ extended: true }));
 listen.use(express.json());
 
 /*Requete parole*/
-listen.get("/getLyrics/:singer-:song", async function (req, res) {
+listen.get("/lyricsGestion/getLyrics/:singer-:song", async function (req, res) {
   if (req.params.singer && req.params.song) {
     try {
       const data = await gestion_api_music.GetLyrics(
@@ -39,9 +39,8 @@ listen.get("/getLyrics/:singer-:song", async function (req, res) {
 });
 
 listen.get(
-  "/getsLyricsWithHole/:singer-:song-:difficulty",
+  "/lyricsGestion/getsLyricsWithHole/:singer-:song-:difficulty",
   async function (req, res) {
-    console.log("token: " + req.headers["x-access-token"]);
     if (req.params.singer && req.params.song && req.params.difficulty) {
       try {
         const data = await gestion_api_music.GetLyricsWithHole(
@@ -58,6 +57,21 @@ listen.get(
     }
   }
 );
+
+listen.post("/lyricsGestion/saveLyrics", async (req, res) => {
+  if (req.body.artiste && req.body.musique) {
+    try {
+      let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
+      res.status(200).json({
+        message: user,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
+  }
+});
 
 /*Requete user*/
 listen.post("/userGestion/register", async (req, res) => {

@@ -28,12 +28,12 @@ async function login(username, password) {
 async function verifyToken(token) {
   return new Promise((resolve, reject) => {
     if (!token) {
-      reject("Pas de token fourni");
+      reject("Veuillez vous connecter !");
     }
 
     jwt.verify(token, encodedToken, (err, decoded) => {
       if (err) {
-        reject("Token invalide");
+        reject("Veuillez vous reconnecter !");
       }
       resolve(decoded.id);
     });
@@ -53,4 +53,4 @@ async function register(username, password) {
   });
 }
 
-module.exports = { register, login };
+module.exports = { register, login, verifyToken };

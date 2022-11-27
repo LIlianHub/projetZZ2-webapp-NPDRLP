@@ -25,6 +25,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ToastModule } from 'primeng/toast';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RechercheParoleComponent } from './recherche-parole/recherche-parole.component';
@@ -60,6 +62,8 @@ import { RechercheParoleComponent } from './recherche-parole/recherche-parole.co
     MessagesModule,
     MessageModule,
     BrowserAnimationsModule,
+    ConfirmPopupModule,
+    ToastModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],

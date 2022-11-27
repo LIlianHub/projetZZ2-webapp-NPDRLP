@@ -60,3 +60,5 @@ function insertUser(username, pswd) {
 }
 
 module.exports = { getUserInfo, insertUser, alreadyUser, connectionDataBase };
+
+//CREATE TABLE MUSIQUE(id INT PRIMARY KEY NOT NULL,artiste VARCHAR(100),musique VARCHAR(100));
