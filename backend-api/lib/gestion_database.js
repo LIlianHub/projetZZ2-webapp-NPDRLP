@@ -171,7 +171,7 @@ async function getmusicFromFolderNum(nbFolder) {
   });
 }
 
-getUserFoldersAndMusics("test");
+//getUserFoldersAndMusics("test");
 
 module.exports = {
   getUserInfo,
