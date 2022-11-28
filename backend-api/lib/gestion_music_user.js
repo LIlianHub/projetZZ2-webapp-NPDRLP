@@ -39,7 +39,7 @@ async function addMusicInFolderUser(folder, title, artist, token) {
     try {
       let user = await gestion_user.verifyToken(token);
       //verifier si personne a le droit
-      gestion_database.insertMusicIntoFolder(idmusic, artist, title, folder);
+      gestion_database.insertMusicIntoFolder(98, artist, title, folder);
       resolve("Musique bien ajoutée");
     } catch (err) {
       reject(err);
