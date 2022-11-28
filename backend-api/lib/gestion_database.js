@@ -68,13 +68,23 @@ function addFolder(foldername, username) {
   });
 }
 
-function deleteFolder(foldername, username) {
+function deleteFolder(idfolder) {
   var sql =
-    'INSERT INTO folder VALUES ("' + foldername + '","' + username + '")';
+    'DELETE FROM folder WHERE idFOLDER = "'+idfolder+'" ';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
 }
+
+function deleteMusicFromFolder(idMusic,idfolder) {
+  var sql =
+    'DELETE FROM musicsinfolder WHERE idFolder = '+idfolder+' and idMusics ='+idMusic+'';
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+  });
+}
+
+
 
 function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
   var sql =
@@ -171,7 +181,7 @@ async function getmusicFromFolderNum(nbFolder) {
   });
 }
 
-//getUserFoldersAndMusics("test");
+deleteFolder(4);
 
 module.exports = {
   getUserInfo,
