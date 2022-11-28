@@ -76,6 +76,7 @@ function deleteFolder(idfolder) {
   });
 }
 
+//ok en cascade
 function deleteMusicFromFolder(idMusic, idfolder) {
   var sql =
     "DELETE FROM musicsinfolder WHERE idFolder = " +
@@ -88,22 +89,79 @@ function deleteMusicFromFolder(idMusic, idfolder) {
   });
 }
 
-//modif --> vois si pas existant dans musique puis ajouter dans music in folder attention 2 rrequette sql a faire
-function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
+ async function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
+
+  let inMus = await alreadyInMusics(idMusic);
+  let inFol = await alreadyInFolder(idMusic,idFolder);
+
+  if(inMus){
+    console.log("jinsere une musique");
+    insertMusic(idMusic,artiste,title);
+  }
+  if(inFol){
+    console.log("jinsere une musique dans un dossier");
+    insertMusInFo(idMusic,idFolder);
+  }
+}
+//ok
+function insertMusic(idMusic,artiste,title){
+
   var sql =
-    'INSERT INTO musics VALUES ("' +
-    idMusic +
-    '","' +
-    artiste +
-    '","' +
-    title +
-    '","' +
-    idFolder +
-    '")';
+  'INSERT INTO musics VALUES ("' + idMusic + '","' + artiste + '","' + title + '")';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
+
 }
+//ok
+function insertMusInFo(idMusic,idFolder){
+
+  var sql =
+  'INSERT INTO musicsinfolder VALUES ("' + idMusic + '","' + idFolder + '")';
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+  });
+  
+}
+
+//ok
+async function alreadyInMusics(idMusic) {
+  return new Promise(async (resolve, reject) => {
+    con.query(
+      'SELECT idmusics FROM musics WHERE idmusics = "' + idMusic + '"',
+      function (err, result, fields) {
+        if (err) {
+          throw err;
+        }
+        if (result[0] == undefined) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }
+    );
+  });
+}
+
+//ok
+async function alreadyInFolder(idMusic, idfolder) {
+  return new Promise(async (resolve, reject) => {
+    con.query(
+      'SELECT idmusics FROM musicsinfolder WHERE idMusics = "' + idMusic + '" and idFolder = "' + idfolder+'"',
+      function (err, result, fields) {
+        if (err) {
+          throw err;
+        }
+        if (result[0] == undefined) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }
+    );
+  });
+}
+
 
 async function getUserFolders(username) {
   return new Promise(async (resolve, reject) => {
