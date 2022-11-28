@@ -5,6 +5,7 @@ var cors = require("cors");
 /*Mes modules*/
 const gestion_api_music = require("./gestion_api_music");
 const gestion_user = require("./gestion_user");
+const gestion_music_user = require("./gestion_music_user");
 
 /*creation app express*/
 const listen = express();
@@ -70,6 +71,16 @@ listen.post("/lyricsGestion/saveLyrics", async (req, res) => {
     }
   } else {
     res.status(400).send("Not enough parameters");
+  }
+});
+
+listen.get("/lyricsGestion/getUserMusicFolder/", async (req, res) => {
+  try {
+    let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
+    let retour = await gestion_music_user.getFoldersUser(user);
+    res.status(200).json(retour);
+  } catch (err) {
+    res.status(400).send(err);
   }
 });
 

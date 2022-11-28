@@ -141,7 +141,6 @@ async function getUserNBFolders(username) {
   });
 }
 
-//trouver solution pour obtenir tous les ids et toutes les chansons
 async function getUserFoldersAndMusics(username) {
   let foldersIDS = await getUserFolders(username);
   console.log(foldersIDS[0]);
