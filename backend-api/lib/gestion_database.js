@@ -17,6 +17,7 @@ async function connectionDataBase() {
     });
   });
 }
+
 async function alreadyUser(username) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -69,21 +70,23 @@ function addFolder(foldername, username) {
 }
 
 function deleteFolder(idfolder) {
-  var sql =
-    'DELETE FROM folder WHERE idFOLDER = "'+idfolder+'" ';
+  var sql = 'DELETE FROM folder WHERE idFOLDER = "' + idfolder + '" ';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
 }
 
-function deleteMusicFromFolder(idMusic,idfolder) {
+function deleteMusicFromFolder(idMusic, idfolder) {
   var sql =
-    'DELETE FROM musicsinfolder WHERE idFolder = '+idfolder+' and idMusics ='+idMusic+'';
+    "DELETE FROM musicsinfolder WHERE idFolder = " +
+    idfolder +
+    " and idMusics =" +
+    idMusic +
+    "";
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
 }
-
 
 //modif --> vois si pas existant dans musique puis ajouter dans music in folder attention 2 rrequette sql a faire
 function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
@@ -103,23 +106,20 @@ function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
 }
 
 async function getUserFolders(username) {
-  let nb = await getUserNBFolders(username);
-
   return new Promise(async (resolve, reject) => {
+    let nb = await getUserNBFolders(username);
     let folderTab = [];
-    console.log("here");
     con.query(
       'SELECT  idFOLDER ,FOLDERname FROM folder WHERE USERNAME = "' +
         username +
         '"',
       function (err, result, fields) {
-        if (err) reject(err);
+        if (err) throw err;
         for (let i = 0; i < nb; i++) {
           folderTab[i + 1] = result[i].idFOLDER;
           folderTab[nb + i + 1] = result[i].FOLDERname;
         }
         folderTab[0] = nb;
-        console.log(result);
         resolve(folderTab);
       }
     );
@@ -131,10 +131,7 @@ async function getUserNBFolders(username) {
     con.query(
       'SELECT count(*) nb FROM folder WHERE USERNAME = "' + username + '"',
       function (err, result, fields) {
-        //console.log(result[1].idFOLDER);
-        if (err) reject(err);
-
-        console.log(result[0].nb);
+        if (err) throw err;
         resolve(result[0].nb);
       }
     );
@@ -142,38 +139,37 @@ async function getUserNBFolders(username) {
 }
 
 async function getUserFoldersAndMusics(username) {
-  let foldersIDS = await getUserFolders(username);
-  console.log(foldersIDS[0]);
-  console.log(foldersIDS);
-  let dossier = [];
-  let temp = [];
-  let temp_format = [];
-
   return new Promise(async (resolve, reject) => {
+    let foldersIDS = await getUserFolders(username);
+    let dossier = [];
+    let temp = [];
+    let temp_format = [];
     for (let j = 1; j <= foldersIDS[0]; j++) {
       temp = await getmusicFromFolderNum(foldersIDS[j]);
       temp_format = [];
       for (let i = 0; i < temp.length; i++) {
-        temp_format.push({ label: temp[i].title + " - " + temp[i].artist , routerLink: "/paroles/"+temp[i].artist+"/"+temp[i].title+"/1"});
+        temp_format.push({
+          label: temp[i].title + " - " + temp[i].artist,
+          routerLink: "/paroles/" + temp[i].artist + "/" + temp[i].title + "/1",
+        });
       }
-      dossier.push({ label: foldersIDS[foldersIDS[0] + j], items: temp_format });
+      dossier.push({
+        label: foldersIDS[foldersIDS[0] + j],
+        items: temp_format,
+      });
     }
-    console.log(dossier[0]);
     resolve(dossier);
   });
 }
 
 async function getmusicFromFolderNum(nbFolder) {
   return new Promise(async (resolve, reject) => {
-    console.log(nbFolder);
     con.query(
       'SELECT artist, title FROM musics m, musicsinfolder mf WHERE mf.idFolder = "' +
         nbFolder +
         '" AND m.idMusics = mf.idmusics',
       function (err, result, fields) {
-        if (err) reject(err);
-
-        console.log(result);
+        if (err) throw err;
         resolve(result);
       }
     );
@@ -189,5 +185,3 @@ module.exports = {
   insertMusicIntoFolder,
   addFolder,
 };
-
-//CREATE TABLE MUSIQUE(id INT PRIMARY KEY NOT NULL,artiste VARCHAR(100),musique VARCHAR(100));
