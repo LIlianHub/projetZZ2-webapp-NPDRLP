@@ -98,9 +98,10 @@ export class ParoleComponent implements OnInit {
 
   saveSong() {
     this.paroleService
-      .saveParole(
+      .saveMusicInFolder(
         this.route.snapshot.params['artiste'],
-        this.route.snapshot.params['musique']
+        this.route.snapshot.params['musique'],
+        1
       )
       .subscribe(
         (reponse) => {

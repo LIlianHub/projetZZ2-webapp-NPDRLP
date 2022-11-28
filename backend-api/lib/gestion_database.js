@@ -242,4 +242,6 @@ module.exports = {
   getUserFoldersAndMusics,
   insertMusicIntoFolder,
   addFolder,
+  deleteFolder,
+  deleteMusicFromFolder,
 };

@@ -59,12 +59,15 @@ listen.get(
   }
 );
 
-listen.post("/lyricsGestion/saveLyrics", async (req, res) => {
-  if (req.body.artiste && req.body.musique) {
+listen.post("/lyricsGestion/deleteUserMusicFolder", async (req, res) => {
+  if (req.body.folder) {
     try {
-      let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
+      let retour = gestion_music_user.deleteFolderUser(
+        req.body.folder,
+        req.headers["x-access-token"]
+      );
       res.status(200).json({
-        message: user,
+        message: retour,
       });
     } catch (err) {
       res.status(400).send(err);
@@ -74,7 +77,64 @@ listen.post("/lyricsGestion/saveLyrics", async (req, res) => {
   }
 });
 
-listen.get("/lyricsGestion/getUserMusicFolder/", async (req, res) => {
+listen.post("/lyricsGestion/addUserMusicFolder", async (req, res) => {
+  if (req.body.folder) {
+    try {
+      let retour = gestion_music_user.addFolderUser(
+        req.body.folder,
+        req.headers["x-access-token"]
+      );
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
+  }
+});
+
+listen.post("/lyricsGestion/addUserMusicInFolder", async (req, res) => {
+  if (req.body.folder && req.body.title && req.body.artist) {
+    try {
+      let retour = gestion_music_user.addMusicInFolderUser(
+        req.body.folder,
+        req.body.title,
+        req.body.artist,
+        req.headers["x-access-token"]
+      );
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
+  }
+});
+
+listen.post("/lyricsGestion/deleteUserMusicInFolder", async (req, res) => {
+  if (req.body.idfolder && req.body.idmusic) {
+    try {
+      let retour = gestion_music_user.deleteMusicInFolderUser(
+        req.body.idfolder,
+        req.body.idmusic,
+        req.headers["x-access-token"]
+      );
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
+  }
+});
+
+listen.get("/lyricsGestion/getUserMusicFolder", async (req, res) => {
   try {
     let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
     let retour = await gestion_music_user.getFoldersUser(user);
