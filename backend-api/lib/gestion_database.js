@@ -85,7 +85,7 @@ function deleteMusicFromFolder(idMusic,idfolder) {
 }
 
 
-
+//modif --> vois si pas existant dans musique puis ajouter dans music in folder attention 2 rrequette sql a faire
 function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
   var sql =
     'INSERT INTO musics VALUES ("' +
@@ -154,7 +154,7 @@ async function getUserFoldersAndMusics(username) {
       temp = await getmusicFromFolderNum(foldersIDS[j]);
       temp_format = [];
       for (let i = 0; i < temp.length; i++) {
-        temp_format.push({ label: temp[i].title + " - " + temp[i].artist , routerLink: "/paroles/"+temp[i].artist+"/"+temp[i].title+"/0"});
+        temp_format.push({ label: temp[i].title + " - " + temp[i].artist , routerLink: "/paroles/"+temp[i].artist+"/"+temp[i].title+"/1"});
       }
       dossier.push({ label: foldersIDS[foldersIDS[0] + j], items: temp_format });
     }
@@ -179,8 +179,6 @@ async function getmusicFromFolderNum(nbFolder) {
     );
   });
 }
-
-deleteFolder(4);
 
 module.exports = {
   getUserInfo,
