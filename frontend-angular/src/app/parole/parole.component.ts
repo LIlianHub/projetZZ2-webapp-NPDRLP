@@ -105,6 +105,7 @@ export class ParoleComponent implements OnInit {
       )
       .subscribe(
         (reponse) => {
+          console.log(reponse);
           this.messageService.add({
             severity: 'success',
             summary: 'Succes',
