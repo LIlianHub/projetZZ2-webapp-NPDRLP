@@ -8,7 +8,3 @@
 # Etape 2: Configuration de la base de donnée:
 
 - Executer le script **setup.js**: `node setup.js`
-
-# Credit
-
-Utilisation de l'outil en ligne [wtools.io](https://wtools.io/generate-sql-create-table) pour générer les commandes de création de table
