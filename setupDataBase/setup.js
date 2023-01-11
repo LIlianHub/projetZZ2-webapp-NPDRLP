@@ -11,6 +11,7 @@ CREATE TABLE `USER` (
 
 CREATE TABLE `FOLDER` (
 	`idFolder` int NOT NULL AUTO_INCREMENT,
+  `folderName` VARCHAR(128) NOT NULL,
 	`idUser` VARCHAR(512) NOT NULL,
 	PRIMARY KEY (`idFolder`),
     FOREIGN KEY (`idUser`) REFERENCES USER(`username`)
@@ -75,7 +76,7 @@ async function addUserTable() {
 async function addFolderTable() {
   return new Promise(async (resolve, reject) => {
     con.query(
-      "CREATE TABLE `FOLDER` ( `idFolder` int NOT NULL AUTO_INCREMENT, `idUser` VARCHAR(512) NOT NULL, PRIMARY KEY (`idFolder`), FOREIGN KEY (`idUser`) REFERENCES USER(`username`) );",
+      "CREATE TABLE `FOLDER` ( `idFolder` int NOT NULL AUTO_INCREMENT, `folderName` VARCHAR(128) NOT NULL, `idUser` VARCHAR(512) NOT NULL, PRIMARY KEY (`idFolder`), FOREIGN KEY (`idUser`) REFERENCES USER(`username`) );",
       function (err, result) {
         if (err) reject(err);
         resolve("Table FOLDER créée");

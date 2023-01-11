@@ -6,7 +6,7 @@ var con = mysql.createConnection({
   user: "root",
   //password: fs.readFileSync("./data/data-base", "utf8"),
   password: "rootsqlpsw",
-  database: "mydb",
+  database: "npdrlp",
 });
 
 async function connectionDataBase() {
@@ -61,16 +61,22 @@ function insertUser(username, pswd) {
   });
 }
 
-function addFolder(foldername, username) {
+function addFolder(folderId, folderName, username) {
   var sql =
-    'INSERT INTO folder VALUES ("' + foldername + '","' + username + '")';
+    'INSERT INTO FOLDER VALUES ("' +
+    folderId +
+    '","' +
+    folderName +
+    '","' +
+    username +
+    '")';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
 }
 
 function deleteFolder(idfolder) {
-  var sql = 'DELETE FROM folder WHERE idFOLDER = "' + idfolder + '" ';
+  var sql = 'DELETE FROM FOLDER WHERE idFolder = "' + idfolder + '" ';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
@@ -79,9 +85,9 @@ function deleteFolder(idfolder) {
 //ok en cascade
 function deleteMusicFromFolder(idMusic, idfolder) {
   var sql =
-    "DELETE FROM musicsinfolder WHERE idFolder = " +
+    "DELETE FROM MUSIC_IN_FOLDER WHERE idFolder = " +
     idfolder +
-    " and idMusics =" +
+    " and idMusic =" +
     idMusic +
     "";
   con.query(sql, function (err, result) {
@@ -89,46 +95,51 @@ function deleteMusicFromFolder(idMusic, idfolder) {
   });
 }
 
- async function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
-
+async function insertMusicIntoFolder(idMusic, artiste, title, idFolder) {
   let inMus = await alreadyInMusics(idMusic);
-  let inFol = await alreadyInFolder(idMusic,idFolder);
+  let inFol = await alreadyInFolder(idMusic, idFolder);
 
-  if(inMus){
+  if (inMus) {
     console.log("jinsere une musique");
-    insertMusic(idMusic,artiste,title);
+    insertMusic(idMusic, artiste, title);
   }
-  if(inFol){
+  if (inFol) {
     console.log("jinsere une musique dans un dossier");
-    insertMusInFo(idMusic,idFolder);
+    insertMusInFo(idMusic, idFolder);
   }
 }
 //ok
-function insertMusic(idMusic,artiste,title){
-
+function insertMusic(idMusic, artiste, title) {
   var sql =
-  'INSERT INTO musics VALUES ("' + idMusic + '","' + artiste + '","' + title + '")';
+    'INSERT INTO MUSIC VALUES ("' +
+    idMusic +
+    '","' +
+    artiste +
+    '","' +
+    title +
+    '")';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
-
 }
 //ok
-function insertMusInFo(idMusic,idFolder){
-
+function insertMusInFo(idMusic, idFolder) {
   var sql =
-  'INSERT INTO musicsinfolder VALUES ("' + idMusic + '","' + idFolder + '")';
+    'INSERT INTO MUSIC_IN_FOLDER VALUES ("' + idMusic + '","' + idFolder + '")';
   con.query(sql, function (err, result) {
     if (err) throw err;
   });
-  
 }
 
 //ok
-async function alreadyInMusics(idMusic) {
+async function alreadyInMusics(musicName, musicArtist) {
   return new Promise(async (resolve, reject) => {
     con.query(
-      'SELECT idmusics FROM musics WHERE idmusics = "' + idMusic + '"',
+      'SELECT idMusic FROM MUSIC WHERE musicName = "' +
+        musicName +
+        '" AND artist = "' +
+        musicArtist +
+        '"',
       function (err, result, fields) {
         if (err) {
           throw err;
@@ -147,11 +158,12 @@ async function alreadyInMusics(idMusic) {
 async function alreadyInFolder(idMusic, idfolder) {
   return new Promise(async (resolve, reject) => {
     con.query(
-      'SELECT idmusics FROM musicsinfolder WHERE idMusics = "' + idMusic + '" and idFolder = "' + idfolder+'"',
+      "SELECT idMusic FROM MUSIC_IN_FOLDER WHERE idMusic = " +
+        idMusic +
+        " AND idFolder = " +
+        idfolder +
+        "",
       function (err, result, fields) {
-        if (err) {
-          throw err;
-        }
         if (result[0] == undefined) {
           resolve(true);
         } else {
@@ -162,13 +174,12 @@ async function alreadyInFolder(idMusic, idfolder) {
   });
 }
 
-
 async function getUserFolders(username) {
   return new Promise(async (resolve, reject) => {
     let nb = await getUserNBFolders(username);
     let folderTab = [];
     con.query(
-      'SELECT  idFOLDER ,FOLDERname FROM folder WHERE USERNAME = "' +
+      'SELECT idFolder, folderName FROM FOLDER WHERE idUser = "' +
         username +
         '"',
       function (err, result, fields) {
@@ -187,7 +198,7 @@ async function getUserFolders(username) {
 async function getUserNBFolders(username) {
   return new Promise(async (resolve, reject) => {
     con.query(
-      'SELECT count(*) nb FROM folder WHERE USERNAME = "' + username + '"',
+      'SELECT count(*) nb FROM folder WHERE idUser = "' + username + '"',
       function (err, result, fields) {
         if (err) throw err;
         resolve(result[0].nb);
@@ -220,12 +231,12 @@ async function getUserFoldersAndMusics(username) {
   });
 }
 
-async function getmusicFromFolderNum(nbFolder) {
+async function getmusicFromFolderNum(idFolder) {
   return new Promise(async (resolve, reject) => {
     con.query(
-      'SELECT artist, title FROM musics m, musicsinfolder mf WHERE mf.idFolder = "' +
-        nbFolder +
-        '" AND m.idMusics = mf.idmusics',
+      'SELECT artist, musicName FROM MUSIC m, MUSIC_IN_FOLDER mf WHERE mf.idFolder = "' +
+        idFolder +
+        '" AND m.idMusic = mf.idMusic',
       function (err, result, fields) {
         if (err) throw err;
         resolve(result);
