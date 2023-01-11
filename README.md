@@ -25,6 +25,7 @@ Création d'un site Web afin de s'entrainer à la célèbre émission "Noubliez 
 * Web Scraping
 * Développement avec framework
 * Notion backend et frontend
+* Notion de base de données
 
 # Crédits
 
