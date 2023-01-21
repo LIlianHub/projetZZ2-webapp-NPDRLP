@@ -1,7 +1,6 @@
 export interface ApiMenuItem {
     label: string;
     id: number;
-    commandId: string;
 }
 
 

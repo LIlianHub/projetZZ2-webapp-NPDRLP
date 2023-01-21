@@ -235,7 +235,6 @@ async function getFolderForAddMusique(username) {
       formetted.push({
         id: foldersInfo.folders[i].id,
         label: foldersInfo.folders[i].name,
-        commandId: 'save'
       });
     }
     resolve({ label: "Ajouter à un dossier", items: formetted });
