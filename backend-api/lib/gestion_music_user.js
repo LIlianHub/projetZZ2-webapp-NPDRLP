@@ -1,17 +1,21 @@
 const gestion_database = require("./gestion_database");
 const gestion_user = require("./gestion_user");
 
+
+// Fonction qui recupere les dossiers d'un utilisateur
+// Avec les musiques dedans
 async function getFoldersUser(username) {
   return new Promise(async (resolve, reject) => {
     resolve(await gestion_database.getUserFoldersAndMusics(username));
   });
 }
 
+// Fonction qui supprime le dossier d'un utilisateur
 async function deleteFolderUser(folder, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      //verifier si personne a le droit
+      gestion_database.verifFolderUser(user, folder);
       gestion_database.deleteFolder(folder);
       resolve(retour);
     } catch (err) {
@@ -20,11 +24,12 @@ async function deleteFolderUser(folder, token) {
   });
 }
 
+// Fonction qui ajoute un dossier à un utilisateur
 async function addFolderUser(folder, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      //verifier si personne a le droit
+      gestion_database.verifFolderUser(user, folder);
       gestion_database.addFolder(folder);
       resolve(retour);
     } catch (err) {
@@ -33,12 +38,12 @@ async function addFolderUser(folder, token) {
   });
 }
 
-//penser a trouver comment gerer idmusic
+// Fonction qui ajoute une musique dans un dossier d'un utilisateur
 async function addMusicInFolderUser(folder, title, artist, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      //verifier si personne a le droit
+      gestion_database.verifFolderUser(user, folder);
       gestion_database.insertMusicIntoFolder(artist, title, folder);
       resolve("Musique bien ajoutée");
     } catch (err) {
@@ -47,11 +52,12 @@ async function addMusicInFolderUser(folder, title, artist, token) {
   });
 }
 
+// Fonction qui supprime une musique dans un dossier d'un utilisateur
 async function deleteMusicInFolderUser(idFolder, idMusic, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      //verifier si personne a le droit
+      gestion_database.verifFolderUser(user, folder);
       gestion_database.deleteMusicFromFolder(idMusic, idFolder);
       resolve(retour);
     } catch (err) {
@@ -60,6 +66,7 @@ async function deleteMusicInFolderUser(idFolder, idMusic, token) {
   });
 }
 
+// Fonction qui recupere les dossiers d'un utilisateur pour ajouter une musique
 async function folderMenuForAddMusic(user) {
   return new Promise(async (resolve, reject) => {
     try {

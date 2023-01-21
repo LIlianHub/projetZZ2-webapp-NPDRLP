@@ -6,10 +6,12 @@ const fs = require("fs");
 // en general pour le lire au démarage du serveur
 const encodedToken = fs.readFileSync("./data/encoded-token", "utf8");
 
+
+// Login d'un user
 async function login(username, password) {
   return new Promise(async (resolve, reject) => {
-    let test = await gestion_database.alreadyUser(username);
-    if (test) {
+    let alreadyExist = await gestion_database.alreadyUser(username);
+    if (!alreadyExist) {
       reject("Username inconnu !");
     } else {
       let user = await gestion_database.getUserInfo(username);
@@ -23,8 +25,8 @@ async function login(username, password) {
   });
 }
 
-//let token = req.headers["x-access-token"];
 
+// Vérification du token
 async function verifyToken(token) {
   return new Promise((resolve, reject) => {
     if (!token) {
@@ -40,10 +42,11 @@ async function verifyToken(token) {
   });
 }
 
+// Enregistrement d'un user
 async function register(username, password) {
   return new Promise(async (resolve, reject) => {
-    let test = await gestion_database.alreadyUser(username);
-    if (!test) {
+    let alreadyExist = await gestion_database.alreadyUser(username);
+    if (alreadyExist) {
       reject("Username déjà utilisé !");
     } else {
       let hashedPassword = bcrypt.hashSync(password, 8);

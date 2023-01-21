@@ -1,9 +1,7 @@
 const mysql = require("mysql");
 const fs = require("fs");
 
-
-// Connection à la base de données
-
+// en general pour le lire au démarage du serveur
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -12,6 +10,7 @@ var con = mysql.createConnection({
   database: "npdrlp",
 });
 
+// connection a la base de données
 async function connectionDataBase() {
   return new Promise(async (resolve, reject) => {
     con.connect(function (err) {
@@ -21,6 +20,7 @@ async function connectionDataBase() {
   });
 }
 
+// deconnection de la base de données
 async function deconnectionDataBase() {
   return new Promise(async (resolve, reject) => {
     con.end(function (err) {
@@ -32,7 +32,9 @@ async function deconnectionDataBase() {
 }
 
 
-
+// verifie si l'id utilisateur entrée existe dans la base de données
+// renvoie true si l'utilisateur existe
+// renvoie false si l'utilisateur n'existe pas
 async function alreadyUser(username) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -42,15 +44,19 @@ async function alreadyUser(username) {
           throw err;
         }
         if (result[0] == undefined) {
-          resolve(true);
-        } else {
           resolve(false);
+        } else {
+          resolve(true);
         }
       }
     );
   });
 }
 
+
+// recupere les informations d'un utilisateur
+// renvoie un objet avec les informations de l'utilisateur
+// {username: "username", password: "password"}
 async function getUserInfo(username) {
   return new Promise(async (resolve, reject) => {
     let userInfo = {
@@ -69,6 +75,8 @@ async function getUserInfo(username) {
   });
 }
 
+// ajoute un utilisateur dans la base de données
+// en asynchrone
 function insertUser(username, pswd) {
   var sql = 'INSERT INTO USER VALUES ("' + username + '","' + pswd + '")';
   con.query(sql, function (err, result) {
@@ -76,7 +84,8 @@ function insertUser(username, pswd) {
   });
 }
 
-// ok avec auto increment
+/// ajoute un dossier dans la base de données
+// en asynchrone
 function addFolder(folderName, username) {
   var sql =
     'INSERT INTO FOLDER (folderName, idUser) VALUES ("' +
@@ -90,7 +99,8 @@ function addFolder(folderName, username) {
 }
 
 
-// ok
+// supprime un dossier de la base de données
+// en asynchrone
 function deleteFolder(idfolder) {
   var sql = 'DELETE FROM FOLDER WHERE idFolder = "' + idfolder + '" ';
   con.query(sql, function (err, result) {
@@ -99,8 +109,8 @@ function deleteFolder(idfolder) {
 }
 
 
-
-//ok en cascade
+// supprime une musique d'un dossier de la base de données
+// en asynchrone
 function deleteMusicFromFolder(idMusic, idfolder) {
   var sql =
     "DELETE FROM MUSIC_IN_FOLDER WHERE idFolder = " +
@@ -114,12 +124,16 @@ function deleteMusicFromFolder(idMusic, idfolder) {
 }
 
 
-// MASTERCLASS
+// ajoute une musique d'un dossier de la base de données
+// Verifie si la musique existe deja dans le dossier et dans la base de données
+// utilise alreadyInMusics et alreadyInFolder
+// utilise insertMusicInFolderWithId, insertMusicInFolderWithId et insertMusic
+// en asynchrone
 async function insertMusicIntoFolder(artiste, title, idFolder) {
   // on verifie qu'on a deja la musique
   let inMus = await alreadyInMusics(title, artiste);
 
-  // si non on l'insere dans music et le folde du user
+  // si non on l'insere dans music et le folder du user
   if (inMus == null) {
     console.log("jinsere une musique dans music et folder");
     insertMusic(artiste, title);
@@ -131,7 +145,7 @@ async function insertMusicIntoFolder(artiste, title, idFolder) {
   else {
     let inFol = await alreadyInFolder(inMus, idFolder);
     // si non on l'insere dans le folder
-    if (inFol) {
+    if (!inFol) {
       console.log("jinsere une musique dans un dossier");
       insertMusicInFolderWithId(inMus, idFolder);
     }
@@ -139,7 +153,8 @@ async function insertMusicIntoFolder(artiste, title, idFolder) {
 }
 
 
-// ok avec auto increment
+// ajoute une musique dans la base de données
+// en asynchrone
 function insertMusic(artiste, title) {
   var sql =
     'INSERT INTO MUSIC (artist, musicName) VALUES ("' +
@@ -153,8 +168,8 @@ function insertMusic(artiste, title) {
 }
 
 
-
-//masterclass
+// ajoute une musique dans un dossier de la base de données
+// en asynchrone
 function insertMusicInFolderWithId(idMusic, idFolder) {
   var sql =
     'INSERT INTO MUSIC_IN_FOLDER VALUES ("' + idMusic + '","' + idFolder + '")';
@@ -163,7 +178,9 @@ function insertMusicInFolderWithId(idMusic, idFolder) {
   });
 }
 
-//ok marche bien (soit null soit l'id de la musique)
+// Verifie si la musique est deja ou non dans la base de données
+// Si oui, renvoie l'id de la musique
+// sinon renvoie null
 async function alreadyInMusics(musicName, musicArtist) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -186,7 +203,9 @@ async function alreadyInMusics(musicName, musicArtist) {
   });
 }
 
-//ok marche bien + MASTERCLASS
+// Verifie si la musique est deja ou non dans le dossier
+// Si oui, renvoie true
+// sinon renvoie false
 async function alreadyInFolder(idMusic, idfolder) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -197,16 +216,16 @@ async function alreadyInFolder(idMusic, idfolder) {
       "",
       function (err, result, fields) {
         if (result[0] == undefined) {
-          resolve(true);
-        } else {
           resolve(false);
+        } else {
+          resolve(true);
         }
       }
     );
   });
 }
 
-// magnifique
+// renvoie les dossier d'un utilisateur
 async function getUserFolders(username) {
   return new Promise(async (resolve, reject) => {
     let nb = await getUserNBFolders(username);
@@ -226,7 +245,7 @@ async function getUserFolders(username) {
   });
 }
 
-// a tester
+// kesako ? a voir avec etienne /!\ a voir avec etienne
 async function getFolderForAddMusique(username) {
   return new Promise(async (resolve, reject) => {
     let foldersInfo = await getUserFolders(username);
@@ -242,7 +261,7 @@ async function getFolderForAddMusique(username) {
 }
 
 
-// ok marche bien
+// vraiment utile ? /!\ a voir avec etienne
 async function getUserNBFolders(username) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -255,7 +274,7 @@ async function getUserNBFolders(username) {
   });
 }
 
-//trop fort
+// renvoie les dossier d'un utilisateur avec toutes les musiques de chaque dossier
 async function getUserFoldersAndMusics(username) {
   return new Promise(async (resolve, reject) => {
     let foldersInfo = await getUserFolders(username);
@@ -284,7 +303,8 @@ async function getUserFoldersAndMusics(username) {
   });
 }
 
-// impec
+
+// Recupere toutes les musiques d'un folder avec son id
 async function getmusicFromFolderId(idFolder) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -299,12 +319,28 @@ async function getmusicFromFolderId(idFolder) {
   });
 }
 
+// Verifie si un folder appartient bien a un utilisateur
+async function verifFolderUser(username, idFolder) {
+  return new Promise(async (resolve, reject) => {
+    con.query(
+      'SELECT idUser FROM FOLDER WHERE idUser = "' + username + '" AND idFolder = "' + idFolder + '"',
+      function (err, result, fields) {
+        if (err) {
+          throw err;
+        }
+        if (result[0] == undefined) {
+          reject("Ce dossier ne vous appartient pas !");
+        } else {
+          resolve(true);
+        }
+      }
+    );
+  });
+}
+
 /*async function test() {
   await connectionDataBase();
-  let test = await getUserFoldersAndMusics("blbl");
-  console.log(test);
-  console.log(test.allInfo[0]);
-  console.log(test.menu[0]);
+  console.log(await verifFolderUser("liballejos", 2));
   await deconnectionDataBase();
 }
 
@@ -322,4 +358,5 @@ module.exports = {
   deleteFolder,
   deleteMusicFromFolder,
   getFolderForAddMusique,
+  verifFolderUser
 };

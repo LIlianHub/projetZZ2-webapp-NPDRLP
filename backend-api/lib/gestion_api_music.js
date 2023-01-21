@@ -5,14 +5,25 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 const { join } = require("path");
 
+
+// URL utile pour la recherche de musique
 const searchUrl = "http://api.genius.com/search?q=";
 const geniousURL = "http://genius.com";
 
+
+// Liste des caractères à supprimer
 const banChar = [",", ")", "(", "!", "?", "-", "<br>", "", ":", '"', "'"];
 
-async function SearchMusicInfo(singer, title) {
-  const token = fs.readFileSync("./data/token-genius", "utf8");
+// Token d'authentification pour l'API de Genius: en général pour le
+// lire au démarage du serveur une seule fois
+const token = fs.readFileSync("./data/token-genius", "utf8");
 
+
+// Fonction qui permet de récupérer les informations d'une musique via
+// l'API de Genius
+async function SearchMusicInfo(singer, title) {
+
+  // Création de l'objet options pour la requête
   const options = {
     method: "GET",
     url: searchUrl + singer + " " + title,
@@ -31,6 +42,7 @@ async function SearchMusicInfo(singer, title) {
           title: response.data.response.hits[0].result.full_title,
           artist: response.data.response.hits[0].result.artist_names,
         });
+        // Recuperation du premier résultat de l'API: résultat le plus pertinent
       })
       .catch(function (error) {
         reject(error);
@@ -38,6 +50,8 @@ async function SearchMusicInfo(singer, title) {
   });
 }
 
+// Formate le code HTML de la page de la musique pour récupérer uniquement
+// les paroles
 function formateLyrics(codeHtml) {
   const $ = cheerio.load(codeHtml);
   let lyrics = "";
@@ -59,6 +73,9 @@ function formateLyrics(codeHtml) {
   return formated;
 }
 
+// Récupère les paroles de la musique
+// sur la page de la musique sur Genious
+// Webscarping
 async function GetLyricsByPath(path) {
   return new Promise((resolve, reject) => {
     got(geniousURL + path)
@@ -71,6 +88,8 @@ async function GetLyricsByPath(path) {
   });
 }
 
+// Fonction qui permet de récupérer les paroles d'une musique
+// en utilisant les fonctions précédentes
 async function GetLyrics(singer, title) {
   return new Promise(async (resolve, reject) => {
     try {
@@ -83,6 +102,7 @@ async function GetLyrics(singer, title) {
   });
 }
 
+// Fonction qui permet de placer des trous dans les paroles
 function placeHoles(difficulty, lyrics) {
   let tab;
 
@@ -109,6 +129,8 @@ function placeHoles(difficulty, lyrics) {
   return tab;
 }
 
+// Fonction qui permet de placer des trous dans les paroles
+// en fonction de la difficulté
 function placeHolesDiffficultyRandom(lyrics, random, withHint) {
   const splitLyrics = lyrics.split(" ");
   let motDisparu = [];
@@ -153,6 +175,8 @@ function placeHolesDiffficultyRandom(lyrics, random, withHint) {
   return [motDisparu, html, nbmotenmoins];
 }
 
+// Fonction qui permet de récupérer les paroles d'une musique
+// en utilisant les fonctions précédentes et d'y placer des trous
 async function GetLyricsWithHole(singer, title, difficulty) {
   return new Promise(async (resolve, reject) => {
     try {
