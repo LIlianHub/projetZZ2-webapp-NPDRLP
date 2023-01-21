@@ -63,7 +63,7 @@ export class MusicFolderComponent implements OnInit {
         for (let i = 0; i < reponse.items.length; i++) {
           menu.push({
             label: reponse.items[i].label,
-            command: () => this.confirmSave(reponse.items[i].id),
+            command: (event : Event) => this.confirmSave(event, reponse.items[i].id),
           });
         }
 
@@ -87,9 +87,10 @@ export class MusicFolderComponent implements OnInit {
 
   //fonction lier a sauvegarde de musique dans dossier
 
-  confirmSave(idFolder: number) {
+  confirmSave(event : Event, idFolder: number) {
     console.log(idFolder);
     this.confirmationService.confirm({
+      target: event.target as Element,
       message: 'Voulez-vous enregistrer cette musique dans votre dossier ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
