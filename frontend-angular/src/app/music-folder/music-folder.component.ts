@@ -74,8 +74,6 @@ export class MusicFolderComponent implements OnInit {
         });
         this.dossier = bigMenu;
         this.loading = false;
-        console.log(this.dossier);
-        console.log(bigMenu);
 
       },
       (erreur) => {
@@ -88,7 +86,7 @@ export class MusicFolderComponent implements OnInit {
   //fonction lier a sauvegarde de musique dans dossier
 
   confirmSave(event : Event, idFolder: number) {
-    console.log(idFolder);
+    console.log(event);
     this.confirmationService.confirm({
       target: event.target as Element,
       message: 'Voulez-vous enregistrer cette musique dans votre dossier ?',

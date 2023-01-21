@@ -98,7 +98,7 @@ listen.post("/lyricsGestion/addUserMusicFolder", async (req, res) => {
 listen.post("/lyricsGestion/addUserMusicInFolder", async (req, res) => {
   if (req.body.folder && req.body.title && req.body.artist) {
     try {
-      let retour = gestion_music_user.addMusicInFolderUser(
+      let retour = await gestion_music_user.addMusicInFolderUser(
         req.body.folder,
         req.body.title,
         req.body.artist,
