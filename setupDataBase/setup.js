@@ -28,8 +28,8 @@ CREATE TABLE `MUSIC_IN_FOLDER` (
 	`idMusic` int NOT NULL,
 	`idFolder` int NOT NULL,
 	PRIMARY KEY (`idMusic`,`idFolder`),
-    FOREIGN KEY (`idMusic`) REFERENCES MUSIC(`idMusic`),
-    FOREIGN KEY (`idFolder`) REFERENCES FOLDER(`idFolder`)
+  FOREIGN KEY (`idMusic`) REFERENCES MUSIC(`idMusic`),
+  FOREIGN KEY (`idFolder`) REFERENCES FOLDER(`idFolder`) ON DELETE CASCADE
 );
 */
 
@@ -102,7 +102,7 @@ async function addMusicTable() {
 async function addMusicInFolderTable() {
   return new Promise(async (resolve, reject) => {
     con.query(
-      "CREATE TABLE `MUSIC_IN_FOLDER` ( `idMusic` int NOT NULL, `idFolder` int NOT NULL, PRIMARY KEY (`idMusic`,`idFolder`), FOREIGN KEY (`idMusic`) REFERENCES MUSIC(`idMusic`), FOREIGN KEY (`idFolder`) REFERENCES FOLDER(`idFolder`));",
+      "CREATE TABLE `MUSIC_IN_FOLDER` ( `idMusic` int NOT NULL, `idFolder` int NOT NULL, PRIMARY KEY (`idMusic`,`idFolder`), FOREIGN KEY (`idMusic`) REFERENCES MUSIC(`idMusic`), FOREIGN KEY (`idFolder`) REFERENCES FOLDER(`idFolder`) ON DELETE CASCADE );",
       function (err, result) {
         if (err) reject(err);
         resolve("Table MUSIC_IN_FOLDER créée");
