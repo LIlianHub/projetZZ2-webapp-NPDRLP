@@ -7,10 +7,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
 import { ParoleModele } from '../models/parole.model';
-import { ConfirmationService } from 'primeng/api';
-import { MessageService } from 'primeng/api';
-import { MenuItem } from 'primeng/api';
-import { ApiMenu } from '../models/recepApi.model';
+import { MusicFolderComponent } from '../music-folder/music-folder.component';
 
 
 const functions = {
@@ -28,8 +25,8 @@ const functions = {
   templateUrl: './parole.component.html',
   styleUrls: ['./parole.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  providers: [ConfirmationService, MessageService],
 })
+
 export class ParoleComponent implements OnInit {
   nosParoles!: ParoleModele;
   loading: boolean = true;
@@ -38,28 +35,29 @@ export class ParoleComponent implements OnInit {
   difficulte!: number;
   verifTab: boolean[] = [];
   nbMotJuste: number = 0;
-  dossier!: MenuItem[];
   showDossier: boolean = false;
+  artiste!: string;
+  musique!: string;
 
   constructor(
     private paroleService: ParoleService,
     private route: ActivatedRoute,
     private elRef: ElementRef,
-    private confirmationService: ConfirmationService,
-    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
+    this.difficulte = this.route.snapshot.params['difficulte'];
+    this.artiste = this.route.snapshot.params['artiste'];
+    this.musique = this.route.snapshot.params['musique'];
     this.paroleService
       .getParoleAvecTrou(
-        this.route.snapshot.params['artiste'],
-        this.route.snapshot.params['musique'],
-        this.route.snapshot.params['difficulte']
+        this.artiste,
+        this.musique,
+        this.difficulte
       )
       .subscribe(
         (reponse) => {
           this.nosParoles = reponse;
-          this.difficulte = this.route.snapshot.params['difficulte'];
           this.initialiseTabVerif();
           this.loading = false;
         },
@@ -68,12 +66,6 @@ export class ParoleComponent implements OnInit {
           this.loading = false;
         }
       );
-    this.paroleService.getFolderForAddMusic().subscribe((reponse) => {
-      console.log(reponse);
-      this.buildMenuItems(reponse);
-
-    }
-    );
   }
 
   onSubmit() {
@@ -117,70 +109,8 @@ export class ParoleComponent implements OnInit {
     }
   }
 
-  saveSong() {
-    this.paroleService
-      .saveMusicInFolder(
-        this.route.snapshot.params['artiste'],
-        this.route.snapshot.params['musique'],
-        1
-      )
-      .subscribe(
-        (reponse) => {
-          console.log(reponse);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Succes',
-            detail: reponse.message,
-          });
-        },
-        (erreur) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Erreur',
-            detail: erreur.error,
-          });
-        }
-      );
-  }
-
-  menuFolder(event: Event) {
-    /*this.confirmationService.confirm({
-      target: event.target as Element,
-      message: 'Êtes-vous sûr de vouloir sauvegarder cette chanson ?',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.saveSong();
-      },
-      reject: () => {
-        //reject action
-      },
-    });*/
+  showMenuFolder(event: Event) {
     this.showDossier = !this.showDossier;
-  }
-
-  ajouteMusique(id: number) {
-    console.log(id);
-  }
-
-
-
-  buildMenuItems(dossierRecu: ApiMenu) {
-    let menu: MenuItem[] = [];
-    for (let i = 0; i < dossierRecu.items.length; i++) {
-      menu.push({
-        label: dossierRecu.items[i].label,
-        command: () => console.log("test"),
-      });
-    }
-
-    let bigMenu: MenuItem[] = [];
-    bigMenu.push({
-      label: dossierRecu.label,
-      items: menu
-    })
-
-    this.dossier = bigMenu;
-
   }
 
 }

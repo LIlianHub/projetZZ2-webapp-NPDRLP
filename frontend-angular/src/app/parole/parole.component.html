@@ -1,5 +1,3 @@
-<p-toast></p-toast>
-<p-confirmPopup></p-confirmPopup>
 <app-header></app-header>
 <div class="big-container">
     <div class="loading-class" *ngIf="loading">
@@ -10,9 +8,9 @@
         <div *ngIf="!erreur">
             <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }})</h2>
             <h2>Difficulté niveau {{difficulte}}</h2>
-            <button (click)="menuFolder($event)" pButton icon="pi pi-bookmark" label="Sauvegarder"></button>
+            <button (click)="showMenuFolder($event)" pButton icon="pi pi-bookmark" label="Sauvegarder"></button>
             <div *ngIf="showDossier">
-                <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"></p-panelMenu>
+                <app-music-folder folderType="add" [artiste]="artiste" [musique]="musique"></app-music-folder>
             </div>
             <h2 *ngIf="difficulte > 1"> Mot(s) juste(s): {{ nbMotJuste }} / {{nosParoles.nb_mots_manquant }}</h2>
             <form (ngSubmit)="onSubmit()">

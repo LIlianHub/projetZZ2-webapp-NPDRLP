@@ -1,6 +1,8 @@
+<p-toast></p-toast>
+<p-confirmPopup></p-confirmPopup>
 <app-header></app-header>
 <p>Welcome {{currentUser?.username}}</p>
 <p>Votre token: {{mytoken}}</p>
 <button pButton type="button" label="deconnexion" (click)="logOut()"></button>
-<app-music-folder></app-music-folder>
+<app-music-folder folderType="user"></app-music-folder>
 <app-footer></app-footer>

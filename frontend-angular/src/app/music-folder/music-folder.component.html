@@ -1,6 +1,11 @@
 <h2>Vos Dossiers</h2>
 <div *ngIf="!loading">
-    <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"></p-panelMenu>
+    <div *ngIf="dossier">
+        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"></p-panelMenu>
+    </div>
+    <div *ngIf="!dossier">
+        <p>{{erreurMessage}}</p>>
+    </div>
 </div>
 <div *ngIf="loading">
     <p-progressSpinner></p-progressSpinner>
