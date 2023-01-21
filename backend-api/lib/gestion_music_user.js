@@ -39,7 +39,7 @@ async function addMusicInFolderUser(folder, title, artist, token) {
     try {
       let user = await gestion_user.verifyToken(token);
       //verifier si personne a le droit
-      gestion_database.insertMusicIntoFolder(idmusic, artist, title, folder);
+      gestion_database.insertMusicIntoFolder(artist, title, folder);
       resolve("Musique bien ajoutée");
     } catch (err) {
       reject(err);
@@ -60,16 +60,23 @@ async function deleteMusicInFolderUser(idFolder, idMusic, token) {
   });
 }
 
+async function folderMenuForAddMusic(user) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      resolve(gestion_database.getFolderForAddMusique(user));
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
 module.exports = {
   getFoldersUser,
   deleteFolderUser,
   addFolderUser,
   addMusicInFolderUser,
   deleteMusicInFolderUser,
+  folderMenuForAddMusic,
 };
 
 
-
-/*CREATE TABLE musicsinfolder( idMusic INT NOT NULL, idFolder INT NOT NULL,  FOREIGN KEY (idMusic) REFERENCES musics (idmusics), FOREIGN KEY (idFolder) REFERENCES folder (idFOLDER), PRIMARY KEY (idMusic, idFolder));
-
-CREATE TABLE musics(idmusics INT NOT NULL, artist  varchar(45) NOT NULL, title varchar(45) NOT NULL, PRIMARY KEY (idmusics));*/

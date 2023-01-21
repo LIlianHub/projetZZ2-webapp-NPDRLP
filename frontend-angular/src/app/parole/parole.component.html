@@ -10,7 +10,10 @@
         <div *ngIf="!erreur">
             <h2>{{ nosParoles.musique }} ({{nosParoles.artiste }})</h2>
             <h2>Difficulté niveau {{difficulte}}</h2>
-            <button (click)="confirm($event)" pButton icon="pi pi-bookmark" label="Sauvegarder"></button>
+            <button (click)="menuFolder($event)" pButton icon="pi pi-bookmark" label="Sauvegarder"></button>
+            <div *ngIf="showDossier">
+                <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"></p-panelMenu>
+            </div>
             <h2 *ngIf="difficulte > 1"> Mot(s) juste(s): {{ nbMotJuste }} / {{nosParoles.nb_mots_manquant }}</h2>
             <form (ngSubmit)="onSubmit()">
                 <div [innerHTML]="nosParoles.code_html | safeHtml">

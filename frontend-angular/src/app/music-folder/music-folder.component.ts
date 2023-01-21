@@ -22,6 +22,7 @@ export class MusicFolderComponent implements OnInit {
       (reponse) => {
         this.dossier = reponse;
         this.loading = false;
+        console.log(this.dossier);
       },
       (erreur) => {
         console.log(erreur.error);

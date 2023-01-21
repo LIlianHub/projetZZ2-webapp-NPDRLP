@@ -144,6 +144,19 @@ listen.get("/lyricsGestion/getUserMusicFolder", async (req, res) => {
   }
 });
 
+listen.get("/lyricsGestion/getFolderForAddMusique", async (req, res) => {
+  try {
+    let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
+    let retour = await gestion_music_user.folderMenuForAddMusic(user);
+    res.status(200).send(retour);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+
+
+
 /*Requete user*/
 listen.post("/userGestion/register", async (req, res) => {
   if (req.body.username && req.body.password) {

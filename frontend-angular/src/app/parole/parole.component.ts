@@ -9,6 +9,19 @@ import { ParoleService } from '../services/parole.service';
 import { ParoleModele } from '../models/parole.model';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
+import { ApiMenu } from '../models/recepApi.model';
+
+
+const functions = {
+  save: () => {
+    console.log('Enregistrement...');
+  },
+  delete: () => {
+    console.log('Suppression...');
+  }
+};
+
 
 @Component({
   selector: 'app-parole',
@@ -25,6 +38,8 @@ export class ParoleComponent implements OnInit {
   difficulte!: number;
   verifTab: boolean[] = [];
   nbMotJuste: number = 0;
+  dossier!: MenuItem[];
+  showDossier: boolean = false;
 
   constructor(
     private paroleService: ParoleService,
@@ -32,7 +47,7 @@ export class ParoleComponent implements OnInit {
     private elRef: ElementRef,
     private confirmationService: ConfirmationService,
     private messageService: MessageService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.paroleService
@@ -53,6 +68,12 @@ export class ParoleComponent implements OnInit {
           this.loading = false;
         }
       );
+    this.paroleService.getFolderForAddMusic().subscribe((reponse) => {
+      console.log(reponse);
+      this.buildMenuItems(reponse);
+
+    }
+    );
   }
 
   onSubmit() {
@@ -122,8 +143,8 @@ export class ParoleComponent implements OnInit {
       );
   }
 
-  confirm(event: Event) {
-    this.confirmationService.confirm({
+  menuFolder(event: Event) {
+    /*this.confirmationService.confirm({
       target: event.target as Element,
       message: 'Êtes-vous sûr de vouloir sauvegarder cette chanson ?',
       icon: 'pi pi-exclamation-triangle',
@@ -133,6 +154,33 @@ export class ParoleComponent implements OnInit {
       reject: () => {
         //reject action
       },
-    });
+    });*/
+    this.showDossier = !this.showDossier;
   }
+
+  ajouteMusique(id: number) {
+    console.log(id);
+  }
+
+
+
+  buildMenuItems(dossierRecu: ApiMenu) {
+    let menu: MenuItem[] = [];
+    for (let i = 0; i < dossierRecu.items.length; i++) {
+      menu.push({
+        label: dossierRecu.items[i].label,
+        command: () => console.log("test"),
+      });
+    }
+
+    let bigMenu: MenuItem[] = [];
+    bigMenu.push({
+      label: dossierRecu.label,
+      items: menu
+    })
+
+    this.dossier = bigMenu;
+
+  }
+
 }
