@@ -10,7 +10,7 @@
             <h2>Difficulté niveau {{difficulte}}</h2>
             <button (click)="showMenuFolder($event)" pButton icon="pi pi-bookmark" label="Sauvegarder"></button>
             <div *ngIf="showDossier">
-                <app-music-folder folderType="add" [artiste]="artiste" [musique]="musique"></app-music-folder>
+                <app-music-folder folderType="add" [artiste]="nosParoles.artiste" [musique]="nosParoles.musique"></app-music-folder>
             </div>
             <h2 *ngIf="difficulte > 1"> Mot(s) juste(s): {{ nbMotJuste }} / {{nosParoles.nb_mots_manquant }}</h2>
             <form (ngSubmit)="onSubmit()">

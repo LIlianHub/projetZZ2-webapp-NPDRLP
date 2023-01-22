@@ -7,17 +7,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
 import { ParoleModele } from '../models/parole.model';
-import { MusicFolderComponent } from '../music-folder/music-folder.component';
 
-
-const functions = {
-  save: () => {
-    console.log('Enregistrement...');
-  },
-  delete: () => {
-    console.log('Suppression...');
-  }
-};
 
 
 @Component({
@@ -36,8 +26,6 @@ export class ParoleComponent implements OnInit {
   verifTab: boolean[] = [];
   nbMotJuste: number = 0;
   showDossier: boolean = false;
-  artiste!: string;
-  musique!: string;
 
   constructor(
     private paroleService: ParoleService,
@@ -47,12 +35,10 @@ export class ParoleComponent implements OnInit {
 
   ngOnInit(): void {
     this.difficulte = this.route.snapshot.params['difficulte'];
-    this.artiste = this.route.snapshot.params['artiste'];
-    this.musique = this.route.snapshot.params['musique'];
     this.paroleService
       .getParoleAvecTrou(
-        this.artiste,
-        this.musique,
+        this.route.snapshot.params['artiste'],
+        this.route.snapshot.params['musique'],
         this.difficulte
       )
       .subscribe(
