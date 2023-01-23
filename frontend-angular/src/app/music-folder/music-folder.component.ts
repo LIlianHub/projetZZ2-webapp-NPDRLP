@@ -45,7 +45,24 @@ export class MusicFolderComponent implements OnInit {
   getUserFolders() {
     this.paroleService.getUserMusicFolder().subscribe(
       (reponse) => {
-        this.dossier = reponse;
+        let menu: MenuItem[] = [];
+        let menuMusique: MenuItem[] = [];
+        for (let i = 0; i < reponse.length; i++) {
+          menuMusique = [];
+          for (let j = 0; j < reponse[i].items.length; j++) {
+            menuMusique.push({
+              label: reponse[i].items[j].label,
+              routerLink: reponse[i].items[j].link,
+              id: reponse[i].items[j].id.toString() + " " + reponse[i].id.toString(),
+            });
+          }
+          menu.push({
+            label: reponse[i].label,
+            items: menuMusique,
+            id: reponse[i].id.toString(),
+          });
+        }
+        this.dossier = menu;
         this.loading = false;
       },
       (erreur) => {
@@ -135,17 +152,19 @@ export class MusicFolderComponent implements OnInit {
   onRightClick(event: Event,/*id : number*/) { 
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
     let type = 0;
+    let st : any;
     console.log((event.target as HTMLElement).parentElement?.id);
+    //console.log((event.target as HTMLElement).id);
     //console.log(event);
     //console.log(this.dossier);
     console.log((event.target as HTMLElement).tagName);
     if ((event.target as HTMLElement).tagName === "SPAN") { 
       type = 1;
-      console.log("musik");
+      st = (event.target as HTMLElement).parentElement?.id;
     }
     if ((event.target as HTMLElement).tagName === "A") { 
       type = 2;
-      console.log("doss");
+      st = (event.target as HTMLElement).id;
     }
 
     event.preventDefault();
@@ -155,7 +174,7 @@ export class MusicFolderComponent implements OnInit {
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.delete(type);
+        this.delete(type,st);
       },
       reject: () => {
         this.messageService.add({
@@ -170,10 +189,11 @@ export class MusicFolderComponent implements OnInit {
 
 } 
 
-delete(type : number/*id*/){
+delete(type : number , st : string){
+  let ids;
   if(type == 2){
-      console.log("dossier");
-    /*this.paroleService.deleteUserFolder(1)
+    ids = st.split("_");
+    this.paroleService.deleteUserFolder(parseInt(ids[0]))
     .subscribe(
       (reponse) => {
         console.log(reponse);
@@ -190,11 +210,15 @@ delete(type : number/*id*/){
           detail: erreur.error,
         });
       }
-    );*/
+    );
   }
   if(type == 1){
-    console.log("musi");/*
-    this.paroleService.deleteMusicInFolder(1,1)
+    let idd;
+    let idm;
+    ids = st.split(" ");
+    idd = ids[0];
+    idm = ids[1];
+    this.paroleService.deleteMusicInFolder(parseInt(idm),parseInt(idd))
     .subscribe(
       (reponse) => {
         console.log(reponse);
@@ -211,7 +235,7 @@ delete(type : number/*id*/){
           detail: erreur.error,
         });
       }
-    );*/
+    );
   }
   if(type == 0){
     console.log("erreur type");
