@@ -249,7 +249,8 @@ async function getUserFolders(username) {
   });
 }
 
-// kesako ? a voir avec etienne /!\ a voir avec etienne
+// renvoie un objet qui sera transformé dans le front en
+// menu pour ajouter des musiques à un dossier
 async function getFolderForAddMusique(username) {
   return new Promise(async (resolve, reject) => {
     let foldersInfo = await getUserFolders(username);
