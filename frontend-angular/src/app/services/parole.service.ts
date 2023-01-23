@@ -34,16 +34,6 @@ export class ParoleService {
     );
   }
 
-  saveMusicInFolder(artiste: string, musique: string, folder: number): Observable<any> {
-    return this.http.post<any>(
-      'http://localhost:3000/lyricsGestion/addUserMusicInFolder',
-      {
-        "artist": artiste,
-        "title": musique,
-        "folder": folder,
-      }
-    );
-  }
 
   getUserMusicFolder(): Observable<any> {
     return this.http.get<any>(
@@ -56,4 +46,44 @@ export class ParoleService {
       'http://localhost:3000/lyricsGestion/getFolderForAddMusique/'
     );
   }
+
+  saveMusicInFolder(artiste: string, musique: string, folder: number): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:3000/lyricsGestion/addUserMusicInFolder',
+      {
+        "artist": artiste,
+        "title": musique,
+        "folder": folder,
+      }
+    );
+  }
+
+  deleteMusicInFolder(idMusic: number, idFolder: number): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:3000/lyricsGestion/deleteMusicInFolder',
+      {
+        "idFolder": idFolder,
+        "idMusic": idMusic,
+      }
+    );
+  }
+
+  addUserFolder(folderName: string): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:3000/lyricsGestion/addUserFolder',
+      {
+        "folderName": folderName,
+      }
+    );
+  }
+
+  deleteUserFolder(idFolder: number): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:3000/lyricsGestion/deleteMusicInFolder',
+      {
+        "idFolder": idFolder
+      }
+    );
+  }
+
 }
