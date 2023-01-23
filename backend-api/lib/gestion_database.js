@@ -1,11 +1,15 @@
 const mysql = require("mysql");
 const fs = require("fs");
 
+
+
+//alerte pour ajouter que une fois
+//suppr les deux
+
 // en general pour le lire au démarage du serveur
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  //password: fs.readFileSync("./data/data-base", "utf8"),
   password: "rootsqlpsw",
   database: "npdrlp",
 });
@@ -345,6 +349,7 @@ async function verifFolderUser(username, idFolder) {
 }
 
 test();*/
+
 
 
 module.exports = {
