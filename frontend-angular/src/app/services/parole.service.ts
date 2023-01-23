@@ -35,7 +35,7 @@ export class ParoleService {
   }
 
 
-  getUserMusicFolder(): Observable<any> {
+  getUserMusicFolder(): Observable<ApiMenu[]> {
     return this.http.get<any>(
       'http://localhost:3000/lyricsGestion/getUserMusicFolder/'
     );
