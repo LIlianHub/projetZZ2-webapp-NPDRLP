@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "name": "setupdatabase",
+  "description": "# Etape 1: Créer la base de donnée:",
+  "version": "1.0.0",
+  "main": "setup.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
