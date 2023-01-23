@@ -201,7 +201,9 @@ delete(type : number , st : string){
           severity: 'success',
           summary: 'Succes',
           detail: reponse.message,
+
         });
+        this.getUserFolders();
       },
       (erreur) => {
         this.messageService.add({
@@ -227,6 +229,7 @@ delete(type : number , st : string){
           summary: 'Succes',
           detail: reponse.message,
         });
+        this.getUserFolders();
       },
       (erreur) => {
         this.messageService.add({
