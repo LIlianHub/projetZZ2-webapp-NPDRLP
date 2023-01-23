@@ -132,9 +132,20 @@ export class MusicFolderComponent implements OnInit {
   }
 
 
-  onRightClick(event: MouseEvent) { 
+  onRightClick(event: MouseEvent,/*id : number*/) { 
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
-    event.preventDefault(); 
+
+    console.log(event);
+    event.preventDefault();
+    this.confirmationService.confirm({
+      target: event.target as Element,
+      message: 'Etes vous sure de vouloir supprimer ce dossier ?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+    }) 
+
+
+
  
     
     console.log("here");
