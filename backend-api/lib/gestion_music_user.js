@@ -15,7 +15,7 @@ async function deleteFolderUser(idFolder, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      gestion_database.verifFolderUser(user, idFolder);
+      await gestion_database.verifFolderUser(user, idFolder);
       gestion_database.deleteFolder(idFolder);
       resolve("Dossier Supprimé");
     } catch (err) {
@@ -42,7 +42,7 @@ async function addMusicInFolderUser(folder, title, artist, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      gestion_database.verifFolderUser(user, folder);
+      await gestion_database.verifFolderUser(user, folder);
       gestion_database.insertMusicIntoFolder(artist, title, folder);
       resolve("Musique bien ajoutée");
     } catch (err) {
@@ -56,7 +56,7 @@ async function deleteMusicInFolderUser(idFolder, idMusic, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      gestion_database.verifFolderUser(user, idFolder);
+      await gestion_database.verifFolderUser(user, idFolder);
       gestion_database.deleteMusicFromFolder(idMusic, idFolder);
       resolve("Musique supprimée du Dossier");
     } catch (err) {
