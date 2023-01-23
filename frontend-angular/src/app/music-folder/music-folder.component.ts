@@ -216,8 +216,8 @@ delete(type : number , st : string){
     let idd;
     let idm;
     ids = st.split(" ");
-    idd = ids[0];
-    idm = ids[1];
+    idd = ids[1];
+    idm = ids[0];
     this.paroleService.deleteMusicInFolder(parseInt(idm),parseInt(idd))
     .subscribe(
       (reponse) => {
