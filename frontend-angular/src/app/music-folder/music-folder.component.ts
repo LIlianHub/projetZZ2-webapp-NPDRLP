@@ -132,25 +132,92 @@ export class MusicFolderComponent implements OnInit {
   }
 
 
-  onRightClick(event: MouseEvent,/*id : number*/) { 
+  onRightClick(event: Event,/*id : number*/) { 
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
+    let type = 0;
+    console.log((event.target as HTMLElement).parentElement?.id);
+    //console.log(event);
+    //console.log(this.dossier);
+    console.log((event.target as HTMLElement).tagName);
+    if ((event.target as HTMLElement).tagName === "SPAN") { 
+      type = 1;
+      console.log("musik");
+    }
+    if ((event.target as HTMLElement).tagName === "A") { 
+      type = 2;
+      console.log("doss");
+    }
 
-    console.log(event);
     event.preventDefault();
     this.confirmationService.confirm({
       target: event.target as Element,
       message: 'Etes vous sure de vouloir supprimer ce dossier ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.delete(type);
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Annulé',
+          detail: 'Vous avez annulé la suppression',
+        });
+      },
     }) 
-
-
-
- 
     
     console.log("here");
 
 } 
+
+delete(type : number/*id*/){
+  if(type == 2){
+      console.log("dossier");
+    /*this.paroleService.deleteUserFolder(1)
+    .subscribe(
+      (reponse) => {
+        console.log(reponse);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Succes',
+          detail: reponse.message,
+        });
+      },
+      (erreur) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: erreur.error,
+        });
+      }
+    );*/
+  }
+  if(type == 1){
+    console.log("musi");/*
+    this.paroleService.deleteMusicInFolder(1,1)
+    .subscribe(
+      (reponse) => {
+        console.log(reponse);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Succes',
+          detail: reponse.message,
+        });
+      },
+      (erreur) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: erreur.error,
+        });
+      }
+    );*/
+  }
+  if(type == 0){
+    console.log("erreur type");
+  }
+  
+}
 
 
 }
