@@ -22,6 +22,8 @@ listen.use(express.urlencoded({ extended: true }));
 listen.use(express.json());
 
 /*Requete parole*/
+
+// renvoie les paroles d'une musique en fonction de son artiste et de son titre
 listen.get("/lyricsGestion/getLyrics/:singer-:song", async function (req, res) {
   if (req.params.singer && req.params.song) {
     try {
@@ -39,6 +41,8 @@ listen.get("/lyricsGestion/getLyrics/:singer-:song", async function (req, res) {
   }
 });
 
+// renvoie les paroles d'une musique en fonction de son artiste et de son titre
+// avec des trous
 listen.get(
   "/lyricsGestion/getsLyricsWithHole/:singer-:song-:difficulty",
   async function (req, res) {
@@ -59,42 +63,31 @@ listen.get(
   }
 );
 
-listen.post("/lyricsGestion/deleteUserMusicFolder", async (req, res) => {
-  if (req.body.folder) {
-    try {
-      let retour = gestion_music_user.deleteFolderUser(
-        req.body.folder,
-        req.headers["x-access-token"]
-      );
-      res.status(200).json({
-        message: retour,
-      });
-    } catch (err) {
-      res.status(400).send(err);
-    }
-  } else {
-    res.status(400).send("Not enough parameters");
+
+// Recupere les dossiers pour ajouter une musique
+listen.get("/lyricsGestion/getFolderForAddMusique", async (req, res) => {
+  try {
+    let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
+    let retour = await gestion_music_user.folderMenuForAddMusic(user);
+    res.status(200).send(retour);
+  } catch (err) {
+    res.status(400).send(err);
   }
 });
 
-listen.post("/lyricsGestion/addUserMusicFolder", async (req, res) => {
-  if (req.body.folder) {
-    try {
-      let retour = gestion_music_user.addFolderUser(
-        req.body.folder,
-        req.headers["x-access-token"]
-      );
-      res.status(200).json({
-        message: retour,
-      });
-    } catch (err) {
-      res.status(400).send(err);
-    }
-  } else {
-    res.status(400).send("Not enough parameters");
+// Recupere les dossiers et les musiques dedans
+listen.get("/lyricsGestion/getUserMusicFolder", async (req, res) => {
+  try {
+    let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
+    let retour = await gestion_music_user.getFoldersUser(user);
+    res.status(200).json(retour);
+  } catch (err) {
+    res.status(400).send(err);
   }
 });
 
+
+// Ajoute une musique dans un dossier
 listen.post("/lyricsGestion/addUserMusicInFolder", async (req, res) => {
   if (req.body.folder && req.body.title && req.body.artist) {
     try {
@@ -115,12 +108,14 @@ listen.post("/lyricsGestion/addUserMusicInFolder", async (req, res) => {
   }
 });
 
-listen.post("/lyricsGestion/deleteUserMusicInFolder", async (req, res) => {
-  if (req.body.idfolder && req.body.idmusic) {
+// supprime une musique d'un dossier à l'aide de son id, de l'id du dossier
+// et du token du user
+listen.post("/lyricsGestion/deleteMusicInFolder", async (req, res) => {
+  if (req.body.idFolder, req.body.idMusic) {
     try {
-      let retour = gestion_music_user.deleteMusicInFolderUser(
-        req.body.idfolder,
-        req.body.idmusic,
+      let retour = await gestion_music_user.deleteMusicInFolderUser(
+        req.body.idFolder,
+        req.body.idMusic,
         req.headers["x-access-token"]
       );
       res.status(200).json({
@@ -134,30 +129,50 @@ listen.post("/lyricsGestion/deleteUserMusicInFolder", async (req, res) => {
   }
 });
 
-listen.get("/lyricsGestion/getUserMusicFolder", async (req, res) => {
-  try {
-    let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
-    let retour = await gestion_music_user.getFoldersUser(user);
-    res.status(200).json(retour);
-  } catch (err) {
-    res.status(400).send(err);
+
+// Ajoute un dossier à un user
+listen.post("/lyricsGestion/addUserFolder", async (req, res) => {
+  if (req.body.folderName) {
+    try {
+      let retour = await gestion_music_user.addFolderUser(
+        req.body.folderName,
+        req.headers["x-access-token"]
+      );
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
   }
 });
 
-listen.get("/lyricsGestion/getFolderForAddMusique", async (req, res) => {
-  try {
-    let user = await gestion_user.verifyToken(req.headers["x-access-token"]);
-    let retour = await gestion_music_user.folderMenuForAddMusic(user);
-    res.status(200).send(retour);
-  } catch (err) {
-    res.status(400).send(err);
+// supprime un dossier à l'aide de son id et du token du user
+listen.post("/lyricsGestion/deleteUserFolder", async (req, res) => {
+  if (req.body.idFolder) {
+    try {
+      let retour = await gestion_music_user.deleteFolderUser(
+        req.body.idFolder,
+        req.headers["x-access-token"]
+      );
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
   }
 });
-
 
 
 
 /*Requete user*/
+
+// Inscription
 listen.post("/userGestion/register", async (req, res) => {
   if (req.body.username && req.body.password) {
     try {
@@ -176,6 +191,8 @@ listen.post("/userGestion/register", async (req, res) => {
   }
 });
 
+
+// Connexion
 listen.post("/userGestion/login", async (req, res) => {
   if (req.body.username && req.body.password) {
     try {

@@ -11,13 +11,13 @@ async function getFoldersUser(username) {
 }
 
 // Fonction qui supprime le dossier d'un utilisateur
-async function deleteFolderUser(folder, token) {
+async function deleteFolderUser(idFolder, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      gestion_database.verifFolderUser(user, folder);
-      gestion_database.deleteFolder(folder);
-      resolve(retour);
+      gestion_database.verifFolderUser(user, idFolder);
+      gestion_database.deleteFolder(idFolder);
+      resolve("Dossier Supprimé");
     } catch (err) {
       reject(err);
     }
@@ -25,13 +25,12 @@ async function deleteFolderUser(folder, token) {
 }
 
 // Fonction qui ajoute un dossier à un utilisateur
-async function addFolderUser(folder, token) {
+async function addFolderUser(folderName, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      gestion_database.verifFolderUser(user, folder);
-      gestion_database.addFolder(folder);
-      resolve(retour);
+      gestion_database.addFolder(folderName, user);
+      resolve("Dossier bien ajouté");
     } catch (err) {
       reject(err);
     }
@@ -57,9 +56,9 @@ async function deleteMusicInFolderUser(idFolder, idMusic, token) {
   return new Promise(async (resolve, reject) => {
     try {
       let user = await gestion_user.verifyToken(token);
-      gestion_database.verifFolderUser(user, folder);
+      gestion_database.verifFolderUser(user, idFolder);
       gestion_database.deleteMusicFromFolder(idMusic, idFolder);
-      resolve(retour);
+      resolve("Musique supprimée du Dossier");
     } catch (err) {
       reject(err);
     }
