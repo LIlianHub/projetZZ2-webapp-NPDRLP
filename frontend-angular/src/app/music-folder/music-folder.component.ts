@@ -132,6 +132,16 @@ export class MusicFolderComponent implements OnInit {
   }
 
 
+  onRightClick(event: MouseEvent) { 
+    // preventDefault avoids to show the visualization of the right-click menu of the browser 
+    event.preventDefault(); 
+ 
+    
+    console.log("here");
+
+} 
+
+
 }
 
 

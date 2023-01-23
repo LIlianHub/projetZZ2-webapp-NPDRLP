@@ -2,7 +2,7 @@
 <h2>Vos Dossiers</h2>
 <div *ngIf="!loading">
     <div *ngIf="dossier">
-        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"></p-panelMenu>
+        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}" (contextmenu)="onRightClick($event)" ></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
     </div>
     <div *ngIf="!dossier">
