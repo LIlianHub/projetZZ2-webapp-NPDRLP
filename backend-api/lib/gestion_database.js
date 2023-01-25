@@ -294,7 +294,7 @@ async function getUserFoldersAndMusics(username) {
       for (let i = 0; i < temp.length; i++) {
         temp_format.push({
           label: temp[i].musicName + " - " + temp[i].artist,
-          routerLink: "/paroles/" + temp[i].artist + "/" + temp[i].musicName + "/1",
+          routerLink: "/paroles/" + temp[i].musicName + "/ /1",
           id: temp[i].idMusic,
         });
       }

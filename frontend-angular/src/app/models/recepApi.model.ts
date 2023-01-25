@@ -1,7 +1,7 @@
 export interface ApiMenuItem {
     label: string;
     id: number;
-    link: string;
+    routerLink: string;
 }
 
 export interface ApiMenu {

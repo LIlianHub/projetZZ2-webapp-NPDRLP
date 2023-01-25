@@ -52,7 +52,7 @@ export class MusicFolderComponent implements OnInit {
           for (let j = 0; j < reponse[i].items.length; j++) {
             menuMusique.push({
               label: reponse[i].items[j].label,
-              routerLink: reponse[i].items[j].link,
+              routerLink: reponse[i].items[j].routerLink,
               id: reponse[i].items[j].id.toString() + " " + reponse[i].id.toString(),
             });
           }
