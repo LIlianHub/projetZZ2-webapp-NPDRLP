@@ -350,7 +350,6 @@ async function verifFolderUser(username, idFolder) {
 }
 
 test();*/
-
 //addFolder("pitie","etcharpin");
 
 module.exports = {
