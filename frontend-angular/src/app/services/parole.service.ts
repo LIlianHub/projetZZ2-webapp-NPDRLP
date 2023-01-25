@@ -86,4 +86,15 @@ export class ParoleService {
     );
   }
 
+  renameUserFolder(idFolder: number, newName: string): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:3000/lyricsGestion/renameFolder',
+      {
+        "idFolder": idFolder,
+        "newName": newName
+      }
+    );
+  }
+
+
 }

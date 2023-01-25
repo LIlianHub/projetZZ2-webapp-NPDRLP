@@ -266,7 +266,7 @@ async function getFolderForAddMusique(username) {
 }
 
 
-// vraiment utile ? /!\ a voir avec etienne
+// renvoie le nombre de dossier d'un utilisateur
 async function getUserNBFolders(username) {
   return new Promise(async (resolve, reject) => {
     con.query(
@@ -343,9 +343,21 @@ async function verifFolderUser(username, idFolder) {
   });
 }
 
+
+function renameFolder(idFolder, newName) {
+  var sql =
+    'UPDATE FOLDER SET folderName = "' + newName + '" WHERE idFolder = "' + idFolder + '"';
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+  });
+}
+
+
+
+
 /*async function test() {
   await connectionDataBase();
-  console.log(await verifFolderUser("liballejos", 2));
+  renameFolder(4, "test");
   await deconnectionDataBase();
 }
 
@@ -363,5 +375,6 @@ module.exports = {
   deleteFolder,
   deleteMusicFromFolder,
   getFolderForAddMusique,
-  verifFolderUser
+  verifFolderUser,
+  renameFolder
 };

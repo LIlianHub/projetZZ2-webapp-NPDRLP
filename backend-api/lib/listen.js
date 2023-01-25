@@ -169,6 +169,26 @@ listen.post("/lyricsGestion/deleteUserFolder", async (req, res) => {
 });
 
 
+// renomme un dossier d'un user
+listen.post("/lyricsGestion/renameFolder", async (req, res) => {
+  if (req.body.idFolder, req.body.newName) {
+    try {
+      let retour = await gestion_music_user.renameFolderUser(
+        req.body.idFolder,
+        req.body.newName,
+        req.headers["x-access-token"]
+      );
+      res.status(200).json({
+        message: retour,
+      });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
+  }
+});
+
 
 /*Requete user*/
 

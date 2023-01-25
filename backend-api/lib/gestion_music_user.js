@@ -76,6 +76,20 @@ async function folderMenuForAddMusic(user) {
   });
 }
 
+// Fonction qui renomme un dossier d'un user
+async function renameFolderUser(idFolder, newName, token) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let user = await gestion_user.verifyToken(token);
+      await gestion_database.verifFolderUser(user, idFolder);
+      gestion_database.renameFolder(idFolder, newName);
+      resolve("Dossier renommé !");
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
 module.exports = {
   getFoldersUser,
   deleteFolderUser,
@@ -83,6 +97,7 @@ module.exports = {
   addMusicInFolderUser,
   deleteMusicInFolderUser,
   folderMenuForAddMusic,
+  renameFolderUser
 };
 
 

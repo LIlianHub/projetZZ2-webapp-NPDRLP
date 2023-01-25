@@ -20,7 +20,7 @@ export class MusicFolderComponent implements OnInit {
   dossier!: MenuItem[];
   loading: boolean = true;
   erreurMessage!: string;
-  
+
 
   constructor(
     private paroleService: ParoleService,
@@ -80,7 +80,7 @@ export class MusicFolderComponent implements OnInit {
         for (let i = 0; i < reponse.items.length; i++) {
           menu.push({
             label: reponse.items[i].label,
-            command: (event : Event) => this.confirmSave(event, reponse.items[i].id),
+            command: (event: Event) => this.confirmSave(event, reponse.items[i].id),
           });
         }
 
@@ -100,9 +100,9 @@ export class MusicFolderComponent implements OnInit {
       });
   }
 
-  //fonction lier a sauvegarde de musique dans dossier
+  //fonction liée à la sauvegarde de musique dans dossier
 
-  confirmSave(event : Event, idFolder: number) {
+  confirmSave(event: Event, idFolder: number) {
     console.log(event);
     this.confirmationService.confirm({
       target: event.target as Element,
@@ -113,11 +113,7 @@ export class MusicFolderComponent implements OnInit {
         this.saveSong(idFolder);
       },
       reject: () => {
-        this.messageService.add({
-          severity: 'info',
-          summary: 'Annulé',
-          detail: 'Vous avez annulé l\'enregistrement',
-        });
+        this.callBackInfo('Vous avez annulé l\'enregistrement', 'Annulé');
       },
     });
   }
@@ -132,121 +128,122 @@ export class MusicFolderComponent implements OnInit {
       .subscribe(
         (reponse) => {
           console.log(reponse);
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Succes',
-            detail: reponse.message,
-          });
+          this.callBackSuccess(reponse.message);
         },
         (erreur) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Erreur',
-            detail: erreur.error,
-          });
+          this.callBackError(erreur.error);
         }
       );
   }
 
+  // FONCTIONS DE SUPPRESSION DE DOSSIER
 
-  onRightClick(event: Event,/*id : number*/) { 
+  onRightClick(event: Event,/*id : number*/) {
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
     let type = 0;
-    let st : any;
-    console.log((event.target as HTMLElement).parentElement?.id);
+    let targetId: any;
+    //console.log((event.target as HTMLElement).parentElement?.id);
     //console.log((event.target as HTMLElement).id);
     //console.log(event);
     //console.log(this.dossier);
-    console.log((event.target as HTMLElement).tagName);
-    if ((event.target as HTMLElement).tagName === "SPAN") { 
-      type = 1;
-      st = (event.target as HTMLElement).parentElement?.id;
+    //console.log((event.target as HTMLElement).tagName);
+    if ((event.target as HTMLElement).tagName === "SPAN") {
+      targetId = (event.target as HTMLElement).parentElement?.id;
+      this.confirmSongDelete(event, targetId);
     }
-    if ((event.target as HTMLElement).tagName === "A") { 
-      type = 2;
-      st = (event.target as HTMLElement).id;
+    if ((event.target as HTMLElement).tagName === "A") {
+      targetId = (event.target as HTMLElement).id;
+      this.confirmFolderDelete(event, targetId);
     }
 
     event.preventDefault();
+  }
+
+
+  confirmSongDelete(event: Event, infoMusique: string) {
+    this.confirmationService.confirm({
+      target: event.target as Element,
+      message: 'Etes vous sure de vouloir supprimer cette Musique ?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteMusique(infoMusique);
+      },
+      reject: () => {
+        this.callBackInfo("Vous avez annulé la suppression", "Annulé");
+      },
+    })
+
+  }
+
+  deleteMusique(infoMusique: string) {
+    let recupIds = infoMusique.split(" ");
+    this.paroleService.deleteMusicInFolder(parseInt(recupIds[0]), parseInt(recupIds[1]))
+      .subscribe(
+        (reponse) => {
+          console.log(reponse);
+          this.callBackSuccess(reponse.message);
+          this.getUserFolders();
+        },
+        (erreur) => {
+          this.callBackError(erreur.error);
+        }
+      );
+  }
+
+  confirmFolderDelete(event: Event, infoFolder: string) {
     this.confirmationService.confirm({
       target: event.target as Element,
       message: 'Etes vous sure de vouloir supprimer ce dossier ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.delete(type,st);
+        this.deleteFolder(infoFolder);
       },
       reject: () => {
-        this.messageService.add({
-          severity: 'info',
-          summary: 'Annulé',
-          detail: 'Vous avez annulé la suppression',
-        });
+        this.callBackInfo('Vous avez annulé la suppression', "Annulé");
       },
-    }) 
-    
-    console.log("here");
-
-} 
-
-delete(type : number , st : string){
-  let ids;
-  if(type == 2){
-    ids = st.split("_");
-    this.paroleService.deleteUserFolder(parseInt(ids[0]))
-    .subscribe(
-      (reponse) => {
-        console.log(reponse);
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Succes',
-          detail: reponse.message,
-
-        });
-        this.getUserFolders();
-      },
-      (erreur) => {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Erreur',
-          detail: erreur.error,
-        });
-      }
-    );
+    })
   }
-  if(type == 1){
-    let idd;
-    let idm;
-    ids = st.split(" ");
-    idd = ids[1];
-    idm = ids[0];
-    this.paroleService.deleteMusicInFolder(parseInt(idm),parseInt(idd))
-    .subscribe(
-      (reponse) => {
-        console.log(reponse);
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Succes',
-          detail: reponse.message,
-        });
-        this.getUserFolders();
-      },
-      (erreur) => {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Erreur',
-          detail: erreur.error,
-        });
-      }
-    );
-  }
-  if(type == 0){
-    console.log("erreur type");
-  }
-  
-}
 
+  deleteFolder(infoFolder: string) {
+    let recupIds = infoFolder.split("_");
+    this.paroleService.deleteUserFolder(parseInt(recupIds[0]))
+      .subscribe(
+        (reponse) => {
+          //console.log(reponse);
+          this.callBackSuccess(reponse.message);
+          this.getUserFolders();
+        },
+        (erreur) => {
+          this.callBackError(erreur.error);
+        }
+      );
+  }
 
+  callBackError(erreurMessage: string) {
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Erreur',
+      detail: erreurMessage,
+    });
+  }
+
+  callBackSuccess(successMessage: string) {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Succes',
+      detail: successMessage,
+    });
+  }
+
+  callBackInfo(infoMessage: string, summaryInfo: string) {
+    this.messageService.add({
+      severity: 'info',
+      summary: summaryInfo,
+      detail: infoMessage,
+    });
+  }
 }
 
 
