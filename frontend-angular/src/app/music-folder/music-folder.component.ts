@@ -21,6 +21,9 @@ export class MusicFolderComponent implements OnInit {
   loading: boolean = true;
   erreurMessage!: string;
 
+  choiceMenu!: MenuItem[];
+  activeChoiceMenu: boolean = false;
+
 
   constructor(
     private paroleService: ParoleService,
@@ -30,6 +33,7 @@ export class MusicFolderComponent implements OnInit {
 
 
   ngOnInit() {
+
     switch (this.folderType) {
       case 'user':
         this.getUserFolders();
@@ -38,6 +42,37 @@ export class MusicFolderComponent implements OnInit {
         this.getAjoutFolder();
         break;
     }
+  }
+
+
+  // FONCTIONS DE CHOIX
+
+  setChoiceMenuForFolder(idInCommand: string) {
+    this.choiceMenu =
+      [
+        {
+          label: 'Supprimer',
+          icon: 'pi pi-trash',
+          //command: this.copyText.bind(this) // supprimer
+
+        },
+        {
+          label: 'Renommer',
+          icon: 'pi pi-pencil',
+          //command: this.copyText.bind(this) // renommer
+
+        }
+      ];
+  }
+
+  setChoiceMenuForMusic(idInCommand: string) {
+    this.choiceMenu = [
+      {
+        label: 'Supprimer',
+        icon: 'pi pi-trash',
+        // supprimer
+      }
+    ];
   }
 
   // FONCTIONS DE CREATION DE DOSSIER
@@ -220,6 +255,8 @@ export class MusicFolderComponent implements OnInit {
         }
       );
   }
+
+  // FONCTIONS DE GESTION DES MESSAGES
 
   callBackError(erreurMessage: string) {
     this.messageService.add({
