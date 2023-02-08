@@ -52,6 +52,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     RechercheParoleComponent,
     MusicFolderComponent,
     YoutubePlayerComponent,
+    YouTubePlayerModule,
 
   ],
   imports: [
