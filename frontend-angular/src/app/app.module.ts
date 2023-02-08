@@ -35,7 +35,8 @@ import { RechercheParoleComponent } from './recherche-parole/recherche-parole.co
 import { MusicFolderComponent } from './music-folder/music-folder.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import {MenuModule} from 'primeng/menu';
+import { MenuModule } from 'primeng/menu';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import {MenuModule} from 'primeng/menu';
     ContextMenuModule,
     YouTubePlayerModule,
     MenuModule,
+    NgbModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],

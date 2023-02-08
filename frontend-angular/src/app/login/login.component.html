@@ -1,34 +1,43 @@
 <app-header></app-header>
 
-<div class="container h-100">
+
+<div class="container py-5 h-100">
   <div class="row d-flex justify-content-center align-items-center h-100">
-    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-      <div class="card" style="border-radius: 15px;">
-        <div class="card-body p-5">
-          <h2 class="text-uppercase text-center mb-5">Connexion</h2>
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
 
-          <p-messages></p-messages>
+          <div class="mb-md-5 mt-md-4 pb-5">
 
-          <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+            <h2 class="fw-bold mb-2 text-uppercase">Connexion</h2>
+            <p class="text-white-50 mb-5">Merci d'entrer votre username et mot de passe</p>
 
-            <div class="form-outline mb-4">
-              <input type="text" name="Login" class="form-control form-control-lg" formControlName="Login" pInputText>
-              <label class="form-label" for="Login">Nom d'utilisateur</label>
-            </div>
+            <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
 
-            <div class="form-outline mb-4">
-              <input type="password" name="Password" class="form-control form-control-lg" formControlName="Password"
-                pInputText>
-              <label class="form-label" for="Password">Mot de passe</label>
-            </div>
 
-            <div class="d-flex justify-content-center">
-              <button class="btn btn-info btn-lg btn-block" [disabled]="!FormData.valid" type="submit">Connexion
-              </button>
-            </div>
+              <div class="form-outline form-white mb-4">
+                <input type="text" name="Login" class="form-control form-control-lg" formControlName="Login" />
+                <label class="form-label" for="Login">Username</label>
+              </div>
 
-            <p class="text-center text-muted mt-5 mb-0">Pas encore de compte ? <a routerLink="/inscription" class="link-info">Inscrivez-vous ici</a></p>
-          </form>
+              <div class="form-outline form-white mb-4">
+                <input type="password" name="Password" class="form-control form-control-lg"
+                  formControlName="Password" />
+                <label class="form-label" for="Password">Mot de passe</label>
+              </div>
+
+              <button class="btn btn-outline-light btn-lg px-5" [disabled]="!FormData.valid"
+                type="submit">Connexion</button>
+            </form>
+
+          </div>
+
+          <div>
+            <p class="mb-0">Pas encore de compte ? <a routerLink="/inscription"
+                class="text-white-50 fw-bold">Inscrivez-vous ici</a>
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
