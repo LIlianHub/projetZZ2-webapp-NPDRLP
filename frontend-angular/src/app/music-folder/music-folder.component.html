@@ -2,8 +2,18 @@
 <h2>Vos Dossiers</h2>
 <div *ngIf="!loading">
     <div *ngIf="dossier">
-        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}" (contextmenu)="onRightClick($event)" ></p-panelMenu>
+        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}" (contextmenu)="onRightClick($event)"></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
+        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-outlined"
+            (click)="TweakMenuAjoutDossier($event)"></button>
+        <div *ngIf="activeAddFolderMenu">
+            <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
+                <input type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName"
+                    pInputText>
+                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"
+                    [disabled]="!FormAddFolder.valid" type="submit"></button>
+            </form>
+        </div>
     </div>
     <div *ngIf="!dossier">
         <p>{{erreurMessage}}</p>>

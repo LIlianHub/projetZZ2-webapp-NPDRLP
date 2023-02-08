@@ -3,6 +3,12 @@ import { MenuItem } from 'primeng/api';
 import { ParoleService } from '../services/parole.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-music-folder',
@@ -25,10 +31,15 @@ export class MusicFolderComponent implements OnInit {
   activeChoiceMenu: boolean = false;
 
 
+  activeAddFolderMenu = false;
+  FormAddFolder!: FormGroup;
+
+
   constructor(
     private paroleService: ParoleService,
     private confirmationService: ConfirmationService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private builder: FormBuilder,
   ) { }
 
 
@@ -37,6 +48,9 @@ export class MusicFolderComponent implements OnInit {
     switch (this.folderType) {
       case 'user':
         this.getUserFolders();
+        this.FormAddFolder = this.builder.group({
+          FolderName: new FormControl('', [Validators.required]),
+        });
         break;
       case 'add':
         this.getAjoutFolder();
@@ -173,9 +187,8 @@ export class MusicFolderComponent implements OnInit {
 
   // FONCTIONS DE SUPPRESSION DE DOSSIER
 
-  onRightClick(event: Event,/*id : number*/) {
+  onRightClick(event: Event) {
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
-    let type = 0;
     let targetId: any;
     //console.log((event.target as HTMLElement).parentElement?.id);
     //console.log((event.target as HTMLElement).id);
@@ -254,6 +267,31 @@ export class MusicFolderComponent implements OnInit {
           this.callBackError(erreur.error);
         }
       );
+  }
+
+  // CREATION DOSSIER
+
+  onSubmitAjoutDossier(): void {
+    this.paroleService
+      .addUserFolder(this.FormAddFolder.value.FolderName)
+      .subscribe(
+        (reponse) => {
+          this.FormAddFolder.reset();
+          this.TweakMenuAjoutDossier();
+          this.callBackSuccess(reponse.message);
+          this.getUserFolders();
+        },
+        (err) => {
+          this.FormAddFolder.reset();
+          this.callBackError(err.error);
+        }
+      );
+  }
+
+
+  TweakMenuAjoutDossier(event?: Event):void{
+    this.activeAddFolderMenu = !this.activeAddFolderMenu;
+    console.log(this.activeAddFolderMenu);
   }
 
   // FONCTIONS DE GESTION DES MESSAGES
