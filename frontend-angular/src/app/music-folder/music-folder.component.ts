@@ -48,6 +48,7 @@ export class MusicFolderComponent implements OnInit {
     switch (this.folderType) {
       case 'user':
         this.getUserFolders();
+        this.setChoiceMenuForFolder('user');
         this.FormAddFolder = this.builder.group({
           FolderName: new FormControl('', [Validators.required]),
         });
