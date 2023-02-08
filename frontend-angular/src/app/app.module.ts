@@ -35,7 +35,6 @@ import { RechercheParoleComponent } from './recherche-parole/recherche-parole.co
 import { MusicFolderComponent } from './music-folder/music-folder.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { ContextMenuUserFolderComponent } from './context-menu-user-folder/context-menu-user-folder.component';
 
 @NgModule({
   declarations: [
