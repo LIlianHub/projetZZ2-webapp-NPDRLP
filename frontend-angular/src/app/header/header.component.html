@@ -32,6 +32,9 @@
                         <a class="nav-link mx-2" routerLink="/profile">Menu de
                             {{currentUser.username}}</a>
                     </li>
+                    <li class="nav-item" *ngIf="currentUser">
+                        <a href="#" class="nav-link mx-2" (click)="logOut()">Deconnexion</a>
+                    </li>
                 </ul>
             </div>
         </div>
