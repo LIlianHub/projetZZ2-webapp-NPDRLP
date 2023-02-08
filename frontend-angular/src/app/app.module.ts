@@ -34,6 +34,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RechercheParoleComponent } from './recherche-parole/recherche-parole.component';
 import { MusicFolderComponent } from './music-folder/music-folder.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
     RechercheParoleComponent,
     MusicFolderComponent,
     YoutubePlayerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -72,6 +74,7 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
     ToastModule,
     PanelMenuModule,
     ContextMenuModule,
+    YouTubePlayerModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
