@@ -99,4 +99,5 @@ export class ParoleComponent implements OnInit {
     this.showDossier = !this.showDossier;
   }
 
+
 }
