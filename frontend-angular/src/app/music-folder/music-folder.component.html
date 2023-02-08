@@ -22,3 +22,11 @@
 <div *ngIf="loading">
     <p-progressSpinner></p-progressSpinner>
 </div>
+
+<p-menu #menu [model]="choiceMenu" appendTo="body" [ngStyle]="{'position': 'absolute', 'left': 100 + 'px', 'top': 100 + 'px'}">
+    <ng-template let-item>
+      <div >
+        {{item.label}}
+      </div>
+    </ng-template>
+  </p-menu>
