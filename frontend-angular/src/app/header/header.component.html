@@ -1,23 +1,39 @@
-<header class="p-3 bg-dark text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img src="assets/favicon.ico" alt="logo" width="40" height="40">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-dark" id="headerNav">
+        <div class="container-fluid">
+            <a class="navbar-brand d-block d-lg-none" href="#">
+                <img src="assets/logo.png" height="80" />
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a routerLink="/accueil" class="nav-link px-2 text-white">Accueil</a></li>
-                <li><a routerLink="/entrainement" class="nav-link px-2 text-white">Entrainement</a></li>
-            </ul>
-
-            <div class="text-end" *ngIf="!currentUser">
-                <button type="button" routerLink="/connexion" class="btn btn-outline-light me-2">Connexion</button>
-                <button type="button" routerLink="/inscription" class="btn btn-warning">Inscription</button>
-            </div>
-            <div class="text-end" *ngIf="currentUser">
-                <button type="button" routerLink="/profile" class="btn btn-warning">Menu de {{currentUser.username}}</button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto ">
+                    <li class="nav-item">
+                        <a routerLink="/accueil" class="nav-link mx-2">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/entrainement" class="nav-link mx-2">Entrainement</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link mx-2" href="#">
+                            <img src="assets/logo.png" height="80" />
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="!currentUser">
+                        <a class="nav-link mx-2" routerLink="/connexion">Connexion</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!currentUser">
+                        <a class="nav-link mx-2" routerLink="/inscription">Inscription</a>
+                    </li>
+                    <li class="nav-item" *ngIf="currentUser">
+                        <a class="nav-link mx-2" routerLink="/profile">Menu de
+                            {{currentUser.username}}</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-    <script src="https://www.youtube.com/iframe_api"></script>
+    </nav>
 </header>

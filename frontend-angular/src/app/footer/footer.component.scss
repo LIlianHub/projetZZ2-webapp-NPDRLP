@@ -1,28 +1,7 @@
-footer{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #df4646;
-    padding: 20px;
-    border-radius: 10px;
+a{
+    color: grey;
+}
+
+footer {
     margin-top: 40px;
-}
-
-footer > *{
-    padding: 5px;
-}
-
-footer a{
-    color: white;
-    text-decoration: none;
-}
-
-footer p{
-    color: white;
-}
-
-footer a:hover{
-    text-decoration: underline;
 }
