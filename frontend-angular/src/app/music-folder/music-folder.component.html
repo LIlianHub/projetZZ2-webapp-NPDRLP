@@ -2,14 +2,13 @@
 <h2>Vos Dossiers</h2>
 <div *ngIf="!loading">
     <div *ngIf="dossier">
-        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}" (contextmenu)="onRightClick($event)"></p-panelMenu>
+        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}" (contextmenu)="onRightClick($event, $event)"></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
         <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-outlined"
             (click)="TweakMenuAjoutDossier($event)"></button>
         <div *ngIf="activeAddFolderMenu">
             <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
-                <input type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName"
-                    pInputText>
+                <input type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName" pInputText>
                 <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"
                     [disabled]="!FormAddFolder.valid" type="submit"></button>
             </form>
@@ -23,10 +22,13 @@
     <p-progressSpinner></p-progressSpinner>
 </div>
 
-<p-menu #menu [model]="choiceMenu" appendTo="body" [ngStyle]="{'position': 'absolute', 'left': 100 + 'px', 'top': 100 + 'px'}">
-    <ng-template let-item>
-      <div >
-        {{item.label}}
-      </div>
-    </ng-template>
-  </p-menu>
+<div *ngIf="!activeChoiceMenu">
+    <p-menu #menu [model]="choiceMenu" 
+        [ngStyle]="{'position': 'absolute', 'left': posXChoiceMenu + 'px', 'top': posYChoiceMenu + 'px'}">
+        <ng-template let-item>
+            <div>
+                {{item.label}}
+            </div>
+        </ng-template>
+    </p-menu>
+</div>

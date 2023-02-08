@@ -29,6 +29,8 @@ export class MusicFolderComponent implements OnInit {
 
   choiceMenu!: MenuItem[];
   activeChoiceMenu: boolean = false;
+  posXChoiceMenu: number = 50;
+  posYChoiceMenu: number = 50;
 
 
   activeAddFolderMenu = false;
@@ -188,7 +190,7 @@ export class MusicFolderComponent implements OnInit {
 
   // FONCTIONS DE SUPPRESSION DE DOSSIER
 
-  onRightClick(event: Event) {
+  onRightClick(event: Event, eventClick: MouseEvent) {
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
     let targetId: any;
     //console.log((event.target as HTMLElement).parentElement?.id);
@@ -196,6 +198,7 @@ export class MusicFolderComponent implements OnInit {
     //console.log(event);
     //console.log(this.dossier);
     //console.log((event.target as HTMLElement).tagName);
+    console.log(eventClick.pageX);
     if ((event.target as HTMLElement).tagName === "SPAN") {
       targetId = (event.target as HTMLElement).parentElement?.id;
       this.confirmSongDelete(event, targetId);
