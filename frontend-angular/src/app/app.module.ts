@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ToastModule } from 'primeng/toast';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { ContextMenuModule } from 'primeng/contextmenu';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RechercheParoleComponent } from './recherche-parole/recherche-parole.component';
@@ -70,6 +71,7 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
     ConfirmPopupModule,
     ToastModule,
     PanelMenuModule,
+    ContextMenuModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
