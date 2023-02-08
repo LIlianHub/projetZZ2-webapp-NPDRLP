@@ -2,14 +2,15 @@
 <h2>Vos Dossiers</h2>
 <div *ngIf="!loading">
     <div *ngIf="dossier">
-        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}" (contextmenu)="onRightClick($event, $event)"></p-panelMenu>
+        <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"
+            (contextmenu)="onRightClick($event, $event)"></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
-        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-outlined"
+        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-primary"
             (click)="TweakMenuAjoutDossier($event)"></button>
         <div *ngIf="activeAddFolderMenu">
             <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
                 <input type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName" pInputText>
-                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"
+                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"
                     [disabled]="!FormAddFolder.valid" type="submit"></button>
             </form>
         </div>
@@ -22,13 +23,27 @@
     <p-progressSpinner></p-progressSpinner>
 </div>
 
-<div *ngIf="!activeChoiceMenu">
-    <p-menu #menu [model]="choiceMenu" 
-        [ngStyle]="{'position': 'absolute', 'left': posXChoiceMenu + 'px', 'top': posYChoiceMenu + 'px'}">
+<!-- menu contextuel dossier et musique -->
+<div *ngIf="activeChoiceMenu">
+    <p-menu #menu [model]="choiceMenu"
+        [ngStyle]="{'position': 'absolute', 'left': posXChoiceMenu + 'px', 'top': posYChoiceMenu + 'px', 'z-index' : 1}">
         <ng-template let-item>
             <div>
                 {{item.label}}
             </div>
         </ng-template>
     </p-menu>
+</div>
+
+<!-- Form renamefolder -->
+<div *ngIf="activeRenameFolderMenu">
+    <form [formGroup]="RenameFolderMenu" (ngSubmit)="onSubmitRenameDossier()"
+        [ngStyle]="{'position': 'absolute', 'left': posXChoiceMenu + 'px', 'top': posYChoiceMenu + 100 + 'px', 'z-index' : 1}">
+        <input type="text" name="NewName" class="p-inputtext-sm" formControlName="NewName"
+        placeholder="Entrez le nouveau nom ici" pInputText>
+        <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"
+            [disabled]="!RenameFolderMenu.valid" type="submit"></button>
+        <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger"
+            (click)="CloseMenuRenameDossier()"></button>
+    </form>
 </div>

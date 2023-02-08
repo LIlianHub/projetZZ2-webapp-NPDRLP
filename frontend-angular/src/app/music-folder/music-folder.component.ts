@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ParoleService } from '../services/parole.service';
 import { ConfirmationService } from 'primeng/api';
@@ -29,13 +29,16 @@ export class MusicFolderComponent implements OnInit {
 
   choiceMenu!: MenuItem[];
   activeChoiceMenu: boolean = false;
-  posXChoiceMenu: number = 50;
-  posYChoiceMenu: number = 50;
+  posXChoiceMenu: number = 0;
+  posYChoiceMenu: number = 0;
 
 
   activeAddFolderMenu = false;
   FormAddFolder!: FormGroup;
 
+  activeRenameFolderMenu = false;
+  RenameFolderMenu!: FormGroup;
+  currentIdFolder !: number;
 
   constructor(
     private paroleService: ParoleService,
@@ -54,6 +57,9 @@ export class MusicFolderComponent implements OnInit {
         this.FormAddFolder = this.builder.group({
           FolderName: new FormControl('', [Validators.required]),
         });
+        this.RenameFolderMenu = this.builder.group({
+          NewName: new FormControl('', [Validators.required]),
+        });
         break;
       case 'add':
         this.getAjoutFolder();
@@ -70,14 +76,17 @@ export class MusicFolderComponent implements OnInit {
         {
           label: 'Supprimer',
           icon: 'pi pi-trash',
-          //command: this.copyText.bind(this) // supprimer
+          command: (event: Event) => { this.confirmFolderDelete(event, idInCommand) }
 
         },
         {
           label: 'Renommer',
           icon: 'pi pi-pencil',
-          //command: this.copyText.bind(this) // renommer
-
+          command: () => {
+            this.TweakMenuRenameDossier();
+            let recupIds = idInCommand.split("_");
+            this.currentIdFolder = parseInt(recupIds[0]);
+          },
         }
       ];
   }
@@ -87,7 +96,7 @@ export class MusicFolderComponent implements OnInit {
       {
         label: 'Supprimer',
         icon: 'pi pi-trash',
-        // supprimer
+        command: (event: Event) => { this.confirmSongDelete(event, idInCommand) }
       }
     ];
   }
@@ -188,28 +197,7 @@ export class MusicFolderComponent implements OnInit {
       );
   }
 
-  // FONCTIONS DE SUPPRESSION DE DOSSIER
-
-  onRightClick(event: Event, eventClick: MouseEvent) {
-    // preventDefault avoids to show the visualization of the right-click menu of the browser 
-    let targetId: any;
-    //console.log((event.target as HTMLElement).parentElement?.id);
-    //console.log((event.target as HTMLElement).id);
-    //console.log(event);
-    //console.log(this.dossier);
-    //console.log((event.target as HTMLElement).tagName);
-    console.log(eventClick.pageX);
-    if ((event.target as HTMLElement).tagName === "SPAN") {
-      targetId = (event.target as HTMLElement).parentElement?.id;
-      this.confirmSongDelete(event, targetId);
-    }
-    if ((event.target as HTMLElement).tagName === "A") {
-      targetId = (event.target as HTMLElement).id;
-      this.confirmFolderDelete(event, targetId);
-    }
-
-    event.preventDefault();
-  }
+  // FONCTIONS DE SUPPRESSION DE DOSSIER et MUSIQUE
 
 
   confirmSongDelete(event: Event, infoMusique: string) {
@@ -293,9 +281,9 @@ export class MusicFolderComponent implements OnInit {
   }
 
 
-  TweakMenuAjoutDossier(event?: Event):void{
+  TweakMenuAjoutDossier(event?: Event): void {
     this.activeAddFolderMenu = !this.activeAddFolderMenu;
-    console.log(this.activeAddFolderMenu);
+    //console.log(this.activeAddFolderMenu);
   }
 
   // FONCTIONS DE GESTION DES MESSAGES
@@ -323,9 +311,76 @@ export class MusicFolderComponent implements OnInit {
       detail: infoMessage,
     });
   }
+
+
+  // CONTEXT MENU
+
+  // un clic sur le document ferme le menu contextuel
+  @HostListener('document:click', ['$event']) onClick(event: Event) {
+    this.activeChoiceMenu = false;
+  }
+
+
+  onRightClick(event: Event, eventClick: MouseEvent) {
+    // preventDefault avoids to show the visualization of the right-click menu of the browser 
+    let targetId: any;
+    //console.log((event.target as HTMLElement).parentElement?.id);
+    //console.log((event.target as HTMLElement).id);
+    //console.log(event);
+    //console.log(this.dossier);
+    //console.log((event.target as HTMLElement).tagName);
+    this.posXChoiceMenu = eventClick.clientX;
+    this.posYChoiceMenu = eventClick.clientY;
+    if ((event.target as HTMLElement).tagName === "SPAN") {
+      targetId = (event.target as HTMLElement).parentElement?.id;
+      this.setChoiceMenuForMusic(targetId);
+    }
+    if ((event.target as HTMLElement).tagName === "A") {
+      targetId = (event.target as HTMLElement).id;
+      this.setChoiceMenuForFolder(targetId);
+    }
+
+    this.activeChoiceMenu = !this.activeChoiceMenu;
+    /*if ((event.target as HTMLElement).tagName === "SPAN") {
+      targetId = (event.target as HTMLElement).parentElement?.id;
+      this.confirmSongDelete(event, targetId);
+    }
+    if ((event.target as HTMLElement).tagName === "A") {
+      targetId = (event.target as HTMLElement).id;
+      this.confirmFolderDelete(event, targetId);
+    }*/
+
+    event.preventDefault();
+    eventClick.preventDefault();
+  }
+
+  // Renommage DOSSIER
+
+  onSubmitRenameDossier(): void {
+    this.paroleService
+      .renameUserFolder(this.currentIdFolder, this.RenameFolderMenu.value.NewName)
+      .subscribe(
+        (reponse) => {
+          this.RenameFolderMenu.reset();
+          this.CloseMenuRenameDossier();
+          this.callBackSuccess(reponse.message);
+          this.getUserFolders();
+        },
+        (err) => {
+          this.RenameFolderMenu.reset();
+          this.callBackError(err.error);
+        }
+      );
+  }
+
+
+  TweakMenuRenameDossier(event?: Event): void {
+    this.activeRenameFolderMenu = !this.activeRenameFolderMenu;
+  }
+
+  CloseMenuRenameDossier(event?: Event): void {
+    this.activeRenameFolderMenu = false;
+    //console.log(this.activeAddFolderMenu);
+  }
+
 }
-
-// CONTEXT MENU
-
-
-
