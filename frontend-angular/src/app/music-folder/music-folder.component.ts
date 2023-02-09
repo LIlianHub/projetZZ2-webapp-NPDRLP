@@ -32,7 +32,6 @@ export class MusicFolderComponent implements OnInit {
   posXChoiceMenu: number = 0;
   posYChoiceMenu: number = 0;
 
-
   activeAddFolderMenu = false;
   FormAddFolder!: FormGroup;
 

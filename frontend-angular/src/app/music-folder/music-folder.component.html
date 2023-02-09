@@ -6,7 +6,7 @@
             (contextmenu)="onRightClick($event, $event)"></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
         <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-primary"
-            (click)="TweakMenuAjoutDossier($event)"></button>
+            (click)="TweakMenuAjoutDossier($event)" *ngIf="choiceMenu"></button>
         <div *ngIf="activeAddFolderMenu">
             <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
                 <input type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName" pInputText>
