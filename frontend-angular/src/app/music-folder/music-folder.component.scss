@@ -5,9 +5,13 @@ form{
     justify-content: left;
 }
 
-input{
+#inputAddFolder{
     margin-right: 10px;
+    margin-left: 10px;
 }
 
-
+#MenuAjoutDossier{
+    display: flex;
+    flex-direction: row;
+}
 

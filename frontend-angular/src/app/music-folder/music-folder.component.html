@@ -5,14 +5,16 @@
         <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"
             (contextmenu)="onRightClick($event, $event)"></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
-        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-primary"
-            (click)="TweakMenuAjoutDossier($event)" *ngIf="choiceMenu"></button>
-        <div *ngIf="activeAddFolderMenu">
-            <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
-                <input type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName" pInputText>
-                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"
-                    [disabled]="!FormAddFolder.valid" type="submit"></button>
-            </form>
+        <div id="MenuAjoutDossier">
+            <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-primary"
+                (click)="TweakMenuAjoutDossier($event)" *ngIf="choiceMenu"></button>
+            <div *ngIf="activeAddFolderMenu">
+                <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
+                    <input id="inputAddFolder" type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName" placeHolder="Nom du dossier" pInputText>
+                    <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"
+                        [disabled]="!FormAddFolder.valid" type="submit"></button>
+                </form>
+            </div>
         </div>
     </div>
     <div *ngIf="!dossier">
@@ -38,9 +40,9 @@
 <!-- Form renamefolder -->
 <div *ngIf="activeRenameFolderMenu">
     <form [formGroup]="RenameFolderMenu" (ngSubmit)="onSubmitRenameDossier()"
-        [ngStyle]="{'position': 'absolute', 'left': posXChoiceMenu + 'px', 'top': posYChoiceMenu + 100 + 'px', 'z-index' : 1}">
+        [ngStyle]="{'position': 'absolute', 'left': posXChoiceMenu + 'px', 'top': posYChoiceMenu + 'px', 'z-index' : 1}">
         <input type="text" name="NewName" class="p-inputtext-sm" formControlName="NewName"
-        placeholder="Entrez le nouveau nom ici" pInputText>
+            placeholder="Entrez le nouveau nom ici" pInputText>
         <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"
             [disabled]="!RenameFolderMenu.valid" type="submit"></button>
         <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger"

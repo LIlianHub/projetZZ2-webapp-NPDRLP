@@ -39,6 +39,8 @@ export class MusicFolderComponent implements OnInit {
   RenameFolderMenu!: FormGroup;
   currentIdFolder !: number;
 
+  saveEvent!: Event;
+
   constructor(
     private paroleService: ParoleService,
     private confirmationService: ConfirmationService,
@@ -75,7 +77,7 @@ export class MusicFolderComponent implements OnInit {
         {
           label: 'Supprimer',
           icon: 'pi pi-trash',
-          command: (event: Event) => { this.confirmFolderDelete(event, idInCommand) }
+          command: () => { this.confirmFolderDelete(idInCommand) }
 
         },
         {
@@ -95,7 +97,7 @@ export class MusicFolderComponent implements OnInit {
       {
         label: 'Supprimer',
         icon: 'pi pi-trash',
-        command: (event: Event) => { this.confirmSongDelete(event, idInCommand) }
+        command: () => { this.confirmSongDelete(idInCommand) }
       }
     ];
   }
@@ -156,16 +158,14 @@ export class MusicFolderComponent implements OnInit {
       (erreur) => {
         this.erreurMessage = erreur.error;
         this.loading = false;
-        console.log(this.erreurMessage);
       });
   }
 
   //fonction liée à la sauvegarde de musique dans dossier
 
-  confirmSave(event: Event, idFolder: number) {
-    console.log(event);
+  confirmSave(event: any, idFolder: number) {
     this.confirmationService.confirm({
-      target: event.target as Element,
+      target: event.originalEvent.srcElement as Element,
       message: 'Voulez-vous enregistrer cette musique dans votre dossier ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
@@ -199,9 +199,9 @@ export class MusicFolderComponent implements OnInit {
   // FONCTIONS DE SUPPRESSION DE DOSSIER et MUSIQUE
 
 
-  confirmSongDelete(event: Event, infoMusique: string) {
+  confirmSongDelete(infoMusique: string) {
     this.confirmationService.confirm({
-      target: event.target as Element,
+      target: this.saveEvent.target as Element,
       message: 'Etes vous sure de vouloir supprimer cette Musique ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
@@ -230,9 +230,9 @@ export class MusicFolderComponent implements OnInit {
       );
   }
 
-  confirmFolderDelete(event: Event, infoFolder: string) {
+  confirmFolderDelete(infoFolder: string) {
     this.confirmationService.confirm({
-      target: event.target as Element,
+      target: this.saveEvent.target as Element,
       message: 'Etes vous sure de vouloir supprimer ce dossier ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
@@ -321,15 +321,12 @@ export class MusicFolderComponent implements OnInit {
 
 
   onRightClick(event: Event, eventClick: MouseEvent) {
-    // preventDefault avoids to show the visualization of the right-click menu of the browser 
+
     let targetId: any;
-    //console.log((event.target as HTMLElement).parentElement?.id);
-    //console.log((event.target as HTMLElement).id);
-    //console.log(event);
-    //console.log(this.dossier);
-    //console.log((event.target as HTMLElement).tagName);
+ 
     this.posXChoiceMenu = eventClick.clientX;
     this.posYChoiceMenu = eventClick.clientY;
+    this.saveEvent = event;
     if ((event.target as HTMLElement).tagName === "SPAN") {
       targetId = (event.target as HTMLElement).parentElement?.id;
       this.setChoiceMenuForMusic(targetId);
@@ -338,16 +335,7 @@ export class MusicFolderComponent implements OnInit {
       targetId = (event.target as HTMLElement).id;
       this.setChoiceMenuForFolder(targetId);
     }
-
     this.activeChoiceMenu = !this.activeChoiceMenu;
-    /*if ((event.target as HTMLElement).tagName === "SPAN") {
-      targetId = (event.target as HTMLElement).parentElement?.id;
-      this.confirmSongDelete(event, targetId);
-    }
-    if ((event.target as HTMLElement).tagName === "A") {
-      targetId = (event.target as HTMLElement).id;
-      this.confirmFolderDelete(event, targetId);
-    }*/
 
     event.preventDefault();
     eventClick.preventDefault();
