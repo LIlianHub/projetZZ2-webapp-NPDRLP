@@ -10,7 +10,8 @@
                 (click)="TweakMenuAjoutDossier($event)" *ngIf="choiceMenu"></button>
             <div *ngIf="activeAddFolderMenu">
                 <form [formGroup]="FormAddFolder" (ngSubmit)="onSubmitAjoutDossier()">
-                    <input id="inputAddFolder" type="text" name="FolderName" class="p-inputtext-sm" formControlName="FolderName" placeHolder="Nom du dossier" pInputText>
+                    <input id="inputAddFolder" type="text" name="FolderName" class="p-inputtext-sm"
+                        formControlName="FolderName" placeHolder="Nom du dossier" pInputText>
                     <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success"
                         [disabled]="!FormAddFolder.valid" type="submit"></button>
                 </form>
