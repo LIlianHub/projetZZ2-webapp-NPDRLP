@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'mention', component: MentionComponent },
   { path: 'entrainement', component: RechercheParoleComponent },
-  { path: 'paroles/:artiste/:musique/:difficulte', component: ParoleComponent },
+  { path: 'paroles/:artiste/:musique', component: ParoleComponent },
   { path: 'connexion', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },

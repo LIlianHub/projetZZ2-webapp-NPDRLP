@@ -1,25 +1,39 @@
-<div class="container-form">
-    <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="Artiste">Artiste</label>
-            <span class="p-input-icon-right">
-                <i class="pi pi-user"></i>
-                <input type="text" class="form-control" name="Artiste" placeholder="Entrer un Artiste"
-                    formControlName="Artiste" pInputText>
-            </span>
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+                    <div class="mb-md-5 mt-md-4 pb-5">
+
+                        <h2 class="fw-bold mb-2 text-uppercase">Entrainement</h2>
+
+                        <p class="text-white-50 mb-5">Merci d'entrer un artiste et sa musique</p>
+
+                        <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+
+
+                            <div class="form-outline form-white mb-4">
+
+                                <input type="text" class="form-control form-control-lg" name="Artiste"
+                                    placeholder="Entrer un Artiste" formControlName="Artiste" pInputText>
+                                <label for="Artiste">Artiste</label>
+                            </div>
+
+
+                            <div class="form-outline form-white mb-4">
+                                <input type="text" class="form-control form-control-lg" name="Musique"
+                                    placeholder="Entrer une Musique" formControlName="Musique" pInputText>
+                                <label for="Musique">Musique</label>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-outline-light btn-lg px-5"
+                                [disabled]="!FormData.valid"><i class="pi pi-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="Musique">Musique</label>
-            <span class="p-input-icon-right">
-                <i class="pi pi-microphone"></i>
-                <input type="text" class="form-control" name="Musique" placeholder="Entrer une Musique"
-                    formControlName="Musique" pInputText>
-            </span>
-        </div>
-        <div class="form-group">
-            <label for="Difficulte">Difficulté: {{this.FormData.value.Difficulte}}</label>
-            <p-slider formControlName="Difficulte" [min]="1" [max]="5"></p-slider>
-        </div>
-        <p-button type="submit" [disabled]="!FormData.valid" icon="pi pi-search"></p-button>
-    </form>
+    </div>
 </div>

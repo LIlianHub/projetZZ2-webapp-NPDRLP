@@ -34,7 +34,7 @@ export class ParoleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.difficulte = this.route.snapshot.params['difficulte'];
+    this.difficulte = 2;
     this.paroleService
       .getParoleAvecTrou(
         this.route.snapshot.params['artiste'],
