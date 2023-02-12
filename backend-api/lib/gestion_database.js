@@ -139,7 +139,7 @@ async function insertMusicIntoFolder(artiste, title, idFolder) {
 
   // si non on l'insere dans music et le folder du user
   if (inMus == null) {
-    console.log("jinsere une musique dans music et folder");
+    //console.log("jinsere une musique dans music et folder");
     insertMusic(artiste, title);
     let idMusic = await alreadyInMusics(title, artiste);
     insertMusicInFolderWithId(idMusic, idFolder);
@@ -150,7 +150,7 @@ async function insertMusicIntoFolder(artiste, title, idFolder) {
     let inFol = await alreadyInFolder(inMus, idFolder);
     // si non on l'insere dans le folder
     if (!inFol) {
-      console.log("jinsere une musique dans un dossier");
+      //console.log("jinsere une musique dans un dossier");
       insertMusicInFolderWithId(inMus, idFolder);
     }
   }
@@ -294,7 +294,7 @@ async function getUserFoldersAndMusics(username) {
       for (let i = 0; i < temp.length; i++) {
         temp_format.push({
           label: temp[i].musicName + " - " + temp[i].artist,
-          routerLink: "/paroles/" + temp[i].musicName + "/ /1",
+          routerLink: "/paroles/" + temp[i].musicName + "/ ",
           id: temp[i].idMusic,
         });
       }

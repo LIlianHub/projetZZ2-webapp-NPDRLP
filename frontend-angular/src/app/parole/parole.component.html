@@ -22,10 +22,13 @@
                 <form (ngSubmit)="onSubmit()">
                     <div [innerHTML]="nosParoles.code_html | safeHtml">
                     </div>
-                    <p-button class="btn-validate" type="submit" label="Valider" *ngIf="difficulte > 1" icon="pi pi-check"></p-button>
+                    <p-button class="btn-validate" type="submit" label="Valider" *ngIf="difficulte > 1"
+                        icon="pi pi-check"></p-button>
                 </form>
 
             </div>
+
+            <div class="errorMessage" *ngIf="erreur">{{erreur}}</div>
 
 
             <div class="wrap-video">
@@ -55,13 +58,13 @@
 
                 <hr>
 
-                <h4>Nouvelle Difficultée: {{newDifficulte}}</h4>
+                <h4>Choix Difficultée: {{newDifficulte}}</h4>
                 <div class="box-difficulte">
                     <div class="scroll-button">
                         <p-slider [(ngModel)]="newDifficulte" orientation="vertical" [min]="1" [max]="4"></p-slider>
                     </div>
                     <div class="button-change">
-                        <button (click)="changeDifficulte()" pButton label="Changement" class="p-button-success"
+                        <button (click)="changeDifficulte()" pButton label="Valider" class="p-button-success"
                             [disabled]="difficulte === newDifficulte"></button>
                     </div>
                 </div>
@@ -70,7 +73,6 @@
         </div>
     </div>
 
-    <div *ngIf="erreur">{{erreur}}</div>
 </div>
 
 <app-footer></app-footer>
