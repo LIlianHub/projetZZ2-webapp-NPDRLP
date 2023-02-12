@@ -7,7 +7,8 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { ParoleService } from '../services/parole.service';
 import { ParoleModele } from '../models/parole.model';
-
+import { UserModel } from '../models/user.model';
+import { TokenStorageService } from '../services/token-storage.service';
 
 
 @Component({
@@ -26,15 +27,24 @@ export class ParoleComponent implements OnInit {
   verifTab: boolean[] = [];
   nbMotJuste: number = 0;
   showDossier: boolean = false;
+  visibleSidebar: boolean = false;
+  currentUser: UserModel | null = null;
 
   constructor(
     private paroleService: ParoleService,
     private route: ActivatedRoute,
     private elRef: ElementRef,
+    private token: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
-    this.difficulte = 2;
+    this.difficulte = 1;
+    this.currentUser = this.token.getUser();
+    this.getParole();
+  }
+
+  getParole() {
+    this.loading = true;
     this.paroleService
       .getParoleAvecTrou(
         this.route.snapshot.params['artiste'],

@@ -37,6 +37,7 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MenuModule } from 'primeng/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     YouTubePlayerModule,
     MenuModule,
     NgbModule,
+    SidebarModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
