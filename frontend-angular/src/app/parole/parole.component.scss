@@ -1,6 +1,6 @@
 @import "../app.component.scss";
 
-.parole-container{
+.parole-container {
     width: 70%;
     background-color: #535353a4;
     border-radius: 20px;
@@ -10,61 +10,150 @@
     align-items: center;
     justify-content: center;
     text-align: justify;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
-.parole-container h2{
+.boite-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+.parole-container h2 {
     font-size: 2em;
     font-weight: bold;
 }
 
-.parole-container p{
+.parole-container p {
     font-size: 1.5em;
 }
 
-.big-container{
+.big-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-hr{
+hr {
     width: 30%;
     margin-top: 5px;
     margin-bottom: 10px;
 }
 
-:host ::ng-deep .p-button{
+:host ::ng-deep .p-button {
     margin-top: 200px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.mot-juste{
+.mot-juste {
     background-color: rgb(9, 82, 40);
     color: black;
     text-align: center;
 }
 
-.mot-faux{
+.mot-faux {
     background-color: rgb(189, 33, 33);
     color: black;
-    
+
 }
-::placeholder{
-    color: black ;
-} 
+
+::placeholder {
+    color: black;
+}
 
 
-.grosse-boite{
+.grosse-boite {
     width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+.p-sidebar h2 {
+    margin-bottom: 3vh;
+}
+
+.p-sidebar hr {
+    margin-bottom: 2vh;
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.scroll-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.button-change {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.box-difficulte {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1vh;
+}
+
+.box-save button {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.box-save {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.wrap-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.wrap-video iframe {
+    width: 60%;
+}
+
+.btn-validate{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+@media only screen and (max-width: 991px) {
+    .parole-container {
+        width: 95%;
+    }
+
+    .wrap-video iframe {
+        width: 100%;
+    }
 }

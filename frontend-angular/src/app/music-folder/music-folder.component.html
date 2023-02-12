@@ -1,11 +1,11 @@
 <p-toast></p-toast>
-<h2>Vos Dossiers</h2>
 <div *ngIf="!loading">
     <div *ngIf="dossier">
+        <h2 *ngIf="folderType==='user'">Vos Dossiers</h2>
         <p-panelMenu [model]="dossier" [style]="{'width':'300px'}"
             (contextmenu)="onRightClick($event, $event)"></p-panelMenu>
         <p-confirmPopup></p-confirmPopup>
-        <div id="MenuAjoutDossier">
+        <div id="MenuAjoutDossier" *ngIf="folderType==='user'">
             <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-primary"
                 (click)="TweakMenuAjoutDossier($event)" *ngIf="choiceMenu"></button>
             <div *ngIf="activeAddFolderMenu">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div *ngIf="!dossier">
-        <p>{{erreurMessage}}</p>>
+        <p>{{erreurMessage}}</p>
     </div>
 </div>
 <div *ngIf="loading">

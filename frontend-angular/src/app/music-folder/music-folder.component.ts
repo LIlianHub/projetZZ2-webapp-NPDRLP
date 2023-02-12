@@ -321,24 +321,26 @@ export class MusicFolderComponent implements OnInit {
 
 
   onRightClick(event: Event, eventClick: MouseEvent) {
+    if (this.folderType === 'user') {
 
-    let targetId: any;
- 
-    this.posXChoiceMenu = eventClick.clientX;
-    this.posYChoiceMenu = eventClick.clientY;
-    this.saveEvent = event;
-    if ((event.target as HTMLElement).tagName === "SPAN") {
-      targetId = (event.target as HTMLElement).parentElement?.id;
-      this.setChoiceMenuForMusic(targetId);
-    }
-    if ((event.target as HTMLElement).tagName === "A") {
-      targetId = (event.target as HTMLElement).id;
-      this.setChoiceMenuForFolder(targetId);
-    }
-    this.activeChoiceMenu = !this.activeChoiceMenu;
+      let targetId: any;
 
-    event.preventDefault();
-    eventClick.preventDefault();
+      this.posXChoiceMenu = eventClick.clientX;
+      this.posYChoiceMenu = eventClick.clientY;
+      this.saveEvent = event;
+      if ((event.target as HTMLElement).tagName === "SPAN") {
+        targetId = (event.target as HTMLElement).parentElement?.id;
+        this.setChoiceMenuForMusic(targetId);
+      }
+      if ((event.target as HTMLElement).tagName === "A") {
+        targetId = (event.target as HTMLElement).id;
+        this.setChoiceMenuForFolder(targetId);
+      }
+      this.activeChoiceMenu = !this.activeChoiceMenu;
+
+      event.preventDefault();
+      eventClick.preventDefault();
+    }
   }
 
   // Renommage DOSSIER

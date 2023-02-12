@@ -29,6 +29,7 @@ export class ParoleComponent implements OnInit {
   showDossier: boolean = false;
   visibleSidebar: boolean = false;
   currentUser: UserModel | null = null;
+  newDifficulte: number = 1;
 
   constructor(
     private paroleService: ParoleService,
@@ -109,5 +110,11 @@ export class ParoleComponent implements OnInit {
     this.showDossier = !this.showDossier;
   }
 
+  changeDifficulte() {
+
+    this.difficulte = this.newDifficulte;
+    this.getParole();
+
+  }
 
 }
