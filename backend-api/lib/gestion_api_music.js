@@ -12,7 +12,7 @@ const geniousURL = "http://genius.com";
 
 
 // Liste des caractères à supprimer
-const banChar = [",", ")", "(", "!", "?", "-", "<br>", "", ":", '"', "'"];
+const banChar = [",", ")", "(", "!", "?", "-", "<br>", "", ":", '"', "'", "{", "}"];
 
 // Token d'authentification pour l'API de Genius: en général pour le
 // lire au démarage du serveur une seule fois
