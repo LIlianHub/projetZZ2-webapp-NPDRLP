@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+
+}
+
+.container h4 {
+    margin-top: 5vh;
+}
+
+.container a {
+    color: grey;
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
