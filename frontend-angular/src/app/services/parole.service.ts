@@ -11,7 +11,7 @@ import { ApiMenu } from '../models/recepApi.model';
 })
 
 export class ParoleService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getParole(artiste: string, musique: string): Observable<any> {
     return this.http.get<any>(
@@ -26,11 +26,11 @@ export class ParoleService {
   ): Observable<ParoleModele> {
     return this.http.get<ParoleModele>(
       'http://localhost:3000/lyricsGestion/getsLyricsWithHole/' +
-        artiste +
-        '-' +
-        musique +
-        '-' +
-        difficulty
+      artiste +
+      '-' +
+      musique +
+      '-' +
+      difficulty
     );
   }
 
@@ -93,6 +93,12 @@ export class ParoleService {
         "idFolder": idFolder,
         "newName": newName
       }
+    );
+  }
+
+  getYoutubeVideo(artiste: string, musique: string): Observable<any> {
+    return this.http.get<any>(
+      'http://localhost:3000/ytbPlayerGestion/getURL/' + artiste + '-' + musique
     );
   }
 

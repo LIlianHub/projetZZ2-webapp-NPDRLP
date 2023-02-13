@@ -23,13 +23,14 @@ export class ParoleComponent implements OnInit {
   loading: boolean = true;
   erreur!: string;
   wordEnter: string[] = [];
-  difficulte!: number;
+  difficulte: number = 1;
   verifTab: boolean[] = [];
   nbMotJuste: number = 0;
   showDossier: boolean = false;
   visibleSidebar: boolean = false;
   currentUser: UserModel | null = null;
   newDifficulte: number = 1;
+  urlVideo: string = "https://www.youtube.com/embed/";
 
   constructor(
     private paroleService: ParoleService,
@@ -39,8 +40,8 @@ export class ParoleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.difficulte = 1;
     this.currentUser = this.token.getUser();
+    this.getYoutubeUrl();
     this.getParole();
   }
 
@@ -61,6 +62,22 @@ export class ParoleComponent implements OnInit {
         (erreur) => {
           this.erreur = erreur.error;
           this.loading = false;
+        }
+      );
+  }
+
+
+  getYoutubeUrl() {
+    this.paroleService
+      .getYoutubeVideo(
+        this.route.snapshot.params['artiste'],
+        this.route.snapshot.params['musique'],
+      )
+      .subscribe(
+        (reponse) => {
+          this.urlVideo += reponse;
+        },
+        (erreur) => {
         }
       );
   }

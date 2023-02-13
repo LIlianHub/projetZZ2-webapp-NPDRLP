@@ -6,6 +6,7 @@ var cors = require("cors");
 const gestion_api_music = require("./gestion_api_music");
 const gestion_user = require("./gestion_user");
 const gestion_music_user = require("./gestion_music_user");
+const gestion_api_ytb = require("./gestion_api_youtube");
 
 /*creation app express*/
 const listen = express();
@@ -229,10 +230,32 @@ listen.post("/userGestion/login", async (req, res) => {
   }
 });
 
+
+/*Gestion Video Youtube*/
+
+listen.get("/ytbPlayerGestion/getURL/:singer-:song", async (req, res) => {
+  if (req.params.singer && req.params.song) {
+    try {
+      let retour = await gestion_api_ytb.SearchVideoUrl(
+        req.params.singer,
+        req.params.song
+      );
+      res.status(200).json(retour);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  } else {
+    res.status(400).send("Not enough parameters");
+  }
+});
+
+
 /*gestion autres requetes*/
 listen.use(function (req, res, next) {
   res.status(404).send("Nothing Here");
 });
+
+
 
 listen;
 

@@ -18,7 +18,7 @@ import { MentionComponent } from './mention/mention.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { SliderModule } from 'primeng/slider';
-import { SafeHtmlPipe } from './pipe/safehtml.pipe';
+import { SafeHtmlPipe, SafeUrlPipe } from './pipe/safehtml.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -33,7 +33,6 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RechercheParoleComponent } from './recherche-parole/recherche-parole.component';
 import { MusicFolderComponent } from './music-folder/music-folder.component';
-import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MenuModule } from 'primeng/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -54,7 +53,7 @@ import { SidebarModule } from 'primeng/sidebar';
     ProfileComponent,
     RechercheParoleComponent,
     MusicFolderComponent,
-    YoutubePlayerComponent,
+    SafeUrlPipe,
 
   ],
   imports: [

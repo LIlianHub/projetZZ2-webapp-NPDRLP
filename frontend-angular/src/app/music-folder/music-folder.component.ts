@@ -187,7 +187,7 @@ export class MusicFolderComponent implements OnInit {
       )
       .subscribe(
         (reponse) => {
-          console.log(reponse);
+          //console.log(reponse);
           this.callBackSuccess(reponse.message);
         },
         (erreur) => {
@@ -220,7 +220,7 @@ export class MusicFolderComponent implements OnInit {
     this.paroleService.deleteMusicInFolder(parseInt(recupIds[0]), parseInt(recupIds[1]))
       .subscribe(
         (reponse) => {
-          console.log(reponse);
+          //console.log(reponse);
           this.callBackSuccess(reponse.message);
           this.getUserFolders();
         },
