@@ -14,7 +14,7 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(): void {
     for (let i = 1; i <= 4; i++) {
-      this.images.push('assets/img/accueil/' + i + '.jpg');
+      this.images.push('assets/img/accueil/' + i + '.png');
     }
   }
 }
