@@ -176,23 +176,23 @@ Pour commencer l'explication du projet, nous allons faire une brève introductio
 
 \medskip
 
-Lors d'un projet informatique de Développement Web, l'architecture du logiciel va être séparé en plusieurs parties distinctes: la partie côté serveur dit le "back" puis la partie côté utilisateur dite le "front".
+Lors d'un projet informatique de développement web, l'architecture du logiciel va être séparée en plusieurs parties distinctes : la partie côté serveur dite le "back", puis la partie côté utilisateur dite le "front".
 
 \medskip
 
-La partie front va être chargé sur le moteur de recherche de l'utilisateur et donc le code sera disponible et exploitable par n'importe quel utilisateur du site web (par exemple le code HTML ainsi que le code Javascript).
+La partie front va être chargée sur le moteur de recherche de l'utilisateur et donc le code sera disponible et exploitable par n'importe quel utilisateur du site web (par exemple, le code HTML ainsi que le code Javascript).
 
 \medskip
 
-A l'inverse la partie back va géré tous les comportements communs que l'on doit garder côté serveur (interagir avec la base de donnée, contacter une API ....).
+À l'inverse, la partie back va gérer tous les comportements communs que l'on doit garder côté serveur (interagir avec la base de données, contacter une API...).
 
 \medskip
 
-Lorsqu'on parle de Full Stack, on parle donc du développement de ces deux aspects. D'où le terme Full Stack qui peut se comprendre comme "travailler tout les aspects du projet".
+Lorsqu'on parle de Full Stack, on parle donc du développement de ces deux aspects. D'où le terme Full Stack qui peut se comprendre comme "travailler tous les aspects du projet".
 
 \medskip
 
-Dans ce projet nous allons vous montrer comment nous avons implémenter un projet Full Stack avec un back en NodeJs à l'aide du module "Express" et un front à l'aide du framework Angular. 
+Dans ce projet, nous allons vous montrer comment nous avons implémenté un projet Full Stack avec un back en Node.js à l'aide du module "Express" et un front à l'aide du framework Angular.
 
 \begin{figure}[H]
 	\centering
@@ -206,24 +206,24 @@ Dans ce projet nous allons vous montrer comment nous avons implémenter un proje
 
 \subsubsection{Le Back de notre site}
 
-Pour la partie back de notre projet nous avons choisit de prendre NodeJs avec le module "Express".
+Pour la partie back de notre projet, nous avons choisi de prendre Node.js avec le module "Express".
 
 \medskip
 
-L'un de nous avait déjà travaillé sur cette technologie donc cela permettait pour l'un, de ne pas partir de zéro et d'améliorer ses connaissances et pour l'autre de découvrir une nouvelle technologie possiblement très utile pour notre filière de développement à l'ISIMA.
+L'un de nous avait déjà travaillé sur cette technologie, donc cela permettait pour l'un, de ne pas partir de zéro et d'améliorer ses connaissances, et pour l'autre de découvrir une nouvelle technologie possiblement très utile pour notre filière de développement à l'ISIMA.
 
 \medskip
 
-De plus, NodeJs est une technologie plus récente que d'autres langages qui peuvent gérer le côté serveur (comme PHP par exemple). Ainsi le module Express que nous utilisons est toujours maintenu à jour.
+De plus, Node.js est une technologie plus récente que d'autres langages qui peuvent gérer le côté serveur (comme PHP, par exemple). Ainsi, le module Express que nous utilisons est toujours maintenu à jour.
 
 \medskip
 
-Avec Express, nous pouvons en quelques minutes implémenter une API assez facilement et parfaitement fonctionnelle. Cela nous a permit de bien scinder la partie front et back de notre projet.
-Nous pouvons par exemple citer l'exemple de PHP où la partie serveur et client est parfois mélanger dans les mêmes fichier.
+Avec Express, nous pouvons en quelques minutes implémenter une API assez facilement et parfaitement fonctionnelle. Cela nous a permis de bien scinder la partie front et back de notre projet.
+Nous pouvons par exemple citer l'exemple de PHP, où la partie serveur et client est parfois mélangée dans les mêmes fichiers.
 
-Ici, nous avons le back dans un dossier et le front dans autre et ces deux aspects sont parfaitement indépendant ! On peut par exemple lancer le back pour faire des tests dessus sans toucher au front.
+Ici, nous avons le back dans un dossier et le front dans un autre, et ces deux aspects sont parfaitement indépendants ! On peut, par exemple, lancer le back pour faire des tests dessus sans toucher au front.
 
-La partie front va pouvoir communiquer avec la partie front à l'aide de requête envoyé à celui-ci auquel il va répondre.
+La partie front va pouvoir communiquer avec la partie back à l'aide de requêtes envoyées à celui-ci, auxquelles il va répondre.
 
 \bigskip
 
@@ -232,7 +232,7 @@ Au niveau de l'organisation de notre back, nous avons séparé celui-ci en diff�
 \medskip
 
 \begin{itemize}
-	\item \textbf{Couche "Controller"}: réceptionne les requêtes et appelles les fonctions nécessaires en fonction de la demande. Répond ensuite aux requêtes. Elle correspond au fichier \textit{listen.js}
+	\item \textbf{Couche "Controller"} : réceptionne les requêtes et appelle les fonctions nécessaires en fonction de la demande. Répond ensuite aux requêtes. Elle correspond au fichier \textit{listen.js}.
 	\item \textbf{Couche "Business"}: effectue tous les calculs de notre API, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'API (communication avec d'autres API, création de trou à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
 	\item \textbf{Couche "Base de donnée"}: effectue toutes les requêtes à la base de donnée et renvoie les données récupérées. Elle est appelées par la couche business. Elle correspond au fichier \textit{gestion\_database.js}.
 	
@@ -249,156 +249,137 @@ Au niveau de l'organisation de notre back, nous avons séparé celui-ci en diff�
 
 \bigskip
 
-Pour démarrer notre API, on lance le fichier \textbf{server.js} qui place notre API sur le port voulu de notre machine
-Ensuite, il se connecte à la base de donnée. Enfin, après que tout cela soit fait, on active les différents contrôleur de l'API et on est prêt à recevoir des requêtes !
+Pour démarrer notre API, nous lançons le fichier \textbf{server.js} qui positionne notre API sur le port souhaité de notre machine. Ensuite, il se connecte à la base de données. Enfin, une fois que tout cela est effectué, nous activons les différents contrôleurs de l'API et nous sommes prêts à recevoir des requêtes !
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.16]{api.png}
-	\caption{Architecture de l'API}    
+	\caption{Architecture de l'API}
 \end{figure}
 
 \medskip
 
-On peut voir ici que l'on communique avec d'autres APIs publiques ! On vous explique cela plus en détail après.
+On peut voir ici que nous communiquons avec d'autres API publiques ! Nous vous expliquerons cela plus en détail par la suite.
 
 \subsubsection{Le Front}
 
-Pour la partie Front nous avons prit le choix de prendre un Framework car ces technologies sont plus évolués pour effectuer des comportements complexes.
+Pour la partie Front, nous avons choisi d'utiliser un Framework car ces technologies sont plus évoluées pour effectuer des comportements complexes.
 
 \medskip
 
-L'un des gros avantages de ces technologies est de pouvoir séparer notre application en plusieurs composants que l'on va pouvoir faire interagir les un avec les autres ou encore inclure les un dans les autres !
-
-Cela permet de structurer plus proprement et efficacement une application.
+L'un des gros avantages de ces technologies est de pouvoir séparer notre application en plusieurs composants que nous allons pouvoir faire interagir les uns avec les autres ou encore inclure les uns dans les autres ! Cela permet de structurer plus proprement et efficacement une application.
 
 \medskip
 
-De plus les Framework sont des outils très puissant avec de nombreuses fonctionnalités pré-implémentées Cela nous permet de ne pas avoir besoin de réinventer la roue est de nous concentrer sur nos implémentations personnelles.
+De plus, les Framework sont des outils très puissants avec de nombreuses fonctionnalités pré-implémentées. Cela nous permet de ne pas avoir besoin de réinventer la roue et de nous concentrer sur nos propres implémentations.
 
 \medskip
 
-Ainsi nous avons hésité entre le Framework Angular et ReactJS qui sont les plus courants et les plus utilisés de nos jours.
+Ainsi, nous avons hésité entre le Framework Angular et ReactJS qui sont les plus courants et les plus utilisés de nos jours. Notre choix s'est finalement porté sur Angular car nous étions familiers avec ce Framework grâce à des projets personnels. Angular est un Framework développé par Google qui permet de créer des applications web dynamiques et interactives. Il offre une grande flexibilité et une architecture bien structurée pour le développement de sites web complexes.
 
-Notre choix c'est finalement porté sur Angular car nous étions familiarisés avec ce Framework suite à des projets personnelles.
-Le deuxième avantage de ce Framework est que sur la version que nous utilisons, il est nativement utilisé avec Typescript qui permet de faire des applications plus clair en typant les variables et objets utilisés.
-De plus, chaque composant généré est composé d'un fichier HTML, un fichier SCSS et un fichier Typescript ce qui permet de bien scinder les 3 différents aspects importants du front qui sont respectivement dans l'ordre le corps d'une page, son style et son comportement.
+L'avantage de ce Framework est qu'il utilise nativement Typescript dans la version que nous utilisons, ce qui permet de créer des applications plus claires en typant les variables et les objets utilisés. De plus, chaque composant généré est composé d'un fichier HTML, un fichier SCSS et un fichier Typescript, ce qui permet de bien séparer les trois aspects importants du front qui sont respectivement, dans l'ordre, le corps d'une page, son style et son comportement.
 
 \bigskip
 
-En plus d'Angular, nous avons utilisé le framework \textbf{Bootstrap} pour avoir des éléments graphiques classes et au goût du jour. Par exemple, notre barre de navigation a été stylisé grâce à ce framework.
+En plus d'Angular, nous avons utilisé le Framework \textbf{Bootstrap} pour avoir des éléments graphiques classes et au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce Framework.
 
-De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons dedans plein d'éléments déjà créés très pratique comme des dossiers (que nous avons utilisé pour la partie utilisateur) ou encore des boutons déjà stylisés.
+De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons plein d'éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
 
 
 \subsubsection{Choix des APIs}
 
-Nous avons dû utilisé pour ce projet deux APIs publiques de deux entreprises différentes.
+Nous avons dû utiliser pour ce projet deux APIs publiques de deux entreprises différentes.
 
 \medskip
 
-Ces APIs nous permettent de récupérer des informations comme par exemple des paroles de musique et nous ont été très utiles. Pour chacune d'elle nous avons dû nous inscrire sur le site de la documentation afin d'obtenir un token pour communiquer avec elles.
+Ces APIs nous permettent de récupérer des informations, comme par exemple des paroles de musique, et nous ont été très utiles. Pour chacune d'elles, nous avons dû nous inscrire sur le site de la documentation afin d'obtenir un token pour communiquer avec elles.
 
-\paragraph{Gestion des lecteurs vidéos avec paroles de musique \\\\} 
+\paragraph{Gestion des lecteurs vidéos avec paroles de musique \\}
 
-La première est l'API de \textbf{Youtube} de l'entreprise \textbf{Google}. Nous lui demandons via une requête le meilleur résultat pour une recherche avec les mots clefs "\textit{nom musique}" + "\textit{nom artiste}" + "lyrics".
+La première est l'API de \textbf{Youtube} de l'entreprise \textbf{Google}. Nous lui demandons, via une requête, le meilleur résultat pour une recherche avec les mots clés "\textit{nom musique}" + "\textit{nom artiste}" + "lyrics".
 
-L'API nous répond en envoyant une liste des 5 vidéos sur sa plateforme qui corresponde le mieux à la recherche et nous, nous renvoyons le résultat numéro 1 à la partie utilisateur afin d'afficher le bon URL dans le lecteur.
+L'API nous répond en envoyant une liste des 5 vidéos sur sa plateforme qui correspondent le mieux à la recherche et nous renvoyons le résultat numéro 1 à la partie utilisateur afin d'afficher le bon URL dans le lecteur.
 
-\paragraph{Récupération des paroles de musique \\\\}
+\paragraph{Récupération des paroles de musique \\}
 
-Notre second objectif était de trouver une API qui pourrait nous fournir les paroles de musique et qui couvre donc un très grand nombre de celle-ci.
-
-\medskip
-
-Nous nous sommes tout d'abord penché sur l'API \textbf{ChartLyrics} puis nous nous sommes rendu compte que celle-ci était trop incomplète. L'API étant américaine nous avions dessus très peu de musique française ce qui est très dommage au vu de notre projet.
+Notre second objectif était de trouver une API qui pourrait nous fournir les paroles de musique et qui couvre donc un très grand nombre d'entre elles.
 
 \medskip
 
-Ainsi, nous nous sommes ensuite penché sur une autre API d'un site très connu qui couvre de très nombreuses musiques très diversifiées: \textbf{Genious Lyrics}.
+Nous nous sommes tout d'abord penchés sur l'API \textbf{ChartLyrics}, puis nous nous sommes rendus compte que celle-ci était trop incomplète. L'API étant américaine, nous avions très peu de musique française dessus, ce qui est très dommage au vu de notre projet.
 
-Le problème de cette API est que dû à des problèmes de droit sur les paroles de musique (gérés en France par la \textbf{SACEM}), nous ne pouvons pas obtenir les paroles de musique directement via des requêtes.
+\medskip
 
-La solution est la suivante: l'API nous fournit le lien vers la page web du site \textbf{GeniousLyrics}. Nous récupérons ce lien et grâce à du Web scraping nous arrivons a récupérer les paroles.
+Ainsi, nous nous sommes ensuite penchés sur une autre API d'un site très connu qui couvre de très nombreuses musiques très diversifiées : \textbf{Genius Lyrics}.
 
-Dans l'ordre la méthode pour récupérer les paroles d'une musique est donc la suivante: 
+Le problème de cette API est que, dû à des problèmes de droits sur les paroles de musique (gérés en France par la \textbf{SACEM}), nous ne pouvons pas obtenir les paroles de musique directement via des requêtes.
+
+La solution est la suivante : l'API nous fournit le lien vers la page web du site \textbf{Genius Lyrics}. Nous récupérons ce lien et, grâce au Web scraping, nous arrivons à récupérer les paroles.
+
+Dans l'ordre, la méthode pour récupérer les paroles d'une musique est donc la suivante :
 
 \medskip
 
 \begin{itemize}
-	\item On contacte l'API Genious Lyrics et on lui demande l'url de la page du site qui contient les paroles
-	\item On aspire ensuite tout le code HTML de la page web du site
-	\item Les paroles étant toujours dans la même balise HTML, on les récupère tout en ignorant le reste du contenu de la page
-	\item Enfin on formate les paroles pour qu'elle soit plus adapter à de l'apprentissage.
+	\item On contacte l'API Genius Lyrics et on lui demande l'URL de la page du site qui contient les paroles.
+	\item On aspire ensuite tout le code HTML de la page web du site.
+	\item Les paroles étant toujours dans la même balise HTML, on les récupère tout en ignorant le reste du contenu de la page.
+	\item Enfin, on formate les paroles pour qu'elles soient plus adaptées à de l'apprentissage.
 \end{itemize}
 
 \medskip
 
 \subsection{Le déroulement du projet}
 
-Notre façon de travailler était comparable à une méthode agile de développement.
-
-C'est à dire que nous avons séparé le projet en différentes parties comme vous l'avez vu plus tôt (partie parole, partie user ...)
-
-A chaque partie du projet, nous avons effectué un sprint durant lequel on suivait toujours le même schéma de travail:
-
-\medskip
+Notre façon de travailler était comparable à une méthode agile de développement, c'est-à-dire que nous avons séparé le projet en différentes parties comme vous l'avez vu plus tôt (partie parole, partie utilisateur, etc.). À chaque partie du projet, nous avons effectué un sprint durant lequel nous suivions toujours le même schéma de travail :
 
 \begin{itemize}
-	\item On implémente ou modifie la base de donnée
-	\item On relie la partie serveur (back) du projet avec la base de donnée.
-	\item On implémente les fonctionnalités nécessaires côté serveur
-	\item On relie la partie user (front) à la partie serveur (back)
-	\item On teste la fonctionnalité implémentée
+	\item Nous avons implémenté ou modifié la base de données.
+	\item Nous avons relié la partie serveur (back) du projet à la base de données.
+	\item Nous avons implémenté les fonctionnalités nécessaires côté serveur.
+	\item Nous avons relié la partie utilisateur (front) à la partie serveur (back).
+	\item Nous avons testé la fonctionnalité implémentée.
 \end{itemize}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{agile.png}
-	\caption{Les différentes étapes d'ajout d'une fonctionnalité}    
+	\caption{Les différentes étapes d'ajout d'une fonctionnalité}
 \end{figure}
 
-\medskip
+Finalement, nous avons effectué à la fin une embellissement de la partie utilisateur (front) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
 
-Au final, on a effectué à la toutes fin un embellissement de la partie utilisateur (front) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
-
-\medskip
-
-Voyons maintenant en précisions ce qu'impliquait chaque partie d'un sprint de notre projet.
+Maintenant, voyons en détail ce que chaque partie d'un sprint impliquait.
 
 \subsubsection{Exemple complet d'un Sprint}
 
-\paragraph{Modification de la base de donnée \\\\}
+\paragraph{Modification de la base de données \\}
 
-A chaque nouveau sprint on regardait tout d'abord si une modification de la base de donnée était nécessaire.
+À chaque nouveau sprint, nous regardions tout d'abord si une modification de la base de données était nécessaire.
 
-\medskip
+Si c'était le cas, nous reconstruisions notre base de données en ajoutant les nouvelles tables et colonnes nécessaires.
 
-Si c'est le cas, on reconstruisait notre base de donnée en rajoutant les nouvelles tables et colonnes nécessaires.
+Cela impliquait de modifier le script \textbf{setupDatabase.js} pour que nous ayons chacun de notre côté, en local, exactement la même base de données.
 
-Cela implique de modifier le script \textbf{setupDatabase.js} pour que nous ayons chacun de notre côté, en local, exactement la même base de donnée.
+Lorsque cela était fait, nous effectuions chacun de notre côté des tests en local sur nos machines afin de vérifier que nos bases de données avaient le même comportement.
 
-Lorsque cela était fait, on effectuait chacun de notre côté des tests en local sur nos machines afin de vérifier que nos bases de données avait le même comportement.
+\paragraph{Mise en lien de la base de données avec notre partie serveur \\}
 
-\paragraph{Mise en lien de la base de donnée avec notre partie serveur \\\\}
-
-Ensuite, on reliait la base de donnée à la partie serveur.
+Ensuite, on reliait la base de données à la partie serveur.
 
 \medskip
 
-Le principe est le suivant: on créait des requêtes SQL qui permettent de récupérer les données dont on a besoin pour les futurs implémentations.
+Le principe est le suivant : on créait des requêtes SQL qui permettent de récupérer les données dont on a besoin pour les futures implémentations.
 
-On inclut ensuite ces requêtes dans le code Javascript de notre back dans le fichier \textit{gestion\_database.js}
+On incluait ensuite ces requêtes dans le code JavaScript de notre back dans le fichier \textit{gestion\_database.js}.
 
-Enfin on crée dans la "couche business" toutes les fonctions nécessaires pour formater les données comme il nous faut.
+Enfin, on créait dans la "couche business" toutes les fonctions nécessaires pour formater les données comme il nous faut.
 
-C'est durant cette partie aussi que l'on a créé les fonctions qui envoie des requêtes HTTP à des APIs si nécessaire. Comme avec la base donnée, après avoir reçu les données on les formate afin de mieux les exploiter dans le front. 
+C'est durant cette partie aussi que l'on a créé les fonctions qui envoient des requêtes HTTP à des APIs si nécessaire. Comme avec la base de données, après avoir reçu les données, on les formatées afin de mieux les exploiter dans le front.
 
-\paragraph{Mise en lien de la partie serveur avec la partie utilisateur\\\\}
-
+\paragraph{Mise en lien de la partie serveur avec la partie utilisateur\\}
+La page d'accueil de notre site web
 Au final, il ne nous restait plus qu'à créer côté client les nouveaux composants Angular nécessaires pour implémenter la nouvelle fonctionnalité. Ensuite, on avait juste à créer les requêtes à envoyer à notre partie serveur pour récupérer les éléments nécessaires côté client.
-
-
 
 \subsubsection{Nos différents Sprints effectués}
 
@@ -406,24 +387,24 @@ Nous avons effectué ainsi 3 sprints durant le développement de notre applicati
 
 \begin{itemize}
 	\item Le développement de la partie entrainement avec les paroles
-	\item Le développement de la partie inscription/connexion 
-	\item Le développement de la partie partie stockage des musiques avec les dossiers utilisateurs 
+	\item Le développement de la partie inscription/connexion
+	\item Le développement de la partie stockage des musiques avec les dossiers utilisateurs
 \end{itemize}
 
 
 \subsubsection{Embellissement du front}
 
-Au départ, nous avons cherché à développer une application fonctionnelle sans nous pencher de trop sur l'apparence. Nous avons essayé de développer toutes les fonctionnalités que nous voulions ajouter en nous assurant que celle-ci n'avait aucun bug.
+Au départ, nous avons cherché à développer une application fonctionnelle sans nous pencher de trop sur l'apparence. Nous avons essayé de développer toutes les fonctionnalités que nous voulions ajouter en nous assurant que celles-ci ne présentaient aucun bug.
 
 \medskip
 
-Après s'être assuré que tous fonctionné comme nous le souhaitions, nous avons décidé à la toute fin d'embellir le front. Nous avons pour cela utilisé nos connaissances en CSS ainsi qu'en Bootstrap.
+Après nous être assurés que tout fonctionnait comme nous le souhaitions, nous avons décidé à la toute fin d'embellir le front. Nous avons pour cela utilisé nos connaissances en CSS ainsi qu'en Bootstrap.
 
 \medskip
 
-Ayant quelques notions d'IHM (interface homme machine), nous savons que l'apparence d'un site web est une étape primordiale du développement logiciel. En effet il ne faut pas par exemple utiliser des contrastes de couleur qui pourrait gêner certaines personnes comme les daltoniens.
+Ayant quelques notions d'IHM (interface homme machine), nous savons que l'apparence d'un site web est une étape primordiale du développement logiciel. En effet, il ne faut pas utiliser, par exemple, des contrastes de couleur qui pourraient gêner certaines personnes comme les daltoniens.
 
-De plus chaque éléments du site doit être intuitif et c'est ainsi que nous avons essayé de faire des fonctionnalités très simple d'utilisation (bouton simple, pas trop de détails ...).
+De plus, chaque élément du site doit être intuitif et c'est ainsi que nous avons essayé de faire des fonctionnalités très simples d'utilisation (boutons simples, pas trop de détails, etc.).
 
 \begin{figure}[H]
 	\centering
@@ -435,70 +416,253 @@ De plus chaque éléments du site doit être intuitif et c'est ainsi que nous av
 		\centering
 		\includegraphics[scale=0.25]{apresfront.png}
 	\end{minipage}
-	\caption{Avant / Après de l'apparence de la partie client}    
+	\caption{Avant / Après de l'apparence de la partie client}
 \end{figure}
 
 \section{Résultats et discussions}
 
 \subsection{Prise en Main de l'Application Web}
 
-\subsubsection{Arrivé sur le site}
+\subsubsection{Comment lancer l'Application Web}
 
-Lors de votre arrivée sur le site, vous arrivez sur une page d'accueil défilante qui vous informe du concept de notre application , de qui nous sommes et de nombreuses autres informations.
+Nous n'avons pas exporté notre projet car il est encore en phase de développement. Pour lancer notre application sur une machine, il faut suivre quelques étapes.
 
-Nous pouvons si nous le souhaitons changer le code source du site web afin de rajouter des éléments à l'accueil et cela sans difficulté !
+\paragraph{Installation et configuration (à faire une fois)}
 
-\medskip
+Tout d'abord, il vous faudra installer quelques logiciels :
 
-En haut, vous pouvez voir les différentes fonctionnalités de notre site web qui sont proposés dans le header.
+\begin{itemize}
+	\item \textbf{mysql} : Pour la gestion de la base de données.
+	\item \textbf{node} ainsi que son package manager \textbf{npm} : Pour lancer la partie serveur et la partie utilisateur.
+\end{itemize}
 
-On a donc la possibilité d'aller à l'accueil 
-(là où nous sommes actuellement) mais aussi dans la partie entrainement. Nous pouvons aussi au choix nous inscrire où si cela est déjà fait de nous connecter !
+Ensuite, vous pouvez trouver notre projet sur GitHub à ce lien :
 
-Le header va changer en fonction de si vous êtes connecté ou non. Si vous êtes connecté, au lieu de la possibilité de s'inscrire ou se connecter, vous aurez la possibilité d'aller à votre menu utilisateur ou de vous déconnecter.
+\textbf{\href{https://github.com/LIlianHub/projetZZ2-NPDRLP}{https://github.com/LIlianHub/projetZZ2-NPDRLP}}
 
-\textbf{IMAGE ACCUEIL}
+Après avoir installé le projet sur votre machine, il va falloir aller dans les dossiers "\textit{backend-api}", "\textit{frontend-angular}" et "\textit{setupDataBase}" et exécuter \textbf{dans ces 3 dossiers} la commande \textbf{npm i}, qui va permettre d'installer les dépendances nécessaires.
+
+Une fois cela fait, lancez \textbf{mysql} et créez une nouvelle base de données nommée \textbf{npdrlp} en entrant la commande \textbf{CREATE DATABASE npdrlp}.
+
+Ensuite, rendez-vous dans le dossier \textit{setupDataBase} et exécutez \textbf{node setup.js} afin de lancer la configuration de la base de données.
+
+\paragraph{Lancer l'application}
+
+Pour lancer l'application et la tester, il vous suffit de suivre ces deux étapes :
+
+\begin{itemize}
+	\item Dans \textit{backend-api}, entrez la commande \textbf{ng serve}.
+	\item Dans \textit{frontend-angular}, entrez la commande \textbf{node server.js}.
+\end{itemize}
+
+Une fois cela fait, vous pouvez accéder à notre projet en local à cette adresse :
+
+\textbf{\href{http://localhost:4200}{http://localhost:4200}}
+
+\subsubsection{Arrivée sur le site}
+
+En arrivant sur le site, vous arrivez sur une page d'accueil défilante qui vous informe du concept de notre application, de qui nous sommes et de nombreuses autres informations.
+
+Nous pouvons si nous le souhaitons changer le code source du site web afin de rajouter des éléments à l'accueil, cela sans difficulté !
+
+En haut de la page, vous pouvez voir les différentes fonctionnalités de notre site web proposées dans le header. Vous avez la possibilité d'aller à l'accueil (là où nous sommes actuellement) mais aussi dans la partie entraînement. Vous pouvez également vous inscrire ou, si cela est déjà fait, vous connecter !
+
+Le header va changer en fonction de si vous êtes connecté ou non. Si vous êtes connecté, au lieu de la possibilité de vous inscrire ou de vous connecter, vous aurez la possibilité d'aller à votre menu utilisateur ou de vous déconnecter.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{accueil.png}
+	\caption{La page d'accueil de notre site web.}
+\end{figure}
+
 
 \subsubsection{Partie Entrainement}
 
-En arrivant dans la partie entrainement, un formulaire vous demande de renseigner à la fois une nom d'artiste ainsi que la musique que vous souhaitez apprendre.
+En arrivant dans la partie entraînement, un formulaire vous demande de renseigner à la fois le nom de l'artiste ainsi que la musique que vous souhaitez apprendre.
 
-\medskip
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{rechercheparole.png}
+	\caption{Formulaire de recherche de paroles}
+\end{figure}
 
-Si vous renseignez quelques choses de faux ou erroné, l'application affichera un message d'erreur vous informant que les paroles n'ont pas pu être trouvé.
+Si vous renseignez quelque chose de faux ou erroné, l'application affichera un message d'erreur vous informant que les paroles n'ont pas pu être trouvées.
 
-\medskip
+Si les informations renseignées sont correctes, alors l'intégralité des paroles de la musique est affichée sur votre écran. En dessous de celles-ci, vous trouverez un lecteur YouTube avec une vidéo de la musique recherchée.
 
-Si les informations renseignées sont justes, alors l'entièreté des paroles de la musique est affichée sur votre écran. En dessous de celle-ci vous trouverez un lecteur Youtube avec une vidéo de la musique recherchée.
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.15]{parole.png}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.15]{ytbparole.png}
+	\end{minipage}
+	\caption{Affichage des paroles dans le mode entraînement}
+\end{figure}
 
-\medskip
-
-Enfin nous trouvons au dessus des paroles un bouton "Options" sur lequel nous pouvons cliquer.
-
-Lors du clique sur celui-ci, un menu apparait sur la gauche avec deux fonctionnalités:
+Enfin, nous trouvons au-dessus des paroles un bouton "Options" sur lequel nous pouvons cliquer. Lors du clic sur celui-ci, un menu apparaît sur la gauche avec deux fonctionnalités :
 
 \begin{itemize}
 	\item Sauvegarder la musique dans un dossier
 	\item Changer la difficulté
 \end{itemize}
 
-\paragraph{Sauvegarder la musique dans un dossier \\\\}
+\bigskip
 
-Lorsque vous cliquez sur le bouton sauvegarder la musique, deux possibilités s'offre à vous. Si vous n'êtes pas connecté, nous allons vous informer qu'il faut que vous vous connectiez si vous souhaitez sauvegarder une musique. Sinon, une liste déroulante de tous vos dossiers apparait, il suffit de cliquer sur le dossier dans lequel vous voulez sauvegarder la musique pour lancer la phase de sauvegarde.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{optionparole.png}
+	\caption{Options du mode entraînement}
+\end{figure}
 
-Après ce clique, une pop-up apparait vous demander de confirmer votre choix. Lorsque cela est fait une notification apparait en haut à droite de votre écran vous informant que la sauvegarde a été effectuée !
+\paragraph{Sauvegarder la musique dans un dossier\\}
 
-\paragraph{Changer la difficulté\\\\}
+Lorsque vous cliquez sur le bouton "Sauvegarder la musique", deux possibilités s'offrent à vous. Si vous n'êtes pas connecté, nous vous informerons qu'il faut que vous vous connectiez si vous souhaitez sauvegarder une musique. Sinon, une liste déroulante de tous vos dossiers apparaît, il suffit de cliquer sur le dossier dans lequel vous voulez sauvegarder la musique pour lancer la phase de sauvegarde.
 
-Un curseur vertical vous permet de changer la difficulté. Selon la difficulté choisit allant de 1 à 4, un certain nombre de trou vont apparaitre dans les paroles de la musique et le but de l'utilisateur est de les compléter. Un bouton "Valider" apparait aussi en bas des paroles afin d'effectuer une correction de vos réponses. Si la réponse est juste, la case se colorie en vert et vous ne pouvez plus modifier votre réponse, si elle est rouge c'est que c'est faux.
+Après ce clic, une pop-up apparaît vous demandant de confirmer votre choix. Lorsque cela est fait, une notification apparaît en haut à droite de votre écran vous informant que la sauvegarde a été effectuée !
 
-Vous pouvez voir au dessus des paroles un avancement du nombre de réponse juste par rapport au nombre de réponse attendu.
+\paragraph{Changer la difficulté}
 
-A noter que les trous sont disposés aléatoirement, si jamais vous modifiez la difficulté un nouveau pattern de trou sera appliqué aléatoirement.
+Un curseur vertical vous permet de changer la difficulté. Selon la difficulté choisie, allant de 1 à 4, un certain nombre de trous vont apparaître dans les paroles de la musique et le but de l'utilisateur est de les compléter. Un bouton "Valider" apparaît aussi en bas des paroles afin d'effectuer une correction de vos réponses. Si la réponse est juste, la case se colore en vert et vous ne pouvez plus modifier votre réponse. Si elle est rouge, c'est que c'est faux.
+
+Vous pouvez voir au-dessus des paroles un avancement du nombre de réponses justes par rapport au nombre de réponses attendues.
+
+À noter que les trous sont disposés aléatoirement. Si jamais vous modifiez la difficulté, un nouveau pattern de trous sera appliqué aléatoirement.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.15]{diffi1.png}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.15]{diffi2.png}
+	\end{minipage}
+	\caption{Paroles avec des trous}
+\end{figure}
 
 \subsubsection{Inscription}
 
-Lors de votre arrivé sur 
+Lors de votre arrivée sur la page d'inscription, un formulaire est à remplir avec un nom d'utilisateur et une double vérification de mot de passe.
+
+Lorsque l'utilisateur appuie sur le bouton "S'inscrire", plusieurs éléments sont vérifiés:
+
+\begin{itemize}
+	\item Nous vérifions déjà côté client que les deux mots de passe entrés sont identiques, sinon nous mettons un message d'erreur
+	\item Ensuite, nous envoyons les informations au serveur. Deux retours sont alors possibles:
+	\begin{itemize}
+		\item Le nom d'utilisateur est déjà utilisé: on met un message d'erreur
+		\item Nous avons bien enregistré le nouvel utilisateur
+	\end{itemize}
+\end{itemize}
+
+Si l'inscription a réussi, un message nous l'informe et nous sommes automatiquement redirigés vers la page de connexion après 5 secondes.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.25]{inscri1.png}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.25]{inscri2.png}
+	\end{minipage}
+	\caption{Page d'inscription}
+\end{figure}
+
+\subsubsection{Connexion}
+
+Nous avons ensuite la page de connexion. C'est ici que l'utilisateur, après s'être inscrit, va pouvoir débloquer l'accès à son menu personnel.
+
+On demande de renseigner un nom d'utilisateur et le mot de passe qui va de pair avec.
+
+Plusieurs cas d'erreur peuvent alors survenir:
+
+\begin{itemize}
+	\item Le nom d'utilisateur n'existe pas
+	\item Le nom d'utilisateur existe mais le mot de passe est erroné
+\end{itemize}
+
+Dans tous les cas, si une erreur a lieu, on empêche la connexion de l'utilisateur et on l'informe de l'erreur qui est survenue.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.25]{connec1.png}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.25]{connec2.png}
+	\end{minipage}
+	\caption{Page de connexion}
+\end{figure}
+
+Au contraire, si la connexion est réussie, on redirige automatiquement l'utilisateur vers sa page de menu. Cela arrivera quoi qu'il arrive : si jamais un utilisateur connecté essaye de retourner sur la page de connexion, nous le redirigeons directement vers son menu car il est déjà connecté !
+
+\subsubsection{Menu de l'utilisateur}
+
+Enfin, nous avons le menu de l'utilisateur.
+
+Nous avons placé dedans un système d'édition de dossier ainsi qu'une explication brève et simple de comment fonctionne le site.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{menu.png}
+	\caption{Le menu utilisateur}
+\end{figure}
+
+\paragraph{Le système d'édition de dossier\\}
+
+À la première connexion, vous trouverez seulement un bouton avec le symbole "\textbf{+}". Ce bouton vous permet de créer un dossier avec le nom que vous voulez.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.4]{dossier1.png}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.4]{dossier2.png}
+	\end{minipage}
+	\caption{Création d'un dossier}
+\end{figure}
+
+Vous avez ensuite la possibilité d'ajouter une musique dans un dossier comme expliqué plus tôt dans le mode entraînement.
+
+Vous avez enfin la possibilité d'éditer vos dossiers. En faisant sur votre ordinateur un clic droit (ou un clic long sur votre téléphone et tablette) sur un dossier, vous pouvez soit le supprimer lui et toutes les musiques qui le composent, soit le renommer.
+
+Si vous faites un clic droit sur une musique, vous pouvez la supprimer.
+
+Avant chaque suppression d'un élément, nous demandons une confirmation à l'utilisateur car cette action est irrévocable. Une notification vous informe si votre action a bien été prise en compte ou non en haut à droite de votre écran.
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.3\textwidth}
+		\centering
+		\includegraphics[scale=0.4]{dossier3.png}
+	\end{minipage}%
+	\begin{minipage}{.3\textwidth}
+		\centering
+		\includegraphics[scale=0.4]{dossier4.png}
+	\end{minipage}
+\begin{minipage}{.3\textwidth}
+	\centering
+	\includegraphics[scale=0.4]{dossier5.png}
+\end{minipage}
+	\caption{Édition des dossiers et musiques}    
+\end{figure}
+
+
+
 
 
 
