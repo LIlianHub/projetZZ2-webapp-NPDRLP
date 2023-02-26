@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.13)  20 FEB 2023 17:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.13)  26 FEB 2023 19:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,13 +454,198 @@ File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
+Package: glossaries 2021/11/01 v4.49 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks35
+\XKV@tempa@toks=\toks36
+)
+\XKV@depth=\count305
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
+Package: mfirstuc 2021/10/15 v2.07 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count306
+)
+\@glsmfirst=\toks37
+\@glsmrest=\toks38
+)
+(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2019/09/14 v1.00 Text only upper/lower case changing (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
+Package: datatool-base 2019/09/27 v2.32 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count307
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
+Package: datatool-fp 2019/09/27 v2.32 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count308
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count309
+\FP@xia=\count310
+\FP@xib=\count311
+\FP@xfa=\count312
+\FP@xfb=\count313
+\FP@rega=\count314
+\FP@regb=\count315
+\FP@regs=\count316
+\FP@times=\count317
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count318
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks39
+\@dtl@tmpcount=\count319
+\dtl@tmplength=\skip68
+\dtl@sortresult=\count320
+\@dtl@numgrpsepcount=\count321
+\@dtl@datatype=\count322
+\dtl@codeA=\count323
+\dtl@codeB=\count324
+\@dtl@foreach@level=\count325
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries-compatible-
+307.sty
+Package: glossaries-compatible-307 2021/11/01 v4.49 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/tracklang/tracklang.sty
+Package: tracklang 2020/06/30 v1.5 (NLCT) Track Languages
+
+(/usr/share/texlive/texmf-dist/tex/generic/tracklang/tracklang.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries-french/glossaries-french.ld
+f
+File: glossaries-french.ldf 2016/12/12 v1.1
+)
+\gls@level=\count326
+\@gls@tmpb=\toks40
+\gls@tmplen=\skip69
+\glskeylisttok=\toks41
+\glslabeltok=\toks42
+\glsshorttok=\toks43
+\glslongtok=\toks44
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
+y
+Package: glossary-hypernav 2021/11/01 v4.49 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
+Package: glossary-list 2021/11/01 v4.49 (NLCT)
+\glslistdottedwidth=\skip70
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
+Package: glossary-long 2021/11/01 v4.49 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip71
+\LTright=\skip72
+\LTpre=\skip73
+\LTpost=\skip74
+\LTchunksize=\count327
+\LTcapwidth=\dimen177
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count328
+\LT@rows=\count329
+\c@LT@tables=\count330
+\c@LT@chunks=\count331
+\LT@p@ftn=\toks45
+)
+\glsdescwidth=\skip75
+\glspagelistwidth=\skip76
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
+Package: glossary-super 2021/11/01 v4.49 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
+Package: supertabular 2020/02/02 v4.1g the supertabular environment
+\c@tracingst=\count332
+\ST@wd=\dimen178
+\ST@rightskip=\skip77
+\ST@leftskip=\skip78
+\ST@parfillskip=\skip79
+\ST@pageleft=\dimen179
+\ST@headht=\dimen180
+\ST@tailht=\dimen181
+\ST@pagesofar=\dimen182
+\ST@pboxht=\dimen183
+\ST@lineht=\dimen184
+\ST@prevht=\dimen185
+\ST@toadd=\dimen186
+\ST@dimen=\dimen187
+\ST@pbox=\box61
+))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
+Package: glossary-tree 2021/11/01 v4.49 (NLCT)
+\glstreeindent=\skip80
+))
+\glswrite=\write3
+\glo@main@file=\write4
+\openout4 = `rapport.glo'.
+
+Package glossaries Info: Writing glossary file rapport.glo on input line 28.
+
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 73
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 95
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -468,30 +653,30 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count305
-\l__pdf_internal_box=\box56
+\l__color_backend_stack_int=\count333
+\l__pdf_internal_box=\box62
 )
 (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -529,20 +714,20 @@ LaTeX Font Info:    ... okay on input line 73.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 73.
+(lastpage)             ! on input line 95.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count306
-\scratchdimen=\dimen177
-\scratchbox=\box57
-\nofMPsegments=\count307
-\nofMParguments=\count308
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count309
-\MPscratchDim=\dimen178
-\MPnumerator=\count310
-\makeMPintoPDFobject=\count311
-\everyMPtoPDFconversion=\toks36
+\scratchcounter=\count334
+\scratchdimen=\dimen188
+\scratchbox=\box63
+\nofMPsegments=\count335
+\nofMParguments=\count336
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count337
+\MPscratchDim=\dimen189
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
+\everyMPtoPDFconversion=\toks47
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -552,7 +737,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 73.
+Package hyperref Info: Link coloring OFF on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -563,19 +748,20 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count312
+\c@section@level=\count340
 )
-LaTeX Info: Redefining \ref on input line 73.
-LaTeX Info: Redefining \pageref on input line 73.
-LaTeX Info: Redefining \nameref on input line 73.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \nameref on input line 95.
 
 (./rapport.out) (./rapport.out)
-\@outlinefile=\write3
-\openout3 = `rapport.out'.
+\@outlinefile=\write5
+\openout5 = `rapport.out'.
 
-LaTeX Info: Redefining \degres on input line 73.
-LaTeX Info: Redefining \up on input line 73.
-\c@lstlisting=\count313
+LaTeX Info: Redefining \degres on input line 95.
+LaTeX Info: Redefining \up on input line 95.
+\c@lstlisting=\count341
+ (./rapport.glsdefs)
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: <default>
@@ -608,88 +794,285 @@ LaTeX Info: Redefining \up on input line 73.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<isima.png, id=8, 537.4479pt x 230.0595pt>
+<isima.png, id=68, 537.4479pt x 230.0595pt>
 File: isima.png Graphic file (type png)
 <use isima.png>
-Package pdftex.def Info: isima.png  used on input line 79.
+Package pdftex.def Info: isima.png  used on input line 102.
 (pdftex.def)             Requested size: 188.10957pt x 80.52202pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-17.
- (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+46.
+
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-17.
+46.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-117.
+146.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-117.
+146.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 117.
+(Font)              <12> on input line 146.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 117.
+(Font)              <8> on input line 146.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 117.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 117
+(Font)              <6> on input line 146.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 146
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 117
+LaTeX Font Info:    Trying to load font information for U+msb on input line 146
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
+\openout3 = `rapport.ist'.
+
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./isima.png>] (./rapport.t
 oc)
-\tf@toc=\write4
-\openout4 = `rapport.toc'.
+\tf@toc=\write6
+\openout6 = `rapport.toc'.
+
+<header.png, id=95, 222.8325pt x 133.49875pt>
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 169.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-AED: lastpage setting LastPage
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.143 \end{document}
-                     [1
+l.169 \newpage
+               [1
 
-] (./rapport.aux)
+ <./header.png>]
+<fullstack.png, id=102, 903.375pt x 338.76563pt>
+File: fullstack.png Graphic file (type png)
+<use fullstack.png>
+Package pdftex.def Info: fullstack.png  used on input line 199.
+(pdftex.def)             Requested size: 361.3436pt x 135.50385pt.
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 218.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[2 <./fullstack.png (PNG copy)>]
+<api_couche.png, id=110, 4140.46875pt x 1505.625pt>
+File: api_couche.png Graphic file (type png)
+<use api_couche.png>
+Package pdftex.def Info: api_couche.png  used on input line 245.
+(pdftex.def)             Requested size: 414.07114pt x 150.57132pt.
+<api.png, id=111, 2258.4375pt x 1505.625pt>
+File: api.png Graphic file (type png)
+<use api.png>
+Package pdftex.def Info: api.png  used on input line 257.
+(pdftex.def)             Requested size: 361.35739pt x 240.90492pt.
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 260.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[3 <./api_couche.png (PNG copy)>]
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 290.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[4 <./api.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--311
+
+ []
+
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 333.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[5]
+<agile.png, id=132, 176.15813pt x 185.94469pt>
+File: agile.png Graphic file (type png)
+<use agile.png>
+Package pdftex.def Info: agile.png  used on input line 357.
+(pdftex.def)             Requested size: 176.15768pt x 185.94421pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 378.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[6 <./agile.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 399--400
+
+ []
+
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 425.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[7]
+<avantfront.png, id=149, 983.675pt x 584.1825pt>
+File: avantfront.png Graphic file (type png)
+<use avantfront.png>
+Package pdftex.def Info: avantfront.png  used on input line 432.
+(pdftex.def)             Requested size: 245.91815pt x 146.04526pt.
+
+Overfull \hbox (9.90254pt too wide) in paragraph at lines 432--433
+ [][] 
+ []
+
+<apresfront.png, id=150, 724.7075pt x 843.15pt>
+File: apresfront.png Graphic file (type png)
+<use apresfront.png>
+Package pdftex.def Info: apresfront.png  used on input line 436.
+(pdftex.def)             Requested size: 181.17642pt x 210.78697pt.
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 467.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[8 <./avantfront.png> <./apresfront.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
+
+ []
+
+
+AED: lastpage setting LastPage
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 508.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[9]
+
+Package glossaries Warning: No \printglossary or \printglossaries found. 
+(Remove \makeglossaries if you don't want any glossaries.) 
+This document will not have a glossary.
+
+(./rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 9814C2D956916ADB9290ECA4E25C967A;103.
+(rerunfilecheck)             Checksum: 20B1A8613DDCB1A3E0CD0006BE116DB3;2761.
  ) 
 Here is how much of TeX's memory you used:
- 14203 strings out of 478287
- 219397 string characters out of 5849289
- 707595 words of memory out of 5000000
- 32182 multiletter control sequences out of 15000+600000
- 503603 words of font info for 53 fonts, out of 8000000 for 9000
+ 20949 strings out of 478287
+ 352821 string characters out of 5849289
+ 879653 words of memory out of 5000000
+ 38753 multiletter control sequences out of 15000+600000
+ 513658 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,5n,63p,268b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 91i,15n,91p,1131b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
-public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr17.pfb>
-Output written on rapport.pdf (2 pages, 138978 bytes).
+public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
+Output written on rapport.pdf (10 pages, 708929 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 14 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 201 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

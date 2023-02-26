@@ -1,8 +1,6 @@
 const mysql = require("mysql");
 const fs = require("fs");
 
-
-
 //alerte pour ajouter que une fois
 //suppr les deux
 
