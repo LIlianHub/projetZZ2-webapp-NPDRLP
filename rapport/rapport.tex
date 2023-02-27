@@ -20,12 +20,137 @@
 \usepackage{hyperref} %pour mettre des liens hypertext
 \usepackage{calc} %permet de calculer les marges pour encadrer les textes
 \usepackage{color, xcolor} %gère les couleurs
-\usepackage{babel}
 \usepackage{listings} %pour afficher le code annexe
-% Ajout du package glossaries 
-\usepackage{glossaries} 
-% Création du glossaire 
+
+
+%glossaire
+\usepackage[acronym]{glossaries}
 \makeglossaries
+
+\newglossaryentry{chiffré}
+{
+	name=chiffré,
+	description={Le chiffrage est une technique de protection de données sensibles par le biais d'un algorithme de chiffrement. Cette technique est utilisée pour sécuriser les informations confidentielles en les transformant en un code illisible pour une personne non autorisée.}
+}
+
+\newglossaryentry{API}
+{
+	name=API,
+	description={L'API (Application Programming Interface) est un ensemble de protocoles et d'outils permettant à différents logiciels de communiquer entre eux. Elle permet à des développeurs d'utiliser les fonctionnalités d'un logiciel tiers dans leur propre application.}
+}
+
+\newglossaryentry{SACEM}
+{
+	name=SACEM,
+	description={La SACEM (Société des Auteurs, Compositeurs et Éditeurs de Musique) est une société française de gestion des droits d'auteur. Elle a pour mission de collecter et de répartir les droits d'auteur aux auteurs, compositeurs et éditeurs de musique.}
+}
+
+\newglossaryentry{Open-source}
+{
+	name=Open-source,
+	description={Le terme open-source désigne un logiciel dont le code source est accessible publiquement. Il peut être utilisé, modifié et distribué librement par les utilisateurs, contrairement aux logiciels propriétaires.}
+}
+
+\newglossaryentry{Front}
+{
+	name=Front,
+	description={En développement web, la notion de "front end" fait référence à l’ensemble des éléments visibles et accessibles directement sur un site web (voire sur une application web ou une application web mobile)}
+}
+
+
+\newglossaryentry{Back}
+{
+	name=Back,
+	description={Le "back end" concerne toute la partie invisible de la conception d’un site internet, tel que le développement de bases de données, par exemple.
+	}
+}
+
+
+\newglossaryentry{Framework}
+{
+	name=Framework,
+	description={Un framework (ou infrastructure logicielle en français ) désigne en programmation informatique un ensemble d'outils et de composants logiciels à la base d'un logiciel ou d'une application.
+	}
+}
+
+\newglossaryentry{Typescript}
+{
+	name=Typescript,
+	description={TypeScript est un langage de programmation libre et Open-source développé par Microsoft qui a pour but d'améliorer et de sécuriser la production de code JavaScript. Il s'agit d'un sur-ensemble syntaxique strict de JavaScript (c'est-à-dire que tout code JavaScript correct peut être utilisé avec TypeScript).
+	}
+}
+
+\newglossaryentry{SCSS}
+{
+	name=SCSS,
+	description={Le SCSS est une surcouche du CSS qui est un langage informatique utilisé sur Internet pour la mise en forme de fichiers et de pages HTML. On le traduit en français par feuilles de style en cascade.
+	}
+}
+
+\newglossaryentry{HTML}
+{
+	name=HTML,
+	description={L'HyperText Markup Language, HTML, désigne un type de langage informatique descriptif. Il s'agit plus précisément d'un format de données utilisé dans l'univers d'Internet pour la mise en forme des pages Web. Il permet, entre autres, d'écrire de l'hypertexte, mais aussi d'introduire des ressources multimédias dans un contenu.
+	}
+}
+
+\newglossaryentry{Javascript}
+{
+	name=JavaScript,
+	description={JavaScript désigne un langage de développement informatique, et plus précisément un langage de script orienté objet. On le retrouve principalement dans les pages Internet. Il permet, entre autres, d'introduire sur une page web ou HTML des petites animations ou des effets.
+	}
+}
+
+\newglossaryentry{sprint}
+{
+	name=sprint,
+	description={Le sprint agile est une étape phare de la méthode Agile. Il s’agit d’une période courte délimitée dans le temps, durant laquelle les différents collaborateurs d’un projet vont travailler sur un objectif détaillé et atteignable. Cet objectif permet de faire avancer le projet. 
+	}
+}
+
+\newglossaryentry{Web scraping}
+{
+	name=Web scraping,
+	description={Le Web scraping (parfois appelé harvesting ou en français moissonage1) est une technique d'extraction du contenu de sites Web, via un script ou un programme, dans le but de le transformer pour permettre son utilisation dans un autre contexte comme l'enrichissement de bases de données, le référencement2 ou l'exploration de données.
+	}
+}
+
+\newglossaryentry{HTTP}
+{
+	name=HTTP,
+	description={L'http, pour Hypertext Transfer Protocol, désigne dans le langage informatique un protocole de communication entre un client et un serveur pour le World Wide Web. On le traduit littéralement en français par protocole de transfert hypertexte.
+	}
+}
+
+\newglossaryentry{salé}
+{
+	name=salé,
+	description={Le salage est une méthode permettant de renforcer la sécurité des informations qui sont destinées à être hachées (par exemple des mots de passe) en y ajoutant une donnée supplémentaire afin d’empêcher que deux informations identiques ne conduisent à la même empreinte 
+	}
+}
+
+\newglossaryentry{CSS}
+{
+	name=CSS,
+	description={Le CSS est un langage informatique utilisé sur Internet pour la mise en forme de fichiers et de pages HTML. On le traduit en français par feuilles de style en cascade.
+	}
+}
+
+\newglossaryentry{SQL}
+{
+	name=SQL,
+	description={Le langage SQL (Structured Query Language) est un langage informatique utilisé pour exploiter des bases de données. Il permet de façon générale la définition, la manipulation et le contrôle de sécurité de données.
+	}
+}
+
+
+
+
+
+
+
+
+
 
 %pour afficher le code de manière esthétique
 \lstset{
@@ -90,6 +215,12 @@
 \renewcommand\thesection{\Roman{section}}
 \renewcommand\thesubsection{\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\usepackage{tocbasic}
+\DeclareTOCStyleEntry[
+beforeskip=.2em plus 1pt,% default is 1em plus 1pt
+pagenumberformat=\textbf
+]{tocline}{section}
 
 
 \begin{document}
@@ -163,10 +294,80 @@
 \restoregeometry
 
 
+\newpage
 
+\vspace*{1cm}
+
+\section*{Remerciement}
+\addcontentsline{toc}{section}{\protect\numberline{}Remerciement}
+
+Nous souhaitons adresser nos remerciements à M. Yon pour son soutien tout au long du projet.
+Son expertise dans le domaine a été d'une grande aide pour résoudre les problèmes techniques et pour orienter nos choix en matière de développement.
+Merci aussi pour sa lecture attentive et ses recommandations nous ont permis d'améliorer considérablement la qualité de notre rapport.
+Nous tenons également à remercier Mme Mouzat pour ses conseils avisés lors de la rédaction du rapport de projet.
+Nous leur sommes très reconnaissants pour leur contribution à la réussite de notre projet.
+
+
+\addcontentsline{toc}{section}{\protect\numberline{}Table des illustrations}
+
+\renewcommand{\listfigurename}{Table des illustrations}
+\listoffigures
+
+\newpage
+
+\vspace*{1cm}
+
+\section*{Résumé}
+\addcontentsline{toc}{section}{\protect\numberline{}Résumé}
+
+
+Le but de ce projet est de réaliser un site web fonctionnant sur mobile, tablette et ordinateur, permettant de réviser les paroles de la musique de son choix. Que ce soit pour le plaisir ou pour participer à l'émission "N'oubliez pas les paroles" de France 2, ce site répondra aux attentes des utilisateurs. Il est disponible sur tous les navigateurs tels que Google Chrome, Mozilla Firefox et même Safari. Ce projet est composé d'une partie  en NodeJS et d'un \gls{Front} en Angular. Les bases de données sont gérées en \gls{SQL} grâce à sqlplus et sont articulées autour des langages \gls{Javascript}, \gls{HTML} et \gls{CSS}, avec l'aide du template Bootstrap.
+\newline 
+
+Le développement a été réalisé avec l'environnement de développement Visual Studio Code et les tests de bases de données ont été effectués sur mySql Workbench. A ce jour, le site est fonctionnel en local et permet de réviser les paroles de musiques choisies, ainsi que de les enregistrer dans des dossiers grâce à une gestion d'utilisateurs.
+\newline 
+\newline
+Mots-clés : multi-plateforme, NodeJS, Angular, \gls{Javascript}, Bootstrap, SQL, full-stack.
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{\protect\numberline{}Abstract}
+
+The goal of this project is to develop a website that works on mobile, tablet, and desktop computers, allowing users to revise the lyrics of their favorite songs. Whether for fun or to participate in the "N'oubliez pas les paroles" TV show on France 2, this site meets users' expectations. It is available on all major browsers such as Google Chrome, Mozilla Firefox, and Safari. The project consists of a NodeJS \gls{Back} and an Angular \gls{Front}. The \gls{SQL} databases are managed using sqlplus and use \gls{Javascript}, \gls{HTML}, and \gls{CSS} languages, with the help of Bootstrap templates.
+\newline 
+
+The development was carried out using the Visual Studio Code development environment, and database tests were performed on mySql Workbench. To date, the site is functional locally, allowing users to revise the lyrics of their chosen songs and save them in folders using user management.
+\newline 
+\newline 
+Keywords: cross-platform, NodeJS, Angular, \gls{Javascript}, Bootstrap, \gls{SQL}, full-stack.
+
+\newpage
+
+\addcontentsline{toc}{section}{\protect\numberline{}Table des matières}
+
+\renewcommand{\contentsname}{Table des matières}
 \normalsize\tableofcontents %place la table des matières
 
 \newpage
+
+\vspace*{0.01cm}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{\protect\numberline{}Introduction}
+
+Le projet sur lequel nous avons travaillé consiste en une plateforme web de révision de chansons en format karaoké. Cette application permet aux utilisateurs de rechercher des chansons en fonction de leurs préférences et de leur niveau de difficulté, de les réviser en remplissant les trous des paroles manquantes et de visualiser la vidéo en format karaoké. Les utilisateurs peuvent également créer des dossiers de playlist pour organiser leurs chansons préférées.
+
+\medskip
+
+La base de données de l'application stocke toutes les informations relatives aux chansons, aux utilisateurs et aux dossiers de playlist de chaque utilisateur. Nous avons utilisé deux outils de gestion de base de données, SQLPlus et MySQL Workbench, pour gérer efficacement la base de données et manipuler les données stockées.
+
+\medskip
+
+En termes de conception visuelle, nous avons choisi de nous concentrer sur l'efficacité et la convivialité de l'interface utilisateur plutôt que sur l'esthétique. Cependant, nous avons ajouté des éléments esthétiques en utilisant des ressources en ligne telles que Bootstrap et PrimeNG pour créer des menus déroulants, des animations et des templates pour la gestion de dossier.
+
+\medskip
+
+Dans ce rapport de projet, nous allons expliquer en détail les différentes étapes de développement de notre application, les technologies et outils que nous avons utilisés, les problèmes rencontrés et les solutions que nous avons trouvées, ainsi que les résultats obtenus.
+
 
 \section{Contexte du projet}
 
@@ -176,15 +377,15 @@ Pour commencer l'explication du projet, nous allons faire une brève introductio
 
 \medskip
 
-Lors d'un projet informatique de développement web, l'architecture du logiciel va être séparée en plusieurs parties distinctes : la partie côté serveur dite le "back", puis la partie côté utilisateur dite le "front".
+Lors d'un projet informatique de développement web, l'architecture du logiciel va être séparée en plusieurs parties distinctes : la partie côté serveur dite le "\gls{Back}", puis la partie côté utilisateur dite le "\gls{Front}".
 
 \medskip
 
-La partie front va être chargée sur le moteur de recherche de l'utilisateur et donc le code sera disponible et exploitable par n'importe quel utilisateur du site web (par exemple, le code HTML ainsi que le code Javascript).
+La partie \gls{Front} va être chargée sur le moteur de recherche de l'utilisateur et donc le code sera disponible et exploitable par n'importe quel utilisateur du site web (par exemple, le code \gls{HTML} ainsi que le code \gls{Javascript}).
 
 \medskip
 
-À l'inverse, la partie back va gérer tous les comportements communs que l'on doit garder côté serveur (interagir avec la base de données, contacter une API...).
+À l'inverse, la partie \gls{Back} va gérer tous les comportements communs que l'on doit garder côté serveur (interagir avec la base de données, contacter une \gls{API}...).
 
 \medskip
 
@@ -192,12 +393,64 @@ Lorsqu'on parle de Full Stack, on parle donc du développement de ces deux aspec
 
 \medskip
 
-Dans ce projet, nous allons vous montrer comment nous avons implémenté un projet Full Stack avec un back en Node.js à l'aide du module "Express" et un front à l'aide du framework Angular.
+Dans ce projet, nous allons vous montrer comment nous avons implémenté un projet Full Stack avec un \gls{Back} en Node.js à l'aide du module "Express" et un \gls{Front} à l'aide du \gls{Framework} Angular.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{fullstack.png}
 	\caption{Organigramme de notre Application Fullstack}    
+\end{figure}
+
+\subsection{Principales fonctionnalités de notre site web}
+
+Notre application à été réfléchit pour aider les utilisateurs à réviser les paroles de chansons qu'ils souhaitent apprendre, pour ce faire, nous proposons un grand de fonctionnalités pour qu'ils s'améliorent tout en s'amusant.
+\newline 
+
+En visitant notre site web, les utilisateurs peuvent créer un compte ou se connecter s'ils en ont déjà un. Ils peuvent ensuite rechercher les chansons qu'ils souhaitent réviser en utilisant la barre de recherche intégrée.
+\newline 
+
+Une fois qu'ils ont trouvé une chanson, ils peuvent choisir la difficulté de la révision en fonction de leur niveau de compétence. Nous proposons également des exercices de type "trous à remplir" avec des réponses à trouver pour aider les utilisateurs à se souvenir des paroles.
+\newline 
+
+En plus de cela, les utilisateurs peuvent regarder des vidéos des chansons qu'ils ont recherchées, avec les paroles affichées en format karaoké pour un apprentissage plus facile. Ils peuvent également créer des dossiers pour organiser leurs chansons et faire des playlists personnalisées.
+\newline 
+
+Pour une expérience plus personnalisée, nous avons également inclus la possibilité d'enregistrer des chansons dans un dossier personnel, qui peut être géré directement depuis l'interface utilisateur.
+\newline 
+
+En résumé, notre application offre une plateforme complète pour aider les utilisateurs à réviser les paroles de leurs chansons préférées, en leur offrant des fonctionnalités utiles pour améliorer leur expérience d'apprentissage.
+
+\newpage
+
+\vspace*{1cm}
+
+\subsection{Analyse des problèmes}
+
+
+La conception d'une application pour aider les utilisateurs à réviser les paroles de leurs chansons préférées peut être un défi en soi, car il existe de nombreux problèmes potentiels qui peuvent survenir tout au long du processus.
+\newline
+
+L'un des problèmes les plus courants est la qualité des données. Il peut être difficile de trouver des sources de données fiables pour les paroles de chansons, et il peut y avoir des erreurs dans les paroles proposées par ces sources. Cela peut entraîner des difficultés pour les utilisateurs lorsqu'ils essaient de réviser les paroles de leurs chansons préférées.
+\newline
+
+Un autre problème courant est la gestion de la sécurité des données des utilisateurs. L'application doit s'assurer que les données personnelles des utilisateurs sont correctement protégées contre les attaques potentielles. Cela peut inclure des mesures telles que la cryptage des mots de passe et la gestion des accès utilisateurs.
+En outre, l'application doit être facile à utiliser et intuitive pour les utilisateurs. Il est important de concevoir une interface utilisateur conviviale pour assurer une expérience utilisateur optimale. Les utilisateurs doivent être en mesure de trouver facilement les chansons qu'ils recherchent et d'utiliser les fonctionnalités proposées.
+\newline
+Enfin, l'application doit être adaptée à une grande variété d'appareils et de navigateurs différents. Les utilisateurs peuvent utiliser une variété de périphériques pour accéder à l'application, tels que des ordinateurs de bureau, des tablettes ou des smartphones, et l'application doit être capable de fonctionner sur tous ces appareils.
+\newline
+
+En somme, la conception d'une application pour aider les utilisateurs à réviser les paroles de leurs chansons préférées nécessite une attention particulière à la qualité des données, la sécurité, l'utilisabilité et la compatibilité multi-plateforme.
+\newline
+\newline
+
+Une fois toutes ces problématiques étudiées et anticipées, nous nous sommes mis à la confection du diagramme de Gantt prévisionnel de notre projet.
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{ganttprevi.png}
+	\caption{Diagramme de Gantt prévisionnel}    
 \end{figure}
 
 \section{Réalisation et conception}
@@ -206,7 +459,7 @@ Dans ce projet, nous allons vous montrer comment nous avons implémenté un proj
 
 \subsubsection{Le Back de notre site}
 
-Pour la partie back de notre projet, nous avons choisi de prendre Node.js avec le module "Express".
+Pour la partie \gls{Back} de notre projet, nous avons choisi de prendre Node.js avec le module "Express".
 
 \medskip
 
@@ -218,22 +471,22 @@ De plus, Node.js est une technologie plus récente que d'autres langages qui peu
 
 \medskip
 
-Avec Express, nous pouvons en quelques minutes implémenter une API assez facilement et parfaitement fonctionnelle. Cela nous a permis de bien scinder la partie front et back de notre projet.
+Avec Express, nous pouvons en quelques minutes implémenter une \gls{API} assez facilement et parfaitement fonctionnelle. Cela nous a permis de bien scinder la partie \gls{Front} et \gls{Back} de notre projet.
 Nous pouvons par exemple citer l'exemple de PHP, où la partie serveur et client est parfois mélangée dans les mêmes fichiers.
 
-Ici, nous avons le back dans un dossier et le front dans un autre, et ces deux aspects sont parfaitement indépendants ! On peut, par exemple, lancer le back pour faire des tests dessus sans toucher au front.
+Ici, nous avons le \gls{Back} dans un dossier et le \gls{Front} dans un autre, et ces deux aspects sont parfaitement indépendants ! On peut, par exemple, lancer le \gls{Back} pour faire des tests dessus sans toucher au \gls{Front}.
 
-La partie front va pouvoir communiquer avec la partie back à l'aide de requêtes envoyées à celui-ci, auxquelles il va répondre.
+La partie \gls{Front} va pouvoir communiquer avec la partie \gls{Back} à l'aide de requêtes envoyées à celui-ci, auxquelles il va répondre.
 
 \bigskip
 
-Au niveau de l'organisation de notre back, nous avons séparé celui-ci en différentes couches.
+Au niveau de l'organisation de notre \gls{Back}, nous avons séparé celui-ci en différentes couches.
 
 \medskip
 
 \begin{itemize}
 	\item \textbf{Couche "Controller"} : réceptionne les requêtes et appelle les fonctions nécessaires en fonction de la demande. Répond ensuite aux requêtes. Elle correspond au fichier \textit{listen.js}.
-	\item \textbf{Couche "Business"}: effectue tous les calculs de notre API, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'API (communication avec d'autres API, création de trou à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
+	\item \textbf{Couche "Business"}: effectue tous les calculs de notre \gls{API}, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'\gls{API} (communication avec d'autres \gls{API}, création de trou à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
 	\item \textbf{Couche "Base de donnée"}: effectue toutes les requêtes à la base de donnée et renvoie les données récupérées. Elle est appelées par la couche business. Elle correspond au fichier \textit{gestion\_database.js}.
 	
 \end{itemize}
@@ -249,7 +502,7 @@ Au niveau de l'organisation de notre back, nous avons séparé celui-ci en diff�
 
 \bigskip
 
-Pour démarrer notre API, nous lançons le fichier \textbf{server.js} qui positionne notre API sur le port souhaité de notre machine. Ensuite, il se connecte à la base de données. Enfin, une fois que tout cela est effectué, nous activons les différents contrôleurs de l'API et nous sommes prêts à recevoir des requêtes !
+Pour démarrer notre \gls{API}, nous lançons le fichier \textbf{server.js} qui positionne notre \gls{API} sur le port souhaité de notre machine. Ensuite, il se connecte à la base de données. Enfin, une fois que tout cela est effectué, nous activons les différents contrôleurs de l'\gls{API} et nous sommes prêts à recevoir des requêtes !
 
 \begin{figure}[H]
 	\centering
@@ -259,11 +512,11 @@ Pour démarrer notre API, nous lançons le fichier \textbf{server.js} qui positi
 
 \medskip
 
-On peut voir ici que nous communiquons avec d'autres API publiques ! Nous vous expliquerons cela plus en détail par la suite.
+On peut voir ici que nous communiquons avec d'autres \gls{API} publiques ! Nous vous expliquerons cela plus en détail par la suite.
 
 \subsubsection{Le Front}
 
-Pour la partie Front, nous avons choisi d'utiliser un Framework car ces technologies sont plus évoluées pour effectuer des comportements complexes.
+Pour la partie \gls{Front}, nous avons choisi d'utiliser un \gls{Framework} car ces technologies sont plus évoluées pour effectuer des comportements complexes.
 
 \medskip
 
@@ -271,75 +524,171 @@ L'un des gros avantages de ces technologies est de pouvoir séparer notre applic
 
 \medskip
 
-De plus, les Framework sont des outils très puissants avec de nombreuses fonctionnalités pré-implémentées. Cela nous permet de ne pas avoir besoin de réinventer la roue et de nous concentrer sur nos propres implémentations.
+De plus, les \gls{Framework} sont des outils très puissants avec de nombreuses fonctionnalités pré-implémentées. Cela nous permet de ne pas avoir besoin de réinventer la roue et de nous concentrer sur nos propres implémentations.
 
 \medskip
 
-Ainsi, nous avons hésité entre le Framework Angular et ReactJS qui sont les plus courants et les plus utilisés de nos jours. Notre choix s'est finalement porté sur Angular car nous étions familiers avec ce Framework grâce à des projets personnels. 
+Ainsi, nous avons hésité entre le \gls{Framework} Angular et ReactJS qui sont les plus courants et les plus utilisés de nos jours. Notre choix s'est finalement porté sur Angular car nous étions familiers avec ce \gls{Framework} grâce à des projets personnels. 
 
 \medskip
 
-L'avantage de ce Framework est qu'il utilise nativement Typescript dans la version que nous utilisons, ce qui permet de créer des applications plus claires en typant les variables et les objets utilisés. De plus, chaque composant généré est composé d'un fichier HTML, un fichier SCSS et un fichier Typescript, ce qui permet de bien séparer les trois aspects importants du front qui sont respectivement, dans l'ordre, le corps d'une page, son style et son comportement.
+L'avantage de ce \gls{Framework} est qu'il utilise nativement \gls{Typescript} dans la version que nous utilisons, ce qui permet de créer des applications plus claires en typant les variables et les objets utilisés. De plus, chaque composant généré est composé d'un fichier \gls{HTML}, un fichier \gls{SCSS} et un fichier \gls{Typescript}, ce qui permet de bien séparer les trois aspects importants du \gls{Front} qui sont respectivement, dans l'ordre, le corps d'une page, son style et son comportement.
 
 \bigskip
 
-En plus d'Angular, nous avons utilisé le Framework \textbf{Bootstrap} pour avoir des éléments graphiques classes et au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce Framework.
+En plus d'Angular, nous avons utilisé le \gls{Framework} \textbf{Bootstrap} pour avoir des éléments graphiques classes et au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce \gls{Framework}.
 
 De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons plein d'éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
+
+\subsubsection{La base de donnée}
+
+Pour la gestion de la base de données, plusieurs choix s'offraient à nous, mais nous avons décidé d'utiliser deux outils que nous connaissions bien : SQLPlus et MySQL Workbench. Ces outils ont été importants pour notre projet car ils nous ont permis de gérer efficacement la base de données, un élément essentiel de notre application qui stocke toutes les informations relatives aux chansons, aux utilisateurs et aux dossiers de playlists.
+\newline
+
+SQLPlus est un outil puissant pour gérer une base de données Oracle. Il nous a permis de créer et de gérer des tables dans la base de données et de manipuler les données stockées. En utilisant cet outil, qui nous était familier, nous avons pu optimiser et automatiser un certain nombre de requêtes \gls{SQL}, nous faisant ainsi gagner du temps.
+\newline
+
+MySQL Workbench est lui un logiciel \gls{Open-source} permettant de gérer efficacement notre base de données. Cet application nous a permis de créer et de gérer des tables dans la base de données, d'avoir accès aux données stockées et de manipuler ces même données à l'aide une interface utilisateur intuitive.
+\newline
+En utilisant ces deux outils, nous avons pu travailler efficacement sur la base de données de notre application, ce qui nous a fait gagner un temps précieux. Nous avons pu créer des tables efficacement, gérer les contraintes, les index, et réaliser des requêtes complexes pour récupérer les données dont nous avions besoin. En outre, nous avons pu contrôler l'accès aux données ainsi que leur confidentialité grâce à ces outils.
+
+Une fois ces deux outils choisis et configurés, nous devions alors sélectionner les différentes tables que nous aurons à utiliser dans notre base de données. Le principal élément de notre application étant la gestion de dossiers dans lesquels un utilisateur peut enregistrer de la musique, nous avions déjà trois tables qui nous semblaient assez logiques. La première serait la base "Utilisateur" dans laquelle nous retrouverons le nom d'utilisateur, un ID utilisateur ainsi que son mot de passe. La seconde est la table "Dossier" qui possède un numéro de dossier unique et qui est liée à un numéro d'utilisateur par une clé primaire. La troisième était la table "Musique" car nous souhaitions garder une trace de chaque musique recherchée pour y avoir accès rapidement lors de la connexion à l'\gls{API}. Nous sauvegarderons donc un ID de la musique unique pour la différencier des autres, puis le nom de la musique ainsi que son chanteur. Enfin, une fois ces trois tables créées, nous avons pensé à la création d'une table que nous appellerons "MusiqueDansDossier" pour faire le lien entre la table dossier et la table musique sans supprimer les musiques de notre base à la suppression d'un dossier. Cette réflexion nous donne donc ces deux schémas pour bien comprendre notre conception de la base.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{diag_database.png}
+	\caption{MLD de notre base de donnée}    
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{table.png}
+	\caption{Modèle relationnelle de notre base de donnée}    
+\end{figure}
 
 
 \subsubsection{Choix des APIs}
 
-Nous avons dû utiliser pour ce projet deux APIs publiques de deux entreprises différentes.
+Nous avons dû utiliser pour ce projet deux \gls{API}s publiques de deux entreprises différentes.
 
 \medskip
 
-Ces APIs nous permettent de récupérer des informations, comme par exemple des paroles de musique, et nous ont été très utiles. Pour chacune d'elles, nous avons dû nous inscrire sur le site de la documentation afin d'obtenir un token pour communiquer avec elles.
+Ces \gls{API}s nous permettent de récupérer des informations, comme par exemple des paroles de musique, et nous ont été très utiles. Pour chacune d'elles, nous avons dû nous inscrire sur le site de la documentation afin d'obtenir un token pour communiquer avec elles.
 
 \paragraph{Gestion des lecteurs vidéos avec paroles de musique \\\\}
 
-La première est l'API de \textbf{Youtube} de l'entreprise \textbf{Google}. Nous lui demandons, via une requête, le meilleur résultat pour une recherche avec les mots clés "\textit{nom musique}" + "\textit{nom artiste}" + "lyrics".
+La première est l'\gls{API} de \textbf{Youtube} de l'entreprise \textbf{Google}. Nous lui demandons, via une requête, le meilleur résultat pour une recherche avec les mots clés "\textit{nom musique}" + "\textit{nom artiste}" + "lyrics".
 
-L'API nous répond en envoyant une liste des 5 vidéos sur sa plateforme qui correspondent le mieux à la recherche et nous renvoyons le résultat numéro 1 à la partie utilisateur afin d'afficher le bon URL dans le lecteur.
+L'\gls{API} nous répond en envoyant une liste des 5 vidéos sur sa plateforme qui correspondent le mieux à la recherche et nous renvoyons le résultat numéro 1 à la partie utilisateur afin d'afficher le bon URL dans le lecteur.
 
 \paragraph{Récupération des paroles de musique \\\\}
 
-Notre second objectif était de trouver une API qui pourrait nous fournir les paroles de musique et qui couvre donc un très grand nombre d'entre elles.
+Notre second objectif était de trouver une \gls{API} qui pourrait nous fournir les paroles de musique et qui couvre donc un très grand nombre d'entre elles.
 
 \medskip
 
-Nous nous sommes tout d'abord penchés sur l'API \textbf{ChartLyrics}, puis nous nous sommes rendus compte que celle-ci était trop incomplète. L'API étant américaine, nous avions très peu de musique française dessus, ce qui est très dommage au vu de notre projet.
+Nous nous sommes tout d'abord penchés sur l'\gls{API} \textbf{ChartLyrics}, puis nous nous sommes rendus compte que celle-ci était trop incomplète. L'\gls{API} étant américaine, nous avions très peu de musique française dessus, ce qui est très dommage au vu de notre projet.
 
 \medskip
 
-Ainsi, nous nous sommes ensuite penchés sur une autre API d'un site très connu qui couvre de très nombreuses musiques très diversifiées : \textbf{Genius Lyrics}.
+Ainsi, nous nous sommes ensuite penchés sur une autre \gls{API} d'un site très connu qui couvre de très nombreuses musiques très diversifiées : \textbf{Genius Lyrics}.
 
-Le problème de cette API est que, dû à des problèmes de droits sur les paroles de musique (gérés en France par la \textbf{SACEM}), nous ne pouvons pas obtenir les paroles de musique directement via des requêtes.
+Le problème de cette \gls{API} est que, dû à des problèmes de droits sur les paroles de musique (gérés en France par la \gls{SACEM}), nous ne pouvons pas obtenir les paroles de musique directement via des requêtes.
 
-La solution est la suivante : l'API nous fournit le lien vers la page web du site \textbf{Genius Lyrics}. Nous récupérons ce lien et, grâce au Web scraping, nous arrivons à récupérer les paroles.
+La solution est la suivante : l'\gls{API} nous fournit le lien vers la page web du site \textbf{Genius Lyrics}. Nous récupérons ce lien et, grâce au \gls{Web scraping}, nous arrivons à récupérer les paroles.
 
 Dans l'ordre, la méthode pour récupérer les paroles d'une musique est donc la suivante :
 
 \medskip
 
 \begin{itemize}
-	\item On contacte l'API Genius Lyrics et on lui demande l'URL de la page du site qui contient les paroles.
-	\item On aspire ensuite tout le code HTML de la page web du site.
-	\item Les paroles étant toujours dans la même balise HTML, on les récupère tout en ignorant le reste du contenu de la page.
+	\item On contacte l'\gls{API} Genius Lyrics et on lui demande l'URL de la page du site qui contient les paroles.
+	\item On aspire ensuite tout le code \gls{HTML} de la page web du site.
+	\item Les paroles étant toujours dans la même balise \gls{HTML}, on les récupère tout en ignorant le reste du contenu de la page.
 	\item Enfin, on formate les paroles pour qu'elles soient plus adaptées à de l'apprentissage.
 \end{itemize}
 
 \medskip
 
+  \subsubsection{Chartes graphiques}
+
+Pour ce qui est des choix visuels de notre plateforme web, la charte graphique finale se trouvant actuellement sur notre application a été choisie en dernier lors de notre conception. L'important pour nous étant que les fonctionnalités soient efficaces et permettent une utilisation satisfaisante du site. Nous avons tout de même fini par embellir ce projet à l'aide de plusieurs ressources disponibles en ligne. La première est Bootstrap, ce template de style \gls{HTML} et \gls{CSS} préconstruit nous a permis de créer tout ce qui est menu déroulant ou animation comme sur la page d'accueil.
+\newline
+
+Pour la gestion des dossiers, nous avons utilisé des templates pour la création Angular disponibles sur PrimeNG, ce qui nous a permis de donner un style épuré à notre site mais aussi une utilisation agréable visuellement.
+
+\subsection{Description détaillé} 
+
+Pour cette description détaillée des fonctionnalités de notre site web, nous allons prendre l'ordre d'apparition de ces mêmes fonctionnalités lors de l'utilisation de notre site et non l'ordre de conception lors de notre projet.
+\subsubsection{Gestion des comptes}
+
+\paragraph{Création de compte \\\\}
+
+La première fonctionnalité lors de l'arrivée sur notre site est celle de la création de compte. Pour pouvoir créer un compte, l'utilisateur doit renseigner son nom d'utilisateur ainsi que son mot de passe qu'il doit par la suite confirmer. Une fois toutes ces informations récoltées, deux phases de vérifications s'opèrent. La première est plutôt simple et vérifie juste que les deux mots de passe renseignés soient bien les mêmes. Ensuite, la deuxième vérification se trouve en aval de l'insertion en base de données. Ici, on vérifie par une requête dans notre table utilisateur qu'il n'existe aucun nom d'utilisateur identique à celui à insérer. Une fois ces vérifications passées, nous insérons dans notre table utilisateur une ligne avec le nom d'utilisateur renseigné et avec un mot de passe préalablement \gls{salé} puis \gls{chiffré}. Une fois l'insertion effectuée, nous sommes redirigés sur une page de connexion.
+
+
+\paragraph{Connexion au site web \\\\}
+
+Lorsque nous possédons un compte, nous devons maintenant nous connecter. L'utilisateur doit renseigner son nom d'utilisateur et son mot de passe pour pouvoir vérifier la concordance des mots de passe et lui accorder une connexion. Si, après notre requête en base de données, le mot de passe renseigné et celui en base de données sont identiques, alors l'utilisateur se connecte sur le site avec son compte, ce qui va lui permettre d'effectuer un certain nombre de fonctionnalités impossibles sans connexion, comme nous allons le voir plus bas dans la gestion des dossiers. Lors de la connexion de ce même utilisateur, nous lui créons un \textbf{token} afin de vérifier les permissions d'accès à la base de données lors d'insertions ou de suppressions. Ce token nous permet également de faire une requête en base pour récupérer les dossiers que possède l'utilisateur pour lui afficher sur son menu personnalisé.
+
+\subsubsection{Gestion des paroles}
+
+Le principe de notre site étant de donner la possibilité à un utilisateur de réviser ou apprendre les paroles des musiques qu'il désire, une grande partie de nos fonctionnalités se trouve dans cette gestion des paroles. 
+
+\paragraph{Recherches de musiques \\\\}
+
+Chronologiquement, la première fonctionnalité que nous avons développée est cette recherche de musiques et donc de paroles. L'utilisateur peut donc choisir le nom de la musique recherchée ainsi que le nom du chanteur. Une fois ces deux informations récupérées, on met alors en place une longue suite d'algorithmes pour permettre d'afficher les paroles recherchées. Pour commencer, nous utilisons les informations de recherche de l'utilisateur pour former manuellement une requête composée et l'envoyer à l'\gls{API} Genius Lyrics. Une fois cette requête effectuée et notre accès à l'\gls{API} confirmé, nous récupérons les paroles que nous fournit l'\gls{API} grâce au \gls{Web scraping} que nous avons présenté ci-dessus. Grâce à cette récupération de code, nous pouvons renvoyer l'intégralité des paroles à notre site web et les afficher comme bon nous semble.
+
+\paragraph{Création des musique à trous \\\\}
+
+Une fois ces paroles récupérées et formatées à notre convenance, nous les avons modifiées afin de permettre à l'utilisateur de posséder de nombreux outils pour apprendre ces paroles. L'outil principal de cette fonctionnalité est le remplissage de texte à trous afin de s'entraîner à connaître les mots manquants. Pour la création de ces mots manquants, le principe est plutôt simple. Nous utilisons une fonction aléatoire afin de supprimer certains mots au milieu des paroles de la chanson. Nous avons fait le choix de parsemer les mots manquants et non d'enlever des phrases pour permettre de travailler toutes les parties de ces mêmes chansons. Une fois un mot sélectionné comme manquant par notre algorithme, nous affichons une case permettant à l'utilisateur de saisir le mot de son choix. Le site web donne le choix à l'utilisateur de choisir la difficulté qu'il souhaite pour l'apprentissage de nos musiques.
+\newline
+
+- La difficulté 1 affiche purement un simplement les paroles sans trous afin de pouvoir les lires plus facilement. 
+
+- La difficulté 2 affiche cette fois-ci un nombre de mots manquants à hauteur de 15\%, et indique à l'utilisateur le nombre de lettres que possède chaque mot manquant.
+
+- La difficulté 3 est sensiblement la même que la difficulté 2, mais augmente le pourcentage de mots manquants à 30\%.
+
+- Enfin, la difficulté 4 possède la même fréquence de mot manquant que la difficulté 3, mais n'affiche cette fois-ci plus le nombre de lettres dans le mot manquant, ce qui augmente drastiquement la difficulté de remplissage.  
+     
+\paragraph{Vérification des réponses manquantes \\\\}
+
+Pour les difficultés de 2 à 4, il nous fallait donc un système de vérification de réponse entre les mots manquants et les mots saisis par l'utilisateur. Pour ce faire, il n'y avait rien de plus simple. Lorsque nous choisissions un mot comme manquant dans notre affichage de révision, nous l'insérions aussi dans un tableau de mots manquants pour avoir accès à tous les mots lors de la vérification. Une fois ces mots enregistrés, nous faisions simplement une comparaison de chaîne de caractère entre le mot enregistré dans notre tableau de mots et celui saisi lors de l'entraînement. Si les mots concordaient, nous affichions la case en vert et nous enlevions la possibilité de remplir ce texte à nouveau. Si c'était faux, nous l'affichions en rouge et l'entraînement continuait.
+
+\paragraph{Utilisation du lecteur YouTube \\\\}
+
+Une dernière chose disponible dans notre mode d'entraînement n'a pas été évoquée jusqu'ici, il s'agit de l'incrustation vidéo de la musique recherchée en bas de page sous format karaoké. Pour obtenir cette vidéo, le principe est sensiblement le même que pour récupérer les paroles sur l'\gls{API} Genius Lyrics. Nous avons créé un token nous donnant accès à l'\gls{API} YouTube et une fois ceci effectué, nous pouvons encore une fois créer une requête avec les informations de la musique recherchée pour directement afficher la première vidéo disponible sur YouTube en ajoutant l'information "karaoke". Ceci nous permet de pouvoir nous mettre en condition pour participer à l'émission "N'oubliez pas les paroles" en voyant les paroles défiler en même temps que la musique en fond.  
+
+\subsubsection{Gestion des dossiers playlist}
+
+Le principal avantage de pouvoir se connecter avec un compte utilisateur à un tel site web est d'avoir accès à des données enregistrées en base de données pour pouvoir les récupérer et pour pouvoir enregistrer des préférences utilisateur.
+
+\paragraph{Ajout de dossiers \\\\}
+
+La première étape si l'on veut pouvoir sauvegarder des musiques dans nos préférences est de créer un dossier affilié à notre nom utilisateur. Dans le menu personnalisé de l'utilisateur, on choisit le nom du dossier à créer, puis on l'ajoute à notre base de données. Pour l'ajouter à notre base de données, nous effectuons tout de même une vérification pour éviter les problèmes de vol de données ou d'intrusion dans notre base. Bien que ces données ne soient pas catégorisées comme sensibles, il est toujours bon de donner le droit du moindre privilège. C'est pourquoi nous avons créé un token utilisateur précédemment lors de la création de compte. Lors de l'ajout ou de toute autre manipulation de nos données personnelles dans la base de données, le token utilisateur est vérifié pour pouvoir identifier quel utilisateur effectue quelle modification sur quelles bases. Si les permissions sont accordées, alors nous créons un dossier affilié à un utilisateur dans notre base de données.
+
+\paragraph{Ajout de musiques dans un dossier \\\\} 
+
+Une fois ces dossiers créés, nous avons maintenant la possibilité d'enregistrer une musique de notre choix dans le dossier de notre choix. Encore une fois, la vérification du token utilisateur est effectuée, mais à cela vient se rajouter une vérification pour éviter d'avoir des doublons dans notre base de données. Il nous semblait inutile de posséder deux fois la même version d'une musique dans un même dossier, c'est pourquoi cette vérification est faite avant de faire l'insertion dans la table reliant les dossiers aux musiques. Du côté de la base de données, on stocke seulement les informations nécessaires à la recherche sur les différentes \gls{API}.
+
+\paragraph{Suppression d'une musique \\\\}
+
+Comme nous savons que les goûts des utilisateurs sont amenés à changer, nous avons aussi implémenté une fonction permettant de supprimer une musique d'un de nos dossiers personnels. Pour la suppression, il s'agit toujours du même procédé, nous vérifions toujours le token, puis que la musique existe bien dans le dossier avant de la supprimer de la base de données.
+
+\paragraph{Suppression de dossier \\\\}
+
+Enfin, la dernière fonctionnalité majeure du site web n'est nulle autre que la suppression d'un dossier. Tout comme la suppression de musique, l'utilisateur peut modifier ses dossiers comme bon lui semble au cours du temps en supprimant de la base de données le dossier choisi ainsi que les musiques qu'il contenait. À noter que pour toutes les requêtes de base de données, une validation est demandée pour éviter de supprimer le mauvais dossier par mégarde.
+
 \subsection{Le déroulement du projet}
 
-Notre façon de travailler était comparable à une méthode agile de développement, c'est-à-dire que nous avons séparé le projet en différentes parties comme vous l'avez vu plus tôt (partie parole, partie utilisateur, etc.). À chaque partie du projet, nous avons effectué un sprint durant lequel nous suivions toujours le même schéma de travail :
+Notre façon de travailler était comparable à une méthode agile de développement, c'est-à-dire que nous avons séparé le projet en différentes parties comme vous l'avez vu plus tôt (partie parole, partie utilisateur, etc.). À chaque partie du projet, nous avons effectué un \gls{sprint} durant lequel nous suivions toujours le même schéma de travail :
 
 \begin{itemize}
 	\item Nous avons implémenté ou modifié la base de données.
-	\item Nous avons relié la partie serveur (back) du projet à la base de données.
+	\item Nous avons relié la partie serveur (\gls{Back}) du projet à la base de données.
 	\item Nous avons implémenté les fonctionnalités nécessaires côté serveur.
-	\item Nous avons relié la partie utilisateur (front) à la partie serveur (back).
+	\item Nous avons relié la partie utilisateur (\gls{Front}) à la partie serveur (\gls{Back}).
 	\item Nous avons testé la fonctionnalité implémentée.
 \end{itemize}
 
@@ -349,15 +698,15 @@ Notre façon de travailler était comparable à une méthode agile de développe
 	\caption{Les différentes étapes d'ajout d'une fonctionnalité}
 \end{figure}
 
-Finalement, nous avons effectué à la fin une embellissement de la partie utilisateur (front) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
+Finalement, nous avons effectué à la fin une embellissement de la partie utilisateur (\gls{Front}) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
 
-Maintenant, voyons en détail ce que chaque partie d'un sprint impliquait.
+Maintenant, voyons en détail ce que chaque partie d'un \gls{sprint} impliquait.
 
 \subsubsection{Exemple complet d'un Sprint}
 
 \paragraph{Modification de la base de données \\\\}
 
-À chaque nouveau sprint, nous regardions tout d'abord si une modification de la base de données était nécessaire.
+À chaque nouveau \gls{sprint}, nous regardions tout d'abord si une modification de la base de données était nécessaire.
 
 Si c'était le cas, nous reconstruisions notre base de données en ajoutant les nouvelles tables et colonnes nécessaires.
 
@@ -371,13 +720,13 @@ Ensuite, on reliait la base de données à la partie serveur.
 
 \medskip
 
-Le principe est le suivant : on créait des requêtes SQL qui permettent de récupérer les données dont on a besoin pour les futures implémentations.
+Le principe est le suivant : on créait des requêtes \gls{SQL} qui permettent de récupérer les données dont on a besoin pour les futures implémentations.
 
-On incluait ensuite ces requêtes dans le code JavaScript de notre back dans le fichier \textit{gestion\_database.js}.
+On incluait ensuite ces requêtes dans le code \gls{Javascript} de notre \gls{Back} dans le fichier \textit{gestion\_database.js}.
 
 Enfin, on créait dans la "couche business" toutes les fonctions nécessaires pour formater les données comme il nous faut.
 
-C'est durant cette partie aussi que l'on a créé les fonctions qui envoient des requêtes HTTP à des APIs si nécessaire. Comme avec la base de données, après avoir reçu les données, on les formatées afin de mieux les exploiter dans le front.
+C'est durant cette partie aussi que l'on a créé les fonctions qui envoient des requêtes \gls{HTTP} à des \gls{API}s si nécessaire. Comme avec la base de données, après avoir reçu les données, on les formatées afin de mieux les exploiter dans le \gls{Front}.
 
 \paragraph{Mise en lien de la partie serveur avec la partie utilisateur \\\\}
 
@@ -386,7 +735,7 @@ Au final, il ne nous restait plus qu'à créer côté client les nouveaux compos
 
 \subsubsection{Nos différents Sprints effectués}
 
-Nous avons effectué ainsi 3 sprints durant le développement de notre application web.
+Nous avons effectué ainsi 3 \gls{sprint}s durant le développement de notre application web.
 
 \begin{itemize}
 	\item Le développement de la partie entrainement avec les paroles
@@ -401,7 +750,7 @@ Au départ, nous avons cherché à développer une application fonctionnelle san
 
 \medskip
 
-Après nous être assurés que tout fonctionnait comme nous le souhaitions, nous avons décidé à la toute fin d'embellir le front. Nous avons pour cela utilisé nos connaissances en CSS ainsi qu'en Bootstrap.
+Après nous être assurés que tout fonctionnait comme nous le souhaitions, nous avons décidé à la toute fin d'embellir le \gls{Front}. Nous avons pour cela utilisé nos connaissances en \gls{CSS} ainsi qu'en Bootstrap.
 
 \medskip
 
@@ -422,6 +771,23 @@ De plus, chaque élément du site doit être intuitif et c'est ainsi que nous av
 	\caption{Avant / Après de l'apparence de la partie client}
 \end{figure}
 
+\subsubsection{Le partage du travail} 
+
+Lors de notre projet, le partage des tâches importantes s'est fait plutôt naturellement au sein de notre groupe. Lilian étant très familier avec l'utilisation de NodeJS et Etienne plutôt du côté base de données et \gls{Front}, nous avons agi de façon agile comme expliqué précédemment. En fonctionnant sur des mini-\gls{sprint}s pour implémenter nos fonctions une par une, Lilian codait la partie \gls{Back} permettant de faire le lien de l'application aux différentes \gls{API}. Etienne, lui, codait la partie algorithmique permettant aux fonctionnalités du site de fonctionner afin de pouvoir réviser les paroles ou bien de faire la gestion de base de données.
+\newline
+
+
+Cette méthode de travail a donc permis à Lilian de coder l'\gls{API} Genius Lyric afin qu'Etienne puisse formater les paroles pour les afficher dans le site et créer les différents niveaux de difficultés. Pour l'affichage YouTube, c'est Lilian qui s'est organisé pour créer le token YouTube permettant de créer un lecteur vidéo affichant notre requête de façon correcte. Pendant ce temps, Etienne créait les fonctions permettant de créer la base de données ainsi que ses tables, mais aussi les insertions, sélections et suppressions. Grâce à cela, Lilian a pu implémenter la vérification du token utilisateur pour contrôler les requêtes. Il s'est aussi occupé de la gestion du chiffrement et du salage du mot de passe dans la base de données. Enfin, pour ce qui est de l'aspect visuel, c'est majoritairement Lilian qui a eu la charge de rendre le site visuellement agréable lors de nos dernières heures de travail.
+\newline   
+
+Bien que nous ayons prévu un planning anticipé de ce que nous allions faire grâce à notre diagramme de Gantt prévisionnel, nous nous sommes rendu compte au moment de notre diagramme de Gantt réel que certaines tâches avaient été supprimées et que les dates avaient évidemment bougé.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{ganttreel.png}
+	\caption{Diagramme de Gantt réel}    
+\end{figure}
+
 \section{Résultats et discussions}
 
 \subsection{Prise en Main de l'Application Web}
@@ -429,6 +795,8 @@ De plus, chaque élément du site doit être intuitif et c'est ainsi que nous av
 \subsubsection{Comment lancer l'Application Web}
 
 Nous n'avons pas exporté notre projet car il est encore en phase de développement. Pour lancer notre application sur une machine, il faut suivre quelques étapes.
+
+\newpage
 
 \paragraph{Installation et configuration (à faire une fois) \\\\}
 
@@ -630,7 +998,7 @@ Nous avons placé dedans un système d'édition de dossier ainsi qu'une explicat
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.25]{menu.png}
+	\includegraphics[scale=0.21]{menu.png}
 	\caption{Le menu utilisateur}
 \end{figure}
 
@@ -677,12 +1045,69 @@ Avant chaque suppression d'un élément, nous demandons une confirmation à l'ut
 	\caption{Édition des dossiers et musiques}    
 \end{figure}
 
+\newpage
+\vspace*{1cm}
+
+\subsection{Discussions et perspectives}
+
+Maintenant que notre projet est terminé, nous nous posons les deux questions habituelles à se poser à la fin d'un projet. La première est : 
+\newline
+
+- Si nous recommencions les projet que ferions nous de mieux ?  
+\newline
 
 
+Pour nous, la conception et l'implémentation de notre projet s'est passée à peu de choses près comme nous l'avions espéré. Nous n'avons pas manqué de temps car notre planning anticipé nous a aidé à appréhender les problèmes à analyser, et la gestion de projet nous a grandement aidés dans ce domaine. Néanmoins, la seule fonctionnalité manquante de notre Gantt prévisionnel est le format karaoké proprement parlé de notre application. Suite aux difficultés et à l'innovation que cela représentait de créer un algorithme capable d'écrire les paroles en fonction de la musique, nous nous sommes rabattus sur l'\gls{API} YouTube en obtenant un karaoké déjà existant. Le produit que nous considérons comme "livré" correspond donc totalement à nos attentes de début de projet car celui-ci s'est bien déroulé.La deuxième question que l'on se pose régulièrement après un projet est :
+\newline
+
+- Qu'envisagerai vous de rajouter à votre projet ?
+\newline
+
+Dans un premier temps, le projet nous intéressant énormément, nous avions pour objectif de publier ce site web en louant notre nom de domaine pour permettre aux gens de pouvoir réviser pour l'émission "N'oubliez pas les paroles" sans soucis. Cela nous aurait donc forcé à trouver une autre solution que les \gls{Web scraping} utilisés pour récupérer les paroles de n'importe quelle chanson, mais aussi de voir avec des organismes comme la \gls{SACEM} pour acheter les droits d'exploitation des musiques pour notre site.
+
+Enfin, ce concept de site n'existant pas encore pour participer à "N'oubliez pas les paroles", nous pourrions proposer à France Télévision un partenariat pour permettre à notre site d'avoir de la visibilité et à leur émission d'avoir du renouveau.
+
+\newpage
+\vspace*{1cm}
+
+\section*{Conclusion}
+\addcontentsline{toc}{section}{\protect\numberline{}Conclusion}
+
+En conclusion, la réalisation de ce projet a été une expérience enrichissante pour notre équipe. Nous avons réussi à créer une application web qui répond à un besoin précis et qui offre des fonctionnalités avancées pour l'apprentissage de la musique. La gestion de la base de données et la création de l'interface utilisateur ont été des aspects clés de notre projet.
+
+\medskip
+
+Au niveau technique, nous avons utilisé différentes technologies pour concevoir notre application. Nous avons choisi de travailler avec Angular pour la partie \gls{Front} de notre application, qui nous a permis de créer une interface utilisateur dynamique et réactive. Pour la gestion de la base de données, nous avons utilisé SQLPlus et MySQL Workbench, deux outils puissants pour la gestion de bases de données relationnelles. Nous avons également utilisé Bootstrap et PrimeNG pour le design et le style de notre application.
+
+\medskip
+
+La réalisation de ce projet nous a permis de mettre en pratique nos compétences en développement web et en gestion de projets. Nous avons dû faire face à plusieurs défis, tels que la gestion des conflits de versions et la coordination de l'équipe pour respecter les délais fixés. Nous avons également appris à travailler en équipe et à communiquer efficacement pour assurer le bon déroulement du projet.
+
+\medskip
+
+Enfin, nous sommes satisfaits du résultat final de notre application. Nous pensons que celle-ci pourrait être utile pour les personnes souhaitant apprendre la musique de manière interactive et efficace. Nous sommes conscients qu'il reste des améliorations à apporter et des fonctionnalités à ajouter pour améliorer l'expérience utilisateur et la performance de l'application. Nous sommes donc ouverts à toute suggestion d'amélioration pour cette application dans le futur.
+
+\newpage
+\vspace*{1cm}
+
+\section*{Référence bibliographique}
+\addcontentsline{toc}{section}{\protect\numberline{}Référence bibliographique}
+
+[\textbf{Node.js}] \href{https://nodejs.org/}{https://nodejs.org/} (17/11/2022) \newline\newline
+[\textbf{NPM Express}] \href{https://www.npmjs.com/package/express}{https://www.npmjs.com/package/express} (28/11/2022)\newline\newline
+[\textbf{NPM}] \href{https://www.npmjs.com/}{https://www.npmjs.com/} (18/11/2022)\newline\newline
+[\textbf{Angular}] \href{https://angular.io/}{https://angular.io/} (22/11/2022)\newline\newline
+[\textbf{Bootstrap}] \href{https://getbootstrap.com/}{https://getbootstrap.com/} (08/02/2023)\newline\newline
+[\textbf{PrimeNG}] \href{https://www.primefaces.org/primeng/}{https://www.primefaces.org/primeng/} (03/12/2022)\newline\newline
+[\textbf{MySql}] \href{https://www.mysql.com/fr/}{https://www.mysql.com/fr/} (23/12/2022)\newline\newline
+[\textbf{API YouTube Data API v3}] \href{https://developers.google.com/youtube/v3}{https://developers.google.com/youtube/v3} (12/02/2023) \newline\newline
+[\textbf{API ChartLyrics}] \href{https://www.chartlyrics.com/}{https://www.chartlyrics.com/} (29/11/2022)\newline\newline
+[\textbf{API Genius Lyrics}] \href{https://docs.genius.com/}{https://docs.genius.com/} (30/11/2022)\newline\newline
 
 
+\addcontentsline{toc}{section}{\protect\numberline{}Glossaire}
 
-
+\printglossary[type=main, title=Glossaire]
 
 
 \end{document}
