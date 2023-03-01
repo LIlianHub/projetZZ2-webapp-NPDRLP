@@ -3,6 +3,7 @@
 \glossaryentry{JavaScript?\glossentry{Javascript}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{HTML?\glossentry{HTML}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{CSS?\glossentry{CSS}|setentrycounter[]{page}"\glsnumberformat}{2}
+\glossaryentry{Framework?\glossentry{Framework}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{JavaScript?\glossentry{Javascript}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{Back?\glossentry{Back}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{Front?\glossentry{Front}|setentrycounter[]{page}"\glsnumberformat}{2}
@@ -19,9 +20,10 @@
 \glossaryentry{JavaScript?\glossentry{Javascript}|setentrycounter[]{page}"\glsnumberformat}{4}
 \glossaryentry{Back?\glossentry{Back}|setentrycounter[]{page}"\glsnumberformat}{4}
 \glossaryentry{API?\glossentry{API}|setentrycounter[]{page}"\glsnumberformat}{4}
-\glossaryentry{Back?\glossentry{Back}|setentrycounter[]{page}"\glsnumberformat}{4}
-\glossaryentry{Front?\glossentry{Front}|setentrycounter[]{page}"\glsnumberformat}{4}
-\glossaryentry{Framework?\glossentry{Framework}|setentrycounter[]{page}"\glsnumberformat}{4}
+\glossaryentry{Back?\glossentry{Back}|setentrycounter[]{page}"\glsnumberformat}{5}
+\glossaryentry{Framework?\glossentry{Framework}|setentrycounter[]{page}"\glsnumberformat}{5}
+\glossaryentry{Front?\glossentry{Front}|setentrycounter[]{page}"\glsnumberformat}{5}
+\glossaryentry{Framework?\glossentry{Framework}|setentrycounter[]{page}"\glsnumberformat}{5}
 \glossaryentry{Back?\glossentry{Back}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{API?\glossentry{API}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{Front?\glossentry{Front}|setentrycounter[]{page}"\glsnumberformat}{7}
@@ -84,6 +86,7 @@
 \glossaryentry{API?\glossentry{API}|setentrycounter[]{page}"\glsnumberformat}{12}
 \glossaryentry{HTML?\glossentry{HTML}|setentrycounter[]{page}"\glsnumberformat}{12}
 \glossaryentry{HTML?\glossentry{HTML}|setentrycounter[]{page}"\glsnumberformat}{12}
+\glossaryentry{Framework?\glossentry{Framework}|setentrycounter[]{page}"\glsnumberformat}{12}
 \glossaryentry{HTML?\glossentry{HTML}|setentrycounter[]{page}"\glsnumberformat}{12}
 \glossaryentry{CSS?\glossentry{CSS}|setentrycounter[]{page}"\glsnumberformat}{12}
 \glossaryentry{table?\glossentry{table}|setentrycounter[]{page}"\glsnumberformat}{13}

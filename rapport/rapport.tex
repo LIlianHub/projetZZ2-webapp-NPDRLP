@@ -83,7 +83,7 @@
 \newglossaryentry{SCSS}
 {
 	name=SCSS,
-	description={Le SCSS est une surcouche du CSS qui est un langage informatique utilisé sur Internet pour la mise en forme de fichiers et de pages HTML. On le traduit en français par feuilles de style en cascade.
+	description={Le Sassy CSS ou SCSS est à la fois un langage et une méthode d’utilisation du CSS qui utilise les fonctionnalités de Sass (pré-processeur CSS Syntacticaly Awesome Style Sheet).
 	}
 }
 
@@ -278,6 +278,10 @@ pagenumberformat=\textbf
   	
   	\huge
   	\textbf{Projet Fullstack de Révision de Parole}
+  	
+  	\textbf{N'oubliez pas de réviser les paroles}
+  	
+  	\textbf{(NPDRLP)}
   \end{center}
 
 \hrule
@@ -291,7 +295,7 @@ pagenumberformat=\textbf
   
    \end{center}
 
-\vspace*{7cm}
+\vspace*{5cm}
   
   
   
@@ -349,7 +353,7 @@ Nous leur sommes très reconnaissants pour leur contribution à la réussite de 
 \addcontentsline{toc}{section}{\protect\numberline{}Résumé}
 
 
-Le but de ce projet est de réaliser un site web fonctionnant sur mobile, tablette et ordinateur, permettant de réviser les paroles de la musique de son choix. Que ce soit pour le plaisir ou pour participer à l'émission "N'oubliez pas les paroles" de France 2, ce site répondra aux attentes des utilisateurs. Il est disponible sur tous les navigateurs tels que Google Chrome, Mozilla Firefox et même Safari. Ce projet est composé d'une partie  en NodeJS et d'un \gls{Front} en Angular. Les bases de données sont gérées en \gls{SQL} grâce à sqlplus et sont articulées autour des langages \gls{Javascript}, \gls{HTML} et \gls{CSS}, avec l'aide du template Bootstrap.
+Le but de ce projet de deuxième année est de réaliser un site web fonctionnant sur mobile, tablette et ordinateur, permettant de réviser les paroles de la chanson de son choix. Que ce soit pour le plaisir ou pour participer à l'émission "N'oubliez pas les paroles" de France 2, ce site répondra aux attentes des utilisateurs. Il est disponible sur tous les navigateurs majeurs tels que Google Chrome, Mozilla Firefox et même Safari. Ce projet est composé d'une partie  en NodeJS et d'un \gls{Front} en Angular. Les bases de données sont gérées en \gls{SQL} grâce à sqlplus et sont articulées autour des langages \gls{Javascript}, \gls{HTML} et \gls{CSS}, avec l'aide du \gls{Framework} Bootstrap.
 \newline 
 
 Le développement a été réalisé avec l'environnement de développement Visual Studio Code et les tests de bases de données ont été effectués sur mySql Workbench. A ce jour, le site est fonctionnel en local et permet de réviser les paroles de musiques choisies, ainsi que de les enregistrer dans des dossiers grâce à une gestion d'utilisateurs.
@@ -382,7 +386,7 @@ Keywords: cross-platform, NodeJS, Angular, \gls{Javascript}, Bootstrap, \gls{SQL
 \section*{Introduction}
 \addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 
-Le projet sur lequel nous avons travaillé consiste en une plateforme web de révision de chansons en format karaoké. Cette application permet aux utilisateurs de rechercher des chansons en fonction de leurs préférences et de leur niveau de difficulté, de les réviser en remplissant les trous des paroles manquantes et de visualiser la vidéo en format karaoké. Les utilisateurs peuvent également créer des dossiers de playlist pour organiser leurs chansons préférées.
+Le projet de deuxième année sur lequel nous avons travaillé consiste en une plateforme web de révision de chansons en format karaoké. Cette application permet aux utilisateurs de rechercher des chansons en fonction de leurs préférences et de leur niveau de difficulté, de les réviser en remplissant les trous des paroles manquantes et de visualiser la vidéo en format karaoké. Les utilisateurs peuvent également créer des dossiers de playlist pour organiser leurs chansons préférées.
 
 \medskip
 
@@ -405,7 +409,7 @@ Pour commencer l'explication du projet, nous allons faire une brève introductio
 
 \medskip
 
-Lors d'un projet informatique de développement web, l'architecture du logiciel va être séparée en plusieurs parties distinctes : la partie côté serveur dite le "\gls{Back}", puis la partie côté utilisateur dite le "\gls{Front}".
+Lors d'un projet informatique de développement web, l'architecture du logiciel va être séparée en plusieurs parties distinctes : la partie côté serveur dite "\gls{Back}", puis la partie côté utilisateur dite "\gls{Front}".
 
 \medskip
 
@@ -421,7 +425,7 @@ Lorsqu'on parle de Full Stack, on parle donc du développement de ces deux aspec
 
 \medskip
 
-Dans ce projet, nous allons vous montrer comment nous avons implémenté un projet Full Stack avec un \gls{Back} en Node.js à l'aide du module "Express" et un \gls{Front} à l'aide du \gls{Framework} Angular.
+Dans ce projet, nous allons vous montrer comment nous avons implémenté un projet Full Stack avec un \gls{Back} en Node.js à l'aide du \gls{Framework} "Express" et un \gls{Front} à l'aide du \gls{Framework} Angular.
 
 \begin{figure}[H]
 	\centering
@@ -443,7 +447,7 @@ Une fois qu'ils ont trouvé une chanson, ils peuvent choisir la difficulté de l
 En plus de cela, les utilisateurs peuvent regarder des vidéos des chansons qu'ils ont recherchées, avec les paroles affichées en format karaoké pour un apprentissage plus facile. Ils peuvent également créer des dossiers pour organiser leurs chansons et faire des playlists personnalisées.
 \newline 
 
-Pour une expérience plus personnalisée, nous avons également inclus la possibilité d'enregistrer des chansons dans un dossier personnel, qui peut être géré directement depuis l'interface utilisateur.
+Pour une expérience plus personnalisée, nous avons également inclus la possibilité d'enre- gistrer des chansons dans un dossier personnel, qui peut être géré directement depuis l'interface utilisateur.
 \newline 
 
 En résumé, notre application offre une plateforme complète pour aider les utilisateurs à réviser les paroles de leurs chansons préférées, en leur offrant des fonctionnalités utiles pour améliorer leur expérience d'apprentissage.
@@ -513,9 +517,9 @@ Au niveau de l'organisation de notre \gls{Back}, nous avons séparé celui-ci en
 \medskip
 
 \begin{itemize}
-	\item \textbf{Couche "Controller"} : réceptionne les requêtes et appelle les fonctions nécessaires en fonction de la demande. Répond ensuite aux requêtes. Elle correspond au fichier \textit{listen.js}.
-	\item \textbf{Couche "Business"}: effectue tous les calculs de notre \gls{API}, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'\gls{API} (communication avec d'autres \gls{API}, création de trous à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
-	\item \textbf{Couche "Base de donnée"}: effectue toutes les requêtes à la base de donnée et renvoie les données récupérées. Elle est appelées par la couche business. Elle correspond au fichier \textit{gestion\_database.js}.
+	\item \textbf{"Controller Layer"} : réceptionne les requêtes et appelle les fonctions nécessaires en fonction de la demande. Elle répond ensuite aux requêtes. Elle correspond au fichier \textit{listen.js}.
+	\item \textbf{"Business Layer"}: effectue tous les calculs de notre \gls{API}, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'\gls{API} (communication avec d'autres \gls{API}, création de trous à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
+	\item \textbf{"DataBase Layer"}: effectue toutes les requêtes à la base de donnée et renvoie les données récupérées. Elle est appelées par la couche business. Elle correspond au fichier \textit{gestion\_database.js}.
 	
 \end{itemize}
 
@@ -566,7 +570,7 @@ L'avantage de ce \gls{Framework} est qu'il utilise nativement \gls{Typescript} d
 
 En plus d'Angular, nous avons utilisé le \gls{Framework} \textbf{Bootstrap} pour avoir des éléments graphiques au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce \gls{Framework}.
 
-De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons plein d'éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
+De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons beaucoup d'éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
 
 \subsubsection{La base de donnée}
 
@@ -640,7 +644,7 @@ Dans l'ordre, la méthode pour récupérer les paroles d'une musique est donc la
 
   \subsubsection{Chartes graphiques}
 
-Pour ce qui est des choix visuels de notre plateforme web, la charte graphique finale se trouvant actuellement sur notre application a été choisie en dernier lors de notre conception. L'important pour nous étant que les fonctionnalités soient efficaces et permettent une utilisation satisfaisante du site. Nous avons tout de même fini par embellir ce projet à l'aide de plusieurs ressources disponibles en ligne. La première est Bootstrap, ce template de style \gls{HTML} et \gls{CSS} préconstruit nous a permis de créer tout ce qui est menu déroulant ou animation comme sur la page d'accueil.
+Pour ce qui est des choix visuels de notre plateforme web, la charte graphique finale se trouvant actuellement sur notre application a été choisie en dernier lors de notre conception. L'important pour nous étant que les fonctionnalités soient efficaces et permettent une utilisation satisfaisante du site. Nous avons tout de même fini par embellir ce projet à l'aide de plusieurs ressources disponibles en ligne. La première est Bootstrap, ce \gls{Framework} \gls{HTML} et \gls{CSS} préconstruit nous a permis de créer tout ce qui est menu déroulant ou animation comme sur la page d'accueil.
 \newline
 
 Pour la gestion des dossiers, nous avons utilisé des templates pour la création Angular disponibles sur PrimeNG, ce qui nous a permis de donner un style épuré à notre site mais aussi une utilisation agréable visuellement.
@@ -665,7 +669,7 @@ Le principe de notre site étant de donner la possibilité à un utilisateur de 
 
 \paragraph{Recherches de musiques \\\\}
 
-Chronologiquement, la première fonctionnalité que nous avons développée est cette recherche de musiques et donc de paroles. L'utilisateur peut donc choisir le nom de la musique recherchée ainsi que le nom du chanteur. Une fois ces deux informations récupérées, on met alors en place une longue suite d'algorithmes pour permettre d'afficher les paroles recherchées. Pour commencer, nous utilisons les informations de recherche de l'utilisateur pour former manuellement une requête composée et l'envoyer à l'\gls{API} Genius Lyrics. Une fois cette requête effectuée et notre accès à l'\gls{API} confirmé, nous récupérons les paroles que nous fournit l'\gls{API} grâce au \gls{Web scraping} que nous avons présenté ci-dessus. Grâce à cette récupération de code, nous pouvons renvoyer l'intégralité des paroles à notre site web et les afficher comme bon nous semble.
+Chronologiquement, la première fonctionnalité que nous avons développée est cette re- cherche de musiques et donc de paroles. L'utilisateur peut donc choisir le nom de la musique recherchée ainsi que le nom du chanteur. Une fois ces deux informations récupérées, on met alors en place une longue suite d'algorithmes pour permettre d'afficher les paroles recherchées. Pour commencer, nous utilisons les informations de recherche de l'utilisateur pour former manuellement une requête composée et l'envoyer à l'\gls{API} Genius Lyrics. Une fois cette requête effectuée et notre accès à l'\gls{API} confirmé, nous récupérons les paroles que nous fournit l'\gls{API} grâce au \gls{Web scraping} que nous avons présenté ci-dessus. Grâce à cette récupération de code, nous pouvons renvoyer l'intégralité des paroles à notre site web et les afficher comme bon nous semble.
 
 \paragraph{Création des musiques à trous \\\\}
 
@@ -682,7 +686,7 @@ Une fois ces paroles récupérées et formatées à notre convenance, nous les a
      
 \paragraph{Vérification des réponses manquantes \\\\}
 
-Pour les difficultés de 2 à 4, il nous fallait donc un système de vérification de réponse entre les mots manquants et les mots saisis par l'utilisateur. Pour ce faire, il n'y avait rien de plus simple. Lorsque nous choisissions un mot comme manquant dans notre affichage de révision, nous l'insérions aussi dans un tableau de mots manquants pour avoir accès à tous les mots lors de la vérification. Une fois ces mots enregistrés, nous faisions simplement une comparaison de chaîne de caractère entre le mot enregistré dans notre tableau de mots et celui saisi lors de l'entraînement. Si les mots concordaient, nous affichions la case en vert et nous enlevions la possibilité de remplir ce texte à nouveau. Si c'était faux, nous l'affichions en rouge et l'entraînement continuait.
+Pour les difficultés de 2 à 4, il nous fallait donc un système de vérification de réponse entre les mots manquants et les mots saisis par l'utilisateur. Pour ce faire, il n'y a rien de plus simple. Lorsque nous choisissons un mot comme manquant dans notre affichage de révision, nous l'insérons aussi dans un tableau de mots manquants pour avoir accès à tous les mots lors de la vérification. Une fois ces mots enregistrés, nous faisons simplement une comparaison de chaîne de caractère entre le mot enregistré dans notre tableau de mots et celui saisi lors de l'entraînement. Si les mots concordent, nous affichons la case en vert et nous enlevons la possibilité de remplir ce texte à nouveau. Si c'est faux, nous l'affichons en rouge et l'entraînement continue.
 
 \paragraph{Utilisation du lecteur YouTube \\\\}
 
@@ -828,7 +832,7 @@ Nous n'avons pas exporté notre projet car il est encore en phase de développem
 
 \paragraph{Installation et configuration (à faire une fois) \\\\}
 
-Tout d'abord, il vous faudra installer quelques logiciels :
+Tout d'abord, il vous faut installer quelques logiciels :
 
 \begin{itemize}
 	\item \textbf{mysql} : Pour la gestion de la base de données.
@@ -868,7 +872,7 @@ Une fois cela fait, vous pouvez accéder à notre projet en local à cette adres
 
 \subsubsection{Arrivée sur le site}
 
-En arrivant sur le site, vous arrivez sur une page d'accueil défilante qui vous informe du concept de notre application, de qui nous sommes et de nombreuses autres informations.
+La page d'accueil du site web est défilante et vous informe du concept de notre application, de qui nous sommes et de nombreuses autres informations.
 
 Nous pouvons si nous le souhaitons changer le code source du site web afin de rajouter des éléments à l'accueil, cela sans difficulté !
 
@@ -1085,7 +1089,7 @@ Maintenant que notre projet est terminé, nous nous posons les deux questions ha
 \newline
 
 
-Pour nous, la conception et l'implémentation de notre projet s'est passée à peu de choses près comme nous l'avions espéré. Nous n'avons pas manqué de temps car notre planning anticipé nous a aidé à appréhender les problèmes à analyser, et la gestion de projet nous a grandement aidés dans ce domaine. Néanmoins, la seule fonctionnalité manquante de notre Gantt prévisionnel est le format karaoké proprement parlé de notre application. Suite aux difficultés et à l'innovation que cela représentait de créer un algorithme capable d'écrire les paroles en fonction de la musique, nous nous sommes rabattus sur l'\gls{API} YouTube en obtenant un karaoké déjà existant. Le produit que nous considérons comme "livré" correspond donc totalement à nos attentes de début de projet car celui-ci s'est bien déroulé.La deuxième question que l'on se pose régulièrement après un projet est :
+Pour nous, la conception et l'implémentation de notre projet s'est passée à peu de choses près comme nous l'avions espéré. Nous n'avons pas manqué de temps car notre planning anticipé nous a aidé à appréhender les problèmes à analyser, et la gestion de projet nous a grandement aidés dans ce domaine. Néanmoins, la seule fonctionnalité manquante de notre Gantt prévisionnel est le format karaoké à proprement parlé de notre application. Suite aux difficultés et à l'innovation que cela représentait de créer un algorithme capable d'écrire les paroles en fonction de la musique, nous nous sommes rabattus sur l'\gls{API} YouTube en obtenant un karaoké déjà existant. Le produit que nous considérons comme "livré" correspond donc totalement à nos attentes de début de projet car celui-ci s'est bien déroulé.La deuxième question que l'on se pose régulièrement après un projet est :
 \newline
 
 - Qu'envisageriez vous de rajouter à votre projet ?
