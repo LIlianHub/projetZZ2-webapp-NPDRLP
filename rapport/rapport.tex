@@ -27,7 +27,7 @@
 \usepackage[acronym]{glossaries}
 \makeglossaries
 
-\newglossaryentry{chiffré}
+\newglossaryentry{chiffre}
 {
 	name=chiffré,
 	description={Le chiffrage est une technique de protection de données sensibles par le biais d'un algorithme de chiffrement. Cette technique est utilisée pour sécuriser les informations confidentielles en les transformant en un code illisible pour une personne non autorisée.}
@@ -111,7 +111,7 @@
 \newglossaryentry{Web scraping}
 {
 	name=Web scraping,
-	description={Le Web scraping (parfois appelé harvesting ou en français moissonage1) est une technique d'extraction du contenu de sites Web, via un script ou un programme, dans le but de le transformer pour permettre son utilisation dans un autre contexte comme l'enrichissement de bases de données, le référencement2 ou l'exploration de données.
+	description={Le Web scraping (parfois appelé harvesting ou en français moissonage) est une technique d'extraction du contenu de sites Web, via un script ou un programme, dans le but de le transformer pour permettre son utilisation dans un autre contexte comme l'enrichissement de bases de données, le référencement ou l'exploration de données.
 	}
 }
 
@@ -122,7 +122,7 @@
 	}
 }
 
-\newglossaryentry{salé}
+\newglossaryentry{sale}
 {
 	name=salé,
 	description={Le salage est une méthode permettant de renforcer la sécurité des informations qui sont destinées à être hachées (par exemple des mots de passe) en y ajoutant une donnée supplémentaire afin d’empêcher que deux informations identiques ne conduisent à la même empreinte 
@@ -143,12 +143,40 @@
 	}
 }
 
+\newglossaryentry{token}
+{
+	name=token,
+	description={En français "jeton". L’authentification par jeton est une forme d’authentification qui permet à un utilisateur d’accéder à un service en ligne, une application, ou un site web sans qu’il n’ait à ressaisir ses identifiants. Par conséquent, grâce à cette forme d’authentification, l’utilisateur pourra accéder à ses ressources en ligne, au moyen de ce jeton d’accès, tant qu’il reste valide.
+	}
+}
+%% a faire
+\newglossaryentry{table}
+{
+	name=table,
+	description={Dans les bases de données relationnelles, une table est un ensemble de données organisées sous forme d'un tableau où les colonnes correspondent à des catégories d'information (une colonne peut stocker des numéros de téléphone, une autre des noms...) et les lignes à des enregistrements, également appelés entrées.
+	}
+}
 
+\newglossaryentry{colonne}
+{
+	name=colonne,
+	description={Dans les bases de données relationnelles, une colonne correspond à un attribut d'une table. Par exemple, dans notre table "MUSIC", les colonnes sont "musicName", "artist" et "idMusic".
+	}
+}
 
+\newglossaryentry{cle}
+{
+	name=clé,
+	description={Dans les bases de données relationnelles, une clé est un attribut de table qui doit être unique. Si cette clé est primaire, elle permet d'identifier dans une table un élément par rapport au autre. Si elle est secondaire, elle permet de faire le lien entre différentes tables.
+	}
+}
 
-
-
-
+\newglossaryentry{header}
+{
+	name=header,
+	description={Le terme header se traduit en français par en-tête. Sur une page Web, le header se résume à la partie haute du site, là où apparaît la plupart du temps le titre du site Web et les élements de naviguation.
+	}
+}
 
 
 
@@ -298,12 +326,12 @@ pagenumberformat=\textbf
 
 \vspace*{1cm}
 
-\section*{Remerciement}
-\addcontentsline{toc}{section}{\protect\numberline{}Remerciement}
+\section*{Remerciements}
+\addcontentsline{toc}{section}{\protect\numberline{}Remerciements}
 
 Nous souhaitons adresser nos remerciements à M. Yon pour son soutien tout au long du projet.
 Son expertise dans le domaine a été d'une grande aide pour résoudre les problèmes techniques et pour orienter nos choix en matière de développement.
-Merci aussi pour sa lecture attentive et ses recommandations nous ont permis d'améliorer considérablement la qualité de notre rapport.
+Merci aussi pour sa lecture attentive, ses recommandations nous ont permis d'améliorer considérablement la qualité de notre rapport.
 Nous tenons également à remercier Mme Mouzat pour ses conseils avisés lors de la rédaction du rapport de projet.
 Nous leur sommes très reconnaissants pour leur contribution à la réussite de notre projet.
 
@@ -362,7 +390,7 @@ La base de données de l'application stocke toutes les informations relatives au
 
 \medskip
 
-En termes de conception visuelle, nous avons choisi de nous concentrer sur l'efficacité et la convivialité de l'interface utilisateur plutôt que sur l'esthétique. Cependant, nous avons ajouté des éléments esthétiques en utilisant des ressources en ligne telles que Bootstrap et PrimeNG pour créer des menus déroulants, des animations et des templates pour la gestion de dossier.
+En terme de conception visuelle, nous avons choisi de nous concentrer sur l'efficacité et la convivialité de l'interface utilisateur plutôt que sur l'esthétique. Cependant, nous avons ajouté des éléments esthétiques en utilisant des ressources en ligne telles que Bootstrap et PrimeNG pour créer des menus déroulants, des animations et des templates pour la gestion de dossiers.
 
 \medskip
 
@@ -403,7 +431,7 @@ Dans ce projet, nous allons vous montrer comment nous avons implémenté un proj
 
 \subsection{Principales fonctionnalités de notre site web}
 
-Notre application à été réfléchit pour aider les utilisateurs à réviser les paroles de chansons qu'ils souhaitent apprendre, pour ce faire, nous proposons un grand de fonctionnalités pour qu'ils s'améliorent tout en s'amusant.
+Notre application a été réfléchie pour aider les utilisateurs à réviser les paroles de chansons qu'ils souhaitent apprendre, pour ce faire, nous proposons un grand nombre de fonctionnalités pour qu'ils s'améliorent tout en s'amusant.
 \newline 
 
 En visitant notre site web, les utilisateurs peuvent créer un compte ou se connecter s'ils en ont déjà un. Ils peuvent ensuite rechercher les chansons qu'ils souhaitent réviser en utilisant la barre de recherche intégrée.
@@ -472,7 +500,7 @@ De plus, Node.js est une technologie plus récente que d'autres langages qui peu
 \medskip
 
 Avec Express, nous pouvons en quelques minutes implémenter une \gls{API} assez facilement et parfaitement fonctionnelle. Cela nous a permis de bien scinder la partie \gls{Front} et \gls{Back} de notre projet.
-Nous pouvons par exemple citer l'exemple de PHP, où la partie serveur et client est parfois mélangée dans les mêmes fichiers.
+Nous pouvons par exemple citer le langage PHP, où la partie serveur et la partie cliente sont parfois mélangées dans les mêmes fichiers.
 
 Ici, nous avons le \gls{Back} dans un dossier et le \gls{Front} dans un autre, et ces deux aspects sont parfaitement indépendants ! On peut, par exemple, lancer le \gls{Back} pour faire des tests dessus sans toucher au \gls{Front}.
 
@@ -486,7 +514,7 @@ Au niveau de l'organisation de notre \gls{Back}, nous avons séparé celui-ci en
 
 \begin{itemize}
 	\item \textbf{Couche "Controller"} : réceptionne les requêtes et appelle les fonctions nécessaires en fonction de la demande. Répond ensuite aux requêtes. Elle correspond au fichier \textit{listen.js}.
-	\item \textbf{Couche "Business"}: effectue tous les calculs de notre \gls{API}, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'\gls{API} (communication avec d'autres \gls{API}, création de trou à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
+	\item \textbf{Couche "Business"}: effectue tous les calculs de notre \gls{API}, on implémente dans celle-ci toutes les fonctions nécessaires au bon fonctionnement de l'\gls{API} (communication avec d'autres \gls{API}, création de trous à compléter dans les paroles etc...). Elle correspond à tous les fichiers \textit{gestion\_*.js} sauf "\textit{gestion\_database.js}"
 	\item \textbf{Couche "Base de donnée"}: effectue toutes les requêtes à la base de donnée et renvoie les données récupérées. Elle est appelées par la couche business. Elle correspond au fichier \textit{gestion\_database.js}.
 	
 \end{itemize}
@@ -536,7 +564,7 @@ L'avantage de ce \gls{Framework} est qu'il utilise nativement \gls{Typescript} d
 
 \bigskip
 
-En plus d'Angular, nous avons utilisé le \gls{Framework} \textbf{Bootstrap} pour avoir des éléments graphiques classes et au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce \gls{Framework}.
+En plus d'Angular, nous avons utilisé le \gls{Framework} \textbf{Bootstrap} pour avoir des éléments graphiques au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce \gls{Framework}.
 
 De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons plein d'éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
 
@@ -545,14 +573,14 @@ De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de compo
 Pour la gestion de la base de données, plusieurs choix s'offraient à nous, mais nous avons décidé d'utiliser deux outils que nous connaissions bien : SQLPlus et MySQL Workbench. Ces outils ont été importants pour notre projet car ils nous ont permis de gérer efficacement la base de données, un élément essentiel de notre application qui stocke toutes les informations relatives aux chansons, aux utilisateurs et aux dossiers de playlists.
 \newline
 
-SQLPlus est un outil puissant pour gérer une base de données Oracle. Il nous a permis de créer et de gérer des tables dans la base de données et de manipuler les données stockées. En utilisant cet outil, qui nous était familier, nous avons pu optimiser et automatiser un certain nombre de requêtes \gls{SQL}, nous faisant ainsi gagner du temps.
+SQLPlus est un outil puissant pour gérer une base de données Oracle. Il nous a permis de créer et de gérer des \gls{table}s dans la base de données et de manipuler les données stockées. En utilisant cet outil, qui nous était familier, nous avons pu optimiser et automatiser un certain nombre de requêtes \gls{SQL}, nous faisant ainsi gagner du temps.
 \newline
 
-MySQL Workbench est lui un logiciel \gls{Open-source} permettant de gérer efficacement notre base de données. Cet application nous a permis de créer et de gérer des tables dans la base de données, d'avoir accès aux données stockées et de manipuler ces même données à l'aide une interface utilisateur intuitive.
+MySQL Workbench est lui un logiciel \gls{Open-source} permettant de gérer efficacement notre base de données. Cette application nous a permis de créer et de gérer des \gls{table}s dans la base de données, d'avoir accès aux données stockées et de manipuler ces même données à l'aide une interface utilisateur intuitive.
 \newline
-En utilisant ces deux outils, nous avons pu travailler efficacement sur la base de données de notre application, ce qui nous a fait gagner un temps précieux. Nous avons pu créer des tables efficacement, gérer les contraintes, les index, et réaliser des requêtes complexes pour récupérer les données dont nous avions besoin. En outre, nous avons pu contrôler l'accès aux données ainsi que leur confidentialité grâce à ces outils.
+En utilisant ces deux outils, nous avons pu travailler efficacement sur la base de données de notre application, ce qui nous a fait gagner un temps précieux. Nous avons pu créer des \gls{table}s efficacement, gérer les contraintes, les index, et réaliser des requêtes complexes pour récupérer les données dont nous avions besoin. En outre, nous avons pu contrôler l'accès aux données ainsi que leur confidentialité grâce à ces outils.
 
-Une fois ces deux outils choisis et configurés, nous devions alors sélectionner les différentes tables que nous aurons à utiliser dans notre base de données. Le principal élément de notre application étant la gestion de dossiers dans lesquels un utilisateur peut enregistrer de la musique, nous avions déjà trois tables qui nous semblaient assez logiques. La première serait la base "Utilisateur" dans laquelle nous retrouverons le nom d'utilisateur, un ID utilisateur ainsi que son mot de passe. La seconde est la table "Dossier" qui possède un numéro de dossier unique et qui est liée à un numéro d'utilisateur par une clé primaire. La troisième était la table "Musique" car nous souhaitions garder une trace de chaque musique recherchée pour y avoir accès rapidement lors de la connexion à l'\gls{API}. Nous sauvegarderons donc un ID de la musique unique pour la différencier des autres, puis le nom de la musique ainsi que son chanteur. Enfin, une fois ces trois tables créées, nous avons pensé à la création d'une table que nous appellerons "MusiqueDansDossier" pour faire le lien entre la table dossier et la table musique sans supprimer les musiques de notre base à la suppression d'un dossier. Cette réflexion nous donne donc ces deux schémas pour bien comprendre notre conception de la base.
+Une fois ces deux outils choisis et configurés, nous devions alors sélectionner les différentes \gls{table}s que nous aurons à utiliser dans notre base de données. Le principal élément de notre application étant la gestion de dossiers dans lesquels un utilisateur peut enregistrer de la musique, nous avions déjà trois \gls{table}s qui nous semblaient assez logiques. La première est la base "Utilisateur" dans laquelle nous retrouverons le nom d'utilisateur, un ID utilisateur ainsi que son mot de passe. La seconde est la \gls{table} "Dossier" qui possède un numéro de dossier unique et qui est liée à un numéro d'utilisateur par une \gls{cle} secondaire. La troisième est la \gls{table} "Musique" car nous souhaitions garder une trace de chaque musique recherchée pour y avoir accès rapidement lors de la connexion à l'\gls{API}. Nous sauvegarderons donc un ID de la musique unique pour la différencier des autres, puis le nom de la musique ainsi que son chanteur. Enfin, une fois ces trois \gls{table}s créées, nous avons pensé à la création d'une \gls{table} que nous appellerons "MusiqueDansDossier" pour faire le lien entre la \gls{table} dossier et la \gls{table} musique sans supprimer les musiques de notre base à la suppression d'un dossier. Cette réflexion nous donne donc ces deux schémas pour bien comprendre notre conception de la base.
 
 \begin{figure}[H]
 	\centering
@@ -563,7 +591,7 @@ Une fois ces deux outils choisis et configurés, nous devions alors sélectionne
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{table.png}
-	\caption{Modèle relationnelle de notre base de donnée}    
+	\caption{Modèle relationnel de notre base de donnée}    
 \end{figure}
 
 
@@ -573,7 +601,7 @@ Nous avons dû utiliser pour ce projet deux \gls{API}s publiques de deux entrepr
 
 \medskip
 
-Ces \gls{API}s nous permettent de récupérer des informations, comme par exemple des paroles de musique, et nous ont été très utiles. Pour chacune d'elles, nous avons dû nous inscrire sur le site de la documentation afin d'obtenir un token pour communiquer avec elles.
+Ces \gls{API}s nous permettent de récupérer des informations, comme par exemple des paroles de musique, et nous ont été très utiles. Pour chacune d'elles, nous avons dû nous inscrire sur le site de la documentation afin d'obtenir un \gls{token} pour communiquer avec elles.
 
 \paragraph{Gestion des lecteurs vidéos avec paroles de musique \\\\}
 
@@ -617,19 +645,19 @@ Pour ce qui est des choix visuels de notre plateforme web, la charte graphique f
 
 Pour la gestion des dossiers, nous avons utilisé des templates pour la création Angular disponibles sur PrimeNG, ce qui nous a permis de donner un style épuré à notre site mais aussi une utilisation agréable visuellement.
 
-\subsection{Description détaillé} 
+\subsection{Description détaillée} 
 
 Pour cette description détaillée des fonctionnalités de notre site web, nous allons prendre l'ordre d'apparition de ces mêmes fonctionnalités lors de l'utilisation de notre site et non l'ordre de conception lors de notre projet.
 \subsubsection{Gestion des comptes}
 
 \paragraph{Création de compte \\\\}
 
-La première fonctionnalité lors de l'arrivée sur notre site est celle de la création de compte. Pour pouvoir créer un compte, l'utilisateur doit renseigner son nom d'utilisateur ainsi que son mot de passe qu'il doit par la suite confirmer. Une fois toutes ces informations récoltées, deux phases de vérifications s'opèrent. La première est plutôt simple et vérifie juste que les deux mots de passe renseignés soient bien les mêmes. Ensuite, la deuxième vérification se trouve en aval de l'insertion en base de données. Ici, on vérifie par une requête dans notre table utilisateur qu'il n'existe aucun nom d'utilisateur identique à celui à insérer. Une fois ces vérifications passées, nous insérons dans notre table utilisateur une ligne avec le nom d'utilisateur renseigné et avec un mot de passe préalablement \gls{salé} puis \gls{chiffré}. Une fois l'insertion effectuée, nous sommes redirigés sur une page de connexion.
+La première fonctionnalité lors de l'arrivée sur notre site est celle de la création de compte. Pour pouvoir créer un compte, l'utilisateur doit renseigner son nom d'utilisateur ainsi que son mot de passe qu'il doit par la suite confirmer. Une fois toutes ces informations récoltées, deux phases de vérifications s'opèrent. La première est plutôt simple et vérifie juste que les deux mots de passe renseignés soient bien les mêmes. Ensuite, la deuxième vérification se trouve en aval de l'insertion en base de données. Ici, on vérifie par une requête dans notre \gls{table} utilisateur qu'il n'existe aucun nom d'utilisateur identique à celui à insérer. Une fois ces vérifications passées, nous insérons dans notre \gls{table} utilisateur une ligne avec le nom d'utilisateur renseigné et avec un mot de passe préalablement \gls{sale} puis \gls{chiffre}. Une fois l'insertion effectuée, nous sommes redirigés sur une page de connexion.
 
 
 \paragraph{Connexion au site web \\\\}
 
-Lorsque nous possédons un compte, nous devons maintenant nous connecter. L'utilisateur doit renseigner son nom d'utilisateur et son mot de passe pour pouvoir vérifier la concordance des mots de passe et lui accorder une connexion. Si, après notre requête en base de données, le mot de passe renseigné et celui en base de données sont identiques, alors l'utilisateur se connecte sur le site avec son compte, ce qui va lui permettre d'effectuer un certain nombre de fonctionnalités impossibles sans connexion, comme nous allons le voir plus bas dans la gestion des dossiers. Lors de la connexion de ce même utilisateur, nous lui créons un \textbf{token} afin de vérifier les permissions d'accès à la base de données lors d'insertions ou de suppressions. Ce token nous permet également de faire une requête en base pour récupérer les dossiers que possède l'utilisateur pour lui afficher sur son menu personnalisé.
+Lorsque nous possédons un compte, nous devons maintenant nous connecter. L'utilisateur doit renseigner son nom d'utilisateur et son mot de passe pour pouvoir vérifier la concordance des mots de passe et lui accorder une connexion. Si, après notre requête en base de données, le mot de passe renseigné et celui en base de données sont identiques, alors l'utilisateur se connecte sur le site avec son compte, ce qui va lui permettre d'effectuer un certain nombre de fonctionnalités impossibles sans connexion, comme nous allons le voir plus bas dans la gestion des dossiers. Lors de la connexion de ce même utilisateur, nous lui créons un \gls{token} afin de vérifier les permissions d'accès à la base de données lors d'insertions ou de suppressions. Ce \gls{token} nous permet également de faire une requête en base pour récupérer les dossiers que possède l'utilisateur pour lui afficher sur son menu personnalisé.
 
 \subsubsection{Gestion des paroles}
 
@@ -639,18 +667,18 @@ Le principe de notre site étant de donner la possibilité à un utilisateur de 
 
 Chronologiquement, la première fonctionnalité que nous avons développée est cette recherche de musiques et donc de paroles. L'utilisateur peut donc choisir le nom de la musique recherchée ainsi que le nom du chanteur. Une fois ces deux informations récupérées, on met alors en place une longue suite d'algorithmes pour permettre d'afficher les paroles recherchées. Pour commencer, nous utilisons les informations de recherche de l'utilisateur pour former manuellement une requête composée et l'envoyer à l'\gls{API} Genius Lyrics. Une fois cette requête effectuée et notre accès à l'\gls{API} confirmé, nous récupérons les paroles que nous fournit l'\gls{API} grâce au \gls{Web scraping} que nous avons présenté ci-dessus. Grâce à cette récupération de code, nous pouvons renvoyer l'intégralité des paroles à notre site web et les afficher comme bon nous semble.
 
-\paragraph{Création des musique à trous \\\\}
+\paragraph{Création des musiques à trous \\\\}
 
 Une fois ces paroles récupérées et formatées à notre convenance, nous les avons modifiées afin de permettre à l'utilisateur de posséder de nombreux outils pour apprendre ces paroles. L'outil principal de cette fonctionnalité est le remplissage de texte à trous afin de s'entraîner à connaître les mots manquants. Pour la création de ces mots manquants, le principe est plutôt simple. Nous utilisons une fonction aléatoire afin de supprimer certains mots au milieu des paroles de la chanson. Nous avons fait le choix de parsemer les mots manquants et non d'enlever des phrases pour permettre de travailler toutes les parties de ces mêmes chansons. Une fois un mot sélectionné comme manquant par notre algorithme, nous affichons une case permettant à l'utilisateur de saisir le mot de son choix. Le site web donne le choix à l'utilisateur de choisir la difficulté qu'il souhaite pour l'apprentissage de nos musiques.
 \newline
 
-- La difficulté 1 affiche purement un simplement les paroles sans trous afin de pouvoir les lires plus facilement. 
+- La difficulté 1 affiche purement et simplement les paroles sans trou afin de pouvoir les lire plus facilement. 
 
 - La difficulté 2 affiche cette fois-ci un nombre de mots manquants à hauteur de 15\%, et indique à l'utilisateur le nombre de lettres que possède chaque mot manquant.
 
 - La difficulté 3 est sensiblement la même que la difficulté 2, mais augmente le pourcentage de mots manquants à 30\%.
 
-- Enfin, la difficulté 4 possède la même fréquence de mot manquant que la difficulté 3, mais n'affiche cette fois-ci plus le nombre de lettres dans le mot manquant, ce qui augmente drastiquement la difficulté de remplissage.  
+- Enfin, la difficulté 4 possède la même fréquence de mots manquants que la difficulté 3, mais n'affiche cette fois-ci plus le nombre de lettres dans le mot manquant, ce qui augmente drastiquement la difficulté de remplissage.  
      
 \paragraph{Vérification des réponses manquantes \\\\}
 
@@ -658,7 +686,7 @@ Pour les difficultés de 2 à 4, il nous fallait donc un système de vérificati
 
 \paragraph{Utilisation du lecteur YouTube \\\\}
 
-Une dernière chose disponible dans notre mode d'entraînement n'a pas été évoquée jusqu'ici, il s'agit de l'incrustation vidéo de la musique recherchée en bas de page sous format karaoké. Pour obtenir cette vidéo, le principe est sensiblement le même que pour récupérer les paroles sur l'\gls{API} Genius Lyrics. Nous avons créé un token nous donnant accès à l'\gls{API} YouTube et une fois ceci effectué, nous pouvons encore une fois créer une requête avec les informations de la musique recherchée pour directement afficher la première vidéo disponible sur YouTube en ajoutant l'information "karaoke". Ceci nous permet de pouvoir nous mettre en condition pour participer à l'émission "N'oubliez pas les paroles" en voyant les paroles défiler en même temps que la musique en fond.  
+Une dernière fonctionnalité disponible dans notre mode d'entraînement n'a pas été évoquée jusqu'ici, il s'agit de l'incrustation vidéo de la musique recherchée en bas de page sous format karaoké. Pour obtenir cette vidéo, le principe est sensiblement le même que pour récupérer les paroles sur l'\gls{API} Genius Lyrics. Nous avons créé un \gls{token} nous donnant accès à l'\gls{API} YouTube et une fois ceci effectué, nous pouvons encore une fois créer une requête avec les informations de la musique recherchée pour directement afficher la première vidéo disponible sur YouTube en ajoutant l'information "karaoke". Ceci nous permet de pouvoir nous mettre en condition pour participer à l'émission "N'oubliez pas les paroles" en voyant les paroles défiler en même temps que la musique en fond.  
 
 \subsubsection{Gestion des dossiers playlist}
 
@@ -666,15 +694,15 @@ Le principal avantage de pouvoir se connecter avec un compte utilisateur à un t
 
 \paragraph{Ajout de dossiers \\\\}
 
-La première étape si l'on veut pouvoir sauvegarder des musiques dans nos préférences est de créer un dossier affilié à notre nom utilisateur. Dans le menu personnalisé de l'utilisateur, on choisit le nom du dossier à créer, puis on l'ajoute à notre base de données. Pour l'ajouter à notre base de données, nous effectuons tout de même une vérification pour éviter les problèmes de vol de données ou d'intrusion dans notre base. Bien que ces données ne soient pas catégorisées comme sensibles, il est toujours bon de donner le droit du moindre privilège. C'est pourquoi nous avons créé un token utilisateur précédemment lors de la création de compte. Lors de l'ajout ou de toute autre manipulation de nos données personnelles dans la base de données, le token utilisateur est vérifié pour pouvoir identifier quel utilisateur effectue quelle modification sur quelles bases. Si les permissions sont accordées, alors nous créons un dossier affilié à un utilisateur dans notre base de données.
+La première étape si l'on veut pouvoir sauvegarder des musiques dans nos préférences est de créer un dossier affilié à notre nom utilisateur. Dans le menu personnalisé de l'utilisateur, on choisit le nom du dossier à créer, puis on l'ajoute à notre base de données. Pour l'ajouter à notre base de données, nous effectuons tout de même une vérification pour éviter les problèmes de vol de données ou d'intrusion dans notre base. Bien que ces données ne soient pas catégorisées comme sensibles, il est toujours bon de donner le moins de privilège possible à l'utilisateur afin d'être sur qu'il ne va pas profiter de certaines failles. C'est pourquoi nous avons créé un \gls{token} utilisateur précédemment lors de la création de compte. Lors de l'ajout ou de toute autre manipulation de nos données personnelles dans la base de données, le \gls{token} utilisateur est vérifié pour pouvoir identifier quel utilisateur effectue quelle modification sur quelles bases. Si les permissions sont accordées, alors nous créons un dossier affilié à un utilisateur dans notre base de données.
 
 \paragraph{Ajout de musiques dans un dossier \\\\} 
 
-Une fois ces dossiers créés, nous avons maintenant la possibilité d'enregistrer une musique de notre choix dans le dossier de notre choix. Encore une fois, la vérification du token utilisateur est effectuée, mais à cela vient se rajouter une vérification pour éviter d'avoir des doublons dans notre base de données. Il nous semblait inutile de posséder deux fois la même version d'une musique dans un même dossier, c'est pourquoi cette vérification est faite avant de faire l'insertion dans la table reliant les dossiers aux musiques. Du côté de la base de données, on stocke seulement les informations nécessaires à la recherche sur les différentes \gls{API}.
+Une fois ces dossiers créés, nous avons maintenant la possibilité d'enregistrer une musique de notre choix dans le dossier de notre choix. Encore une fois, la vérification du \gls{token} utilisateur est effectuée, mais à cela vient se rajouter une vérification pour éviter d'avoir des doublons dans notre base de données. Il nous semblait inutile de posséder deux fois la même version d'une musique dans un même dossier, c'est pourquoi cette vérification est faite avant de faire l'insertion dans la \gls{table} reliant les dossiers aux musiques. Du côté de la base de données, on stocke seulement les informations nécessaires à la recherche sur les différentes \gls{API}.
 
 \paragraph{Suppression d'une musique \\\\}
 
-Comme nous savons que les goûts des utilisateurs sont amenés à changer, nous avons aussi implémenté une fonction permettant de supprimer une musique d'un de nos dossiers personnels. Pour la suppression, il s'agit toujours du même procédé, nous vérifions toujours le token, puis que la musique existe bien dans le dossier avant de la supprimer de la base de données.
+Comme nous savons que les goûts des utilisateurs sont amenés à changer, nous avons aussi implémenté une fonction permettant de supprimer une musique d'un de nos dossiers personnels. Pour la suppression, il s'agit toujours du même procédé, nous vérifions toujours le \gls{token}, puis que la musique existe bien dans le dossier avant de la supprimer de la base de données.
 
 \paragraph{Suppression de dossier \\\\}
 
@@ -698,7 +726,7 @@ Notre façon de travailler était comparable à une méthode agile de développe
 	\caption{Les différentes étapes d'ajout d'une fonctionnalité}
 \end{figure}
 
-Finalement, nous avons effectué à la fin une embellissement de la partie utilisateur (\gls{Front}) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
+Finalement, nous avons effectué à la fin un embellissement de la partie utilisateur (\gls{Front}) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
 
 Maintenant, voyons en détail ce que chaque partie d'un \gls{sprint} impliquait.
 
@@ -708,7 +736,7 @@ Maintenant, voyons en détail ce que chaque partie d'un \gls{sprint} impliquait.
 
 À chaque nouveau \gls{sprint}, nous regardions tout d'abord si une modification de la base de données était nécessaire.
 
-Si c'était le cas, nous reconstruisions notre base de données en ajoutant les nouvelles tables et colonnes nécessaires.
+Si c'était le cas, nous reconstruisions notre base de données en ajoutant les nouvelles \gls{table}s et \gls{colonne}s nécessaires.
 
 Cela impliquait de modifier le script \textbf{setupDatabase.js} pour que nous ayons chacun de notre côté, en local, exactement la même base de données.
 
@@ -726,7 +754,7 @@ On incluait ensuite ces requêtes dans le code \gls{Javascript} de notre \gls{Ba
 
 Enfin, on créait dans la "couche business" toutes les fonctions nécessaires pour formater les données comme il nous faut.
 
-C'est durant cette partie aussi que l'on a créé les fonctions qui envoient des requêtes \gls{HTTP} à des \gls{API}s si nécessaire. Comme avec la base de données, après avoir reçu les données, on les formatées afin de mieux les exploiter dans le \gls{Front}.
+C'est durant cette partie aussi que l'on a créé les fonctions qui envoient des requêtes \gls{HTTP} à des \gls{API}s si nécessaire. Comme avec la base de données, après avoir reçu les données, on les formatait afin de mieux les exploiter dans le \gls{Front}.
 
 \paragraph{Mise en lien de la partie serveur avec la partie utilisateur \\\\}
 
@@ -777,7 +805,7 @@ Lors de notre projet, le partage des tâches importantes s'est fait plutôt natu
 \newline
 
 
-Cette méthode de travail a donc permis à Lilian de coder l'\gls{API} Genius Lyric afin qu'Etienne puisse formater les paroles pour les afficher dans le site et créer les différents niveaux de difficultés. Pour l'affichage YouTube, c'est Lilian qui s'est organisé pour créer le token YouTube permettant de créer un lecteur vidéo affichant notre requête de façon correcte. Pendant ce temps, Etienne créait les fonctions permettant de créer la base de données ainsi que ses tables, mais aussi les insertions, sélections et suppressions. Grâce à cela, Lilian a pu implémenter la vérification du token utilisateur pour contrôler les requêtes. Il s'est aussi occupé de la gestion du chiffrement et du salage du mot de passe dans la base de données. Enfin, pour ce qui est de l'aspect visuel, c'est majoritairement Lilian qui a eu la charge de rendre le site visuellement agréable lors de nos dernières heures de travail.
+Cette méthode de travail a donc permis à Lilian de coder l'\gls{API} Genius Lyric afin qu'Etienne puisse formater les paroles pour les afficher dans le site et créer les différents niveaux de difficultés. Pour l'affichage YouTube, c'est Lilian qui s'est organisé pour créer le \gls{token} YouTube permettant de créer un lecteur vidéo affichant notre requête de façon correcte. Pendant ce temps, Etienne créait les fonctions permettant de créer la base de données ainsi que ses \gls{table}s, mais aussi les insertions, sélections et suppressions. Grâce à cela, Lilian a pu implémenter la vérification du \gls{token} utilisateur pour contrôler les requêtes. Il s'est aussi occupé de la gestion du chiffrement et du salage du mot de passe dans la base de données. Enfin, pour ce qui est de l'aspect visuel, c'est majoritairement Lilian qui a eu la charge de rendre le site visuellement agréable lors de nos dernières heures de travail.
 \newline   
 
 Bien que nous ayons prévu un planning anticipé de ce que nous allions faire grâce à notre diagramme de Gantt prévisionnel, nous nous sommes rendu compte au moment de notre diagramme de Gantt réel que certaines tâches avaient été supprimées et que les dates avaient évidemment bougé.
@@ -846,9 +874,9 @@ Nous pouvons si nous le souhaitons changer le code source du site web afin de ra
 
 \bigskip
 
-En haut de la page, vous pouvez voir les différentes fonctionnalités de notre site web proposées dans le header. Vous avez la possibilité d'aller à l'accueil (là où nous sommes actuellement) mais aussi dans la partie entraînement. Vous pouvez également vous inscrire ou, si cela est déjà fait, vous connecter !
+En haut de la page, vous pouvez voir les différentes fonctionnalités de notre site web proposées dans le \gls{header}. Vous avez la possibilité d'aller à l'accueil (là où nous sommes actuellement) mais aussi dans la partie entraînement. Vous pouvez également vous inscrire ou, si cela est déjà fait, vous connecter !
 
-Le header va changer en fonction de si vous êtes connecté ou non. Si vous êtes connecté, au lieu de la possibilité de vous inscrire ou de vous connecter, vous aurez la possibilité d'aller à votre menu utilisateur ou de vous déconnecter.
+Le \gls{header} va changer en fonction de si vous êtes connecté ou non. Si vous êtes connecté, au lieu de la possibilité de vous inscrire ou de vous connecter, vous aurez la possibilité d'aller à votre menu utilisateur ou de vous déconnecter.
 
 \begin{figure}[H]
 	\centering
@@ -901,7 +929,7 @@ Enfin, nous trouvons au-dessus des paroles un bouton "Options" sur lequel nous p
 
 \paragraph{Sauvegarder la musique dans un dossier \\\\}
 
-Lorsque vous cliquez sur le bouton "Sauvegarder la musique", deux possibilités s'offrent à vous. Si vous n'êtes pas connecté, nous vous informons qu'il faut que vous vous connectiez si vous souhaitez sauvegarder une musique. Sinon, une liste déroulante de tous vos dossiers apparaît, il suffit de cliquer sur le dossier dans lequel vous voulez sauvegarder la musique pour lancer la phase de sauvegarde.
+Lorsque vous cliquez sur le bouton "Sauvegarder la musique", deux possibilités s'offrent à vous. Si vous n'êtes pas connecté, nous vous informons qu'il faut que vous le soyez si vous souhaitez sauvegarder une musique. Sinon, une liste déroulante de tous vos dossiers apparaît, il suffit de cliquer sur le dossier dans lequel vous voulez sauvegarder la musique pour lancer la phase de sauvegarde.
 
 Après ce clic, une pop-up apparaît vous demandant de confirmer votre choix. Lorsque cela est fait, une notification apparaît en haut à droite de votre écran vous informant que la sauvegarde a été effectuée !
 
@@ -1060,7 +1088,7 @@ Maintenant que notre projet est terminé, nous nous posons les deux questions ha
 Pour nous, la conception et l'implémentation de notre projet s'est passée à peu de choses près comme nous l'avions espéré. Nous n'avons pas manqué de temps car notre planning anticipé nous a aidé à appréhender les problèmes à analyser, et la gestion de projet nous a grandement aidés dans ce domaine. Néanmoins, la seule fonctionnalité manquante de notre Gantt prévisionnel est le format karaoké proprement parlé de notre application. Suite aux difficultés et à l'innovation que cela représentait de créer un algorithme capable d'écrire les paroles en fonction de la musique, nous nous sommes rabattus sur l'\gls{API} YouTube en obtenant un karaoké déjà existant. Le produit que nous considérons comme "livré" correspond donc totalement à nos attentes de début de projet car celui-ci s'est bien déroulé.La deuxième question que l'on se pose régulièrement après un projet est :
 \newline
 
-- Qu'envisagerai vous de rajouter à votre projet ?
+- Qu'envisageriez vous de rajouter à votre projet ?
 \newline
 
 Dans un premier temps, le projet nous intéressant énormément, nous avions pour objectif de publier ce site web en louant notre nom de domaine pour permettre aux gens de pouvoir réviser pour l'émission "N'oubliez pas les paroles" sans soucis. Cela nous aurait donc forcé à trouver une autre solution que les \gls{Web scraping} utilisés pour récupérer les paroles de n'importe quelle chanson, mais aussi de voir avec des organismes comme la \gls{SACEM} pour acheter les droits d'exploitation des musiques pour notre site.
@@ -1090,7 +1118,7 @@ Enfin, nous sommes satisfaits du résultat final de notre application. Nous pens
 \newpage
 \vspace*{1cm}
 
-\section*{Référence bibliographique}
+\section*{Références bibliographiques}
 \addcontentsline{toc}{section}{\protect\numberline{}Référence bibliographique}
 
 [\textbf{Node.js}] \href{https://nodejs.org/}{https://nodejs.org/} (17/11/2022) \newline\newline
@@ -1103,6 +1131,7 @@ Enfin, nous sommes satisfaits du résultat final de notre application. Nous pens
 [\textbf{API YouTube Data API v3}] \href{https://developers.google.com/youtube/v3}{https://developers.google.com/youtube/v3} (12/02/2023) \newline\newline
 [\textbf{API ChartLyrics}] \href{https://www.chartlyrics.com/}{https://www.chartlyrics.com/} (29/11/2022)\newline\newline
 [\textbf{API Genius Lyrics}] \href{https://docs.genius.com/}{https://docs.genius.com/} (30/11/2022)\newline\newline
+[\textbf{Journal du net}] \href{https://www.journaldunet.fr/}{https://www.journaldunet.fr/} (12/02/2023)\newline
 
 
 \addcontentsline{toc}{section}{\protect\numberline{}Glossaire}

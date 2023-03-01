@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.13)  27 FEB 2023 20:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.13)  1 MAR 2023 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -626,8 +626,8 @@ Already applied: [0000/00/00] Usage of raw or classic option list on input line
 \scr@dte@tocline@numbox=\box62
 )
 \scr@dte@section@maxnumwidth=\skip82
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 22
-6.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 25
+4.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -640,24 +640,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 226.
-LaTeX Font Info:    ... okay on input line 226.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 254.
+LaTeX Font Info:    ... okay on input line 254.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -695,7 +695,7 @@ LaTeX Font Info:    ... okay on input line 226.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 226.
+(lastpage)             ! on input line 254.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count325
@@ -718,7 +718,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 226.
+Package hyperref Info: Link coloring OFF on input line 254.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -731,9 +731,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 226.
-LaTeX Info: Redefining \pageref on input line 226.
-LaTeX Info: Redefining \nameref on input line 226.
+LaTeX Info: Redefining \ref on input line 254.
+LaTeX Info: Redefining \pageref on input line 254.
+LaTeX Info: Redefining \nameref on input line 254.
 
 (./rapport.out) (./rapport.out)
 \@outlinefile=\write6
@@ -776,45 +776,45 @@ LaTeX Info: Redefining \nameref on input line 226.
 <isima.png, id=153, 537.4479pt x 230.0595pt>
 File: isima.png Graphic file (type png)
 <use isima.png>
-Package pdftex.def Info: isima.png  used on input line 233.
+Package pdftex.def Info: isima.png  used on input line 261.
 (pdftex.def)             Requested size: 188.10957pt x 80.52202pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-77.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+05.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-77.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+05.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-277.
+305.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-277.
+305.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 277.
+(Font)              <12> on input line 305.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 277.
+(Font)              <8> on input line 305.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 277.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 277
+(Font)              <6> on input line 305.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 305
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 277
+LaTeX Font Info:    Trying to load font information for U+msb on input line 305
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -832,7 +832,7 @@ of)
 <header.png, id=183, 222.8325pt x 133.49875pt>
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 316.
+Package pdftex.def Info: header.png  used on input line 344.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
@@ -847,32 +847,32 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.316 \newpage
+l.344 \newpage
                [1
 
  <./header.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--331
+Underfull \hbox (badness 10000) in paragraph at lines 355--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--342
+Underfull \hbox (badness 10000) in paragraph at lines 366--370
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 343.
+Package pdftex.def Info: header.png  used on input line 371.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -901,7 +901,7 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 58.
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 350.
+Package pdftex.def Info: header.png  used on input line 378.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
@@ -916,11 +916,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <fullstack.png, id=289, 903.375pt x 338.76563pt>
 File: fullstack.png Graphic file (type png)
 <use fullstack.png>
-Package pdftex.def Info: fullstack.png  used on input line 400.
+Package pdftex.def Info: fullstack.png  used on input line 428.
 (pdftex.def)             Requested size: 361.3436pt x 135.50385pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 403.
+Package pdftex.def Info: header.png  used on input line 431.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
@@ -932,39 +932,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 406--408
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--411
+Underfull \hbox (badness 10000) in paragraph at lines 437--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--414
+Underfull \hbox (badness 10000) in paragraph at lines 440--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+Underfull \hbox (badness 10000) in paragraph at lines 443--445
 
  []
 
 
-Overfull \hbox (20.19377pt too wide) in paragraph at lines 418--420
+Overfull \hbox (20.19377pt too wide) in paragraph at lines 446--448
 []\T1/lmr/m/n/12 Pour une ex-péri-ence plus per-son-nal-isée, nous avons égale-
 ment in-clus la pos-si-bil-ité d'enregistrer
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--420
+Underfull \hbox (badness 10000) in paragraph at lines 446--448
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 423.
+Package pdftex.def Info: header.png  used on input line 451.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -975,43 +975,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [5 <./fullstack.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 430--432
+Underfull \hbox (badness 10000) in paragraph at lines 458--460
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+Underfull \hbox (badness 10000) in paragraph at lines 461--463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--441
+Underfull \hbox (badness 10000) in paragraph at lines 464--469
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--445
+Underfull \hbox (badness 10000) in paragraph at lines 470--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--445
+Underfull \hbox (badness 10000) in paragraph at lines 470--473
 
  []
 
 <ganttprevi.png, id=302, 1022.31938pt x 520.19344pt>
 File: ganttprevi.png Graphic file (type png)
 <use ganttprevi.png>
-Package pdftex.def Info: ganttprevi.png  used on input line 452.
+Package pdftex.def Info: ganttprevi.png  used on input line 480.
 (pdftex.def)             Requested size: 511.15843pt x 260.09607pt.
 
-Overfull \hbox (39.1272pt too wide) in paragraph at lines 452--453
+Overfull \hbox (39.1272pt too wide) in paragraph at lines 480--481
  [][] 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 455.
+Package pdftex.def Info: header.png  used on input line 483.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1022,35 +1022,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [6]
-File: header.png Graphic file (type png)
-<use header.png>
-Package pdftex.def Info: header.png  used on input line 484.
-(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 33.71983pt, for example:
-(fancyhdr)                \setlength{\headheight}{33.71983pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
-
-[7 <./ganttprevi.PNG>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-88.
- (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<api_couche.png, id=330, 4140.46875pt x 1505.625pt>
-File: api_couche.png Graphic file (type png)
-<use api_couche.png>
-Package pdftex.def Info: api_couche.png  used on input line 498.
-(pdftex.def)             Requested size: 414.07114pt x 150.57132pt.
-<api.png, id=334, 2258.4375pt x 1505.625pt>
-File: api.png Graphic file (type png)
-<use api.png>
-Package pdftex.def Info: api.png  used on input line 509.
-(pdftex.def)             Requested size: 361.35739pt x 240.90492pt.
 File: header.png Graphic file (type png)
 <use header.png>
 Package pdftex.def Info: header.png  used on input line 512.
@@ -1064,7 +1035,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
-[8 <./api_couche.png (PNG copy)>]
+[7 <./ganttprevi.PNG>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
+16.
+ (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<api_couche.png, id=330, 4140.46875pt x 1505.625pt>
+File: api_couche.png Graphic file (type png)
+<use api_couche.png>
+Package pdftex.def Info: api_couche.png  used on input line 526.
+(pdftex.def)             Requested size: 414.07114pt x 150.57132pt.
+<api.png, id=334, 2258.4375pt x 1505.625pt>
+File: api.png Graphic file (type png)
+<use api.png>
+Package pdftex.def Info: api.png  used on input line 537.
+(pdftex.def)             Requested size: 361.35739pt x 240.90492pt.
 File: header.png Graphic file (type png)
 <use header.png>
 Package pdftex.def Info: header.png  used on input line 540.
@@ -1078,24 +1064,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
+[8 <./api_couche.png (PNG copy)>]
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 568.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
 [9 <./api.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
+Underfull \hbox (badness 10000) in paragraph at lines 573--575
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--550
+Underfull \hbox (badness 10000) in paragraph at lines 576--578
 
  []
 
-<diag_database.png, id=366, 752.8125pt x 752.8125pt>
+<diag_database.png, id=378, 752.8125pt x 752.8125pt>
 File: diag_database.png Graphic file (type png)
 <use diag_database.png>
-Package pdftex.def Info: diag_database.png  used on input line 559.
+Package pdftex.def Info: diag_database.png  used on input line 587.
 (pdftex.def)             Requested size: 225.84549pt x 225.84549pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 562.
+Package pdftex.def Info: header.png  used on input line 590.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1106,24 +1106,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [10]
-<table.png, id=373, 189.70876pt x 79.04532pt>
+<table.png, id=387, 189.70876pt x 79.04532pt>
 File: table.png Graphic file (type png)
 <use table.png>
-Package pdftex.def Info: table.png  used on input line 565.
+Package pdftex.def Info: table.png  used on input line 593.
 (pdftex.def)             Requested size: 189.70828pt x 79.0451pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--581
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--587
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 587.
+Package pdftex.def Info: header.png  used on input line 615.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1134,18 +1134,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [11 <./diag_database.png (PNG copy)> <./table.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 615--617
+Underfull \hbox (badness 10000) in paragraph at lines 643--645
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 628.
+Package pdftex.def Info: header.png  used on input line 656.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1156,24 +1156,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 632--633
+Underfull \hbox (badness 10000) in paragraph at lines 660--661
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
+Underfull \hbox (badness 10000) in paragraph at lines 668--669
 
  []
 
 
-Overfull \hbox (5.60452pt too wide) in paragraph at lines 640--641
+Overfull \hbox (5.60452pt too wide) in paragraph at lines 668--669
 [] \T1/lmr/m/n/12 Chronologique-ment, la pre-mière fonc-tion-nal-ité que nous a
 vons dévelop-pée est cette recherche
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 642.
+Package pdftex.def Info: header.png  used on input line 670.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1184,34 +1184,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 644--646
+Underfull \hbox (badness 10000) in paragraph at lines 672--674
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--646
+Underfull \hbox (badness 10000) in paragraph at lines 672--674
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--658
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 661--662
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
 
- []
-
-
-Overfull \hbox (0.902pt too wide) in paragraph at lines 661--662
-[] \T1/lmr/m/n/12 Une dernière chose disponible dans notre mode d'entraînement 
-n'a pas été évo-quée jusqu'ici,
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 662.
+Package pdftex.def Info: header.png  used on input line 690.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1222,43 +1216,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 669--670
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 673--674
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 681--682
-
- []
-
-File: header.png Graphic file (type png)
-<use header.png>
-Package pdftex.def Info: header.png  used on input line 682.
-(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 33.71983pt, for example:
-(fancyhdr)                \setlength{\headheight}{33.71983pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
-
-[15]
-<agile.png, id=447, 176.15813pt x 185.94469pt>
-File: agile.png Graphic file (type png)
-<use agile.png>
-Package pdftex.def Info: agile.png  used on input line 697.
-(pdftex.def)             Requested size: 176.15768pt x 185.94421pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
@@ -1276,19 +1247,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
-[16 <./agile.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
+[15]
+<agile.png, id=473, 176.15813pt x 185.94469pt>
+File: agile.png Graphic file (type png)
+<use agile.png>
+Package pdftex.def Info: agile.png  used on input line 725.
+(pdftex.def)             Requested size: 176.15768pt x 185.94421pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 734--735
+Underfull \hbox (badness 10000) in paragraph at lines 737--738
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 752.
+Package pdftex.def Info: header.png  used on input line 738.
+(pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 33.71983pt, for example:
+(fancyhdr)                \setlength{\headheight}{33.71983pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
+
+[16 <./agile.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 747--748
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 762--763
+
+ []
+
+File: header.png Graphic file (type png)
+<use header.png>
+Package pdftex.def Info: header.png  used on input line 780.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1299,40 +1293,40 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [17]
-<avantfront.png, id=476, 983.675pt x 584.1825pt>
+<avantfront.png, id=505, 983.675pt x 584.1825pt>
 File: avantfront.png Graphic file (type png)
 <use avantfront.png>
-Package pdftex.def Info: avantfront.png  used on input line 765.
+Package pdftex.def Info: avantfront.png  used on input line 793.
 (pdftex.def)             Requested size: 245.91815pt x 146.04526pt.
 
-Overfull \hbox (9.90254pt too wide) in paragraph at lines 765--766
+Overfull \hbox (9.90254pt too wide) in paragraph at lines 793--794
  [][] 
  []
 
-<apresfront.png, id=477, 724.7075pt x 843.15pt>
+<apresfront.png, id=506, 724.7075pt x 843.15pt>
 File: apresfront.png Graphic file (type png)
 <use apresfront.png>
-Package pdftex.def Info: apresfront.png  used on input line 769.
+Package pdftex.def Info: apresfront.png  used on input line 797.
 (pdftex.def)             Requested size: 181.17642pt x 210.78697pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 776--778
+Underfull \hbox (badness 10000) in paragraph at lines 804--806
 
  []
 
 
-Overfull \hbox (4.36246pt too wide) in paragraph at lines 780--782
+Overfull \hbox (4.36246pt too wide) in paragraph at lines 808--810
 []\T1/lmr/m/n/12 Cette méth-ode de tra-vail a donc per-mis à Lil-ian de coder l
 '[][]API[] Ge-nius Lyric afin qu'Etienne
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 780--782
+Underfull \hbox (badness 10000) in paragraph at lines 808--810
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 782.
+Package pdftex.def Info: header.png  used on input line 810.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1343,19 +1337,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [18 <./avantfront.png> <./apresfront.png>]
-<ganttreel.png, id=491, 1018.55531pt x 505.89pt>
+<ganttreel.png, id=523, 1018.55531pt x 505.89pt>
 File: ganttreel.png Graphic file (type png)
 <use ganttreel.png>
-Package pdftex.def Info: ganttreel.png  used on input line 787.
+Package pdftex.def Info: ganttreel.png  used on input line 815.
 (pdftex.def)             Requested size: 509.27641pt x 252.94437pt.
 
-Overfull \hbox (37.24518pt too wide) in paragraph at lines 787--788
+Overfull \hbox (37.24518pt too wide) in paragraph at lines 815--816
  [][] 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 799.
+Package pdftex.def Info: header.png  used on input line 827.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1366,28 +1360,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [19 <./ganttreel.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 803--804
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 830--831
+Underfull \hbox (badness 10000) in paragraph at lines 858--859
 
  []
 
-<accueil.png, id=500, 1910.13625pt x 952.55875pt>
+<accueil.png, id=534, 1910.13625pt x 952.55875pt>
 File: accueil.png Graphic file (type png)
 <use accueil.png>
-Package pdftex.def Info: accueil.png  used on input line 855.
+Package pdftex.def Info: accueil.png  used on input line 883.
 (pdftex.def)             Requested size: 477.5329pt x 238.1391pt.
 
-Overfull \hbox (5.50166pt too wide) in paragraph at lines 855--856
+Overfull \hbox (5.50166pt too wide) in paragraph at lines 883--884
  [][] 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 858.
+Package pdftex.def Info: header.png  used on input line 886.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1398,14 +1392,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [20]
-<rechercheparole.png, id=508, 633.36626pt x 872.25874pt>
+<rechercheparole.png, id=544, 633.36626pt x 872.25874pt>
 File: rechercheparole.png Graphic file (type png)
 <use rechercheparole.png>
-Package pdftex.def Info: rechercheparole.png  used on input line 866.
+Package pdftex.def Info: rechercheparole.png  used on input line 894.
 (pdftex.def)             Requested size: 158.34117pt x 218.06415pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 873.
+Package pdftex.def Info: header.png  used on input line 901.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
@@ -1417,29 +1411,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [21 <./accueil.png> <./rechercheparole.png>]
-<parole.png, id=516, 1341.01pt x 864.22874pt>
+<parole.png, id=552, 1341.01pt x 864.22874pt>
 File: parole.png Graphic file (type png)
 <use parole.png>
-Package pdftex.def Info: parole.png  used on input line 878.
+Package pdftex.def Info: parole.png  used on input line 906.
 (pdftex.def)             Requested size: 201.14282pt x 129.62871pt.
-<ytbparole.png, id=517, 1345.025pt x 828.09375pt>
+<ytbparole.png, id=553, 1345.025pt x 828.09375pt>
 File: ytbparole.png Graphic file (type png)
 <use ytbparole.png>
-Package pdftex.def Info: ytbparole.png  used on input line 882.
+Package pdftex.def Info: ytbparole.png  used on input line 910.
 (pdftex.def)             Requested size: 201.74504pt x 124.2087pt.
-<optionparole.png, id=518, 1632.0975pt x 831.105pt>
+<optionparole.png, id=554, 1632.0975pt x 831.105pt>
 File: optionparole.png Graphic file (type png)
 <use optionparole.png>
-Package pdftex.def Info: optionparole.png  used on input line 898.
+Package pdftex.def Info: optionparole.png  used on input line 926.
 (pdftex.def)             Requested size: 408.02338pt x 207.77574pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 932--933
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 906.
+Package pdftex.def Info: header.png  used on input line 934.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1450,23 +1444,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [22 <./parole.png> <./ytbparole.png> <./optionparole.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+Underfull \hbox (badness 10000) in paragraph at lines 938--939
 
  []
 
-<diffi1.png, id=528, 1334.9875pt x 951.555pt>
+<diffi1.png, id=564, 1334.9875pt x 951.555pt>
 File: diffi1.png Graphic file (type png)
 <use diffi1.png>
-Package pdftex.def Info: diffi1.png  used on input line 920.
+Package pdftex.def Info: diffi1.png  used on input line 948.
 (pdftex.def)             Requested size: 200.23949pt x 142.72708pt.
-<diffi2.png, id=529, 1339.0025pt x 903.375pt>
+<diffi2.png, id=565, 1339.0025pt x 903.375pt>
 File: diffi2.png Graphic file (type png)
 <use diffi2.png>
-Package pdftex.def Info: diffi2.png  used on input line 924.
+Package pdftex.def Info: diffi2.png  used on input line 952.
 (pdftex.def)             Requested size: 200.8417pt x 135.5004pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 947.
+Package pdftex.def Info: header.png  used on input line 975.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1477,29 +1471,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [23 <./diffi1.png> <./diffi2.png>]
-<inscri1.png, id=539, 684.5575pt x 944.52875pt>
+<inscri1.png, id=574, 684.5575pt x 944.52875pt>
 File: inscri1.png Graphic file (type png)
 <use inscri1.png>
-Package pdftex.def Info: inscri1.png  used on input line 952.
+Package pdftex.def Info: inscri1.png  used on input line 980.
 (pdftex.def)             Requested size: 171.13895pt x 236.1316pt.
-<inscri2.png, id=540, 684.5575pt x 944.52875pt>
+<inscri2.png, id=575, 684.5575pt x 944.52875pt>
 File: inscri2.png Graphic file (type png)
 <use inscri2.png>
-Package pdftex.def Info: inscri2.png  used on input line 956.
+Package pdftex.def Info: inscri2.png  used on input line 984.
 (pdftex.def)             Requested size: 171.13895pt x 236.1316pt.
-<connec1.png, id=541, 684.5575pt x 944.52875pt>
+<connec1.png, id=576, 684.5575pt x 944.52875pt>
 File: connec1.png Graphic file (type png)
 <use connec1.png>
-Package pdftex.def Info: connec1.png  used on input line 982.
+Package pdftex.def Info: connec1.png  used on input line 1010.
 (pdftex.def)             Requested size: 171.13895pt x 236.1316pt.
-<connec2.png, id=542, 684.5575pt x 944.52875pt>
+<connec2.png, id=577, 684.5575pt x 944.52875pt>
 File: connec2.png Graphic file (type png)
 <use connec2.png>
-Package pdftex.def Info: connec2.png  used on input line 986.
+Package pdftex.def Info: connec2.png  used on input line 1014.
 (pdftex.def)             Requested size: 171.13895pt x 236.1316pt.
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 990.
+Package pdftex.def Info: header.png  used on input line 1018.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
@@ -1511,19 +1505,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [24 <./inscri1.png> <./inscri2.png>]
-<menu.png, id=551, 1114.1625pt x 944.52875pt>
+<menu.png, id=586, 1114.1625pt x 944.52875pt>
 File: menu.png Graphic file (type png)
 <use menu.png>
-Package pdftex.def Info: menu.png  used on input line 1001.
+Package pdftex.def Info: menu.png  used on input line 1029.
 (pdftex.def)             Requested size: 233.98103pt x 198.35689pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1008.
+Package pdftex.def Info: header.png  used on input line 1036.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1534,49 +1528,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [25 <./connec1.png> <./connec2.png> <./menu.png>]
-<dossier1.png, id=560, 393.47pt x 129.48375pt>
+<dossier1.png, id=595, 393.47pt x 129.48375pt>
 File: dossier1.png Graphic file (type png)
 <use dossier1.png>
-Package pdftex.def Info: dossier1.png  used on input line 1013.
+Package pdftex.def Info: dossier1.png  used on input line 1041.
 (pdftex.def)             Requested size: 157.38521pt x 51.79257pt.
-<dossier2.png, id=561, 395.4775pt x 169.63374pt>
+<dossier2.png, id=596, 395.4775pt x 169.63374pt>
 File: dossier2.png Graphic file (type png)
 <use dossier2.png>
-Package pdftex.def Info: dossier2.png  used on input line 1017.
+Package pdftex.def Info: dossier2.png  used on input line 1045.
 (pdftex.def)             Requested size: 158.18819pt x 67.85228pt.
-<dossier3.png, id=562, 403.5075pt x 394.47375pt>
+<dossier3.png, id=597, 403.5075pt x 394.47375pt>
 File: dossier3.png Graphic file (type png)
 <use dossier3.png>
-Package pdftex.def Info: dossier3.png  used on input line 1035.
+Package pdftex.def Info: dossier3.png  used on input line 1063.
 (pdftex.def)             Requested size: 161.40013pt x 157.7867pt.
 
-Overfull \hbox (19.78932pt too wide) in paragraph at lines 1035--1036
+Overfull \hbox (19.78932pt too wide) in paragraph at lines 1063--1064
  [][] 
  []
 
-<dossier4.png, id=563, 461.725pt x 398.48875pt>
+<dossier4.png, id=598, 461.725pt x 398.48875pt>
 File: dossier4.png Graphic file (type png)
 <use dossier4.png>
-Package pdftex.def Info: dossier4.png  used on input line 1039.
+Package pdftex.def Info: dossier4.png  used on input line 1067.
 (pdftex.def)             Requested size: 184.68672pt x 159.39267pt.
 
-Overfull \hbox (43.07591pt too wide) in paragraph at lines 1039--1040
+Overfull \hbox (43.07591pt too wide) in paragraph at lines 1067--1068
  [][] 
  []
 
-<dossier5.png, id=564, 461.725pt x 398.48875pt>
+<dossier5.png, id=599, 461.725pt x 398.48875pt>
 File: dossier5.png Graphic file (type png)
 <use dossier5.png>
-Package pdftex.def Info: dossier5.png  used on input line 1043.
+Package pdftex.def Info: dossier5.png  used on input line 1071.
 (pdftex.def)             Requested size: 184.68672pt x 159.39267pt.
 
-Overfull \hbox (43.07591pt too wide) in paragraph at lines 1043--1044
+Overfull \hbox (43.07591pt too wide) in paragraph at lines 1071--1072
  [][] 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1048.
+Package pdftex.def Info: header.png  used on input line 1076.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1588,28 +1582,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [26 <./dossier1.png> <./dossier2.png> <./dossier3.png> <./dossier4.png> <./doss
 ier5.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1055
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1058
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1086
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1060--1062
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1063--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1093
 
  []
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1070.
+Package pdftex.def Info: header.png  used on input line 1098.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1622,7 +1616,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [27]
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1090.
+Package pdftex.def Info: header.png  used on input line 1118.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 
@@ -1634,57 +1628,57 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1135
 
  []
 
@@ -1696,7 +1690,7 @@ eux. Elle per-met à des développeurs
 
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 25.
+Package pdftex.def Info: header.png  used on input line 21.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1721,7 +1715,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-21.71983pt}.
 
 [30]
-Overfull \hbox (2.2376pt too wide) in paragraph at lines 65--65
+Overfull \hbox (5.73607pt too wide) in paragraph at lines 75--79
+\T1/lmr/m/n/12 isées sous forme d'un tableau où les colonnes cor-re-spon-dent à
+ des caté-gories d'information
+ []
+
+
+Overfull \hbox (2.2376pt too wide) in paragraph at lines 81--81
 \T1/lmr/m/n/12 par Mi-crosoft qui a pour but d'améliorer et de sécuriser la pro
 -duc-tion de code JavaScript.
  []
@@ -1730,7 +1730,7 @@ Overfull \hbox (2.2376pt too wide) in paragraph at lines 65--65
 AED: lastpage setting LastPage
 File: header.png Graphic file (type png)
 <use header.png>
-Package pdftex.def Info: header.png  used on input line 1113.
+Package pdftex.def Info: header.png  used on input line 1142.
 (pdftex.def)             Requested size: 49.0233pt x 29.3698pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1742,30 +1742,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [31] (./rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 5BA22771BF382A4A0A8BE0671F400560;6255.
+(rerunfilecheck)             Checksum: 6D12C00A5A8F487FD37EA9C6225CF940;6265.
  ) 
 Here is how much of TeX's memory you used:
- 18781 strings out of 478287
- 303115 string characters out of 5849289
- 812150 words of memory out of 5000000
- 36485 multiletter control sequences out of 15000+600000
+ 18934 strings out of 478287
+ 305532 string characters out of 5849289
+ 815834 words of memory out of 5000000
+ 36635 multiletter control sequences out of 15000+600000
  511238 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,16n,92p,1368b,643s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{glo:chiffr\351} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:sal\351} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
-Output written on rapport.pdf (32 pages, 2017600 bytes).
+ 95i,16n,92p,1417b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
+Output written on rapport.pdf (32 pages, 2020136 bytes).
 PDF statistics:
- 726 PDF objects out of 1000 (max. 8388607)
- 624 compressed objects within 7 object streams
- 129 named destinations out of 1000 (max. 500000)
+ 768 PDF objects out of 1000 (max. 8388607)
+ 666 compressed objects within 7 object streams
+ 132 named destinations out of 1000 (max. 500000)
  450 words of extra memory for PDF output out of 10000 (max. 10000000)
 

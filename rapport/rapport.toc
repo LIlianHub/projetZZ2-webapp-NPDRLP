@@ -1,4 +1,4 @@
-\contentsline {section}{\numberline {}Remerciement}{1}{section*.1}%
+\contentsline {section}{\numberline {}Remerciements}{1}{section*.1}%
 \contentsline {section}{\numberline {}Table des illustrations}{1}{section*.1}%
 \contentsline {section}{\numberline {}Résumé}{2}{section*.3}%
 \contentsline {section}{\numberline {}Abstract}{2}{section*.4}%
@@ -17,13 +17,13 @@
 \contentsline {paragraph}{Gestion des lecteurs vidéos avec paroles de musique \\\\}{11}{section*.7}%
 \contentsline {paragraph}{Récupération des paroles de musique \\\\}{12}{section*.8}%
 \contentsline {subsubsection}{\numberline {1.5}Chartes graphiques}{12}{subsubsection.2.1.5}%
-\contentsline {subsection}{\numberline {2}Description détaillé}{12}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2}Description détaillée}{12}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.1}Gestion des comptes}{13}{subsubsection.2.2.1}%
 \contentsline {paragraph}{Création de compte \\\\}{13}{section*.9}%
 \contentsline {paragraph}{Connexion au site web \\\\}{13}{section*.10}%
 \contentsline {subsubsection}{\numberline {2.2}Gestion des paroles}{13}{subsubsection.2.2.2}%
 \contentsline {paragraph}{Recherches de musiques \\\\}{13}{section*.11}%
-\contentsline {paragraph}{Création des musique à trous \\\\}{14}{section*.12}%
+\contentsline {paragraph}{Création des musiques à trous \\\\}{14}{section*.12}%
 \contentsline {paragraph}{Vérification des réponses manquantes \\\\}{14}{section*.13}%
 \contentsline {paragraph}{Utilisation du lecteur YouTube \\\\}{14}{section*.14}%
 \contentsline {subsubsection}{\numberline {2.3}Gestion des dossiers playlist}{15}{subsubsection.2.2.3}%
