@@ -386,20 +386,23 @@ Keywords: cross-platform, NodeJS, Angular, \gls{Javascript}, Bootstrap, \gls{SQL
 \section*{Introduction}
 \addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 
-Le projet de deuxième année sur lequel nous avons travaillé consiste en une plateforme web de révision de chansons en format karaoké. Cette application permet aux utilisateurs de rechercher des chansons en fonction de leurs préférences et de leur niveau de difficulté, de les réviser en remplissant les trous des paroles manquantes et de visualiser la vidéo en format karaoké. Les utilisateurs peuvent également créer des dossiers de playlist pour organiser leurs chansons préférées.
+Après avoir effectué une recherche sur Internet, nous avons constaté qu'il n'existait que très peu de sites permettant d'apprendre les paroles de nombreuses chansons spécifiquement pour participer à l'émission de télévision "N'oubliez pas les paroles" diffusée sur la chaîne France 2. En effet, bien qu'il y ait des sites dédiés à l'apprentissage des paroles de chansons, aucun n'est spécifiquement conçu pour cette émission. Nous avons donc soumis l'idée de ce projet à notre professeur référent, M. Loïc Yon, qui a accepté de nous encadrer.
 
-\medskip
+\bigskip
 
-La base de données de l'application stocke toutes les informations relatives aux chansons, aux utilisateurs et aux dossiers de playlist de chaque utilisateur. Nous avons utilisé deux outils de gestion de base de données, SQLPlus et MySQL Workbench, pour gérer efficacement la base de données et manipuler les données stockées.
+Le projet de deuxième année sur lequel nous avons travaillé consiste en une plateforme web de révision de chansons en format karaoké. Cette application permet aux utilisateurs de rechercher des chansons en fonction de leurs préférences et de leur niveau de difficulté, de les réviser en remplissant les trous des paroles manquantes et de visualiser la vidéo en format karaoké. Les utilisateurs peuvent également créer des dossiers de playlist pour organiser leurs chansons préférées et les retrouver plus facilement.
 
-\medskip
+Nous allons donc essayer de voir comment créer un site qui arrive à la fois à être fonctionnel, facile d'utilisation et qui répond aux besoins clients cités plus haut.
 
-En terme de conception visuelle, nous avons choisi de nous concentrer sur l'efficacité et la convivialité de l'interface utilisateur plutôt que sur l'esthétique. Cependant, nous avons ajouté des éléments esthétiques en utilisant des ressources en ligne telles que Bootstrap et PrimeNG pour créer des menus déroulants, des animations et des templates pour la gestion de dossiers.
-
-\medskip
+\bigskip
 
 Dans ce rapport de projet, nous allons expliquer en détail les différentes étapes de développement de notre application, les technologies et outils que nous avons utilisés, les problèmes rencontrés et les solutions que nous avons trouvées, ainsi que les résultats obtenus.
 
+\medskip
+
+Pour cela, nous allons d'abord poser le contexte du projet. Nous allons ensuite expliquer comment nous avons imaginé et implémenté les différentes parties clés de notre application. Pour enfin finir en faisant une présentation de nos résultats ainsi que de nos possibles perspectives d'amélioration.
+
+\newpage
 
 \section{Contexte du projet}
 
@@ -427,10 +430,15 @@ Lorsqu'on parle de Full Stack, on parle donc du développement de ces deux aspec
 
 Dans ce projet, nous allons vous montrer comment nous avons implémenté un projet Full Stack avec un \gls{Back} en Node.js à l'aide du \gls{Framework} "Express" et un \gls{Front} à l'aide du \gls{Framework} Angular.
 
+\medskip
+
+Vous pouvez voir une représentation simplifiée de notre projet Full Stack sur la figure~\ref{figure1}.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{fullstack.png}
-	\caption{Organigramme de notre Application Fullstack}    
+	\caption{Organigramme de notre Application Fullstack}  
+	\label{figure1}  
 \end{figure}
 
 \subsection{Principales fonctionnalités de notre site web}
@@ -452,9 +460,7 @@ Pour une expérience plus personnalisée, nous avons également inclus la possib
 
 En résumé, notre application offre une plateforme complète pour aider les utilisateurs à réviser les paroles de leurs chansons préférées, en leur offrant des fonctionnalités utiles pour améliorer leur expérience d'apprentissage.
 
-\newpage
 
-\vspace*{1cm}
 
 \subsection{Analyse des problèmes}
 
@@ -475,14 +481,15 @@ En somme, la conception d'une application pour aider les utilisateurs à révise
 \newline
 \newline
 
-Une fois toutes ces problématiques étudiées et anticipées, nous nous sommes mis à la confection du diagramme de Gantt prévisionnel de notre projet.
+Une fois toutes ces problématiques étudiées et anticipées, nous nous sommes mis à la confection du diagramme de Gantt prévisionnel (figure~\ref{figure2}) de notre projet.
 
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{ganttprevi.png}
-	\caption{Diagramme de Gantt prévisionnel}    
+	\caption{Diagramme de Gantt prévisionnel}  
+	\label{figure2}   
 \end{figure}
 
 \section{Réalisation et conception}
@@ -499,7 +506,7 @@ L'un de nous avait déjà travaillé sur cette technologie, donc cela permettait
 
 \medskip
 
-De plus, Node.js est une technologie plus récente que d'autres langages qui peuvent gérer le côté serveur (comme PHP, par exemple). Ainsi, le module Express que nous utilisons est toujours maintenu à jour.
+De plus, Node.js est une technologie plus récente et plus simple d'utilisation lorsqu'on arrive à la prendre en main. Aussi, le \gls{Framework} Express que nous utilisons est maintenu à jour et donc possiblement plus sécurisé.
 
 \medskip
 
@@ -512,7 +519,7 @@ La partie \gls{Front} va pouvoir communiquer avec la partie \gls{Back} à l'aide
 
 \bigskip
 
-Au niveau de l'organisation de notre \gls{Back}, nous avons séparé celui-ci en différentes couches.
+Au niveau de l'organisation de notre \gls{Back}, nous avons séparé celui-ci en différentes couches (figure~\ref{figure3}).
 
 \medskip
 
@@ -529,7 +536,8 @@ Au niveau de l'organisation de notre \gls{Back}, nous avons séparé celui-ci en
 	\centering
 	\includegraphics[scale=0.1]{api_couche.png}
 	\caption{
-	L'organisation de l'API}    
+	L'organisation de l'API}  
+	\label{figure3}   
 \end{figure}
 
 \bigskip
@@ -540,11 +548,12 @@ Pour démarrer notre \gls{API}, nous lançons le fichier \textbf{server.js} qui 
 	\centering
 	\includegraphics[scale=0.16]{api.png}
 	\caption{Architecture de l'API}
+	\label{figure4} 
 \end{figure}
 
 \medskip
 
-On peut voir ici que nous communiquons avec d'autres \gls{API} publiques ! Nous vous expliquerons cela plus en détail par la suite.
+On peut voir sur la figure~\ref{figure4} que nous communiquons avec d'autres \gls{API} publiques ! Nous vous expliquerons cela plus en détail par la suite dans la section~\ref{choix-api-sec}.
 
 \subsubsection{Le Front}
 
@@ -570,7 +579,7 @@ L'avantage de ce \gls{Framework} est qu'il utilise nativement \gls{Typescript} d
 
 En plus d'Angular, nous avons utilisé le \gls{Framework} \textbf{Bootstrap} pour avoir des éléments graphiques au goût du jour. Par exemple, notre barre de navigation a été stylisée grâce à ce \gls{Framework}.
 
-De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons beaucoup d'éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
+De plus, nous avons utilisé \textbf{PrimeNg} qui est une bibliothèque de composants Angular. Nous y retrouvons de nombreux éléments déjà créés très pratiques comme des dossiers (que nous avons utilisés pour la partie utilisateur) ou encore des boutons déjà stylisés.
 
 \subsubsection{La base de donnée}
 
@@ -584,22 +593,25 @@ MySQL Workbench est lui un logiciel \gls{Open-source} permettant de gérer effic
 \newline
 En utilisant ces deux outils, nous avons pu travailler efficacement sur la base de données de notre application, ce qui nous a fait gagner un temps précieux. Nous avons pu créer des \gls{table}s efficacement, gérer les contraintes, les index, et réaliser des requêtes complexes pour récupérer les données dont nous avions besoin. En outre, nous avons pu contrôler l'accès aux données ainsi que leur confidentialité grâce à ces outils.
 
-Une fois ces deux outils choisis et configurés, nous devions alors sélectionner les différentes \gls{table}s que nous aurons à utiliser dans notre base de données. Le principal élément de notre application étant la gestion de dossiers dans lesquels un utilisateur peut enregistrer de la musique, nous avions déjà trois \gls{table}s qui nous semblaient assez logiques. La première est la base "Utilisateur" dans laquelle nous retrouverons le nom d'utilisateur, un ID utilisateur ainsi que son mot de passe. La seconde est la \gls{table} "Dossier" qui possède un numéro de dossier unique et qui est liée à un numéro d'utilisateur par une \gls{cle} secondaire. La troisième est la \gls{table} "Musique" car nous souhaitions garder une trace de chaque musique recherchée pour y avoir accès rapidement lors de la connexion à l'\gls{API}. Nous sauvegarderons donc un ID de la musique unique pour la différencier des autres, puis le nom de la musique ainsi que son chanteur. Enfin, une fois ces trois \gls{table}s créées, nous avons pensé à la création d'une \gls{table} que nous appellerons "MusiqueDansDossier" pour faire le lien entre la \gls{table} dossier et la \gls{table} musique sans supprimer les musiques de notre base à la suppression d'un dossier. Cette réflexion nous donne donc ces deux schémas pour bien comprendre notre conception de la base.
+Une fois ces deux outils choisis et configurés, nous devions alors sélectionner les différentes \gls{table}s que nous aurons à utiliser dans notre base de données. Le principal élément de notre application étant la gestion de dossiers dans lesquels un utilisateur peut enregistrer de la musique, nous avions déjà trois \gls{table}s qui nous semblaient assez logiques. La première est la base "Utilisateur" dans laquelle nous retrouverons le nom d'utilisateur, un ID utilisateur ainsi que son mot de passe. La seconde est la \gls{table} "Dossier" qui possède un numéro de dossier unique et qui est liée à un numéro d'utilisateur par une \gls{cle} secondaire. La troisième est la \gls{table} "Musique" car nous souhaitions garder une trace de chaque musique recherchée pour y avoir accès rapidement lors de la connexion à l'\gls{API}. Nous sauvegarderons donc un ID de la musique unique pour la différencier des autres, puis le nom de la musique ainsi que son chanteur. Enfin, une fois ces trois \gls{table}s créées, nous avons pensé à la création d'une \gls{table} que nous appellerons "MusiqueDansDossier" pour faire le lien entre la \gls{table} dossier et la \gls{table} musique sans supprimer les musiques de notre base à la suppression d'un dossier. Cette réflexion nous donne donc ces deux schémas pour bien comprendre notre conception de la base (figure~\ref{figure5} et figure~\ref{figure6})
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{diag_database.png}
-	\caption{MLD de notre base de donnée}    
+	\caption{MLD de notre base de donnée} 
+	\label{figure5}    
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{table.png}
-	\caption{Modèle relationnel de notre base de donnée}    
+	\caption{Modèle relationnel de notre base de donnée}  
+	\label{figure6}   
 \end{figure}
 
 
 \subsubsection{Choix des APIs}
+\label{choix-api-sec}
 
 Nous avons dû utiliser pour ce projet deux \gls{API}s publiques de deux entreprises différentes.
 
@@ -669,7 +681,12 @@ Le principe de notre site étant de donner la possibilité à un utilisateur de 
 
 \paragraph{Recherches de musiques \\\\}
 
-Chronologiquement, la première fonctionnalité que nous avons développée est cette re- cherche de musiques et donc de paroles. L'utilisateur peut donc choisir le nom de la musique recherchée ainsi que le nom du chanteur. Une fois ces deux informations récupérées, on met alors en place une longue suite d'algorithmes pour permettre d'afficher les paroles recherchées. Pour commencer, nous utilisons les informations de recherche de l'utilisateur pour former manuellement une requête composée et l'envoyer à l'\gls{API} Genius Lyrics. Une fois cette requête effectuée et notre accès à l'\gls{API} confirmé, nous récupérons les paroles que nous fournit l'\gls{API} grâce au \gls{Web scraping} que nous avons présenté ci-dessus. Grâce à cette récupération de code, nous pouvons renvoyer l'intégralité des paroles à notre site web et les afficher comme bon nous semble.
+Chronologiquement, la première fonctionnalité que nous avons développée est cette re- cherche de musiques et donc de paroles. L'utilisateur peut donc choisir le nom de la musique recherchée ainsi que le nom du chanteur. Une fois ces deux informations récupérées, on met alors en place une longue suite d'algorithmes pour permettre d'afficher les paroles recherchées. Pour commencer, nous utilisons les informations de recherche de l'utilisateur pour former manuellement une requête composée et l'envoyer à l'\gls{API} Genius Lyrics. Une fois cette requête effectuée et notre accès à l'\gls{API} confirmé, nous récupérons les paroles que nous fournit l'\gls{API} grâce au \gls{Web scraping} que nous avons présenté ci-dessus. 
+
+\newpage
+
+\noindent
+Grâce à cette récupération de code, nous pouvons renvoyer l'intégralité des paroles à notre site web et les afficher comme bon nous semble.
 
 \paragraph{Création des musiques à trous \\\\}
 
@@ -690,7 +707,12 @@ Pour les difficultés de 2 à 4, il nous fallait donc un système de vérificati
 
 \paragraph{Utilisation du lecteur YouTube \\\\}
 
-Une dernière fonctionnalité disponible dans notre mode d'entraînement n'a pas été évoquée jusqu'ici, il s'agit de l'incrustation vidéo de la musique recherchée en bas de page sous format karaoké. Pour obtenir cette vidéo, le principe est sensiblement le même que pour récupérer les paroles sur l'\gls{API} Genius Lyrics. Nous avons créé un \gls{token} nous donnant accès à l'\gls{API} YouTube et une fois ceci effectué, nous pouvons encore une fois créer une requête avec les informations de la musique recherchée pour directement afficher la première vidéo disponible sur YouTube en ajoutant l'information "karaoke". Ceci nous permet de pouvoir nous mettre en condition pour participer à l'émission "N'oubliez pas les paroles" en voyant les paroles défiler en même temps que la musique en fond.  
+Une dernière fonctionnalité disponible dans notre mode d'entraînement n'a pas été évoquée jusqu'ici, il s'agit de l'incrustation vidéo de la musique recherchée en bas de page sous format karaoké. Pour obtenir cette vidéo, le principe est sensiblement le même que pour récupérer les paroles sur l'\gls{API} Genius Lyrics. 
+
+\newpage
+
+\noindent
+Nous avons créé un \gls{token} nous donnant accès à l'\gls{API} YouTube et une fois ceci effectué, nous pouvons encore une fois créer une requête avec les informations de la musique recherchée pour directement afficher la première vidéo disponible sur YouTube en ajoutant l'information "karaoke". Ceci nous permet de pouvoir nous mettre en condition pour participer à l'émission "N'oubliez pas les paroles" en voyant les paroles défiler en même temps que la musique en fond.  
 
 \subsubsection{Gestion des dossiers playlist}
 
@@ -706,7 +728,12 @@ Une fois ces dossiers créés, nous avons maintenant la possibilité d'enregistr
 
 \paragraph{Suppression d'une musique \\\\}
 
-Comme nous savons que les goûts des utilisateurs sont amenés à changer, nous avons aussi implémenté une fonction permettant de supprimer une musique d'un de nos dossiers personnels. Pour la suppression, il s'agit toujours du même procédé, nous vérifions toujours le \gls{token}, puis que la musique existe bien dans le dossier avant de la supprimer de la base de données.
+Comme nous savons que les goûts des utilisateurs sont amenés à changer, nous avons aussi implémenté une fonction permettant de supprimer une musique d'un de nos dossiers personnels. 
+
+\newpage
+
+\noindent
+Pour la suppression, il s'agit toujours du même procédé, nous vérifions toujours le \gls{token}, puis que la musique existe bien dans le dossier avant de la supprimer de la base de données.
 
 \paragraph{Suppression de dossier \\\\}
 
@@ -714,7 +741,7 @@ Enfin, la dernière fonctionnalité majeure du site web n'est nulle autre que la
 
 \subsection{Le déroulement du projet}
 
-Notre façon de travailler était comparable à une méthode agile de développement, c'est-à-dire que nous avons séparé le projet en différentes parties comme vous l'avez vu plus tôt (partie parole, partie utilisateur, etc.). À chaque partie du projet, nous avons effectué un \gls{sprint} durant lequel nous suivions toujours le même schéma de travail :
+Notre façon de travailler était comparable à une méthode agile de développement, c'est-à-dire que nous avons séparé le projet en différentes parties comme vous l'avez vu plus tôt (partie parole, partie utilisateur, etc.). À chaque partie du projet, nous avons effectué un \gls{sprint} durant lequel nous suivions toujours le même schéma de travail (figure~\ref{figure7}):
 
 \begin{itemize}
 	\item Nous avons implémenté ou modifié la base de données.
@@ -728,6 +755,7 @@ Notre façon de travailler était comparable à une méthode agile de développe
 	\centering
 	\includegraphics[scale=1]{agile.png}
 	\caption{Les différentes étapes d'ajout d'une fonctionnalité}
+	\label{figure7} 
 \end{figure}
 
 Finalement, nous avons effectué à la fin un embellissement de la partie utilisateur (\gls{Front}) car il est très important d'avoir une interface utilisateur très agréable d'utilisation pour faciliter l'interaction avec notre application.
@@ -782,7 +810,7 @@ Au départ, nous avons cherché à développer une application fonctionnelle san
 
 \medskip
 
-Après nous être assurés que tout fonctionnait comme nous le souhaitions, nous avons décidé à la toute fin d'embellir le \gls{Front}. Nous avons pour cela utilisé nos connaissances en \gls{CSS} ainsi qu'en Bootstrap.
+Après nous être assurés que tout fonctionnait comme nous le souhaitions, nous avons décidé à la toute fin d'embellir le \gls{Front} (figure~\ref{figure8}). Nous avons pour cela utilisé nos connaissances en \gls{CSS} ainsi qu'en Bootstrap.
 
 \medskip
 
@@ -801,6 +829,7 @@ De plus, chaque élément du site doit être intuitif et c'est ainsi que nous av
 		\includegraphics[scale=0.25]{apresfront.png}
 	\end{minipage}
 	\caption{Avant / Après de l'apparence de la partie client}
+	\label{figure8} 
 \end{figure}
 
 \subsubsection{Le partage du travail} 
@@ -809,15 +838,21 @@ Lors de notre projet, le partage des tâches importantes s'est fait plutôt natu
 \newline
 
 
-Cette méthode de travail a donc permis à Lilian de coder l'\gls{API} Genius Lyric afin qu'Etienne puisse formater les paroles pour les afficher dans le site et créer les différents niveaux de difficultés. Pour l'affichage YouTube, c'est Lilian qui s'est organisé pour créer le \gls{token} YouTube permettant de créer un lecteur vidéo affichant notre requête de façon correcte. Pendant ce temps, Etienne créait les fonctions permettant de créer la base de données ainsi que ses \gls{table}s, mais aussi les insertions, sélections et suppressions. Grâce à cela, Lilian a pu implémenter la vérification du \gls{token} utilisateur pour contrôler les requêtes. Il s'est aussi occupé de la gestion du chiffrement et du salage du mot de passe dans la base de données. Enfin, pour ce qui est de l'aspect visuel, c'est majoritairement Lilian qui a eu la charge de rendre le site visuellement agréable lors de nos dernières heures de travail.
+Cette méthode de travail a donc permis à Lilian de coder l'\gls{API} Genius Lyric afin qu'Etienne puisse formater les paroles pour les afficher dans le site et créer les différents niveaux de difficultés. 
+
+\newpage
+
+\noindent
+Pour l'affichage YouTube, c'est Lilian qui s'est organisé pour créer le \gls{token} YouTube permettant de créer un lecteur vidéo affichant notre requête de façon correcte. Pendant ce temps, Etienne créait les fonctions permettant de créer la base de données ainsi que ses \gls{table}s, mais aussi les insertions, sélections et suppressions. Grâce à cela, Lilian a pu implémenter la vérification du \gls{token} utilisateur pour contrôler les requêtes. Il s'est aussi occupé de la gestion du chiffrement et du salage du mot de passe dans la base de données. Enfin, pour ce qui est de l'aspect visuel, c'est majoritairement Lilian qui a eu la charge de rendre le site visuellement agréable lors de nos dernières heures de travail.
 \newline   
 
-Bien que nous ayons prévu un planning anticipé de ce que nous allions faire grâce à notre diagramme de Gantt prévisionnel, nous nous sommes rendu compte au moment de notre diagramme de Gantt réel que certaines tâches avaient été supprimées et que les dates avaient évidemment bougé.
+Bien que nous ayons prévu un planning anticipé de ce que nous allions faire grâce à notre diagramme de Gantt prévisionnel, nous nous sommes rendu compte au moment de notre diagramme de Gantt réel (figure~\ref{figure9}) que certaines tâches avaient été supprimées et que les dates avaient évidemment bougé.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{ganttreel.png}
-	\caption{Diagramme de Gantt réel}    
+	\caption{Diagramme de Gantt réel}  
+	\label{figure9}   
 \end{figure}
 
 \section{Résultats et discussions}
@@ -872,7 +907,7 @@ Une fois cela fait, vous pouvez accéder à notre projet en local à cette adres
 
 \subsubsection{Arrivée sur le site}
 
-La page d'accueil du site web est défilante et vous informe du concept de notre application, de qui nous sommes et de nombreuses autres informations.
+La page d'accueil du site web (figure~\ref{figure10}) est défilante et vous informe du concept de notre application, de qui nous sommes et de nombreuses autres informations.
 
 Nous pouvons si nous le souhaitons changer le code source du site web afin de rajouter des éléments à l'accueil, cela sans difficulté !
 
@@ -886,22 +921,24 @@ Le \gls{header} va changer en fonction de si vous êtes connecté ou non. Si vou
 	\centering
 	\includegraphics[scale=0.25]{accueil.png}
 	\caption{La page d'accueil de notre site web.}
+	\label{figure10} 
 \end{figure}
 
 
 \subsubsection{Partie Entrainement}
 
-En arrivant dans la partie entraînement, un formulaire vous demande de renseigner à la fois le nom de l'artiste ainsi que la musique que vous souhaitez apprendre.
+En arrivant dans la partie entraînement (figure~\ref{figure11}), un formulaire vous demande de renseigner à la fois le nom de l'artiste ainsi que la musique que vous souhaitez apprendre.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.25]{rechercheparole.png}
 	\caption{Formulaire de recherche de paroles}
+	\label{figure11} 
 \end{figure}
 
 Si vous renseignez quelque chose de faux ou erroné, l'application affichera un message d'erreur vous informant que les paroles n'ont pas pu être trouvées.
 
-Si les informations renseignées sont correctes, alors l'intégralité des paroles de la musique est affichée sur votre écran. En dessous de celles-ci, vous trouverez un lecteur YouTube avec une vidéo de la musique recherchée.
+Si les informations renseignées sont correctes, alors l'intégralité des paroles de la musique est affichée sur votre écran. En dessous de celles-ci, vous trouverez un lecteur YouTube avec une vidéo de la musique recherchée (visuel sur la figure~\ref{figure12}).
 
 \begin{figure}[H]
 	\centering
@@ -914,9 +951,10 @@ Si les informations renseignées sont correctes, alors l'intégralité des parol
 		\includegraphics[scale=0.15]{ytbparole.png}
 	\end{minipage}
 	\caption{Affichage des paroles dans le mode entraînement}
+	\label{figure12} 
 \end{figure}
 
-Enfin, nous trouvons au-dessus des paroles un bouton "Options" sur lequel nous pouvons cliquer. Lors du clic sur celui-ci, un menu apparaît sur la gauche avec deux fonctionnalités :
+Enfin, nous trouvons au-dessus des paroles un bouton "Options" sur lequel nous pouvons cliquer (figure~\ref{figure13}). Lors du clic sur celui-ci, un menu apparaît sur la gauche avec deux fonctionnalités :
 
 \begin{itemize}
 	\item Sauvegarder la musique dans un dossier
@@ -929,7 +967,12 @@ Enfin, nous trouvons au-dessus des paroles un bouton "Options" sur lequel nous p
 	\centering
 	\includegraphics[scale=0.25]{optionparole.png}
 	\caption{Options du mode entraînement}
+	\label{figure13} 
 \end{figure}
+
+\newpage
+
+\vspace*{5pt}
 
 \paragraph{Sauvegarder la musique dans un dossier \\\\}
 
@@ -939,7 +982,7 @@ Après ce clic, une pop-up apparaît vous demandant de confirmer votre choix. Lo
 
 \paragraph{Changer la difficulté \\\\}
 
-Un curseur vertical vous permet de changer la difficulté. Selon la difficulté choisie, allant de 1 à 4, un certain nombre de trous vont apparaître dans les paroles de la musique et le but de l'utilisateur est de les compléter. Un bouton "Valider" apparaît aussi en bas des paroles afin d'effectuer une correction de vos réponses. Si la réponse est juste, la case se colore en vert et vous ne pouvez plus modifier votre réponse. Si elle est rouge, c'est que c'est faux.
+Un curseur vertical vous permet de changer la difficulté. Selon la difficulté choisie, allant de 1 à 4, un certain nombre de trous vont apparaître dans les paroles de la musique et le but de l'utilisateur est de les compléter (figure~\ref{figure14}). Un bouton "Valider" apparaît aussi en bas des paroles afin d'effectuer une correction de vos réponses. Si la réponse est juste, la case se colore en vert et vous ne pouvez plus modifier votre réponse. Si elle est rouge, c'est que c'est faux.
 
 Vous pouvez voir au-dessus des paroles un avancement du nombre de réponses justes par rapport au nombre de réponses attendues.
 
@@ -956,11 +999,14 @@ Vous pouvez voir au-dessus des paroles un avancement du nombre de réponses just
 		\includegraphics[scale=0.15]{diffi2.png}
 	\end{minipage}
 	\caption{Paroles avec des trous}
+	\label{figure14} 
 \end{figure}
 
 \subsubsection{Inscription}
 
-Lors de votre arrivée sur la page d'inscription, un formulaire est à remplir avec un nom d'utilisateur et une double vérification de mot de passe.
+Lors de votre arrivée sur la page d'inscription, un formulaire est à remplir avec un nom d'utilisateur et une double vérification de mot de passe (figure~\ref{figure15}).
+
+\newpage
 
 Lorsque l'utilisateur appuie sur le bouton "S'inscrire", plusieurs éléments sont vérifiés:
 
@@ -988,11 +1034,12 @@ Si l'inscription a réussi, un message nous l'informe et nous sommes automatique
 		\includegraphics[scale=0.25]{inscri2.png}
 	\end{minipage}
 	\caption{Page d'inscription}
+	\label{figure15} 
 \end{figure}
 
 \subsubsection{Connexion}
 
-Nous avons ensuite la page de connexion. C'est ici que l'utilisateur, après s'être inscrit, va pouvoir débloquer l'accès à son menu personnel.
+Nous avons ensuite la page de connexion (figure~\ref{figure16}). C'est ici que l'utilisateur, après s'être inscrit, va pouvoir débloquer l'accès à son menu personnel.
 
 On demande de renseigner un nom d'utilisateur et le mot de passe qui va de pair avec.
 
@@ -1018,13 +1065,14 @@ Dans tous les cas, si une erreur a lieu, on empêche la connexion de l'utilisate
 		\includegraphics[scale=0.25]{connec2.png}
 	\end{minipage}
 	\caption{Page de connexion}
+	\label{figure16} 
 \end{figure}
 
 Au contraire, si la connexion est réussie, on redirige automatiquement l'utilisateur vers sa page de menu. Cela arrivera quoi qu'il arrive : si jamais un utilisateur connecté essaye de retourner sur la page de connexion, nous le redirigeons directement vers son menu car il est déjà connecté !
 
 \subsubsection{Menu de l'utilisateur}
 
-Enfin, nous avons le menu de l'utilisateur.
+Enfin, nous avons le menu de l'utilisateur (figure~\ref{figure17}).
 
 Nous avons placé dedans un système d'édition de dossier ainsi qu'une explication brève et simple de comment fonctionne le site.
 
@@ -1032,11 +1080,14 @@ Nous avons placé dedans un système d'édition de dossier ainsi qu'une explicat
 	\centering
 	\includegraphics[scale=0.21]{menu.png}
 	\caption{Le menu utilisateur}
+	\label{figure17} 
 \end{figure}
+
+\vspace*{5pt}
 
 \paragraph{Le système d'édition de dossier \\\\}
 
-À la première connexion, vous trouverez seulement un bouton avec le symbole "\textbf{+}". Ce bouton vous permet de créer un dossier avec le nom que vous voulez.
+À la première connexion, vous trouverez seulement un bouton avec le symbole "\textbf{+}". Ce bouton vous permet de créer un dossier avec le nom que vous voulez (figure~\ref{figure18}).
 
 \begin{figure}[H]
 	\centering
@@ -1049,6 +1100,7 @@ Nous avons placé dedans un système d'édition de dossier ainsi qu'une explicat
 		\includegraphics[scale=0.4]{dossier2.png}
 	\end{minipage}
 	\caption{Création d'un dossier}
+	\label{figure18} 
 \end{figure}
 
 Vous avez ensuite la possibilité d'ajouter une musique dans un dossier comme expliqué plus tôt dans le mode entraînement.
@@ -1058,6 +1110,8 @@ Vous avez enfin la possibilité d'éditer vos dossiers. En faisant sur votre ord
 Si vous faites un clic droit sur une musique, vous pouvez la supprimer.
 
 Avant chaque suppression d'un élément, nous demandons une confirmation à l'utilisateur car cette action est irrévocable. Une notification vous informe si votre action a bien été prise en compte ou non en haut à droite de votre écran.
+
+Vous pouvez voir toutes ces fonctionnalités sur la figure~\ref{figure19}.
 
 
 \begin{figure}[H]
@@ -1075,10 +1129,11 @@ Avant chaque suppression d'un élément, nous demandons une confirmation à l'ut
 	\includegraphics[scale=0.4]{dossier5.png}
 \end{minipage}
 	\caption{Édition des dossiers et musiques}    
+	\label{figure19} 
 \end{figure}
 
 \newpage
-\vspace*{1cm}
+\vspace*{5pt}
 
 \subsection{Discussions et perspectives}
 
@@ -1092,7 +1147,7 @@ Maintenant que notre projet est terminé, nous nous posons les deux questions ha
 Pour nous, la conception et l'implémentation de notre projet s'est passée à peu de choses près comme nous l'avions espéré. Nous n'avons pas manqué de temps car notre planning anticipé nous a aidé à appréhender les problèmes à analyser, et la gestion de projet nous a grandement aidés dans ce domaine. Néanmoins, la seule fonctionnalité manquante de notre Gantt prévisionnel est le format karaoké à proprement parlé de notre application. Suite aux difficultés et à l'innovation que cela représentait de créer un algorithme capable d'écrire les paroles en fonction de la musique, nous nous sommes rabattus sur l'\gls{API} YouTube en obtenant un karaoké déjà existant. Le produit que nous considérons comme "livré" correspond donc totalement à nos attentes de début de projet car celui-ci s'est bien déroulé.La deuxième question que l'on se pose régulièrement après un projet est :
 \newline
 
-- Qu'envisageriez vous de rajouter à votre projet ?
+- Qu'envisageriez-vous de rajouter à votre projet ?
 \newline
 
 Dans un premier temps, le projet nous intéressant énormément, nous avions pour objectif de publier ce site web en louant notre nom de domaine pour permettre aux gens de pouvoir réviser pour l'émission "N'oubliez pas les paroles" sans soucis. Cela nous aurait donc forcé à trouver une autre solution que les \gls{Web scraping} utilisés pour récupérer les paroles de n'importe quelle chanson, mais aussi de voir avec des organismes comme la \gls{SACEM} pour acheter les droits d'exploitation des musiques pour notre site.
@@ -1100,7 +1155,7 @@ Dans un premier temps, le projet nous intéressant énormément, nous avions pou
 Enfin, ce concept de site n'existant pas encore pour participer à "N'oubliez pas les paroles", nous pourrions proposer à France Télévision un partenariat pour permettre à notre site d'avoir de la visibilité et à leur émission d'avoir du renouveau.
 
 \newpage
-\vspace*{1cm}
+\vspace*{5pt}
 
 \section*{Conclusion}
 \addcontentsline{toc}{section}{\protect\numberline{}Conclusion}
@@ -1111,20 +1166,23 @@ En conclusion, la réalisation de ce projet a été une expérience enrichissant
 
 Au niveau technique, nous avons utilisé différentes technologies pour concevoir notre application. Nous avons choisi de travailler avec Angular pour la partie \gls{Front} de notre application, qui nous a permis de créer une interface utilisateur dynamique et réactive. Pour la gestion de la base de données, nous avons utilisé SQLPlus et MySQL Workbench, deux outils puissants pour la gestion de bases de données relationnelles. Nous avons également utilisé Bootstrap et PrimeNG pour le design et le style de notre application.
 
+Ce projet nous a permis de renforcer nos connaissances en web et donc de mieux appréhender certaines matières de notre formation dans la filière "Génie Logiciel et Systèmes Informatiques" qui demande justement d'implémenter ce genre de projet.
+
 \medskip
 
 La réalisation de ce projet nous a permis de mettre en pratique nos compétences en développement web et en gestion de projets. Nous avons dû faire face à plusieurs défis, tels que la gestion des conflits de versions et la coordination de l'équipe pour respecter les délais fixés. Nous avons également appris à travailler en équipe et à communiquer efficacement pour assurer le bon déroulement du projet.
 
 \medskip
 
-Enfin, nous sommes satisfaits du résultat final de notre application. Nous pensons que celle-ci pourrait être utile pour les personnes souhaitant apprendre la musique de manière interactive et efficace. Nous sommes conscients qu'il reste des améliorations à apporter et des fonctionnalités à ajouter pour améliorer l'expérience utilisateur et la performance de l'application. Nous sommes donc ouverts à toute suggestion d'amélioration pour cette application dans le futur.
+Enfin, nous sommes satisfaits du résultat final de notre application. Nous pensons que celle-ci pourrait être utile pour les personnes souhaitant apprendre la musique de manière interactive et efficace. Nous sommes conscients qu'il reste des améliorations à apporter et des fonctionnalités à ajouter pour améliorer l'expérience utilisateur et la performance de l'application mais nous avons quand même rendu un produit fini et fonctionnel qui répond à nos attentes. Nous sommes donc ouverts à toute suggestion d'amélioration pour cette application dans le futur.
 
 \newpage
-\vspace*{1cm}
+\vspace*{5pt}
 
 \section*{Références bibliographiques}
 \addcontentsline{toc}{section}{\protect\numberline{}Référence bibliographique}
 
+[\textbf{N'oubliez pas les paroles}] \href{https://www.france.tv/france-2/n-oubliez-pas-les-paroles/}{https://www.france.tv/france-2/n-oubliez-pas-les-paroles/} (03/10/2022) \newline\newline
 [\textbf{Node.js}] \href{https://nodejs.org/}{https://nodejs.org/} (17/11/2022) \newline\newline
 [\textbf{NPM Express}] \href{https://www.npmjs.com/package/express}{https://www.npmjs.com/package/express} (28/11/2022)\newline\newline
 [\textbf{NPM}] \href{https://www.npmjs.com/}{https://www.npmjs.com/} (18/11/2022)\newline\newline
